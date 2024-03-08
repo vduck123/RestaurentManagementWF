@@ -1,4 +1,4 @@
-﻿using RestaurentManagement.GUI;
+﻿using RestaurentManagement.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace RestaurentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_GUI());
+            Application.Run(new Admin_VIEW());
         }
     }
 }

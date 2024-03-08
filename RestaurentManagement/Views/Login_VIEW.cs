@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestaurentManagement.GUI
+namespace RestaurentManagement.Views
 {
-    public partial class Login_GUI : Form
+    public partial class Login_VIEW : Form
     {
-        public Login_GUI()
+        public Login_VIEW()
         {
             InitializeComponent();
         }

@@ -5,21 +5,32 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Guna.UI2.WinForms;
 
 namespace RestaurentManagement.utils
 {
     internal class DBHelper
     {
-       
-        private string conn = @"DataSource=CAOVIET;InitialCatalog=RestaurantManagement;IntegratedSecurity=True;TrustServerCertificate=True";
+
+        private string conn = @"Data Source=CAOVIET;Initial Catalog=RestaurantManagement;Integrated Security=True;TrustServerCertificate=True";
 
         private static DBHelper instance;
 
-        public static DBHelper Instance { get => instance; set => instance = value; }
+        public static DBHelper Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new DBHelper();
+                }
+                return instance;
+            }
+        }
 
         public DBHelper() { }
 
-        public int ExecuteNonQuery(string query, object obj)
+        public int ExecuteNonQuery(string query, Dictionary<string, object> parameters)
         {
             int data = 0;
 
@@ -28,14 +39,21 @@ namespace RestaurentManagement.utils
                 sqlConnection.Open();
                 using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                 {
-                    if (obj != null)
+                    if (parameters != null)
                     {
-                        data = cmd.ExecuteNonQuery();
+                        foreach (var param in parameters)
+                        {
+                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                        }
                     }
+
+                    data = cmd.ExecuteNonQuery();
                 }
             }
+
             return data;
         }
+
 
         public int ExecuteScalar(string query, object obj)
         {
@@ -46,9 +64,10 @@ namespace RestaurentManagement.utils
                 sqlConnection.Open();
                 using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                 {
-                    if (obj != null)
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
                     {
-                       
+                        data = Convert.ToInt16(result);
                     }
                 }
             }
@@ -57,7 +76,6 @@ namespace RestaurentManagement.utils
 
         public DataTable ExecuteQuery(string query)
         {
-
             DataTable dt = new DataTable();
 
             using (SqlConnection sqlConnection = new SqlConnection(conn))
@@ -74,9 +92,6 @@ namespace RestaurentManagement.utils
                 return dt;
             }
         }
-
-
     }
-
 }
 

@@ -53,7 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BillController.cs" />
+    <Compile Include="Controllers\BillInfoController.cs" />
+    <Compile Include="Controllers\FoodCategoryController.cs" />
+    <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\TableController.cs" />
     <Compile Include="DTO\Test.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -62,6 +68,12 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\BillInfo.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\FoodCategory.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Table.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -76,11 +88,23 @@
     <Compile Include="Views\Admin_VIEW.Designer.cs">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Home_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Home_VIEW.Designer.cs">
+      <DependentUpon>Home_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Login_VIEW.Designer.cs">
       <DependentUpon>Login_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Order_VIEW.Designer.cs">
+      <DependentUpon>Order_VIEW.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -93,8 +117,14 @@
     <EmbeddedResource Include="Views\Admin_VIEW.resx">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Home_VIEW.resx">
+      <DependentUpon>Home_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login_VIEW.resx">
       <DependentUpon>Login_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Order_VIEW.resx">
+      <DependentUpon>Order_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -69,5 +69,18 @@ namespace RestaurentManagement.Controllers
 
             return idFood;
         }
+
+        public string GetNameFoodByID(string id)
+        {
+            string nameFood = null;
+            string query = $@"SELECT * FROM Food f WHERE f.food_id = N'{id}'";
+            DataTable data = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow item in data.Rows)
+            {
+                nameFood = item["food_name"].ToString();
+            }
+
+            return nameFood;
+        }
     }
 }

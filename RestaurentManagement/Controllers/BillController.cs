@@ -41,10 +41,27 @@ namespace RestaurentManagement.Controllers
             return result;
         }
 
-        //public bool UpdateBill(Bill bill,string tableID)
-        //{
-        //    string query = $@"";
-        //}
+        public int UpdateBill(Bill bill)
+        {
+            string query = @"UPDATE dbo.BillOfSale
+                                SET totalMoney = @total,
+	                                dayIn = @dayin ,
+	                                dayOut = @dayout
+                            WHERE boSale_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@id", bill.Id },
+                { "@dayin", bill.dayIn },
+                { "@dayout", bill.dayOut },
+                { "@total", bill.totalMoney }
+            };
+
+            int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
+
+            return result;
+        }
+
+        
 
         public int GetNumOrderBill()
         {

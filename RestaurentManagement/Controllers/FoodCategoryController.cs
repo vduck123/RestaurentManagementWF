@@ -54,5 +54,51 @@ namespace RestaurentManagement.Controllers
 
             return name;
         }
+
+        public int InsertCategory(FoodCategory category)
+        {
+            string query = @"INSERT INTO dbo.FoodCategory
+                             VALUES (@id,@name)";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", category.ID },
+                {"@name", category.Name }
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
+        public int UpdateCategory(FoodCategory category)
+        {
+            string query = @"UPDATE dbo.FoodCategory 
+                             SET cgFood_name = @name 
+                             WHERE cgFood_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", category.ID },
+                {"@name", category.Name }
+            };
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
+        public int DeleteCategory(string id)
+        {
+            string query = "DELETE FROM dbo.FoodCategory WHERE cgFood_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id }               
+            };
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
+        public DataTable SearchCategory(string id)
+        {
+            string query = $@"SELECT * FROM dbo.FoodCategory WHERE cgFood_id = '{id}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
+        }
     }
 }

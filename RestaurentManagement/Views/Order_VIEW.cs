@@ -22,14 +22,27 @@ namespace RestaurentManagement.Views
         }
 
         private void Order_VIEW_Load(object sender, EventArgs e)
-        {
+        {          
             txtTotalBill.Enabled = false;
+            LoadVoucher();
             LoadCategoryFood();
             LoadTables();
         }
 
         #region Method
 
+        void LoadVoucher()
+        {
+            List<Voucher> vouchers = VoucherController.Instance.GetListVoucher();
+            List<string> nameVouchers = new List<string>();
+            string nameVoucher = null;
+            foreach (Voucher voucher in vouchers)
+            {
+                nameVoucher = $"{voucher.Name} giảm {voucher.Expiry} Vnđ";
+                nameVouchers.Add(nameVoucher);
+            }
+            cbbVoucher.DataSource  = nameVouchers;
+        }
 
         void LoadTables()
         {
@@ -44,6 +57,7 @@ namespace RestaurentManagement.Views
                     Font = TableController.FontMain,
                     Tag = table
                 };
+                
 
                 switch (table.Status)
                 {
@@ -76,16 +90,22 @@ namespace RestaurentManagement.Views
         }
         void DisplayBillForTable(string id)
         {
-
+            //dgvListFoodOrder.Rows.Clear();
+            //List<BillInfo> billInfos = BillInfoController.Instance.GetListBillInfoByTableID(id);
+            //foreach (BillInfo billInfo in billInfos)
+            //{
+            //    foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+            //    {
+            //        row.Cells["Column1"].Value = FoodController.Instance.GetNameFoodByID(billInfo.IdFood);
+            //        row.Cells["Column2"].Value = 
+            //    }
+            //}
         }
         #endregion
 
 
         #region Event
-        void TableButton_Click(object sender, EventArgs e)
-        {
-            
-        }
+        
 
         private void cbbFoodCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -161,34 +181,59 @@ namespace RestaurentManagement.Views
                 Id = $"BOS{idBillNum + 1}",
                 dayIn = DateTime.Now,
                 dayOut = DateTime.Now.AddHours(rdHours),
-                totalMoney = Convert.ToInt32(txtTotalBill.Text)
+                totalMoney = Convert.ToInt32(txtTotalBill.Text) ,
+                
             };
 
             int rs = BillController.Instance.InsertBill(bill);
             MessageBox.Show(rs.ToString());
-        
-
-        //foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
-        //{
-
-        //    string foodName = row.Cells["Column2"].Value.ToString();
-        //    int quantity = Convert.ToInt32(row.Cells["Column3"].Value);
-
-        //    int idBillInfoNum = BillInfoController.Instance.GetNumOrderBillInfo();
-        //    BillInfo billInfo = new BillInfo()
-        //    {
-        //        Id = $"DBOS{idBillInfoNum + 1}",
-        //        IdFood = FoodController.Instance.GetIDFoodByName(foodName),
-        //        Quantity = quantity,
-        //        IdBill = bill.Id
-        //    };
-        //}
-    }
 
 
+            foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+            {
 
+                string foodName = row.Cells["Column2"].Value.ToString();
+                int quantity = Convert.ToInt32(row.Cells["Column3"].Value);
+
+                int idBillInfoNum = BillInfoController.Instance.GetNumOrderBillInfo();
+                BillInfo billInfo = new BillInfo()
+                {
+                    Id = $"DBOS{idBillInfoNum + 1}",
+                    IdFood = FoodController.Instance.GetIDFoodByName(foodName),
+                    Quantity = quantity,
+                    IdBill = bill.Id
+                };
+            }
+        }
+
+        private void cbbVoucher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            string voucherChoose = cbbVoucher.SelectedItem.ToString();
+            string[] a = voucherChoose.Split(' ');
+            foreach (var item in a)
+            {
+                int number;
+                if (int.TryParse(item, out number))
+                {
+                    txtTotalBill.Text = (Convert.ToInt32(txtTotalBill.Text) - Convert.ToInt32(a[3])).ToString();
+                }
+            }
+            if (Convert.ToInt32(txtTotalBill.Text) < 0)
+            {
+                txtTotalBill.Text = "0";
+            }
+
+        }
         #endregion
+        void TableButton_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void btnNextTable_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,7 +39,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCategory = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,8 +51,8 @@
             this.guna2CirclePictureBox8 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox9 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox10 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2CirclePictureBox11 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnHide = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1.SuspendLayout();
@@ -69,8 +69,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 681);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 704);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel2
@@ -185,29 +185,30 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.guna2Button3);
+            this.panel3.Controls.Add(this.btnCategory);
             this.panel3.Location = new System.Drawing.Point(3, 126);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 34);
             this.panel3.TabIndex = 2;
             // 
-            // guna2Button3
+            // btnCategory
             // 
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.guna2Button3.FocusedColor = System.Drawing.Color.White;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.guna2Button3.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(130, 34);
-            this.guna2Button3.TabIndex = 0;
-            this.guna2Button3.Text = "Home";
+            this.btnCategory.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCategory.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCategory.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCategory.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCategory.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCategory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnCategory.FocusedColor = System.Drawing.Color.White;
+            this.btnCategory.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCategory.ForeColor = System.Drawing.Color.White;
+            this.btnCategory.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnCategory.Location = new System.Drawing.Point(0, 0);
+            this.btnCategory.Name = "btnCategory";
+            this.btnCategory.Size = new System.Drawing.Size(130, 34);
+            this.btnCategory.TabIndex = 0;
+            this.btnCategory.Text = "Category";
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // panel2
             // 
@@ -231,7 +232,7 @@
             this.btnOrder.HoverState.FillColor = System.Drawing.Color.Gray;
             this.btnOrder.Location = new System.Drawing.Point(0, 0);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(130, 34);
+            this.btnOrder.Size = new System.Drawing.Size(200, 34);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Đặt bàn";
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -272,13 +273,13 @@
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox8);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox9);
             this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox10);
-            this.guna2Panel1.Controls.Add(this.guna2CirclePictureBox11);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox5);
+            this.guna2Panel1.Controls.Add(this.btnHide);
+            this.guna2Panel1.Controls.Add(this.btnClose);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox6);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(206, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(907, 38);
+            this.guna2Panel1.Size = new System.Drawing.Size(1009, 38);
             this.guna2Panel1.TabIndex = 10;
             // 
             // label3
@@ -367,33 +368,35 @@
             this.guna2CirclePictureBox10.TabIndex = 23;
             this.guna2CirclePictureBox10.TabStop = false;
             // 
-            // guna2CirclePictureBox11
+            // btnHide
             // 
-            this.guna2CirclePictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2CirclePictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox11.Image")));
-            this.guna2CirclePictureBox11.ImageRotate = 0F;
-            this.guna2CirclePictureBox11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2CirclePictureBox11.InitialImage = null;
-            this.guna2CirclePictureBox11.Location = new System.Drawing.Point(838, 8);
-            this.guna2CirclePictureBox11.Name = "guna2CirclePictureBox11";
-            this.guna2CirclePictureBox11.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox11.Size = new System.Drawing.Size(23, 21);
-            this.guna2CirclePictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox11.TabIndex = 22;
-            this.guna2CirclePictureBox11.TabStop = false;
+            this.btnHide.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHide.Image = ((System.Drawing.Image)(resources.GetObject("btnHide.Image")));
+            this.btnHide.ImageRotate = 0F;
+            this.btnHide.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHide.InitialImage = null;
+            this.btnHide.Location = new System.Drawing.Point(940, 14);
+            this.btnHide.Name = "btnHide";
+            this.btnHide.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.btnHide.Size = new System.Drawing.Size(23, 21);
+            this.btnHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnHide.TabIndex = 22;
+            this.btnHide.TabStop = false;
+            this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
             // 
-            // guna2PictureBox5
+            // btnClose
             // 
-            this.guna2PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2PictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox5.Image")));
-            this.guna2PictureBox5.ImageRotate = 0F;
-            this.guna2PictureBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2PictureBox5.Location = new System.Drawing.Point(867, 8);
-            this.guna2PictureBox5.Name = "guna2PictureBox5";
-            this.guna2PictureBox5.Size = new System.Drawing.Size(28, 21);
-            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox5.TabIndex = 21;
-            this.guna2PictureBox5.TabStop = false;
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageRotate = 0F;
+            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnClose.Location = new System.Drawing.Point(969, 13);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 21);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 21;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // guna2PictureBox6
             // 
@@ -411,14 +414,14 @@
             // 
             this.guna2Panel4.Location = new System.Drawing.Point(206, 41);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(907, 640);
+            this.guna2Panel4.Size = new System.Drawing.Size(1009, 663);
             this.guna2Panel4.TabIndex = 19;
             // 
             // Admin_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1113, 681);
+            this.ClientSize = new System.Drawing.Size(1215, 704);
             this.ControlBox = false;
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel1);
@@ -442,8 +445,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnHide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             this.ResumeLayout(false);
 
@@ -461,8 +464,8 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox8;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox9;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox10;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox11;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox btnHide;
+        private Guna.UI2.WinForms.Guna2PictureBox btnClose;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
@@ -473,7 +476,7 @@
         private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private System.Windows.Forms.Panel panel3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnCategory;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Button btnOrder;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;

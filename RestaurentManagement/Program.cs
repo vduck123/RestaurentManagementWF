@@ -17,7 +17,7 @@ namespace RestaurentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Order_VIEW());
+            Application.Run(new Admin_VIEW());
         }
     }
 }

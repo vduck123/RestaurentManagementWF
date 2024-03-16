@@ -26,10 +26,10 @@ namespace RestaurentManagement.Models
         }
         public Menu(DataRow row)
         {
-            this.nameFood = row[""].ToString();
-            this.Quantity = Convert.ToInt32(row[""]);
-            this.priceFood= Convert.ToInt32(row[""]);
-            this.totalMoney= Convert.ToInt32(row[""]);
+            this.nameFood = row["food_name"].ToString();
+            this.Quantity = Convert.ToInt32(row["food_quantity"]);
+            this.priceFood= Convert.ToInt32(row["food_price"]);
+            this.totalMoney= Convert.ToInt32(row["totalMoney"]);
         }
 
 

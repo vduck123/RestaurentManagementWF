@@ -11,6 +11,8 @@ namespace RestaurentManagement.Models
     {
         public string Name;
         public string ID;
+
+        public FoodCategory() { }
         public FoodCategory(string id, string name)
         {
             this.ID = id;

@@ -2858,7 +2858,7 @@
         /P9By0rp/wP0DW/LSbh4TAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="guna2CirclePictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnHide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAW0AAACoCAYAAAArU7+RAAAABGdBTUEAALGPC/xhBQAACrtJREFUeF7t
         3XtsW+UZx3F207Z/pgnaXBwndi7EsR3fznGcUArphTSNE9uxnVsLjCEoY0AvYWNI0KGNAWNAB6JJ00Dp
@@ -2909,7 +2909,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgVzjjj38V1BqiqDtXaAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="guna2PictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnClose.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAdoAAAHaCAYAAACn5IivAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         fQd4XNXR9vZyy97tRVr15m56ryEJJJSEJCQhhAQIJSEhPwRIaPnwFwhJSOdL+fhSIaEZMNjGFeNuufdu

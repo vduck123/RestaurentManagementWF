@@ -83,5 +83,20 @@ namespace RestaurentManagement.Views
             OpenhChildForm(new Order_VIEW());
 
         }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            OpenhChildForm(new FoodCategory_VIEW());
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

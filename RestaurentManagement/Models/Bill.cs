@@ -18,12 +18,13 @@ namespace RestaurentManagement.Models
         
         public Bill() { }
 
-        public Bill(string id, DateTime dayin, DateTime dayout, int totalmoney)
+        public Bill(string id, DateTime dayin, DateTime dayout, int totalmoney, string tableid)
         {
             this.Id = id;
             this.dayIn = dayin;
             this.dayOut = dayout;
             this.totalMoney = totalmoney;
+            this.tableID = tableid;
         }
 
         public Bill(DataRow row)
@@ -32,6 +33,7 @@ namespace RestaurentManagement.Models
             this.dayIn = (DateTime)row["dayIn"];
             this.dayOut = (DateTime)row["dayOut"];
             this.totalMoney = (int)row["totalMoney"];
+            this.tableID = (string)row["table-id"];
         }
 
     }

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login_VIEW));
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -42,18 +44,17 @@
             this.txtUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.l = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox7 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox8 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox9 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2CirclePictureBox10 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox11 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2CirclePictureBox10 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.cbbRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,10 +65,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2GradientPanel1
@@ -82,6 +83,27 @@
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.Size = new System.Drawing.Size(336, 656);
             this.guna2GradientPanel1.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe Script", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(191, 428);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(132, 44);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Fooding";
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Segoe Script", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label4.Location = new System.Drawing.Point(178, 387);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(145, 52);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Sileo";
             // 
             // label2
             // 
@@ -122,6 +144,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.cbbRole);
             this.panel1.Controls.Add(this.guna2PictureBox4);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.btnLogin);
@@ -132,7 +155,7 @@
             this.panel1.Controls.Add(this.guna2PictureBox2);
             this.panel1.Location = new System.Drawing.Point(330, 35);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(500, 620);
+            this.panel1.Size = new System.Drawing.Size(494, 620);
             this.panel1.TabIndex = 8;
             // 
             // guna2PictureBox4
@@ -154,12 +177,13 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnExit.ForeColor = System.Drawing.Color.Transparent;
             this.btnExit.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnExit.Location = new System.Drawing.Point(257, 472);
+            this.btnExit.Location = new System.Drawing.Point(257, 512);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(111, 33);
             this.btnExit.TabIndex = 7;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnLogin
             // 
@@ -167,12 +191,13 @@
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnLogin.ForeColor = System.Drawing.Color.Transparent;
             this.btnLogin.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLogin.Location = new System.Drawing.Point(134, 473);
+            this.btnLogin.Location = new System.Drawing.Point(134, 513);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(111, 33);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lbForgetPass
             // 
@@ -180,11 +205,12 @@
             this.lbForgetPass.Font = new System.Drawing.Font("Segoe Print", 9F);
             this.lbForgetPass.ForeColor = System.Drawing.Color.Red;
             this.lbForgetPass.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbForgetPass.Location = new System.Drawing.Point(249, 434);
+            this.lbForgetPass.Location = new System.Drawing.Point(249, 474);
             this.lbForgetPass.Name = "lbForgetPass";
             this.lbForgetPass.Size = new System.Drawing.Size(119, 21);
             this.lbForgetPass.TabIndex = 5;
             this.lbForgetPass.Text = "forget password ?";
+            this.lbForgetPass.Click += new System.EventHandler(this.lbForgetPass_Click);
             // 
             // txtPass
             // 
@@ -262,27 +288,6 @@
             this.guna2PictureBox2.TabIndex = 0;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Segoe Script", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(178, 387);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 52);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Sileo";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe Script", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(191, 428);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 44);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Fooding";
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -299,6 +304,17 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(497, 38);
             this.guna2Panel1.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(55, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 16);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "SILEO";
             // 
             // guna2CirclePictureBox6
             // 
@@ -360,6 +376,21 @@
             this.guna2CirclePictureBox9.TabIndex = 24;
             this.guna2CirclePictureBox9.TabStop = false;
             // 
+            // guna2CirclePictureBox10
+            // 
+            this.guna2CirclePictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2CirclePictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox10.Image")));
+            this.guna2CirclePictureBox10.ImageRotate = 0F;
+            this.guna2CirclePictureBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.guna2CirclePictureBox10.InitialImage = null;
+            this.guna2CirclePictureBox10.Location = new System.Drawing.Point(125, 9);
+            this.guna2CirclePictureBox10.Name = "guna2CirclePictureBox10";
+            this.guna2CirclePictureBox10.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox10.Size = new System.Drawing.Size(17, 20);
+            this.guna2CirclePictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox10.TabIndex = 23;
+            this.guna2CirclePictureBox10.TabStop = false;
+            // 
             // guna2CirclePictureBox11
             // 
             this.guna2CirclePictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -400,31 +431,25 @@
             this.guna2PictureBox6.TabIndex = 20;
             this.guna2PictureBox6.TabStop = false;
             // 
-            // guna2CirclePictureBox10
+            // cbbRole
             // 
-            this.guna2CirclePictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.guna2CirclePictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox10.Image")));
-            this.guna2CirclePictureBox10.ImageRotate = 0F;
-            this.guna2CirclePictureBox10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2CirclePictureBox10.InitialImage = null;
-            this.guna2CirclePictureBox10.Location = new System.Drawing.Point(125, 9);
-            this.guna2CirclePictureBox10.Name = "guna2CirclePictureBox10";
-            this.guna2CirclePictureBox10.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CirclePictureBox10.Size = new System.Drawing.Size(17, 20);
-            this.guna2CirclePictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2CirclePictureBox10.TabIndex = 23;
-            this.guna2CirclePictureBox10.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(55, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 16);
-            this.label3.TabIndex = 28;
-            this.label3.Text = "SILEO";
+            this.cbbRole.BackColor = System.Drawing.Color.Transparent;
+            this.cbbRole.BorderRadius = 10;
+            this.cbbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbRole.ForeColor = System.Drawing.Color.Black;
+            this.cbbRole.ItemHeight = 25;
+            this.cbbRole.Items.AddRange(new object[] {
+            "Quản trị viên",
+            "Nhân viên"});
+            this.cbbRole.Location = new System.Drawing.Point(134, 438);
+            this.cbbRole.Name = "cbbRole";
+            this.cbbRole.Size = new System.Drawing.Size(234, 31);
+            this.cbbRole.TabIndex = 21;
+            this.cbbRole.SelectedIndexChanged += new System.EventHandler(this.cbbRole_SelectedIndexChanged);
             // 
             // Login_VIEW
             // 
@@ -451,10 +476,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,5 +511,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox11;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbRole;
     }
 }

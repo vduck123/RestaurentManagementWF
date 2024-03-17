@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RestaurentManagement.Controllers;
+using RestaurentManagement.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,57 @@ namespace RestaurentManagement.Views
 {
     public partial class Login_VIEW : Form
     {
+        MainForm mf = new MainForm();
         public Login_VIEW()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (cbbRole.SelectedItem == null || string.IsNullOrEmpty(cbbRole.SelectedItem.ToString()))
+            {
+                mf.NotifyErr("Vui lòng chọn quyền!");
+                return;
+            }
+
+            string user = txtUser.Text;
+            string pass = txtPass.Text;
+            string role = cbbRole.SelectedItem.ToString();
+
+            
+            List<Account> accounts = AccountController.Instance.GetListAccount();
+
+            foreach (Account acc in accounts)
+            {
+                
+                if(user.Contains("Admin") && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
+                {
+                    Admin_VIEW admin_VIEW = new Admin_VIEW();
+                    admin_VIEW.ShowDialog();
+                } 
+                else
+                {
+                    mf.NotifyErr("Thông tin tài khoản và mật khẩu không chính xác!");
+                }
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lbForgetPass_Click(object sender, EventArgs e)
+        {
+            ForgetPassword_VIEW forgetPassword_VIEW = new ForgetPassword_VIEW();
+            forgetPassword_VIEW.ShowDialog();
+        }
+
+
+        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,9 +9,6 @@ namespace RestaurentManagement.Controllers
 {
     internal class LoginController
     {
-        public void Check(Account acc)
-        {
-
-        }
+        
     }
 }

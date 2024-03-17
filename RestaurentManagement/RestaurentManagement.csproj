@@ -59,6 +59,7 @@
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Controllers\VoucherController.cs" />
     <Compile Include="MainForm.cs">
@@ -73,6 +74,7 @@
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Table.cs" />
     <Compile Include="Models\Voucher.cs" />
     <Compile Include="Program.cs" />
@@ -83,6 +85,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="utils\DBHelper.cs" />
+    <Compile Include="Views\Account_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account_VIEW.Designer.cs">
+      <DependentUpon>Account_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +108,12 @@
     </Compile>
     <Compile Include="Views\Food_VIEW.Designer.cs">
       <DependentUpon>Food_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ForgetPassword_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ForgetPassword_VIEW.Designer.cs">
+      <DependentUpon>ForgetPassword_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Home_VIEW.cs">
       <SubType>Form</SubType>
@@ -119,6 +133,12 @@
     <Compile Include="Views\Order_VIEW.Designer.cs">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Staff_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Staff_VIEW.Designer.cs">
+      <DependentUpon>Staff_VIEW.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +146,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account_VIEW.resx">
+      <DependentUpon>Account_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin_VIEW.resx">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>
@@ -136,6 +159,9 @@
     <EmbeddedResource Include="Views\Food_VIEW.resx">
       <DependentUpon>Food_VIEW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ForgetPassword_VIEW.resx">
+      <DependentUpon>ForgetPassword_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Home_VIEW.resx">
       <DependentUpon>Home_VIEW.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Staff_VIEW.resx">
+      <DependentUpon>Staff_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

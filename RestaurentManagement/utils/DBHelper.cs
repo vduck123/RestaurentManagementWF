@@ -11,7 +11,6 @@ namespace RestaurentManagement.utils
 {
     internal class DBHelper
     {
-
         private string conn = @"Data Source=CAOVIET;Initial Catalog=RestaurantManagement;Integrated Security=True;TrustServerCertificate=True";
 
         private static DBHelper instance;
@@ -50,7 +49,6 @@ namespace RestaurentManagement.utils
                     data = cmd.ExecuteNonQuery();
                 }
             }
-
             return data;
         }
 

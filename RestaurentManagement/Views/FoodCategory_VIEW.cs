@@ -28,7 +28,7 @@ namespace RestaurentManagement.Views
         #region Method
         void LoadData()
         {
-            dgvFood.Columns.Clear();
+            dgvFoodCategory.Columns.Clear();
             List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
 
             DataTable dt = new DataTable();
@@ -38,7 +38,7 @@ namespace RestaurentManagement.Views
             {
                 dt.Rows.Add(foodCategory.ID, foodCategory.Name);
             }
-            dgvFood.DataSource = dt; 
+            dgvFoodCategory.DataSource = dt; 
         }
 
         void Refresh()
@@ -52,8 +52,8 @@ namespace RestaurentManagement.Views
         #region Event
         private void dgvFood_Click(object sender, EventArgs e)
         {
-            txtCategoryID.Text = dgvFood.SelectedRows[0].Cells[0].Value.ToString();
-            txtCategoryName.Text = dgvFood.SelectedRows[0].Cells[1].Value.ToString();
+            txtCategoryID.Text = dgvFoodCategory.SelectedRows[0].Cells[0].Value.ToString();
+            txtCategoryName.Text = dgvFoodCategory.SelectedRows[0].Cells[1].Value.ToString();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace RestaurentManagement.Views
         private void btnSearch_Click(object sender, EventArgs e)
         {
             DataTable dt = FoodCategoryController.Instance.SearchCategory(txtCategoryID.Text);
-            dgvFood.DataSource = dt;
+            dgvFoodCategory.DataSource = dt;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Security;
 
 namespace RestaurentManagement.Models
 {
@@ -23,6 +25,13 @@ namespace RestaurentManagement.Models
 
         public Account() { }
 
+        public Account(DataRow row)
+        {
+            this.ID = (string)row["acc_id"];
+            this.User = (string)row["username"];
+            this.Password = (string)row["password"];
+            this.Role = (string)row["role"];
+        }
 
 
     }

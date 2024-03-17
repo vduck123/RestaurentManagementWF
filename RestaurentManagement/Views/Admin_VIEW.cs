@@ -17,42 +17,9 @@ namespace RestaurentManagement.Views
             InitializeComponent();
         }
 
-
-        //private void Timer_Tick(object sender, EventArgs e)
-        //{
-        //    // Gọi phương thức để cập nhật thời gian
-        //    UpdateTime();
-        //}
-
-        //private void Admin_VIEW_Load(object sender, EventArgs e)
-        //{
-        //    // Gọi lần đầu để hiển thị thời gian ban đầu
-        //    UpdateTime();
-        //}
-
-        //void UpdateTime()
-        //{
-        //    DateTime dt = DateTime.Now;
-        //    string hour = null;
-        //    if (dt.Hour < 10)
-        //    {
-        //        hour = $"0{dt.Hour.ToString()}";
-
-        //    }
-        //    string Clock = $"{hour}:{dt.Minute.ToString()}";
-        //    lbCLock.Text = Clock;
-        //    lbSecond.Text = dt.Second.ToString();
-
-        //    string canlendar = $"{dt.Day}/{dt.Month}/{dt.Year}";
-        //    lbCalendar.Text = canlendar;
-        //    lbDay.Text = dt.DayOfWeek.ToString();
-        //}
-
-        
-
         Form currentForm = null;
 
-        void OpenhChildForm(Form childForm)
+        void OpenChildForm(Form childForm)
         {
             if(currentForm != null)
             {
@@ -75,18 +42,28 @@ namespace RestaurentManagement.Views
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            OpenhChildForm(new Home_VIEW());
+            OpenChildForm(new Home_VIEW());
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            OpenhChildForm(new Order_VIEW());
+            OpenChildForm(new Order_VIEW());
 
         }
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            OpenhChildForm(new FoodCategory_VIEW());
+            OpenChildForm(new FoodCategory_VIEW());
+        }
+
+        private void btnAccount_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Account_VIEW());
+        }
+
+        private void btnStaff_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Staff_VIEW());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -98,5 +75,7 @@ namespace RestaurentManagement.Views
         {
             this.Hide();
         }
+
+        
     }
 }

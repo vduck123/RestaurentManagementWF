@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Order_VIEW));
             this.fpanelListTable = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -62,7 +62,7 @@
             // 
             this.fpanelListTable.Location = new System.Drawing.Point(3, 4);
             this.fpanelListTable.Name = "fpanelListTable";
-            this.fpanelListTable.Size = new System.Drawing.Size(571, 669);
+            this.fpanelListTable.Size = new System.Drawing.Size(571, 680);
             this.fpanelListTable.TabIndex = 0;
             // 
             // panel1
@@ -81,9 +81,9 @@
             this.panel1.Controls.Add(this.cbbFoodCategory);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.guna2PictureBox1);
-            this.panel1.Location = new System.Drawing.Point(577, 4);
+            this.panel1.Location = new System.Drawing.Point(575, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(432, 669);
+            this.panel1.Size = new System.Drawing.Size(434, 680);
             this.panel1.TabIndex = 1;
             // 
             // cbbVoucher
@@ -103,7 +103,7 @@
             "3",
             "4",
             "5"});
-            this.cbbVoucher.Location = new System.Drawing.Point(123, 557);
+            this.cbbVoucher.Location = new System.Drawing.Point(133, 570);
             this.cbbVoucher.Name = "cbbVoucher";
             this.cbbVoucher.Size = new System.Drawing.Size(268, 36);
             this.cbbVoucher.TabIndex = 14;
@@ -113,7 +113,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(37, 571);
+            this.label3.Location = new System.Drawing.Point(47, 584);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 20);
             this.label3.TabIndex = 13;
@@ -143,30 +143,30 @@
             // 
             // dgvListFoodOrder
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvListFoodOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListFoodOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvListFoodOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListFoodOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListFoodOrder.ColumnHeadersHeight = 30;
             this.dgvListFoodOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListFoodOrder.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListFoodOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListFoodOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvListFoodOrder.Location = new System.Drawing.Point(3, 147);
             this.dgvListFoodOrder.Name = "dgvListFoodOrder";
@@ -223,7 +223,7 @@
             this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(291, 617);
+            this.btnPay.Location = new System.Drawing.Point(301, 630);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(100, 31);
             this.btnPay.TabIndex = 10;
@@ -238,7 +238,7 @@
             this.btnNextTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNextTable.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnNextTable.ForeColor = System.Drawing.Color.White;
-            this.btnNextTable.Location = new System.Drawing.Point(170, 617);
+            this.btnNextTable.Location = new System.Drawing.Point(180, 630);
             this.btnNextTable.Name = "btnNextTable";
             this.btnNextTable.Size = new System.Drawing.Size(100, 31);
             this.btnNextTable.TabIndex = 9;
@@ -256,7 +256,7 @@
             this.guna2ComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox3.ItemHeight = 30;
-            this.guna2ComboBox3.Location = new System.Drawing.Point(30, 612);
+            this.guna2ComboBox3.Location = new System.Drawing.Point(40, 625);
             this.guna2ComboBox3.Name = "guna2ComboBox3";
             this.guna2ComboBox3.Size = new System.Drawing.Size(120, 36);
             this.guna2ComboBox3.TabIndex = 8;
@@ -274,7 +274,7 @@
             this.txtTotalBill.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F);
             this.txtTotalBill.ForeColor = System.Drawing.Color.Black;
             this.txtTotalBill.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTotalBill.Location = new System.Drawing.Point(123, 523);
+            this.txtTotalBill.Location = new System.Drawing.Point(133, 536);
             this.txtTotalBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.PasswordChar = '\0';
@@ -287,7 +287,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 530);
+            this.label2.Location = new System.Drawing.Point(36, 543);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 6;
@@ -367,14 +367,14 @@
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.guna2Panel1.Location = new System.Drawing.Point(572, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(5, 669);
+            this.guna2Panel1.Size = new System.Drawing.Size(3, 680);
             this.guna2Panel1.TabIndex = 2;
             // 
             // Order_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 663);
+            this.ClientSize = new System.Drawing.Size(1009, 684);
             this.ControlBox = false;
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
@@ -382,7 +382,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(300, 399);
             this.Name = "Order_VIEW";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Order_VIEW";
             this.Load += new System.EventHandler(this.Order_VIEW_Load);
             this.panel1.ResumeLayout(false);

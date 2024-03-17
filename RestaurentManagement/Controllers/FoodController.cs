@@ -82,5 +82,60 @@ namespace RestaurentManagement.Controllers
 
             return nameFood;
         }
+
+        //
+        public int InsertFood(Food food)
+        {
+            string query = @"INSERT INTO Food
+                             VALUES (@id,@name,@price,@category)";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", food.ID},
+                {"@name", food.Name},
+                {"price", food.Price},
+                {"category", food.FoodType}
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
+        public int UpdateFood(Food food)
+        {
+            string query = @"UPDATE dbo.Food
+		                     SET food_name = @name ,
+			                    food_price = @price 
+		                     WHERE food_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", food.ID},
+                {"@name", food.Name},
+                {"price", food.Price}
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query,parameters);
+
+            return data;
+        }
+
+        public int DeleteFood(string id)
+        {
+            string query = "DELETE FROM dbo.Food WHERE food_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id}
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+
+            return data;
+        }
+
+        public DataTable SelectFood(string id)
+        {
+            string query = $@"SELECT * FROM dbo.Food WHERE food_id = '{id}'";
+            DataTable data = DBHelper.Instance.ExecuteQuery(query);
+            return data;
+        }
     }
 }

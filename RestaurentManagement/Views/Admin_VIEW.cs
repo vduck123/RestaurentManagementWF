@@ -66,6 +66,11 @@ namespace RestaurentManagement.Views
             OpenChildForm(new Staff_VIEW());
         }
 
+        private void btnSupplier_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Supplier_VIEW());
+        }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();

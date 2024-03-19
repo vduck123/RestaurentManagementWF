@@ -11,12 +11,12 @@ namespace RestaurentManagement.Models
     {
         public string ID { get; set; }
         public string Name { get; set; }
-        public string Quantity { get; set; }
+        public int Quantity { get; set; }
         public string CategoryID { get; set; }
 
         public Warehouse() { }
 
-        public Warehouse(string iD, string name, string quantity, string categoryID)
+        public Warehouse(string iD, string name, int quantity, string categoryID)
         {
             ID = iD;
             Name = name;
@@ -28,8 +28,8 @@ namespace RestaurentManagement.Models
         {
             ID = (string)row["item_id"];
             Name = (string)row["item_name"];
-            ID = (string)row["quantity"];
-            ID = (string)row["item_category"];
+            Quantity = (int)row["quantity"];
+            CategoryID = (string)row["item_category"];
         }
     }
 }

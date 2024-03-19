@@ -20,12 +20,12 @@ namespace RestaurentManagement.Views
         private void Home_VIEW_Load(object sender, EventArgs e)
         {
             UpdateTime();
+            timer1.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Interval += 1000;
-            timer1.Start();
             UpdateTime();
         }
         void UpdateTime()

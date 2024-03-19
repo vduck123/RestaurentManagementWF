@@ -62,7 +62,7 @@
             // 
             this.fpanelListTable.Location = new System.Drawing.Point(3, 4);
             this.fpanelListTable.Name = "fpanelListTable";
-            this.fpanelListTable.Size = new System.Drawing.Size(571, 680);
+            this.fpanelListTable.Size = new System.Drawing.Size(571, 604);
             this.fpanelListTable.TabIndex = 0;
             // 
             // panel1
@@ -374,7 +374,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1009, 684);
+            this.ClientSize = new System.Drawing.Size(1085, 756);
             this.ControlBox = false;
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);

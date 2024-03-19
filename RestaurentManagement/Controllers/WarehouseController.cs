@@ -90,7 +90,7 @@ namespace RestaurentManagement.Controllers
         }
 
 
-        public List<Warehouse> GetListItem(string id)
+        public List<Warehouse> GetListItem()
         {
             List<Warehouse> listItem = new List<Warehouse>();
 

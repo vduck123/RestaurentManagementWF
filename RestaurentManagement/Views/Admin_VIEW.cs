@@ -81,6 +81,9 @@ namespace RestaurentManagement.Views
             this.Hide();
         }
 
-        
+        private void btnWarehouse_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Warehouse_VIEW());
+        }
     }
 }

@@ -55,6 +55,23 @@ namespace RestaurentManagement.Controllers
             return name;
         }
 
+        public string GetIDCatgoryFoodByName(string name)
+        {
+            string id = null;
+
+            string query = $"SELECT * FROM FoodCategory WHERE cgFood_name = N'{name}'";
+
+            DataTable data = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in data.Rows)
+            {
+                id = item["cgFood_id"].ToString();
+                break;
+            }
+
+            return id;
+        }
+
         public int InsertCategory(FoodCategory category)
         {
             string query = @"INSERT INTO dbo.FoodCategory

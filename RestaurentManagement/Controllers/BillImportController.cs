@@ -11,14 +11,14 @@ namespace RestaurentManagement.Controllers
 {
     internal class BillImportController
     {
-        private static BillController instance;
-        public static BillController Instance
+        private static BillImportController instance;
+        public static BillImportController Instance
         {
             get
             {
                 if(instance == null)
                 {
-                    instance = new BillController();
+                    instance = new BillImportController();
                 }
                 return instance;
             }
@@ -27,15 +27,13 @@ namespace RestaurentManagement.Controllers
         public int InsertBillImport(BillImport billImport)
         {
             string query = @"INSERT INTO BillOfImport
-                              VALUES (@id,@food_id,@price,@quantity,@daycreated,@supplier_id,@totalmoney)";
+                              VALUES (@id,@daycreated,@supplier_id,@staff_id,@totalmoney)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", billImport.ID } ,
-                {"@food_id", billImport.FoodID} ,
-                {"@price", billImport.Price } ,
-                {"@quantity", billImport.Quantity} ,
                 {"@daycreated", billImport.DayCreated} ,
                 {"@supplier_id", billImport.SupplierID} ,
+                {"@staff_id", billImport.StaffID} ,
                 {"@totalmoney", billImport.TotalMoney }
             };
 
@@ -46,18 +44,17 @@ namespace RestaurentManagement.Controllers
         public int UpdateBillImport(BillImport billImport)
         {
             string query = @"UPDATE dbo.BillOfImport
-                            SET food_id = @food_id ,
-	                            price = @price,
-	                            quantity = @quantity ,
+                            SET staff_id = @staff_id ,
+                                supplier_id = @supplier_id ,
 	                            dayCreate = @daycreated
                                 WHERE boImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", billImport.ID } ,
-                {"@food_id", billImport.FoodID} ,
-                {"@price", billImport.Price } ,
-                {"@quantity", billImport.Quantity} ,
-                {"@daycreated", billImport.DayCreated} 
+                {"@daycreated", billImport.DayCreated} ,
+                {"@supplier_id", billImport.SupplierID} ,
+                {"@staff_id", billImport.StaffID} ,
+                {"@totalmoney", billImport.TotalMoney }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);

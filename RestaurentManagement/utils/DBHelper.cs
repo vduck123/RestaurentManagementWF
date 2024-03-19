@@ -53,7 +53,7 @@ namespace RestaurentManagement.utils
         }
 
 
-        public int ExecuteScalar(string query, object obj)
+        public int ExecuteScalar(string query)
         {
             int data = 0;
 

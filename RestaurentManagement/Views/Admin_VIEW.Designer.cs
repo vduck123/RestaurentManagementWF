@@ -371,6 +371,7 @@
             this.btnVoucher.Size = new System.Drawing.Size(197, 34);
             this.btnVoucher.TabIndex = 0;
             this.btnVoucher.Text = "Phiếu giảm giá";
+            this.btnVoucher.Click += new System.EventHandler(this.btnVoucher_Click);
             // 
             // panel12
             // 

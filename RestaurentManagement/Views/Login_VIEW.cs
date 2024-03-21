@@ -43,6 +43,10 @@ namespace RestaurentManagement.Views
                     Admin_VIEW admin_VIEW = new Admin_VIEW();
                     admin_VIEW.ShowDialog();
                 } 
+                else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
+                {
+                    return;
+                }
                 else
                 {
                     mf.NotifyErr("Thông tin tài khoản và mật khẩu không chính xác!");

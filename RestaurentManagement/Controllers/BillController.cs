@@ -67,7 +67,7 @@ namespace RestaurentManagement.Controllers
         {
             string query = "SELECT COUNT(boSale_id) FROM dbo.BillOfSale";
 
-            int num = DBHelper.Instance.ExecuteScalar(query, null);
+            int num = DBHelper.Instance.ExecuteScalar(query);
             if (num == null)
             {
                 return 0;

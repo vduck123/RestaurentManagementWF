@@ -165,6 +165,12 @@
     <Compile Include="Views\Supplier_VIEW.Designer.cs">
       <DependentUpon>Supplier_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Voucher_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Voucher_VIEW.Designer.cs">
+      <DependentUpon>Voucher_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Warehouse_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Supplier_VIEW.resx">
       <DependentUpon>Supplier_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Voucher_VIEW.resx">
+      <DependentUpon>Voucher_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Warehouse_VIEW.resx">
       <DependentUpon>Warehouse_VIEW.cs</DependentUpon>

@@ -10,26 +10,32 @@ namespace RestaurentManagement.Models
 {
     internal class Menu
     {
-        public string nameFood {  get; set; }   
+        public string FoodID {  get; set; }   
 
         public int Quantity { get; set; }
         public int priceFood { get; set; }
+        public int totalFood { get; set; }
 
         public int totalMoney {  get; set; }
+        public string TableID { get; set; }
 
-        public Menu(string name, int quantity,  int price, int totalmoney)
+        public Menu(string id, int quantity,  int price, int totalfood, int totalmoney, string tableID)
         {
-            nameFood = name;
+            FoodID = id;
             Quantity = quantity;
             priceFood = price;
-            totalMoney = totalMoney;
+            totalFood = totalfood;
+            totalMoney = totalmoney;
+            TableID = tableID;
         }
         public Menu(DataRow row)
         {
-            this.nameFood = row["food_name"].ToString();
+            this.FoodID = row["food_id"].ToString();
+            this.priceFood = Convert.ToInt32(row["food_price"]);
             this.Quantity = Convert.ToInt32(row["food_quantity"]);
-            this.priceFood= Convert.ToInt32(row["food_price"]);
-            this.totalMoney= Convert.ToInt32(row["totalMoney"]);
+            this.totalFood = Convert.ToInt32(row["total"]);
+            this.totalMoney = Convert.ToInt32(row["totalMoney"]);
+            this.TableID = row["table_id"].ToString();
         }
 
 

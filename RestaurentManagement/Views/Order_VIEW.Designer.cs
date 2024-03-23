@@ -60,9 +60,10 @@
             // 
             // fpanelListTable
             // 
-            this.fpanelListTable.Location = new System.Drawing.Point(3, 4);
+            this.fpanelListTable.Location = new System.Drawing.Point(4, 5);
+            this.fpanelListTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fpanelListTable.Name = "fpanelListTable";
-            this.fpanelListTable.Size = new System.Drawing.Size(571, 604);
+            this.fpanelListTable.Size = new System.Drawing.Size(761, 920);
             this.fpanelListTable.TabIndex = 0;
             // 
             // panel1
@@ -81,9 +82,10 @@
             this.panel1.Controls.Add(this.cbbFoodCategory);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.guna2PictureBox1);
-            this.panel1.Location = new System.Drawing.Point(575, 4);
+            this.panel1.Location = new System.Drawing.Point(767, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 680);
+            this.panel1.Size = new System.Drawing.Size(579, 920);
             this.panel1.TabIndex = 1;
             // 
             // cbbVoucher
@@ -103,9 +105,10 @@
             "3",
             "4",
             "5"});
-            this.cbbVoucher.Location = new System.Drawing.Point(133, 570);
+            this.cbbVoucher.Location = new System.Drawing.Point(177, 702);
+            this.cbbVoucher.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbVoucher.Name = "cbbVoucher";
-            this.cbbVoucher.Size = new System.Drawing.Size(268, 36);
+            this.cbbVoucher.Size = new System.Drawing.Size(356, 36);
             this.cbbVoucher.TabIndex = 14;
             this.cbbVoucher.SelectedIndexChanged += new System.EventHandler(this.cbbVoucher_SelectedIndexChanged);
             // 
@@ -113,9 +116,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(47, 584);
+            this.label3.Location = new System.Drawing.Point(63, 719);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 20);
+            this.label3.Size = new System.Drawing.Size(95, 26);
             this.label3.TabIndex = 13;
             this.label3.Text = "Voucher:";
             // 
@@ -136,9 +140,10 @@
             "3",
             "4",
             "5"});
-            this.cbbQuantity.Location = new System.Drawing.Point(301, 100);
+            this.cbbQuantity.Location = new System.Drawing.Point(401, 123);
+            this.cbbQuantity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbQuantity.Name = "cbbQuantity";
-            this.cbbQuantity.Size = new System.Drawing.Size(100, 36);
+            this.cbbQuantity.Size = new System.Drawing.Size(132, 36);
             this.cbbQuantity.TabIndex = 12;
             // 
             // dgvListFoodOrder
@@ -168,10 +173,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListFoodOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListFoodOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvListFoodOrder.Location = new System.Drawing.Point(3, 147);
+            this.dgvListFoodOrder.Location = new System.Drawing.Point(4, 181);
+            this.dgvListFoodOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvListFoodOrder.Name = "dgvListFoodOrder";
             this.dgvListFoodOrder.RowHeadersVisible = false;
-            this.dgvListFoodOrder.Size = new System.Drawing.Size(429, 355);
+            this.dgvListFoodOrder.RowHeadersWidth = 51;
+            this.dgvListFoodOrder.Size = new System.Drawing.Size(572, 437);
             this.dgvListFoodOrder.TabIndex = 11;
             this.dgvListFoodOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvListFoodOrder.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -198,21 +205,25 @@
             // Column1
             // 
             this.Column1.HeaderText = "Món ăn";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Số lượng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Đơn giá";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Thành tiền";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
             // btnPay
@@ -223,9 +234,10 @@
             this.btnPay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnPay.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnPay.ForeColor = System.Drawing.Color.White;
-            this.btnPay.Location = new System.Drawing.Point(301, 630);
+            this.btnPay.Location = new System.Drawing.Point(401, 775);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(100, 31);
+            this.btnPay.Size = new System.Drawing.Size(133, 38);
             this.btnPay.TabIndex = 10;
             this.btnPay.Text = "Thanh toán";
             this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
@@ -238,9 +250,10 @@
             this.btnNextTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnNextTable.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnNextTable.ForeColor = System.Drawing.Color.White;
-            this.btnNextTable.Location = new System.Drawing.Point(180, 630);
+            this.btnNextTable.Location = new System.Drawing.Point(240, 775);
+            this.btnNextTable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNextTable.Name = "btnNextTable";
-            this.btnNextTable.Size = new System.Drawing.Size(100, 31);
+            this.btnNextTable.Size = new System.Drawing.Size(133, 38);
             this.btnNextTable.TabIndex = 9;
             this.btnNextTable.Text = "Chuyển bàn";
             this.btnNextTable.Click += new System.EventHandler(this.btnNextTable_Click);
@@ -256,9 +269,10 @@
             this.guna2ComboBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox3.ItemHeight = 30;
-            this.guna2ComboBox3.Location = new System.Drawing.Point(40, 625);
+            this.guna2ComboBox3.Location = new System.Drawing.Point(53, 769);
+            this.guna2ComboBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2ComboBox3.Name = "guna2ComboBox3";
-            this.guna2ComboBox3.Size = new System.Drawing.Size(120, 36);
+            this.guna2ComboBox3.Size = new System.Drawing.Size(159, 36);
             this.guna2ComboBox3.TabIndex = 8;
             // 
             // txtTotalBill
@@ -274,22 +288,23 @@
             this.txtTotalBill.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F);
             this.txtTotalBill.ForeColor = System.Drawing.Color.Black;
             this.txtTotalBill.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTotalBill.Location = new System.Drawing.Point(133, 536);
-            this.txtTotalBill.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTotalBill.Location = new System.Drawing.Point(177, 660);
+            this.txtTotalBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.PasswordChar = '\0';
             this.txtTotalBill.PlaceholderText = "";
             this.txtTotalBill.SelectedText = "";
-            this.txtTotalBill.Size = new System.Drawing.Size(268, 27);
+            this.txtTotalBill.Size = new System.Drawing.Size(357, 33);
             this.txtTotalBill.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Symbol", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 543);
+            this.label2.Location = new System.Drawing.Point(48, 668);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.Size = new System.Drawing.Size(107, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Tổng tiền:";
             // 
@@ -304,9 +319,10 @@
             this.cbbFood.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbFood.ForeColor = System.Drawing.Color.Black;
             this.cbbFood.ItemHeight = 30;
-            this.cbbFood.Location = new System.Drawing.Point(13, 105);
+            this.cbbFood.Location = new System.Drawing.Point(17, 129);
+            this.cbbFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbFood.Name = "cbbFood";
-            this.cbbFood.Size = new System.Drawing.Size(229, 36);
+            this.cbbFood.Size = new System.Drawing.Size(304, 36);
             this.cbbFood.TabIndex = 4;
             // 
             // btnAdd
@@ -317,9 +333,10 @@
             this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(301, 63);
+            this.btnAdd.Location = new System.Drawing.Point(401, 78);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 31);
+            this.btnAdd.Size = new System.Drawing.Size(133, 38);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Thêm món";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -335,9 +352,10 @@
             this.cbbFoodCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbbFoodCategory.ForeColor = System.Drawing.Color.Black;
             this.cbbFoodCategory.ItemHeight = 30;
-            this.cbbFoodCategory.Location = new System.Drawing.Point(13, 63);
+            this.cbbFoodCategory.Location = new System.Drawing.Point(17, 78);
+            this.cbbFoodCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbFoodCategory.Name = "cbbFoodCategory";
-            this.cbbFoodCategory.Size = new System.Drawing.Size(229, 36);
+            this.cbbFoodCategory.Size = new System.Drawing.Size(304, 36);
             this.cbbFoodCategory.TabIndex = 2;
             this.cbbFoodCategory.SelectedIndexChanged += new System.EventHandler(this.cbbFoodCategory_SelectedIndexChanged);
             // 
@@ -345,9 +363,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 12);
+            this.label1.Location = new System.Drawing.Point(31, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 30);
+            this.label1.Size = new System.Drawing.Size(90, 37);
             this.label1.TabIndex = 1;
             this.label1.Text = "Order";
             // 
@@ -355,9 +374,10 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(100, 19);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(133, 23);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(25, 20);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(33, 25);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -365,22 +385,24 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(572, 4);
+            this.guna2Panel1.Location = new System.Drawing.Point(763, 5);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(3, 680);
+            this.guna2Panel1.Size = new System.Drawing.Size(4, 837);
             this.guna2Panel1.TabIndex = 2;
             // 
             // Order_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.ClientSize = new System.Drawing.Size(1447, 930);
             this.ControlBox = false;
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.fpanelListTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(300, 399);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Order_VIEW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Order_VIEW";

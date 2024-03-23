@@ -31,7 +31,7 @@ namespace RestaurentManagement.Views
             txtID.Text = dgvVoucher.SelectedRows[0].Cells[0].Value.ToString();
             txtName.Text = dgvVoucher.SelectedRows[0].Cells[1].Value.ToString();
             txtExpiry.Text = dgvVoucher.SelectedRows[0].Cells[2].Value.ToString();
-            cbbStatus.DataSource = null;
+            cbbStatus.SelectedItem = dgvVoucher.SelectedRows[0].Cells[3].Value.ToString();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -110,7 +110,7 @@ namespace RestaurentManagement.Views
                 if (rs == 1)
                 {
                     mf.NotifySuss("Cập nhật voucher thành công");
-                    Refresh();
+                    LoadData();
                 }
             }
         }
@@ -124,7 +124,7 @@ namespace RestaurentManagement.Views
                 if (rs == 1)
                 {
                     mf.NotifySuss("Cập nhật voucher thành công");
-                    Refresh();
+                    LoadData();
                 }
             }
         }

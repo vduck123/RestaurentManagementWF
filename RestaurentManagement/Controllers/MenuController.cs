@@ -16,12 +16,44 @@ namespace RestaurentManagement.Controllers
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new MenuController();
                 }
                 return instance;
             }
+        }
+        public int InsertMenu(Menu menu)
+        {
+            string query1 = @"INSERT INTO Menu
+                              VALUES (@food_id,@price,@quantity,@total,@totalTable,@table_id)";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@food_id",menu.FoodID} ,
+                {"price", menu.priceFood } ,
+                {"@quantity", menu.Quantity } ,
+                {"@total", menu.totalFood} ,
+                {"@totalTable", menu.totalMoney} ,
+                {"@table_id", menu.TableID }
+
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query1, parameters);
+            return data;
+        }
+
+        public int DeleteMenu(string tableID)
+        {
+            string query1 = @"DELETE FROM Menu WHERE table_id = @tableID";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@tableID", tableID}
+
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query1, parameters);
+            return data;
+
         }
 
         public List<Menu> GetListBillInfoByTableID(string id)

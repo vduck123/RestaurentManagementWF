@@ -74,7 +74,12 @@ namespace RestaurentManagement.Views
         #region Event
         private void dgvStaff_Click(object sender, EventArgs e)
         {
-           
+            txtStaffID.Text = dgvStaff.SelectedRows[0].Cells[0].Value.ToString();
+            txtNameStaff.Text = dgvStaff.SelectedRows[0].Cells[1].Value.ToString();
+            cbbGender.SelectedItem = dgvStaff.SelectedRows[0].Cells[2].Value.ToString();
+            dtBirth.Text = dgvStaff.SelectedRows[0].Cells[3].Value.ToString();
+            txtPhone.Text = dgvStaff.SelectedRows[0].Cells[4].Value.ToString();
+            cbbAcc.SelectedItem = dgvStaff.SelectedRows[0].Cells[5].Value.ToString();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {

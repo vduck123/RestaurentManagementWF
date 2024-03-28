@@ -28,11 +28,18 @@ namespace RestaurentManagement.Views
 
         private void dgvWarehouse_Click(object sender, EventArgs e)
         {
-            txtID.Text = dgvWarehouse.SelectedRows[0].Cells[0].Value.ToString();
-            txtName.Text = dgvWarehouse.SelectedRows[0].Cells[1].Value.ToString();
-            txtQuantity.Text = dgvWarehouse.SelectedRows[0].Cells[2].Value.ToString();
-            cbbCategory.DataSource = null;
-            cbbCategory.Text = dgvWarehouse.SelectedRows[0].Cells[3].Value.ToString();
+            if(dgvWarehouse.SelectedRows.Count > 0)
+            {
+                txtID.Text = dgvWarehouse.SelectedRows[0].Cells[0].Value.ToString();
+                txtName.Text = dgvWarehouse.SelectedRows[0].Cells[1].Value.ToString();
+                txtQuantity.Value = Convert.ToInt32(dgvWarehouse.SelectedRows[0].Cells[2].Value);
+                cbbCategory.SelectedItem = dgvWarehouse.SelectedRows[0].Cells[3].Value.ToString();
+            }
+            else
+            {
+                return;
+            }
+            
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -60,7 +67,8 @@ namespace RestaurentManagement.Views
             {
                 ID = txtID.Text,
                 Name = txtName.Text,
-                Quantity = Convert.ToInt32(txtQuantity.Text)            
+                Quantity = Convert.ToInt32(txtQuantity.Value) ,
+                CategoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
             };
 
             int rs = WarehouseController.Instance.UpdateItem(item);
@@ -148,10 +156,9 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            LoadCategory();
             txtID.ResetText();
             txtName.ResetText();
-            txtQuantity.ResetText();
+            txtQuantity.Value = 0;
         }
         #endregion
     }

@@ -111,11 +111,17 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public DataTable SearchCategory(string id)
+        public List<FoodCategory> SearchCategory(string id)
         {
+            List<FoodCategory> foodCategories = new List<FoodCategory>();   
             string query = $@"SELECT * FROM dbo.FoodCategory WHERE cgFood_id = '{id}'";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
-            return dt;
+            foreach (DataRow item in dt.Rows)
+            {
+                FoodCategory fg = new FoodCategory(item);
+                foodCategories.Add(fg);
+            }
+            return foodCategories;
         }
     }
 }

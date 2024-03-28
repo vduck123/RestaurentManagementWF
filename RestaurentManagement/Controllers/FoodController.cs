@@ -87,13 +87,15 @@ namespace RestaurentManagement.Controllers
         public int InsertFood(Food food)
         {
             string query = @"INSERT INTO Food
-                             VALUES (@id,@name,@price,@category)";
+                             VALUES (@id,@name,@price,@material,@num,@category)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", food.ID},
                 {"@name", food.Name},
-                {"price", food.Price},
-                {"category", food.FoodType}
+                {"@price", food.Price},
+                {"@material", food.materialID},
+                {"@num", food.numMaterial},
+                {"@category", food.categoryID}
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -104,13 +106,19 @@ namespace RestaurentManagement.Controllers
         {
             string query = @"UPDATE dbo.Food
 		                     SET food_name = @name ,
-			                    food_price = @price 
+			                    food_price = @price ,
+                                item_id = @material ,
+                                item_quantity = @num ,
+                                cgFood_id = @category
 		                     WHERE food_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", food.ID},
                 {"@name", food.Name},
-                {"price", food.Price}
+                {"@price", food.Price},
+                {"@material", food.materialID},
+                {"@num", food.numMaterial},
+                {"@category", food.categoryID}
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query,parameters);
@@ -131,11 +139,19 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public DataTable SelectFood(string id)
+        public List<Food> SelectFoodByID(string id)
         {
+            List<Food> foods = new List<Food>();    
             string query = $@"SELECT * FROM dbo.Food WHERE food_id = '{id}'";
-            DataTable data = DBHelper.Instance.ExecuteQuery(query);
-            return data;
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                Food f = new Food(item);
+                foods.Add(f);   
+            }
+
+            return foods;
         }
     }
 }

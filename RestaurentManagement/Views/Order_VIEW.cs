@@ -114,7 +114,7 @@ namespace RestaurentManagement.Views
             string choose = cbbFoodCategory.SelectedItem.ToString();
             foreach (Food f in listfood)
             {
-                if(choose.Equals(FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.FoodType)))
+                if(choose.Equals(FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID)))
                 {
                     listFoodName.Add(f.Name);
                 }

@@ -14,6 +14,7 @@ namespace RestaurentManagement.Views
 {
     public partial class Food_VIEW : Form
     {
+        MainForm mf = new MainForm();
         public Food_VIEW()
         {
             InitializeComponent();
@@ -28,19 +29,52 @@ namespace RestaurentManagement.Views
         #region Method
         void LoadData()
         {
+            LoadCategory();
+            LoadMaterial();
+            LoadFood();         
+        }
+        void LoadFood()
+        {
             dgvFood.Columns.Clear();
             List<Food> foods = FoodController.Instance.GetListFood();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID Cateroty");
-            dt.Columns.Add("Food name");
-            dt.Columns.Add("Price");
-            dt.Columns.Add("ID Food");
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Tên món ăn");
+            dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Nguyên liệu");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Loại");
             foreach (Food f in foods)
             {
-                dt.Rows.Add(FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.FoodType),f.Name,f.Price,f.ID);
+                string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
+                string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
+                dt.Rows.Add(f.ID,f.Name,f.Price,material,f.numMaterial,category);
             }
             dgvFood.DataSource = dt;
+        }
+        void LoadMaterial()
+        {
+            List<string> listNameItem = new List<string>();
+            List<Warehouse> listItem = WarehouseController.Instance.GetListItem();
+            foreach (Warehouse w in listItem)
+            {
+                listNameItem.Add(w.Name);
+            }
+
+            cbbMaterial.DataSource = listNameItem;
+        }
+
+        void LoadCategory()
+        {
+            List<string> listNameCategory = new List<string>();
+            List<FoodCategory> listCategory = FoodCategoryController.Instance.GetListCategoryFood();
+            foreach (FoodCategory fg in listCategory)
+            {
+                listNameCategory.Add(fg.Name);
+            }
+
+            cbbCategory.DataSource = listNameCategory;
         }
 
         void Refresh()
@@ -48,37 +82,106 @@ namespace RestaurentManagement.Views
             LoadData();
             txtFoodID.ResetText();
             txtFoodName.ResetText();
-            txtFoodPrice.ResetText();
+            txtNumMaterial.Value = 0;
+            txtPrice.Value = 0;
         }
         #endregion
 
         #region Event
+        private void dgvFood_Click(object sender, EventArgs e)
+        {
+            if(dgvFood.SelectedRows.Count > 0)
+            {
+                txtFoodID.Text = dgvFood.SelectedRows[0].Cells[0].Value.ToString();
+                txtFoodName.Text = dgvFood.SelectedRows[0].Cells[1].Value.ToString();
+                txtPrice.Value = Convert.ToInt32(dgvFood.SelectedRows[0].Cells[2].Value);
+                cbbMaterial.SelectedItem = dgvFood.SelectedRows[0].Cells[3].Value.ToString();
+                txtNumMaterial.Value = Convert.ToInt32(dgvFood.SelectedRows[0].Cells[4].Value);
+                cbbCategory.SelectedItem = dgvFood.SelectedRows[0].Cells[5].Value.ToString();              
+            }
+        }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            Food f = new Food()
+            {
+                ID = txtFoodID.Text,
+                Name = txtFoodName.Text,
+                Price = Convert.ToInt32(txtPrice.Value),
+                materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
+                numMaterial = Convert.ToInt32(txtNumMaterial.Value),
+                categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
+            };
 
+            int data = FoodController.Instance.InsertFood(f);
+            if (data == 1)
+            {
+                mf.NotifySuss("Thêm món ăn thành công");
+                Refresh();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            Food f = new Food()
+            {
+                ID = txtFoodID.Text,
+                Name = txtFoodName.Text,
+                Price = Convert.ToInt32(txtPrice.Value),
+                materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
+                numMaterial = Convert.ToInt32(txtNumMaterial.Value),
+                categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
+            };
 
+            int data = FoodController.Instance.UpdateFood(f);
+            if (data == 1)
+            {
+                mf.NotifySuss("Cập nhật món ăn thành công");
+                Refresh();
+            }
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-
+            DialogResult qs = mf.NotifyConfirm("Ấn OK để xác nhận xóa");
+            if(qs == DialogResult.OK)
+            {
+                int data = FoodController.Instance.DeleteFood(txtFoodID.Text);
+                if (data == 1)
+                {
+                    mf.NotifySuss("Xóa món ăn thành công");
+                    Refresh();
+                }
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            dgvFood.Columns.Clear();
+            List<Food> foods = FoodController.Instance.SelectFoodByID(txtFoodID.Text);
 
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Tên món ăn");
+            dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Nguyên liệu");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Loại");
+            foreach (Food f in foods)
+            {
+                string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
+                string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
+                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category);
+            }
+            dgvFood.DataSource = dt;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            Refresh();
         }
+
         #endregion
 
-
+        
     }
 }

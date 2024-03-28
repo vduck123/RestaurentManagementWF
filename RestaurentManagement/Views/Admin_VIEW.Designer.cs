@@ -212,6 +212,7 @@
             this.btnFood.Size = new System.Drawing.Size(197, 34);
             this.btnFood.TabIndex = 0;
             this.btnFood.Text = "Món ăn";
+            this.btnFood.Click += new System.EventHandler(this.btnFood_Click);
             // 
             // panel7
             // 

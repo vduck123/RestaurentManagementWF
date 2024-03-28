@@ -45,14 +45,16 @@ namespace RestaurentManagement.Controllers
         {
             string query = $@"UPDATE Warehouse 
                               SET item_name = @name ,
-                                  quantity = @quantity
+                                  quantity = @quantity ,
+                                  item_category = @category
                               WHERE item_id = @id";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", item.ID},
                 {"@name", item.Name} ,
-                {"@quantity", item.Quantity}
+                {"@quantity", item.Quantity} ,
+                {"@category", item.CategoryID }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);

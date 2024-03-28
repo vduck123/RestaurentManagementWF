@@ -90,5 +90,10 @@ namespace RestaurentManagement.Views
         {
             OpenChildForm(new Voucher_VIEW());
         }
+
+        private void btnFood_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Food_VIEW());
+        }
     }
 }

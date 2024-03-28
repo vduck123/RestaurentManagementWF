@@ -32,8 +32,8 @@ namespace RestaurentManagement.Views
             List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("CategoryId");
-            dt.Columns.Add("CategoryName");
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Tên loại hàng");
             foreach (FoodCategory foodCategory in foodCategories)
             {
                 dt.Rows.Add(foodCategory.ID, foodCategory.Name);
@@ -109,7 +109,16 @@ namespace RestaurentManagement.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            DataTable dt = FoodCategoryController.Instance.SearchCategory(txtCategoryID.Text);
+            dgvFoodCategory.Columns.Clear();
+            List<FoodCategory> foodCategories = FoodCategoryController.Instance.SearchCategory(txtCategoryID.Text);
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Tên loại hàng");
+            foreach (FoodCategory foodCategory in foodCategories)
+            {
+                dt.Rows.Add(foodCategory.ID, foodCategory.Name);
+            }
             dgvFoodCategory.DataSource = dt;
         }
 

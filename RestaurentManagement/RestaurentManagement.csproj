@@ -61,6 +61,7 @@
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Controllers\TableController.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Salary.cs" />
     <Compile Include="Models\Staff.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Models\Table.cs" />
@@ -153,6 +155,12 @@
     <Compile Include="Views\Order_VIEW.Designer.cs">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Salary_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Salary_VIEW.Designer.cs">
+      <DependentUpon>Salary_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Staff_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Salary_VIEW.resx">
+      <DependentUpon>Salary_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Staff_VIEW.resx">
       <DependentUpon>Staff_VIEW.cs</DependentUpon>

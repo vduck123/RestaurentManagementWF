@@ -27,13 +27,14 @@ namespace RestaurentManagement.Controllers
         public int InsertStaff(Staff staff)
         {
             string query = @"INSERT INTO Staff 
-                             VALUES (@id,@name,@gender,@birth,@phone,@acc_id)";
+                             VALUES (@id,@name,@gender,@birth,@address,@phone,@acc_id)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", staff.ID},
                 {"@name", staff.Name},
                 {"@gender", staff.Gender } ,
                 {"@birth", staff.Birth } ,
+                {"@address", staff.Address} ,
                 {"@phone", staff.Phone } ,
                 {"@acc_id", staff.Acc_ID}
             };
@@ -47,7 +48,8 @@ namespace RestaurentManagement.Controllers
                              SET staff_name = @name ,
                                  gender = @gender ,
                                  birth = @birth ,
-                                 phone = @phone ,
+                                 address = @address,
+                                 phone = @phone 
                              WHERE staff_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -55,7 +57,8 @@ namespace RestaurentManagement.Controllers
                 {"@name", staff.Name},
                 {"@gender", staff.Gender } ,
                 {"@birth", staff.Birth } ,
-                {"@phone", staff.Phone } 
+                {"@address", staff.Address} ,
+                {"@phone", staff.Phone }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -118,6 +121,19 @@ namespace RestaurentManagement.Controllers
             return name;
         }
 
+        public string GetIDStaffByName(string name)
+        {
+            string id = null;
+            string query = $"SELECT * FROM Staff Where staff_name = N'{name}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                id = (string)row["staff_id"];
+            }
+
+            return id;
+        }
+
         public string GetNameStaffByAccID(string id)
         {
             string name = null;
@@ -134,6 +150,13 @@ namespace RestaurentManagement.Controllers
             }
 
             return name;
+        }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(staff_id) FROM Staff";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
         }
     }
 }

@@ -292,6 +292,7 @@
             this.btnSalary.Size = new System.Drawing.Size(203, 34);
             this.btnSalary.TabIndex = 0;
             this.btnSalary.Text = "Lương nhân viên";
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // panel6
             // 

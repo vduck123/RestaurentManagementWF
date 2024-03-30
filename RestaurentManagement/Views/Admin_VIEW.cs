@@ -95,5 +95,10 @@ namespace RestaurentManagement.Views
         {
             OpenChildForm(new Food_VIEW());
         }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Salary_VIEW());
+        }
     }
 }

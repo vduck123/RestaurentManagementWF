@@ -24,11 +24,14 @@ namespace RestaurentManagement.Views
         {
             LoadData();
             LoadAccount();
+            txtStaffID.Text = "Dành cho chức năng tìm kiếm";
         }
 
         #region Method
         void LoadData()
         {
+            dgvStaff.Columns.Clear();
+
             List<Staff> listStaff = StaffController.Instance.GetListStaff();
 
             DataTable dt = new DataTable();
@@ -36,68 +39,73 @@ namespace RestaurentManagement.Views
             dt.Columns.Add("Tên nhân viên");
             dt.Columns.Add("Giới tính");
             dt.Columns.Add("Ngày sinh");
+            dt.Columns.Add("Địa chỉ");
             dt.Columns.Add("Số điện thoại");
             dt.Columns.Add("ID Acc");
 
             foreach (Staff staff in listStaff)
             {
-                dt.Rows.Add(staff.ID, staff.Name, staff.Gender, staff.Birth.ToShortDateString(), staff.Phone, staff.Acc_ID);
+                dt.Rows.Add(staff.ID, staff.Name, staff.Gender, staff.Birth, staff.Address, staff.Phone, staff.Acc_ID);
             }
+
             dgvStaff.DataSource = dt;
         }
 
         void LoadAccount()
         {
-            dgvStaff.Columns.Clear();
-            List<string> listAccount = AccountController.Instance.GetAccountsNoOwner();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("AccountName", typeof(string)); 
-
-            foreach (string accName in listAccount)
+            cbbAcc.Items.Clear();
+            List<Account> listAccount = AccountController.Instance.GetAccountsNoOwner();
+            List<string> listUsername = new List<string>();
+            
+            foreach(Account acc in listAccount)
             {
-                dt.Rows.Add(accName);
+                listUsername.Add(acc.User);
             }
-
-            cbbAcc.DataSource = dt;
-            cbbAcc.DisplayMember = "AccountName"; 
+            cbbAcc.DataSource = listUsername;
         }
 
         void Refresh()
         {
             LoadData();
-            txtStaffID.ResetText();
+            txtStaffID.Text = "Dành cho chức năng tìm kiếm";
             txtNameStaff.ResetText();
             txtPhone.ResetText();
+            txtAddress.ResetText();
         }
         #endregion
 
         #region Event
         private void dgvStaff_Click(object sender, EventArgs e)
         {
-            txtStaffID.Text = dgvStaff.SelectedRows[0].Cells[0].Value.ToString();
-            txtNameStaff.Text = dgvStaff.SelectedRows[0].Cells[1].Value.ToString();
-            cbbGender.SelectedItem = dgvStaff.SelectedRows[0].Cells[2].Value.ToString();
-            dtBirth.Text = dgvStaff.SelectedRows[0].Cells[3].Value.ToString();
-            txtPhone.Text = dgvStaff.SelectedRows[0].Cells[4].Value.ToString();
-            cbbAcc.SelectedItem = dgvStaff.SelectedRows[0].Cells[5].Value.ToString();
+            if(dgvStaff.Rows.Count > 0)
+            {
+                txtStaffID.Text = dgvStaff.SelectedRows[0].Cells[0].Value.ToString();
+                txtNameStaff.Text = dgvStaff.SelectedRows[0].Cells[1].Value.ToString();
+                cbbGender.SelectedItem = dgvStaff.SelectedRows[0].Cells[2].Value.ToString();
+                dtBirth.Text = dgvStaff.SelectedRows[0].Cells[3].Value.ToString();
+                txtAddress.Text = dgvStaff.SelectedRows[0].Cells[4].Value.ToString();
+                txtPhone.Text = dgvStaff.SelectedRows[0].Cells[5].Value.ToString();
+                cbbAcc.SelectedItem = dgvStaff.SelectedRows[0].Cells[6].Value.ToString();
+            }           
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string ID = $"NV00{StaffController.Instance.GetOrderNumInList()}";
             Staff staff = new Staff()
             {
-                ID = txtStaffID.Text,
+                ID = ID,
                 Name = txtNameStaff.Text,
                 Gender = cbbGender.SelectedItem.ToString(),
-                Birth = dtBirth.Value ,
-                Phone = txtPhone.Text ,
+                Birth = dtBirth.Value,
+                Address = txtAddress.Text,
+                Phone = txtPhone.Text,
                 Acc_ID = AccountController.Instance.GetIdAccountByUsername(cbbAcc.SelectedItem.ToString())
             };
 
             int rs = StaffController.Instance.InsertStaff(staff);
-            if(rs == 1)
+            if (rs == 1)
             {
-                mf.NotifySuss("Thêm nhân viên thành công !");
-                LoadData();
+                mf.NotifySuss($"Thêm nhân viên {txtNameStaff.Text} thành công !");
                 Refresh();
             }
         }
@@ -110,6 +118,7 @@ namespace RestaurentManagement.Views
                 Name = txtNameStaff.Text,
                 Gender = cbbGender.SelectedItem.ToString(),
                 Birth = dtBirth.Value,
+                Address = txtAddress.Text ,
                 Phone = txtPhone.Text,
                 Acc_ID = AccountController.Instance.GetIdAccountByUsername(cbbAcc.SelectedItem.ToString())
             };
@@ -117,8 +126,7 @@ namespace RestaurentManagement.Views
             int rs = StaffController.Instance.UpdateStaff(staff);
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật nhân viên thành công !");
-                LoadData();
+                mf.NotifySuss($"Cập nhật nhân viên {txtNameStaff.Text} thành công !");
                 Refresh();
             }
         }
@@ -131,8 +139,7 @@ namespace RestaurentManagement.Views
                 int rs = StaffController.Instance.DeleteStaff(txtStaffID.Text);
                 if(rs == 1)
                 {
-                    mf.NotifySuss("Xóa nhân viên thành công !");
-                    LoadData();
+                    mf.NotifySuss($"Xóa nhân viên {txtNameStaff.Text} thành công !");
                     Refresh();
                 }
                 else
@@ -152,12 +159,13 @@ namespace RestaurentManagement.Views
             dt.Columns.Add("Tên nhân viên");
             dt.Columns.Add("Giới tính");
             dt.Columns.Add("Ngày sinh");
+            dt.Columns.Add("Địa chỉ");
             dt.Columns.Add("Số điện thoại");
             dt.Columns.Add("ID Acc");
 
             foreach (Staff staff in listStaff)
             {
-                dt.Rows.Add(staff.ID, staff.Name, staff.Gender, staff.Birth, staff.Phone, staff.Acc_ID);
+                dt.Rows.Add(staff.ID, staff.Name, staff.Gender, staff.Birth, staff.Address, staff.Phone, staff.Acc_ID);
             }
 
             dgvStaff.DataSource = dt;
@@ -168,8 +176,18 @@ namespace RestaurentManagement.Views
             Refresh();
         }
 
+        private void txtStaffID_TextChanged(object sender, EventArgs e)
+        {
+            string name = StaffController.Instance.GetNameStaffByID(txtStaffID.Text);
+            if(name != null)
+            {
+                txtNameStaff.Text = name;
+            }
+        }
+
+
         #endregion
 
-        
+
     }
 }

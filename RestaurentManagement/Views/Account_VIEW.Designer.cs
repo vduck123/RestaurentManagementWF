@@ -420,7 +420,7 @@
             this.txtAccID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.txtAccID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAccID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccID.ForeColor = System.Drawing.Color.Black;
+            this.txtAccID.ForeColor = System.Drawing.Color.Red;
             this.txtAccID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtAccID.Location = new System.Drawing.Point(89, 358);
             this.txtAccID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);

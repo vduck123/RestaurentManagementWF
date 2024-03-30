@@ -22,7 +22,8 @@ namespace RestaurentManagement.Views
 
         private void Account_VIEW_Load(object sender, EventArgs e)
         {
-            LoadData();            
+            LoadData();
+            txtAccID.Text = "Dành cho chức năng tìm kiếm";
         }
 
         #region Method
@@ -45,11 +46,11 @@ namespace RestaurentManagement.Views
             dgvAccount.DataSource = dt;
         }
 
-        void Reset()
+        void Refresh()
         {
             LoadData();
             txtOwner.Text = "Nhân viên";
-            txtAccID.ResetText();
+            txtAccID.Text = "Dành cho chức năng tìm kiếm";
             txtUser.ResetText();
             txtPass.ResetText();
             txtRole.ResetText();
@@ -69,9 +70,10 @@ namespace RestaurentManagement.Views
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"A000{AccountController.Instance.GetOrderNumInList()}";
             Account acc = new Account()
             {
-                ID = txtAccID.Text,
+                ID = id,
                 User = txtUser.Text,
                 Password = txtPass.Text,
                 Role = txtRole.Text,
@@ -81,8 +83,8 @@ namespace RestaurentManagement.Views
 
             if(rs == 1)
             {
-                mf.NotifySuss("Thêm tài khoản thành công");
-                LoadData();
+                mf.NotifySuss($"Thêm tài khoản {txtUser.Text} thành công");
+                Refresh();
             }
         }
 
@@ -100,8 +102,8 @@ namespace RestaurentManagement.Views
 
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật tài khoản thành công");
-                LoadData();
+                mf.NotifySuss($"Cập nhật tài khoản {txtUser.Text} thành công");
+                Refresh();
             }
         }
 
@@ -113,8 +115,8 @@ namespace RestaurentManagement.Views
                 int rs = AccountController.Instance.DeleteAccount(txtAccID.Text);
                 if(rs == 1)
                 {
-                    mf.NotifySuss("Xóa tài khoản thành công");
-                    LoadData();
+                    mf.NotifySuss($"Xóa tài khoản {txtUser.Text} thành công");
+                    Refresh();
                 }
             }
         }
@@ -138,7 +140,7 @@ namespace RestaurentManagement.Views
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            Reset();
+            Refresh();
         }
 
         private void txtAccID_TextChanged(object sender, EventArgs e)

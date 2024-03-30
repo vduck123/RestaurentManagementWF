@@ -106,18 +106,19 @@ namespace RestaurentManagement.Controllers
 
         } 
 
-        public List<string> GetAccountsNoOwner()
+        public List<Account> GetAccountsNoOwner()
         {
-            List<string> accounts = new List<string>();
-            string query = $@"SELECT a.username
+            List<Account> accounts = new List<Account>();
+            string query = $@"SELECT a.acc_id, a.username, a.password, a.role
                                 FROM Account a
                                 LEFT JOIN Staff s ON s.acc_id = a.acc_id
                                 WHERE s.acc_id IS NULL;";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
-            foreach (DataRow account in dt.Rows)
+            foreach (DataRow item in dt.Rows)
             {
-                accounts.Add(account["username"].ToString());
+                Account acc = new Account(item);
+                accounts.Add(acc);
             }
             return accounts;
         }
@@ -125,7 +126,7 @@ namespace RestaurentManagement.Controllers
         public string GetIdAccountByUsername(string user)
         {
             string id = null;
-            string query = $@"SELECT * FROM dbo.Account WHERE username = '{user}'";
+            string query = $@"SELECT * FROM dbo.Account WHERE username = N'{user}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -137,8 +138,13 @@ namespace RestaurentManagement.Controllers
             return id;
         }
 
-        
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(acc_id) FROM Account";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
+        }
 
-       
+
     }
 }

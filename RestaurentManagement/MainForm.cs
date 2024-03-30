@@ -19,7 +19,6 @@ namespace RestaurentManagement
             InitializeComponent();
         }
 
-
         public void NotifyErr(string mess)
         {
             MessageBox.Show("Lỗi: " + mess, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);

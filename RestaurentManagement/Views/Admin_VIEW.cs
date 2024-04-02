@@ -12,6 +12,7 @@ namespace RestaurentManagement.Views
 {
     public partial class Admin_VIEW : Form
     {
+        public static string user;
         public Admin_VIEW()
         {
             InitializeComponent();
@@ -99,6 +100,11 @@ namespace RestaurentManagement.Views
         private void btnSalary_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Salary_VIEW());
+        }
+
+        private void btnBillImport_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BillImport_VIEW());
         }
     }
 }

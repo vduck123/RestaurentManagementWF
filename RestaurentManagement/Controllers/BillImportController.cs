@@ -78,7 +78,7 @@ namespace RestaurentManagement.Controllers
         {
             List<BillImport> listbillImport = new List<BillImport> ();
 
-            string query = $"SELECT * FROM BillOfImport WHERE boImport_id = {id}";
+            string query = $"SELECT * FROM BillOfImport WHERE boImport_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -104,6 +104,13 @@ namespace RestaurentManagement.Controllers
                 listbillImport.Add(billImport);
             }
             return listbillImport;
+        }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(boImport_id) FROM BillOfImport";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
         }
     }
 }

@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_VIEW));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbUser = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -70,6 +71,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.flowLayoutPanel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -108,10 +110,21 @@
             // 
             // guna2Panel2
             // 
+            this.guna2Panel2.Controls.Add(this.lbUser);
             this.guna2Panel2.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(203, 222);
             this.guna2Panel2.TabIndex = 0;
+            // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.ForeColor = System.Drawing.Color.White;
+            this.lbUser.Location = new System.Drawing.Point(39, 20);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(35, 13);
+            this.lbUser.TabIndex = 0;
+            this.lbUser.Text = "admin";
             // 
             // flowLayoutPanel2
             // 
@@ -400,6 +413,7 @@
             this.btnBillImport.Size = new System.Drawing.Size(197, 34);
             this.btnBillImport.TabIndex = 0;
             this.btnBillImport.Text = "Hóa đơn nhập";
+            this.btnBillImport.Click += new System.EventHandler(this.btnBillImport_Click);
             // 
             // panel10
             // 
@@ -647,6 +661,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_VIEW";
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -717,5 +733,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox6;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Label lbUser;
     }
 }

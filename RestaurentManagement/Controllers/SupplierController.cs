@@ -77,7 +77,7 @@ namespace RestaurentManagement.Controllers
         public List<Supplier> SelectSupplierByID(string id)
         {
             List<Supplier> suppliers = new List<Supplier>();
-            string query = $"SELECT * FROM Supplier WHERE supplier_id = {id}";
+            string query = $"SELECT * FROM Supplier WHERE supplier_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow row in dt.Rows)
@@ -105,10 +105,10 @@ namespace RestaurentManagement.Controllers
             return suppliers;
         }
 
-        public string GetIDSupplierByName(string name)
+        public string GetNameSupplierByID(string id)
         {
             string nameSupplier = null;
-            string query = $"SELECT * FROM Supplier WHERE supplier_name = N'{name}'";
+            string query = $"SELECT * FROM Supplier WHERE supplier_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow row in dt.Rows)
@@ -116,6 +116,26 @@ namespace RestaurentManagement.Controllers
                 nameSupplier = row["supplier_name"].ToString();
             }
             return nameSupplier;
+        }
+
+        public string GetIDSupplierByName(string name)
+        {
+            string id = null;
+            string query = $"SELECT * FROM Supplier WHERE supplier_name = N'{name}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                id = row["supplier_id"].ToString();
+            }
+            return id;
+        }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(supplier_id) FROM Supplier";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
         }
     }
 }

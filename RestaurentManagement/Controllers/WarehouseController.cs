@@ -109,6 +109,21 @@ namespace RestaurentManagement.Controllers
             return listItem;
         }
 
+        public int UpdateQuantityItemByID(string id)
+        {
+            string query = $@"UPDATE Warehouse 
+                              SET quantity = @quantity ,
+                              WHERE item_id = @id";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id},
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
         public string GetNameItemByID(string id)
         {
             string name = null;
@@ -137,6 +152,13 @@ namespace RestaurentManagement.Controllers
                 id = (string)row["item_id"];
             }
             return id;
+        }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(item_id) FROM Warehouse";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
         }
     }
 }

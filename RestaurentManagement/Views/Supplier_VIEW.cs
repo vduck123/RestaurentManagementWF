@@ -28,9 +28,10 @@ namespace RestaurentManagement.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"NCC00{SupplierController.Instance.GetOrderNumInList()}";
             Supplier supplier = new Supplier()
             {
-                ID = txtID.Text,
+                ID = id,
                 Name = txtName.Text,
                 Address = txtAddress.Text,
                 Phone = txtPhone.Text,
@@ -40,7 +41,7 @@ namespace RestaurentManagement.Views
             int rs = SupplierController.Instance.InsertSupplier(supplier);
             if(rs == 1)
             {
-                mf.NotifySuss("Thêm nhà cung cấp thành công");
+                mf.NotifySuss($"Thêm nhà cung cấp {txtName.Text} thành công");
                 Refresh();
             }
         }
@@ -59,7 +60,7 @@ namespace RestaurentManagement.Views
             int rs = SupplierController.Instance.UpdateSupplier(supplier);
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật nhà cung cấp thành công");
+                mf.NotifySuss($"Cập nhật nhà cung cấp {txtName.Text} thành công");
                 Refresh();
             }
         }
@@ -72,12 +73,12 @@ namespace RestaurentManagement.Views
                 int rs = SupplierController.Instance.DeleteSupplier(txtID.Text);
                 if(rs == 1)
                 {
-                    mf.NotifySuss("Xóa nhà cung cấp thành công");
+                    mf.NotifySuss($"Xóa nhà cung cấp {txtName.Text} thành công");
                     Refresh();
                 } 
                 else
                 {
-                    mf.NotifyErr("Nhà cung cấp không tồn tại");
+                    mf.NotifyErr($"Nhà cung cấp {txtName.Text} không tồn tại");
                     Refresh();
                 }
             }
@@ -142,7 +143,7 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            txtID.ResetText();
+            txtID.Text = "Dành cho chức năng tìm kiếm";
             txtName.ResetText();
             txtAddress.ResetText();
             txtPhone.ResetText();

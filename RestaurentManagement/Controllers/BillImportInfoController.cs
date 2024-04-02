@@ -27,11 +27,11 @@ namespace RestaurentManagement.Controllers
         public int InsertBillImportInfor(BillImportInfo billImportInfo)
         {
             string query = @"INSERT INTO DetailBillOfImport
-                              VALUES (@id,@food_id,@price,@quantity,@totalmoney,@idBill)";
+                              VALUES (@id,@item_id,@price,@quantity,@totalmoney,@idBill)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", billImportInfo.ID } ,
-                {"@food_id", billImportInfo.FoodID } ,
+                {"@item_id", billImportInfo.ItemID } ,
                 {"@price", billImportInfo.Price } ,
                 {"@quantity", billImportInfo.Quantity } ,
                 {"@totalmoney", billImportInfo.TotalMoney } ,
@@ -45,7 +45,7 @@ namespace RestaurentManagement.Controllers
         public int UpdateBillImportInfo(BillImportInfo billImportInfo)
         {
             string query = @"UPDATE dbo.DetailBillOfImport
-                            SET food_id = @staff_id ,
+                            SET item_id = @item_id ,
                                 price = @supplier_id ,
                                 quantity = @supplier_id ,
 	                            totalmoney = @totalmoney
@@ -53,7 +53,7 @@ namespace RestaurentManagement.Controllers
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", billImportInfo.ID } ,
-                {"@food_id", billImportInfo.FoodID } ,
+                {"@item_id" , billImportInfo.ItemID } ,
                 {"@price", billImportInfo.Price } ,
                 {"@quantity", billImportInfo.Quantity } ,
                 {"@totalmoney", billImportInfo.TotalMoney } 
@@ -65,7 +65,7 @@ namespace RestaurentManagement.Controllers
         }
         public int DeleteBillImportInfo(string id)
         {
-            string query = @"DELETE FROM BillOfImport WHERE boImport_id = @id";
+            string query = @"DELETE FROM DetailBillOfImport WHERE boImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", id }
@@ -76,23 +76,23 @@ namespace RestaurentManagement.Controllers
 
         }
 
-        public List<BillImport> SelectBillImportInfo(string id)
+        public List<BillImportInfo> SelectBillImportInfo(string id)
         {
-            List<BillImport> listbillImport = new List<BillImport>();
+            List<BillImportInfo> list = new List<BillImportInfo>();
 
-            string query = $"SELECT * FROM DetailBillOfImport WHERE boImport_id = {id}";
+            string query = $"SELECT * FROM DetailBillOfImport WHERE boImport_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in dt.Rows)
             {
-                BillImport billImport = new BillImport(item);
-                listbillImport.Add(billImport);
+                BillImportInfo bill = new BillImportInfo(item);
+                list.Add(bill);
             }
-            return listbillImport;
+            return list;
         }
 
-        public List<BillImport> GetListBillImportInfot()
+        public List<BillImport> GetListBillImportInfo()
         {
             List<BillImport> listbillImport = new List<BillImport>();
 

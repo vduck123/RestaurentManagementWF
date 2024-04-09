@@ -46,9 +46,9 @@ namespace RestaurentManagement.Controllers
         {
             string query = @"UPDATE dbo.DetailBillOfImport
                             SET item_id = @item_id ,
-                                price = @supplier_id ,
-                                quantity = @supplier_id ,
-	                            totalmoney = @totalmoney
+                                price = @price ,
+                                quantity = @quantity ,
+	                            total_money = @totalmoney
                                 WHERE dboImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {

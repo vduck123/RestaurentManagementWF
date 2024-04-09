@@ -38,9 +38,9 @@ namespace RestaurentManagement.Views
             foreach (Account acc in accounts)
             {
                 
-                if(user.Contains("Admin") && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
+                if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
                 {
-                    Admin_VIEW admin_VIEW = new Admin_VIEW();
+                    Admin_VIEW admin_VIEW = new Admin_VIEW(user);
                     admin_VIEW.ShowDialog();
                 } 
                 else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
@@ -69,6 +69,11 @@ namespace RestaurentManagement.Views
         private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void guna2PictureBox5_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

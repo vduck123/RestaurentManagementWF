@@ -44,9 +44,10 @@ namespace RestaurentManagement.Views
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"NL000{WarehouseController.Instance.GetOrderNumInList()}";
             Warehouse item = new Warehouse()
             {
-                ID = txtID.Text,
+                ID = id,
                 Name = txtName.Text,
                 Quantity = Convert.ToInt32(txtQuantity.Text),
                 CategoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString()),
@@ -55,7 +56,7 @@ namespace RestaurentManagement.Views
             int rs = WarehouseController.Instance.InsertItem(item);
             if(rs == 1)
             {
-                mf.NotifySuss("Thêm nguyên liệu thành công");
+                mf.NotifySuss($"Thêm nguyên liệu {txtName.Text} thành công");
                 Refresh();
 
             }
@@ -74,7 +75,7 @@ namespace RestaurentManagement.Views
             int rs = WarehouseController.Instance.UpdateItem(item);
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật nguyên liệu thành công");
+                mf.NotifySuss($"Cập nhật nguyên liệu {txtName.Text} thành công");
                 Refresh();
 
             }
@@ -88,7 +89,7 @@ namespace RestaurentManagement.Views
                 int rs = WarehouseController.Instance.DeleteItem(txtID.Text);
                 if (rs == 1)
                 {
-                    mf.NotifySuss("Xóa nguyên liệu thành công");
+                    mf.NotifySuss($"Xóa nguyên liệu {txtName.Text} thành công");
                     Refresh();
 
                 }
@@ -156,7 +157,7 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            txtID.ResetText();
+            txtID.Text = "Dành cho chức năng tìm kiếm";
             txtName.ResetText();
             txtQuantity.Value = 0;
         }

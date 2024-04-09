@@ -123,5 +123,12 @@ namespace RestaurentManagement.Controllers
             }
             return foodCategories;
         }
+
+        public int GetOrderNumInList()
+        {
+            string query = @"SELECT COUNT(cgFood_id) FROM FoodCategory";
+            int data = DBHelper.Instance.ExecuteScalar(query);
+            return data;
+        }
     }
 }

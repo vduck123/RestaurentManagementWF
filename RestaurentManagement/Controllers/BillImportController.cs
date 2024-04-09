@@ -46,7 +46,8 @@ namespace RestaurentManagement.Controllers
             string query = @"UPDATE dbo.BillOfImport
                             SET staff_id = @staff_id ,
                                 supplier_id = @supplier_id ,
-	                            dayCreate = @daycreated
+	                            dayCreate = @daycreated ,
+                                total_money = @totalmoney
                                 WHERE boImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -111,6 +112,21 @@ namespace RestaurentManagement.Controllers
             string query = $"SELECT COUNT(boImport_id) FROM BillOfImport";
             int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
             return orderNum;
+        }
+
+        public int UpdateTotalBillByID(string id, int money)
+        {
+            string query = @"UPDATE dbo.BillOfImport
+                            SET total_money = @totalmoney
+                                WHERE boImport_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id } ,
+                {"@totalmoney", money }
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
         }
     }
 }

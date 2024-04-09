@@ -113,18 +113,19 @@
             this.guna2Panel2.Controls.Add(this.lbUser);
             this.guna2Panel2.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(203, 222);
+            this.guna2Panel2.Size = new System.Drawing.Size(203, 246);
             this.guna2Panel2.TabIndex = 0;
             // 
             // lbUser
             // 
             this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUser.ForeColor = System.Drawing.Color.White;
-            this.lbUser.Location = new System.Drawing.Point(39, 20);
+            this.lbUser.Location = new System.Drawing.Point(30, 32);
             this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(35, 13);
+            this.lbUser.Size = new System.Drawing.Size(91, 28);
             this.lbUser.TabIndex = 0;
-            this.lbUser.Text = "admin";
+            this.lbUser.Text = "Username";
             // 
             // flowLayoutPanel2
             // 
@@ -141,7 +142,7 @@
             this.flowLayoutPanel2.Controls.Add(this.panel10);
             this.flowLayoutPanel2.Controls.Add(this.panel11);
             this.flowLayoutPanel2.Controls.Add(this.panel13);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 231);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 255);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(203, 523);
             this.flowLayoutPanel2.TabIndex = 1;
@@ -660,6 +661,7 @@
             this.Name = "Admin_VIEW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin_VIEW";
+            this.Load += new System.EventHandler(this.Admin_VIEW_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

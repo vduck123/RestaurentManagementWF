@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurentManagement.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,14 @@ namespace RestaurentManagement.Views
 {
     public partial class Admin_VIEW : Form
     {
-        public static string user;
-        public Admin_VIEW()
+        public string _user;
+        public Admin_VIEW(string user)
         {
             InitializeComponent();
+            if(user != null)
+            {
+                _user = user;
+            }
         }
 
         Form currentForm = null;
@@ -104,7 +109,12 @@ namespace RestaurentManagement.Views
 
         private void btnBillImport_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new BillImport_VIEW());
+            OpenChildForm(new BillImport_VIEW(lbUser.Text));
+        }
+
+        private void Admin_VIEW_Load(object sender, EventArgs e)
+        {
+            lbUser.Text = StaffController.Instance.GetNameStaffByAccID(AccountController.Instance.GetIdAccountByUsername(_user));
         }
     }
 }

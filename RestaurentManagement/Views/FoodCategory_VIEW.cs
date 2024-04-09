@@ -44,7 +44,7 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            txtCategoryID.ResetText();
+            txtCategoryID.Text = "Dành cho chức năng tìm kiếm";
             txtCategoryName.ResetText();
         }
         #endregion
@@ -57,17 +57,18 @@ namespace RestaurentManagement.Views
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"LH000{FoodCategoryController.Instance.GetOrderNumInList()}";
             FoodCategory foodCategory = new FoodCategory()
             {
-                ID = txtCategoryID.Text,
+                ID = id,
                 Name = txtCategoryName.Text,
             };
 
             int rs = FoodCategoryController.Instance.InsertCategory(foodCategory);
             if(rs == 1)
             {
-                mf.NotifySuss("Thêm loại hàng thành công");
-                LoadData();
+                mf.NotifySuss($"Thêm loại hàng {txtCategoryName.Text} thành công");
+                Refresh();
             }
         }
 
@@ -82,8 +83,8 @@ namespace RestaurentManagement.Views
             int rs = FoodCategoryController.Instance.UpdateCategory(foodCategory);
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật loại hàng thành công");
-                LoadData();
+                mf.NotifySuss($"Cập nhật loại hàng {txtCategoryName.Text} thành công");
+                Refresh();
             }
 
         }
@@ -96,8 +97,8 @@ namespace RestaurentManagement.Views
                 int rs = FoodCategoryController.Instance.DeleteCategory(txtCategoryID.Text);
                 if(rs == 1)
                 {
-                    mf.NotifySuss("Xóa loại hàng thành công");
-                    LoadData();
+                    mf.NotifySuss($"Xóa loại hàng {txtCategoryName.Text} thành công");
+                    Refresh();
                 } 
                 else
                 {

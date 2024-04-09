@@ -15,9 +15,13 @@ namespace RestaurentManagement.Views
     public partial class BillImport_VIEW : Form
     {
         MainForm mf = new MainForm();
-        public BillImport_VIEW()
+        public BillImport_VIEW(string nameStaff)
         {
             InitializeComponent();
+            if(!string.IsNullOrEmpty(nameStaff))
+            {
+                txtStaff.Text = nameStaff;  
+            }
         }
         #region Event
         private void BillImportStaff_VIEW_Load(object sender, EventArgs e)
@@ -27,17 +31,18 @@ namespace RestaurentManagement.Views
 
         private void dgvBilImport_Click(object sender, EventArgs e)
         {
-            if (dgvBilImport.Rows.Count > 0)
+            if (dgvBilImport.SelectedRows.Count > 0)
             {
-                txtID.Text = dgvBilImport.Rows[0].Cells[0].Value.ToString();
-                txtStaff.Text = dgvBilImport.Rows[0].Cells[1].Value.ToString();
-                cbbSupplier.SelectedItem = dgvBilImport.Rows[0].Cells[2].Value.ToString();
-                dtDayCreated.Value = Convert.ToDateTime(dgvBilImport.Rows[0].Cells[3].Value);
-                txtTotalMoney.Text = dgvBilImport.Rows[0].Cells[4].Value.ToString();
+                DataGridViewRow selectedRow = dgvBilImport.SelectedRows[0];
+                txtID.Text = selectedRow.Cells[0].Value.ToString();
+                txtStaff.Text = selectedRow.Cells[1].Value.ToString();
+                cbbSupplier.SelectedItem = selectedRow.Cells[2].Value.ToString();
+                dtDayCreated.Value = Convert.ToDateTime(selectedRow.Cells[3].Value);
+                txtTotalMoney.Text = selectedRow.Cells[4].Value.ToString();
             }
         }
 
-        
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -74,16 +79,17 @@ namespace RestaurentManagement.Views
             int rs = BillImportController.Instance.UpdateBillImport(billImport);
             if (rs == 1)
             {
-                mf.NotifySuss("Cập nhật hóa đơn thành công");
+                mf.NotifySuss($"Cập nhật hóa đơn id={txtID.Text} thành công");
                 Refresh();
             }
         }
 
-        private void btnDel_Click(object sender, EventArgs e)
+        private async void btnDel_Click(object sender, EventArgs e)
         {
-            DialogResult qs = mf.NotifyConfirm("Ấn OK để xóa hóa đơn id={}");
+            DialogResult qs = mf.NotifyConfirm($"Ấn OK để xóa hóa đơn id={txtID.Text}");
             if(qs == DialogResult.OK)
             {
+                int rs1 = BillImportInfoController.Instance.DeleteBillImportInfo(txtID.Text);
                 int rs = BillImportController.Instance.DeleteBillImport(txtID.Text);
                 if (rs == 1)
                 {
@@ -109,7 +115,7 @@ namespace RestaurentManagement.Views
                 dt.Rows.Add(
                     billImport.ID,
                     StaffController.Instance.GetNameStaffByID(billImport.StaffID),
-                    SupplierController.Instance.GetNameSupplierByID(cbbSupplier.SelectedIndex.ToString()),
+                    SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
                     billImport.DayCreated,
                     billImport.TotalMoney
                );
@@ -158,7 +164,7 @@ namespace RestaurentManagement.Views
                 dt.Rows.Add(
                     billImport.ID,
                     StaffController.Instance.GetNameStaffByID(billImport.StaffID),
-                    SupplierController.Instance.GetNameSupplierByID(cbbSupplier.SelectedIndex.ToString()),
+                    SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
                     billImport.DayCreated,
                     billImport.TotalMoney
                );
@@ -169,7 +175,6 @@ namespace RestaurentManagement.Views
 
         void LoadSupplier()
         {
-            cbbSupplier.Items.Clear();
             List<string> listnameSupplier = new List<string>();
             List<Supplier> listSupplier = SupplierController.Instance.GetListSupplier();
             foreach (Supplier supplier in listSupplier)
@@ -183,9 +188,11 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            txtID.Text = "Dnahf cho chức năng tìm kiếm";
+            txtID.Text = "Dành cho chức năng tìm kiếm";
             txtTotalMoney.Text = "0";
         }
         #endregion
+
+        
     }
 }

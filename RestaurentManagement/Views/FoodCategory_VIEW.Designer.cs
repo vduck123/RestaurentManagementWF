@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FoodCategory_VIEW));
             this.dgvFoodCategory = new Guna.UI2.WinForms.Guna2DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,34 +59,35 @@
             // 
             // dgvFoodCategory
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvFoodCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFoodCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            this.dgvFoodCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFoodCategory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvFoodCategory.ColumnHeadersHeight = 30;
             this.dgvFoodCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvFoodCategory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFoodCategory.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFoodCategory.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvFoodCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFoodCategory.Location = new System.Drawing.Point(0, 0);
+            this.dgvFoodCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvFoodCategory.Name = "dgvFoodCategory";
             this.dgvFoodCategory.RowHeadersVisible = false;
-            this.dgvFoodCategory.Size = new System.Drawing.Size(665, 628);
+            this.dgvFoodCategory.Size = new System.Drawing.Size(887, 773);
             this.dgvFoodCategory.TabIndex = 0;
             this.dgvFoodCategory.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvFoodCategory.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -128,9 +129,10 @@
             this.panel2.Controls.Add(this.btnUpdate);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.dgvFoodCategory);
-            this.panel2.Location = new System.Drawing.Point(2, 2);
+            this.panel2.Location = new System.Drawing.Point(3, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(665, 753);
+            this.panel2.Size = new System.Drawing.Size(887, 927);
             this.panel2.TabIndex = 9;
             // 
             // btnSearch
@@ -143,9 +145,10 @@
             this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(476, 669);
+            this.btnSearch.Location = new System.Drawing.Point(635, 823);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(116, 37);
+            this.btnSearch.Size = new System.Drawing.Size(155, 46);
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -160,9 +163,10 @@
             this.btnDel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnDel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(330, 669);
+            this.btnDel.Location = new System.Drawing.Point(440, 823);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(116, 37);
+            this.btnDel.Size = new System.Drawing.Size(155, 46);
             this.btnDel.TabIndex = 3;
             this.btnDel.Text = "Xóa";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
@@ -177,11 +181,12 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(197, 669);
+            this.btnUpdate.Location = new System.Drawing.Point(263, 823);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(116, 37);
+            this.btnUpdate.Size = new System.Drawing.Size(155, 46);
             this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Text = "Sửa";
+            this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnAdd
@@ -194,9 +199,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(43, 669);
+            this.btnAdd.Location = new System.Drawing.Point(57, 823);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(116, 37);
+            this.btnAdd.Size = new System.Drawing.Size(155, 46);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -211,9 +217,10 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(280, 693);
+            this.btnRefresh.Location = new System.Drawing.Point(373, 853);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(116, 37);
+            this.btnRefresh.Size = new System.Drawing.Size(155, 46);
             this.btnRefresh.TabIndex = 5;
             this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -222,19 +229,21 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Historic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 67);
+            this.label1.Location = new System.Drawing.Point(56, 82);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 30);
+            this.label1.Size = new System.Drawing.Size(116, 30);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Food Category";
+            this.label1.Text = "Loại hàng";
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(219, 77);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(292, 95);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(25, 20);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(33, 25);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -242,9 +251,10 @@
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.guna2Panel1.Location = new System.Drawing.Point(667, 2);
+            this.guna2Panel1.Location = new System.Drawing.Point(889, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(3, 755);
+            this.guna2Panel1.Size = new System.Drawing.Size(4, 929);
             this.guna2Panel1.TabIndex = 8;
             // 
             // panel1
@@ -259,17 +269,19 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.guna2PictureBox1);
-            this.panel1.Location = new System.Drawing.Point(667, 2);
+            this.panel1.Location = new System.Drawing.Point(889, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 753);
+            this.panel1.Size = new System.Drawing.Size(556, 927);
             this.panel1.TabIndex = 7;
             // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel3.Location = new System.Drawing.Point(32, 394);
+            this.guna2Panel3.Location = new System.Drawing.Point(43, 485);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(345, 2);
+            this.guna2Panel3.Size = new System.Drawing.Size(460, 2);
             this.guna2Panel3.TabIndex = 7;
             // 
             // txtCategoryName
@@ -287,39 +299,41 @@
             this.txtCategoryName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCategoryName.ForeColor = System.Drawing.Color.Black;
             this.txtCategoryName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryName.Location = new System.Drawing.Point(147, 355);
-            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategoryName.Location = new System.Drawing.Point(175, 437);
+            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCategoryName.Name = "txtCategoryName";
             this.txtCategoryName.PasswordChar = '\0';
             this.txtCategoryName.PlaceholderText = "";
             this.txtCategoryName.SelectedText = "";
-            this.txtCategoryName.Size = new System.Drawing.Size(221, 29);
+            this.txtCategoryName.Size = new System.Drawing.Size(316, 36);
             this.txtCategoryName.TabIndex = 6;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel2.Location = new System.Drawing.Point(32, 315);
+            this.guna2Panel2.Location = new System.Drawing.Point(43, 388);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(345, 2);
+            this.guna2Panel2.Size = new System.Drawing.Size(460, 2);
             this.guna2Panel2.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(27, 358);
+            this.label3.Location = new System.Drawing.Point(36, 443);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(113, 20);
+            this.label3.Size = new System.Drawing.Size(105, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Food Category:";
+            this.label3.Text = "Tên loại hàng:";
             // 
             // txtCategoryID
             // 
             this.txtCategoryID.BorderColor = System.Drawing.Color.Transparent;
             this.txtCategoryID.BorderThickness = 0;
             this.txtCategoryID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCategoryID.DefaultText = "";
+            this.txtCategoryID.DefaultText = "Dành cho chức năng tìm kiếm";
             this.txtCategoryID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtCategoryID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCategoryID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -327,36 +341,38 @@
             this.txtCategoryID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.txtCategoryID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCategoryID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCategoryID.ForeColor = System.Drawing.Color.Black;
+            this.txtCategoryID.ForeColor = System.Drawing.Color.Red;
             this.txtCategoryID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtCategoryID.Location = new System.Drawing.Point(128, 279);
-            this.txtCategoryID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCategoryID.Location = new System.Drawing.Point(175, 343);
+            this.txtCategoryID.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtCategoryID.Name = "txtCategoryID";
             this.txtCategoryID.PasswordChar = '\0';
             this.txtCategoryID.PlaceholderText = "";
             this.txtCategoryID.SelectedText = "";
-            this.txtCategoryID.Size = new System.Drawing.Size(240, 29);
+            this.txtCategoryID.Size = new System.Drawing.Size(316, 36);
             this.txtCategoryID.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(28, 283);
+            this.label2.Location = new System.Drawing.Point(37, 348);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 20);
+            this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "ID Category:";
+            this.label2.Text = "Mã loại hàng:";
             // 
             // FoodCategory_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.ClientSize = new System.Drawing.Size(1447, 930);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FoodCategory_VIEW";
             this.Text = "FoodCategory_VIEW";
             this.Load += new System.EventHandler(this.FoodCategory_VIEW_Load);

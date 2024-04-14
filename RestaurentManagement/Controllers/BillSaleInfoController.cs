@@ -10,16 +10,16 @@ using System.Web;
 
 namespace RestaurentManagement.Controllers
 {
-    internal class BillInfoController
+    internal class BillSaleInfoController
     {
-        private static BillInfoController instance;
-        public static BillInfoController Instance
+        private static BillSaleInfoController instance;
+        public static BillSaleInfoController Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new BillInfoController();
+                    instance = new BillSaleInfoController();
                 }
                 return instance;
             }

@@ -11,11 +11,11 @@ namespace RestaurentManagement.Models
     {
         public string ID { get; set; }
         public string Name { get; set; }
-        public int Expiry { get; set; }
+        public string Expiry { get; set; }
         public string Status { get; set; }
 
         public Voucher() { }
-        public Voucher(string iD, string name, int expiry, string status)
+        public Voucher(string iD, string name, string expiry, string status)
         {
             ID = iD;
             Name = name;
@@ -27,7 +27,7 @@ namespace RestaurentManagement.Models
         {
             ID = (string)row["voucher_id"];
             Name = (string)row["voucher_name"];
-            Expiry = (int)row["voucher_expiry"];
+            Expiry = (string)row["voucher_expiry"];
             Status = (string)row["status"];
         }
     }

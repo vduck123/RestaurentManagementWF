@@ -109,15 +109,16 @@ namespace RestaurentManagement.Controllers
             return listItem;
         }
 
-        public int UpdateQuantityItemByID(string id)
+        public int UpdateQuantityItemByName(string name,int quantity)
         {
             string query = $@"UPDATE Warehouse 
-                              SET quantity = @quantity ,
-                              WHERE item_id = @id";
+                              SET quantity = @quantity 
+                              WHERE item_name = @name";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                {"@id", id},
+                {"@name", name},
+                {"@quantity", quantity }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -159,6 +160,14 @@ namespace RestaurentManagement.Controllers
             string query = $"SELECT COUNT(item_id) FROM Warehouse";
             int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
             return orderNum;
+        }
+
+        public int CheckExitItem(string name)
+        {
+            string query = $"SELECT COUNT(*) FROM Warehouse WHERE item_name = N'{name}'";
+
+            int data = DBHelper.Instance.ExecuteScalar(query);
+            return data;
         }
     }
 }

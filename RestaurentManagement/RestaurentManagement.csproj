@@ -53,10 +53,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BillController.cs" />
     <Compile Include="Controllers\BillImportController.cs" />
     <Compile Include="Controllers\BillImportInfoController.cs" />
-    <Compile Include="Controllers\BillInfoController.cs" />
+    <Compile Include="Controllers\BillSaleController.cs" />
+    <Compile Include="Controllers\BillSaleInfoController.cs" />
     <Compile Include="Controllers\FoodCategoryController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -74,10 +74,11 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Models\BillSale.cs" />
     <Compile Include="Models\BillImport.cs" />
     <Compile Include="Models\BillImportInfo.cs" />
     <Compile Include="Models\BillInfo.cs" />
+    <Compile Include="Models\BillSaleInfo.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
     <Compile Include="Models\Menu.cs" />
@@ -94,6 +95,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="utils\CheckNum.cs" />
     <Compile Include="utils\DBHelper.cs" />
     <Compile Include="Views\Account_VIEW.cs">
       <SubType>Form</SubType>

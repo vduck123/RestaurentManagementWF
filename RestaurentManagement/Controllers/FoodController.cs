@@ -153,5 +153,12 @@ namespace RestaurentManagement.Controllers
 
             return foods;
         }
+
+        public int GetOrderNumInList()
+        {
+            string query = "SELECT COUNT(food_id) FROM Food";
+            int num = DBHelper.Instance.ExecuteScalar(query);
+            return num;
+        }
     }
 }

@@ -23,28 +23,34 @@ namespace RestaurentManagement.Views
         #region Event
         private void Voucher_VIEW_Load(object sender, EventArgs e)
         {
-            LoadData();
-            LoadStatus();
+            Refresh();
         }
         private void dgvVoucher_Click(object sender, EventArgs e)
         {
-            txtID.Text = dgvVoucher.SelectedRows[0].Cells[0].Value.ToString();
-            txtName.Text = dgvVoucher.SelectedRows[0].Cells[1].Value.ToString();
-            txtExpiry.Text = dgvVoucher.SelectedRows[0].Cells[2].Value.ToString();
-            cbbStatus.SelectedItem = dgvVoucher.SelectedRows[0].Cells[3].Value.ToString();
+            if(dgvVoucher.Rows.Count > 0)
+            {
+                string[] expiry = dgvVoucher.SelectedRows[0].Cells[2].Value.ToString().Split(' ');
+                txtID.Text = dgvVoucher.SelectedRows[0].Cells[0].Value.ToString();
+                txtName.Text = dgvVoucher.SelectedRows[0].Cells[1].Value.ToString();
+                txtExpiry.Value = Convert.ToInt32(expiry[0]);
+                cbbOptionExpiry.SelectedItem = expiry[1];
+                cbbStatus.SelectedItem = dgvVoucher.SelectedRows[0].Cells[3].Value.ToString();
+            }            
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"PGG00{VoucherController.Instance.GetOrderNumInList()}";
+            string exprice = $"{txtExpiry.Value} {cbbOptionExpiry.SelectedItem}";
             Voucher voucher = new Voucher()
             {
-                ID = txtID.Text,
+                ID = id,
                 Name = txtName.Text,
-                Expiry = (int)txtExpiry.Value ,
+                Expiry = exprice,
                 Status = cbbStatus.SelectedItem.ToString()
             };
-            
+
             int rs = VoucherController.Instance.InsertVoucher(voucher);
-            if(rs == 1)
+            if (rs == 1)
             {
                 mf.NotifySuss("Thêm voucher thành công");
                 Refresh();
@@ -53,11 +59,12 @@ namespace RestaurentManagement.Views
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string exprice = $"${txtExpiry.Value} {cbbOptionExpiry.SelectedItem}";
             Voucher voucher = new Voucher()
             {
                 ID = txtID.Text,
                 Name = txtName.Text,
-                Expiry = (int)txtExpiry.Value,
+                Expiry = exprice,
                 Status = cbbStatus.SelectedItem.ToString()
             };
 
@@ -110,7 +117,7 @@ namespace RestaurentManagement.Views
                 if (rs == 1)
                 {
                     mf.NotifySuss("Cập nhật voucher thành công");
-                    LoadData();
+                    Refresh();
                 }
             }
         }
@@ -124,7 +131,7 @@ namespace RestaurentManagement.Views
                 if (rs == 1)
                 {
                     mf.NotifySuss("Cập nhật voucher thành công");
-                    LoadData();
+                    Refresh();
                 }
             }
         }
@@ -166,11 +173,22 @@ namespace RestaurentManagement.Views
             cbbStatus.DataSource = listStatus;
         }
 
+        void LoadOptionExpiry()
+        {
+            List<string> options = new List<string>
+            {
+                "%" ,
+                "Vnđ"
+            };
+            cbbOptionExpiry.DataSource = options;
+        }
+
         void Refresh()
         {
             LoadData();
             LoadStatus();
-            txtID.ResetText();
+            LoadOptionExpiry();
+            txtID.Text = "Dành cho chức năng tìm kiếm";
             txtName.ResetText();
             txtExpiry.Value = 0;
         }

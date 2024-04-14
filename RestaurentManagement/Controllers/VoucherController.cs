@@ -111,5 +111,12 @@ namespace RestaurentManagement.Controllers
             }
             return vouchers;
         }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(voucher_id) FROM Voucher";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
+        }
     }
 }

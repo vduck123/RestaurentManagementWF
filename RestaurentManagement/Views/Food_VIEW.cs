@@ -80,7 +80,7 @@ namespace RestaurentManagement.Views
         void Refresh()
         {
             LoadData();
-            txtFoodID.ResetText();
+            txtFoodID.Text = "Dành cho chức năng tìm kiếm";
             txtFoodName.ResetText();
             txtNumMaterial.Value = 0;
             txtPrice.Value = 0;
@@ -102,9 +102,10 @@ namespace RestaurentManagement.Views
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string id = $"F0000{FoodController.Instance.GetOrderNumInList()}";
             Food f = new Food()
             {
-                ID = txtFoodID.Text,
+                ID = id,
                 Name = txtFoodName.Text,
                 Price = Convert.ToInt32(txtPrice.Value),
                 materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),

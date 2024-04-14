@@ -87,6 +87,7 @@ CREATE TABLE BillOfImport
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	total_money INT 
 )
+SELECT * FROM dbo.BillOfImport
 --
 CREATE TABLE DetailBillOfImport
 (
@@ -102,10 +103,12 @@ CREATE TABLE Voucher
 (	
 	voucher_id CHAR(10) PRIMARY KEY ,
 	voucher_name NVARCHAR(30) ,
-	voucher_expiry INT ,
+	voucher_expiry CHAR(30) ,
 	status NVARCHAR(30)
 )
 
+DROP TABLE VOUCHER
+SELECT * FROM Voucher
 --
 CREATE TABLE BillOfSale 
 (
@@ -128,6 +131,8 @@ CREATE TABLE DetailBillOfSale
 	boSale_id CHAR(10) REFERENCES BillOfSale(boSale_id)
 )
 
+DROP TABLE DetailBillOfSale
+
 --
 CREATE TABLE Menu
 (
@@ -135,13 +140,13 @@ CREATE TABLE Menu
 	food_price INT ,
 	quantity INT ,
 	total INT ,
-	totalTable INT ,
 	table_id CHAR(10) REFERENCES dbo._TABLE(table_id)
 )
 
+DROP TABLE Menu
+
 
 --
-
 
 
 --Insert Data

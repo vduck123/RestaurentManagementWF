@@ -18,6 +18,7 @@ namespace RestaurentManagement.Controllers
         public static Font FontMain = new Font("Segoe UI Historic",12);
         public static Color status0 = Color.Green;
         public static Color status1 = Color.Red;
+        public static Color isSelected = Color.AliceBlue;
 
         private static TableController instance;
 
@@ -66,6 +67,18 @@ namespace RestaurentManagement.Controllers
                 tables.Add(tb);
             }
             return tables;
+        }
+
+        public string GetNameTableById(string id)
+        {
+            string name = string.Empty;
+            string query = $"SELECT * FROM _Table WHERE table_id = '{id}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                name = row["table_name"].ToString();
+            }
+            return name;
         }
 
     }

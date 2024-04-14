@@ -8,22 +8,23 @@ using System.Threading.Tasks;
 
 namespace RestaurentManagement.Controllers
 {
-    internal class BillController
+    internal class BillSaleController
     {
-        private static BillController instance;
-        public static BillController Instance
+        private static BillSaleController instance;
+        public static BillSaleController Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new BillController();
+                    instance = new BillSaleController();
                 }
+
                 return instance;
             }
         }
 
-        public int InsertBill(Bill bill)
+        public int InsertBillSale(BillSale bill)
         {
             string query = @"INSERT INTO BillOfSale (boSale_id, dayIn, dayOut, totalMoney) 
                             VALUES (@Id, @DayIn, @DayOut, @TotalMoney)";
@@ -41,7 +42,7 @@ namespace RestaurentManagement.Controllers
             return result;
         }
 
-        public int UpdateBill(Bill bill)
+        public int UpdateBillSale(BillSale bill)
         {
             string query = @"UPDATE dbo.BillOfSale
                                 SET totalMoney = @total,
@@ -61,7 +62,21 @@ namespace RestaurentManagement.Controllers
             return result;
         }
 
-        
+        public int DeleteBillSale(BillSale bill)
+        {
+            string query = @"DELETE FROM dbo.BillOfSale WHERE boSale_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@id", bill.Id }
+            };
+
+            int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
+            return result;
+        }
+
+       
+
+
 
         public int GetNumOrderBill()
         {
@@ -74,6 +89,8 @@ namespace RestaurentManagement.Controllers
             }
             return num;
         }
+        
+
 
 
     }

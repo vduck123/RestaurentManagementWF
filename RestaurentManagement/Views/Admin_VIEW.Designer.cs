@@ -253,6 +253,7 @@
             this.btnTable.Size = new System.Drawing.Size(197, 34);
             this.btnTable.TabIndex = 0;
             this.btnTable.Text = "Bàn";
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // panel5
             // 

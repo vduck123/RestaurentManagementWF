@@ -45,21 +45,19 @@ namespace RestaurentManagement.Views
                 BillID = _billID
             };
 
-            int rs = BillImportInfoController.Instance.InsertBillImportInfor(bill);
-            if(rs == 1)
+            int rsCheckExit = WarehouseController.Instance.CheckExitItem(cbbItem.SelectedItem.ToString());
+            if(rsCheckExit == 1)
             {
-                int rs1 = BillImportController.Instance.UpdateTotalBillByID(_billID,Convert.ToInt32(txtTotal.Text));
-                {
-                    if (rs1 == 1)
-                    {
-                        mf.NotifySuss("Thêm hóa đơn thành công");
-                        LoadBillByID(_billID);
-                        LoadTotalBill();
-                        Refresh();
-                    }
-                }              
+                BillImportInfoController.Instance.UpdateQuantityItem(WarehouseController.Instance.GetIDItemByName(cbbItem.SelectedItem.ToString()), Convert.ToInt32(txtQuantity.Value));
             }
-
+            else 
+            {
+                BillImportInfoController.Instance.InsertBillImportInfor(bill);
+            }
+            BillImportController.Instance.UpdateTotalBillByID(_billID,Convert.ToInt32(txtTotal.Text));
+            WarehouseController.Instance.UpdateQuantityItemByName(cbbItem.SelectedItem.ToString(), Convert.ToInt32(txtQuantity.Value));
+            mf.NotifySuss("Thêm hóa đơn thành công");
+            Refresh();                                                      
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -76,16 +74,22 @@ namespace RestaurentManagement.Views
             int rs = BillImportInfoController.Instance.UpdateBillImportInfo(bill);
             if (rs == 1)
             {
-                int rs1 = BillImportController.Instance.UpdateTotalBillByID(txtBillID.Text, Convert.ToInt32(txtTotal.Text));
-                {
-                    if (rs1 == 1)
-                    {
-                        mf.NotifySuss("Cập nhật hóa đơn thành công");
-                        LoadBillByID(_billID);
-                        LoadTotalBill();
-                        Refresh();
-                    }
-                }
+                LoadBillByID(txtBillID.Text);
+                LoadTotalBill(); 
+                BillImportController.Instance.UpdateTotalBillByID(txtBillID.Text, Convert.ToInt32(txtTotal.Text));
+                WarehouseController.Instance.UpdateQuantityItemByName(cbbItem.SelectedItem.ToString(), Convert.ToInt32(txtQuantity.Value));
+                mf.NotifySuss("Cập nhật hóa đơn thành công");
+                Refresh();                         
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            DialogResult qs = mf.NotifyConfirm($"Ấn OK để xác nhận xóa {cbbItem.SelectedItem.ToString()}");
+            if(qs  == DialogResult.OK)
+            {
+                BillImportInfoController.Instance.DeleteBillImportInfoByID(txtID.Text);
+                Refresh();
             }
         }
 
@@ -109,6 +113,17 @@ namespace RestaurentManagement.Views
         private void txtQuantity_ValueChanged(object sender, EventArgs e)
         {
             txtSum.Text = (Convert.ToInt32(txtPrice.Value) * Convert.ToInt32(txtQuantity.Value)).ToString();
+            
+        }
+
+        private void txtSum_TextChanged(object sender, EventArgs e)
+        {
+            LoadTotalBill();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Refresh();
         }
 
 
@@ -127,7 +142,7 @@ namespace RestaurentManagement.Views
                 dt.Columns.Add("Mã hóa đơn");
 
                 foreach (BillImportInfo bill in list)
-                {
+                {                 
                     dt.Rows.Add(bill.ID, WarehouseController.Instance.GetNameItemByID(bill.ItemID), bill.Price, bill.Quantity, bill.TotalMoney, bill.BillID);
                 }
                 dgvBilImportInfo.DataSource = dt;
@@ -166,19 +181,11 @@ namespace RestaurentManagement.Views
             txtTotal.Text = sum.ToString();
         }
 
-        private void txtSum_TextChanged(object sender, EventArgs e)
-        {
-            LoadTotalBill();
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            Refresh();
-        }
 
         void Refresh()
         {
             LoadItem();
+            LoadBillByID(txtBillID.Text);
             LoadTotalBill();
             txtID.Text = "Dành cho chức năng cập nhật";
             txtPrice.Value = 0;

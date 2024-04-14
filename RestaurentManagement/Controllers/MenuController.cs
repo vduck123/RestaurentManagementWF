@@ -26,16 +26,14 @@ namespace RestaurentManagement.Controllers
         public int InsertMenu(Menu menu)
         {
             string query1 = @"INSERT INTO Menu
-                              VALUES (@food_id,@price,@quantity,@total,@totalTable,@table_id)";
+                              VALUES (@food_id,@price,@quantity,@total,@table_id)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                {"@food_id",menu.FoodID} ,
-                {"price", menu.priceFood } ,
+                {"@food_id",menu.foodID} ,
+                {"price", menu.Price} ,
                 {"@quantity", menu.Quantity } ,
-                {"@total", menu.totalFood} ,
-                {"@totalTable", menu.totalMoney} ,
-                {"@table_id", menu.TableID }
-
+                {"@total", menu.Total} ,
+                {"@table_id", menu.tableID}
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query1, parameters);
@@ -60,12 +58,12 @@ namespace RestaurentManagement.Controllers
         {
             List<Menu> listMenu = new List<Menu>();
 
-            string query = @"SELECT f.food_name, f.food_price , dbos.food_quantity, bos.totalMoney
+            string query = $@"SELECT f.food_name, f.food_price , dbos.food_quantity, bos.totalMoney
                                 FROM Food f 
                                 INNER JOIN dbo.DetailBillOfSale dbos ON dbos.food_id = f.food_id
                                 INNER JOIN dbo.BillOfSale bos ON bos.boSale_id = dbos.boSale_id
                                 INNER JOIN dbo._TABLE t ON t.table_id = bos.table_id
-                                WHERE t.table_id = @id";
+                                WHERE t.table_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow row in dt.Rows)

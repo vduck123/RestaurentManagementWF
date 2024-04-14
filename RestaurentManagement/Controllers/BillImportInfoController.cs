@@ -63,7 +63,8 @@ namespace RestaurentManagement.Controllers
             return data;
 
         }
-        public int DeleteBillImportInfo(string id)
+
+        public int DeleteAll(string id)
         {
             string query = @"DELETE FROM DetailBillOfImport WHERE boImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -73,8 +74,20 @@ namespace RestaurentManagement.Controllers
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
             return data;
-
         }
+
+        public int DeleteBillImportInfoByID(string id)
+        {
+            string query = @"DELETE FROM DetailBillOfImport WHERE dboImport_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id }
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+     
 
         public List<BillImportInfo> SelectBillImportInfo(string id)
         {
@@ -115,5 +128,24 @@ namespace RestaurentManagement.Controllers
             return Convert.ToInt32(orderNum);
 
         }
+
+        public int UpdateQuantityItem(string id, int quantity)
+        {
+            string query = $@"UPDATE dbo.DetailBillOfImport
+                              SET quantity = quantity + @quantity ,
+                                  total_money = quantity * price
+                              WHERE item_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id } ,
+                {"@quantity", quantity } 
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+
+            return data;
+        }
+
+       
     }
 }

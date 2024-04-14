@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RestaurentManagement.Models
 {
-    internal class Bill
+    internal class BillSale
     {
         public string Id { get; set; }
         public DateTime dayIn {  get; set; }
@@ -16,9 +16,9 @@ namespace RestaurentManagement.Models
         public int totalMoney { get; set; }
         public string tableID { get; set; }
         
-        public Bill() { }
+        public BillSale() { }
 
-        public Bill(string id, DateTime dayin, DateTime dayout, int totalmoney, string tableid)
+        public BillSale(string id, DateTime dayin, DateTime dayout, int totalmoney, string tableid)
         {
             this.Id = id;
             this.dayIn = dayin;
@@ -27,7 +27,7 @@ namespace RestaurentManagement.Models
             this.tableID = tableid;
         }
 
-        public Bill(DataRow row)
+        public BillSale(DataRow row)
         {
             this.Id = (string)row["boSale_id "];
             this.dayIn = (DateTime)row["dayIn"];

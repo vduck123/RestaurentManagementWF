@@ -116,5 +116,10 @@ namespace RestaurentManagement.Views
         {
             lbUser.Text = StaffController.Instance.GetNameStaffByAccID(AccountController.Instance.GetIdAccountByUsername(_user));
         }
+
+        private void btnTable_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Order_VIEW());
+        }
     }
 }

@@ -89,10 +89,11 @@ namespace RestaurentManagement.Views
             DialogResult qs = mf.NotifyConfirm($"Ấn OK để xóa hóa đơn id={txtID.Text}");
             if(qs == DialogResult.OK)
             {
-                int rs1 = BillImportInfoController.Instance.DeleteBillImportInfo(txtID.Text);
+                
                 int rs = BillImportController.Instance.DeleteBillImport(txtID.Text);
                 if (rs == 1)
                 {
+                    BillImportInfoController.Instance.DeleteAll(txtID.Text);
                     mf.NotifySuss("Xóa hóa đơn thành công");
                     Refresh();
                 }
@@ -138,7 +139,7 @@ namespace RestaurentManagement.Views
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-
+            Refresh();
         }
         #endregion
         #region Method

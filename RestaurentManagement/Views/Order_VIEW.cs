@@ -10,8 +10,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Menu = RestaurentManagement.Models.Menu;
+using Table = RestaurentManagement.Models.Table;
 
 
 namespace RestaurentManagement.Views
@@ -24,7 +26,7 @@ namespace RestaurentManagement.Views
         }
 
         private void Order_VIEW_Load(object sender, EventArgs e)
-        {          
+        {
             txtTotalBill.Enabled = false;
             LoadVoucher();
             LoadCategoryFood();
@@ -45,16 +47,17 @@ namespace RestaurentManagement.Views
                 nameVoucher = $"{voucher.Name} giảm {voucher.Expiry}";
                 nameVouchers.Add(nameVoucher);
             }
-            cbbVoucher.DataSource  = nameVouchers;
+            cbbVoucher.DataSource = nameVouchers;
         }
 
         void LoadTables()
         {
+            fpanelListTable.Controls.Clear();
             List<string> listNameTable = new List<string>();
-            List<Table> tables = TableController.Instance.GetListTable();         
+            List<Table> tables = TableController.Instance.GetListTable();
             foreach (Table table in tables)
             {
-                Button btn = new Button()
+                System.Windows.Forms.Button btn = new System.Windows.Forms.Button()
                 {
                     Width = TableController.tableWidth,
                     Height = TableController.tableHeight,
@@ -62,7 +65,7 @@ namespace RestaurentManagement.Views
                     Font = TableController.FontMain,
                     Tag = table
                 };
-                              
+
 
                 switch (table.Status)
                 {
@@ -93,14 +96,14 @@ namespace RestaurentManagement.Views
         //Event click button 
         void TableButton_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;          
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
             if (button != null && button.Tag is Table)
             {
-                Table table = (Table)button.Tag;               
+                Table table = (Table)button.Tag;
                 string id = table.Id;
                 cbbTable.SelectedItem = TableController.Instance.GetNameTableById(id);
-                DisplayBillForTable(id);
-            }       
+                DisplayMenuForTable(cbbTable.SelectedItem.ToString());
+            }
         }
         //
 
@@ -115,20 +118,22 @@ namespace RestaurentManagement.Views
             cbbFoodCategory.DataSource = categoryNames;
         }
 
-        void DisplayBillForTable(string id)
+        void DisplayMenuForTable(string name)
         {
-            dgvListFoodOrder.Rows.Clear();
-            List<Menu> menus = MenuController.Instance.GetListBillInfoByTableID(id);
+            dgvListFoodOrder.Columns.Clear();
+            List<Menu> menus = MenuController.Instance.GetMenuByTableID(TableController.Instance.GetIDTableByName(name));
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Tên món ăn");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Thành tiền");
+
             foreach (Menu menu in menus)
             {
-                foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
-                {
-                    row.Cells["Column1"].Value = FoodController.Instance.GetNameFoodByID(menu.foodID);
-                    row.Cells["Column2"].Value = menu.Quantity;
-                    row.Cells["Column3"].Value = menu.Price;
-                    row.Cells["Column4"].Value = (menu.Quantity * menu.Price);
-                }
+                dt.Rows.Add(FoodController.Instance.GetNameFoodByID(menu.foodID), menu.Quantity, menu.Price, menu.Total);
             }
+
+            dgvListFoodOrder.DataSource = dt;
         }
 
         private double CalcBill(double priceOriginal, double expiry, string expiryOption)
@@ -144,7 +149,7 @@ namespace RestaurentManagement.Views
                 case "Vnd":
                     {
                         total -= expiry;
-                        if(total < 0)
+                        if (total < 0)
                         {
                             total = 0;
                         }
@@ -164,9 +169,9 @@ namespace RestaurentManagement.Views
         double LoadTotalBill()
         {
             double total = 0;
-            foreach(DataGridViewRow row in dgvListFoodOrder.Rows)
+            foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
             {
-                int money = Convert.ToInt32(row.Cells["Column4"].Value);
+                int money = Convert.ToInt32(row.Cells[3].Value);
                 total += money;
             }
 
@@ -180,7 +185,7 @@ namespace RestaurentManagement.Views
             {
                 if (arr[i] == ":")
                 {
-                    break; 
+                    break;
                 }
                 nameFood += arr[i];
                 if (i < arr.Length - 1 && arr[i + 1] != ":")
@@ -188,7 +193,7 @@ namespace RestaurentManagement.Views
                     nameFood += " ";
                 }
             }
-            return nameFood; 
+            return nameFood;
         }
 
         #endregion
@@ -202,7 +207,7 @@ namespace RestaurentManagement.Views
             string choose = cbbFoodCategory.SelectedItem.ToString();
             foreach (Food f in listfood)
             {
-                if(choose.Equals(FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID)))
+                if (choose.Equals(FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID)))
                 {
                     listFoodName.Add($"{f.Name} : {f.Price} vnđ");
                 }
@@ -220,7 +225,7 @@ namespace RestaurentManagement.Views
             int total = 0;
             double totalTable = 0;
 
-            if(quantity == 0)
+            if (quantity == 0)
             {
                 MessageBox.Show("Vui lòng chọn số lượng");
                 return;
@@ -228,21 +233,34 @@ namespace RestaurentManagement.Views
 
             bool foodExists = false;
 
+
             foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
             {
-                if (row.Cells["Column1"].Value != null && row.Cells["Column1"].Value.ToString() == nameFoodChoose)
+                if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == nameFoodChoose)
                 {
-                    int existingQuantity = Convert.ToInt32(row.Cells["Column2"].Value);
-                    int existingTotalMoney = Convert.ToInt32(row.Cells["Column4"].Value);
+                    int existingQuantity = Convert.ToInt32(row.Cells[1].Value);
+                    int existingTotalMoney = Convert.ToInt32(row.Cells[3].Value);
                     existingQuantity += quantity;
-                    priceFood = Convert.ToInt32(row.Cells["Column3"].Value);
-                    total  = existingQuantity * priceFood;
-                    row.Cells["Column2"].Value = existingQuantity;
-                    row.Cells["Column4"].Value = total;                  
-                    foodExists = true;
-                    break;
+                    priceFood = Convert.ToInt32(row.Cells[2].Value);
+                    total = existingQuantity * priceFood;
+                    row.Cells[1].Value = existingQuantity;
+                    row.Cells[3].Value = total;
+                    Menu menu = new Menu()
+                    {
+                        foodID = FoodController.Instance.GetIDFoodByName(nameFoodChoose),
+                        Quantity = existingQuantity,
+                        Total = existingTotalMoney
+                    };
+                    int rs = MenuController.Instance.UpdateMenu(menu);
+                    if (rs == 1)
+                    {
+                        foodExists = true;
+                        break;
+                    }
                 }
             }
+
+
 
 
             if (!foodExists)
@@ -252,47 +270,68 @@ namespace RestaurentManagement.Views
                 {
                     priceFood = f.Price;
                     total = quantity * priceFood;
-                    totalTable = Convert.ToDouble(txtTotalBill.Text) + total;
                 }
-
-                dgvListFoodOrder.Rows.Add(nameFoodChoose, quantity, priceFood, total);
+                Menu menu = new Menu()
+                {
+                    foodID = FoodController.Instance.GetIDFoodByName(nameFoodChoose),
+                    Price = priceFood,
+                    Quantity = quantity,
+                    Total = total,
+                    tableID = TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString())
+                };
+                int rs = MenuController.Instance.InsertMenu(menu);
+                if (rs == 1)
+                {
+                    DisplayMenuForTable(cbbTable.SelectedItem.ToString());
+                    int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()), "Đã đầy");
+                    if(rs1 == 1)
+                    {
+                        LoadTables();
+                    }
+                }
             }
 
-            txtTotalBill.Text = LoadTotalBill().ToString();
+
+           
+            txtTotalBill.Text = $"{LoadTotalBill().ToString()} Vnđ";
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            int rdHours = new Random().Next(1, 4);
-            int idBillNum = BillSaleController.Instance.GetNumOrderBill();
-            BillSale bill = new BillSale()
-            {
-                Id = $"HDB00{idBillNum + 1}",
-                dayIn = DateTime.Now,
-                dayOut = DateTime.Now.AddHours(rdHours),
-                totalMoney = Convert.ToInt32(txtTotalBill.Text) ,
-                
-            };
+            TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()), "Trống");
+            MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()));
+            LoadTables();
 
-            int rs = BillSaleController.Instance.InsertBillSale(bill);
-            MessageBox.Show(rs.ToString());
+            //int rdHours = new Random().Next(1, 4);
+            //int idBillNum = BillSaleController.Instance.GetNumOrderBill();
+            //BillSale bill = new BillSale()
+            //{
+            //    Id = $"HDB00{idBillNum + 1}",
+            //    dayIn = DateTime.Now,
+            //    dayOut = DateTime.Now.AddHours(rdHours),
+            //    totalMoney = Convert.ToInt32(txtTotalBill.Text),
+
+            //};
+
+            //int rs = BillSaleController.Instance.InsertBillSale(bill);
+            //MessageBox.Show(rs.ToString());
 
 
-            foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
-            {
+            //foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+            //{
 
-                string foodName = row.Cells["Column2"].Value.ToString();
-                int quantity = Convert.ToInt32(row.Cells["Column3"].Value);
+            //    string foodName = row.Cells["Column2"].Value.ToString();
+            //    int quantity = Convert.ToInt32(row.Cells["Column3"].Value);
 
-                int idBillInfoNum = BillSaleInfoController.Instance.GetNumOrderBillInfo();
-                BillInfo billInfo = new BillInfo()
-                {
-                    Id = $"DBOS{idBillInfoNum + 1}",
-                    IdFood = FoodController.Instance.GetIDFoodByName(foodName),
-                    Quantity = quantity,
-                    IdBill = bill.Id
-                };
-            }
+            //    int idBillInfoNum = BillSaleInfoController.Instance.GetNumOrderBillInfo();
+            //    BillInfo billInfo = new BillInfo()
+            //    {
+            //        Id = $"DBOS{idBillInfoNum + 1}",
+            //        IdFood = FoodController.Instance.GetIDFoodByName(foodName),
+            //        Quantity = quantity,
+            //        IdBill = bill.Id
+            //    };
+            //}
         }
 
         private void cbbVoucher_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,7 +339,7 @@ namespace RestaurentManagement.Views
             string voucherChoose = cbbVoucher.SelectedItem.ToString();
             double totalBill = LoadTotalBill();
             string[] a = voucherChoose.Split(' ');
-            
+
             if (a[0].StartsWith("Không"))
             {
                 txtTotalBill.Text = totalBill.ToString();
@@ -311,26 +350,26 @@ namespace RestaurentManagement.Views
             {
                 int expiry = 0;
                 string expriryOption = string.Empty;
-                foreach(var i in a)
+                foreach (var i in a)
                 {
-                    if(CheckNum.Instance.IsNum(i))
+                    if (CheckNum.Instance.IsNum(i))
                     {
                         expiry = Convert.ToInt32(i);
                     }
-                    if(i.Contains("%"))
+                    if (i.Contains("%"))
                     {
                         expriryOption = "%";
                     }
-                    else if(i.Contains("Vnd"))
+                    else if (i.Contains("Vnd"))
                     {
                         expriryOption = "Vnd";
                     }
                 }
 
 
-                txtTotalBill.Text = CalcBill(totalBill, expiry, expriryOption).ToString();
+                txtTotalBill.Text = $"{CalcBill(totalBill, expiry, expriryOption).ToString()} Vnđ";
             }
-            
+
 
             if (Convert.ToInt32(txtTotalBill.Text) < 0)
             {
@@ -340,6 +379,8 @@ namespace RestaurentManagement.Views
 
 
         }
+
+
         private void btnNextTable_Click(object sender, EventArgs e)
         {
 
@@ -351,11 +392,11 @@ namespace RestaurentManagement.Views
         }
 
 
-       
-        
-        #endregion
-        
 
-       
+
+        #endregion
+
+
+
     }
 }

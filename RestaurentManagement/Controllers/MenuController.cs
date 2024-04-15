@@ -54,16 +54,11 @@ namespace RestaurentManagement.Controllers
 
         }
 
-        public List<Menu> GetListBillInfoByTableID(string id)
+        public List<Menu> GetMenuByTableID(string id)
         {
             List<Menu> listMenu = new List<Menu>();
 
-            string query = $@"SELECT f.food_name, f.food_price , dbos.food_quantity, bos.totalMoney
-                                FROM Food f 
-                                INNER JOIN dbo.DetailBillOfSale dbos ON dbos.food_id = f.food_id
-                                INNER JOIN dbo.BillOfSale bos ON bos.boSale_id = dbos.boSale_id
-                                INNER JOIN dbo._TABLE t ON t.table_id = bos.table_id
-                                WHERE t.table_id = '{id}'";
+            string query = $@"SELECT * FROM Menu WHERE table_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow row in dt.Rows)
@@ -72,6 +67,22 @@ namespace RestaurentManagement.Controllers
                 listMenu.Add(menu);
             }
             return listMenu;
+        }
+
+        public int UpdateMenu(Menu menu)
+        {
+            string query = @"UPDATE Menu
+                            SET quantity = @quantity ,
+                                total = @total
+                            WHERE food_id = @id";
+            Dictionary<string, object> paramaters = new Dictionary<string, object>
+            {
+                {"@id", menu.foodID } ,
+                {"@quantity", menu.Quantity } ,
+                {"@total", menu.Total }
+            };
+            int rs = DBHelper.Instance.ExecuteNonQuery(query, paramaters);
+            return rs;
         }
     }
 }

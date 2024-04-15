@@ -54,6 +54,22 @@ namespace RestaurentManagement.Controllers
 
         }
 
+        public int UpdateStatusTable(string id, string status)
+        {
+            string query = $@"UPDATE _Table
+                             SET status = @status
+                             WHERE table_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "@id", id } ,
+                { "@status", status }
+            };
+
+            int result = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+
+            return result;
+        }
+
 
 
         public List<Table> GetListTable()
@@ -79,6 +95,18 @@ namespace RestaurentManagement.Controllers
                 name = row["table_name"].ToString();
             }
             return name;
+        }
+
+        public string GetIDTableByName(string name)
+        {
+            string id = string.Empty;
+            string query = $"SELECT * FROM _Table WHERE table_name = N'{name}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                id = row["table_id"].ToString();
+            }
+            return id;
         }
 
     }

@@ -229,7 +229,7 @@
             // 
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(90, 62);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(143, 56);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(25, 20);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -250,7 +250,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(54, 360);
+            this.label2.Location = new System.Drawing.Point(53, 345);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 20);
             this.label2.TabIndex = 2;
@@ -260,7 +260,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(54, 443);
+            this.label3.Location = new System.Drawing.Point(53, 428);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 20);
             this.label3.TabIndex = 5;
@@ -269,7 +269,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel2.Location = new System.Drawing.Point(58, 394);
+            this.guna2Panel2.Location = new System.Drawing.Point(57, 379);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(345, 2);
             this.guna2Panel2.TabIndex = 4;
@@ -289,7 +289,7 @@
             this.txtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.Black;
             this.txtUser.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtUser.Location = new System.Drawing.Point(143, 437);
+            this.txtUser.Location = new System.Drawing.Point(142, 422);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
@@ -301,7 +301,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel3.Location = new System.Drawing.Point(58, 473);
+            this.guna2Panel3.Location = new System.Drawing.Point(57, 458);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(345, 2);
             this.guna2Panel3.TabIndex = 7;
@@ -310,7 +310,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(54, 518);
+            this.label4.Location = new System.Drawing.Point(53, 504);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 8;
@@ -331,7 +331,7 @@
             this.txtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPass.ForeColor = System.Drawing.Color.Black;
             this.txtPass.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPass.Location = new System.Drawing.Point(130, 512);
+            this.txtPass.Location = new System.Drawing.Point(129, 497);
             this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '\0';
@@ -361,7 +361,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(54, 586);
+            this.label5.Location = new System.Drawing.Point(53, 571);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 11;
@@ -382,7 +382,7 @@
             this.txtRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRole.ForeColor = System.Drawing.Color.Black;
             this.txtRole.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtRole.Location = new System.Drawing.Point(104, 580);
+            this.txtRole.Location = new System.Drawing.Point(104, 566);
             this.txtRole.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRole.Name = "txtRole";
             this.txtRole.PasswordChar = '\0';
@@ -394,7 +394,7 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel4.Location = new System.Drawing.Point(58, 548);
+            this.guna2Panel4.Location = new System.Drawing.Point(57, 533);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(345, 2);
             this.guna2Panel4.TabIndex = 10;
@@ -402,7 +402,7 @@
             // guna2Panel5
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.Black;
-            this.guna2Panel5.Location = new System.Drawing.Point(58, 616);
+            this.guna2Panel5.Location = new System.Drawing.Point(57, 601);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(345, 2);
             this.guna2Panel5.TabIndex = 13;
@@ -422,7 +422,7 @@
             this.txtAccID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAccID.ForeColor = System.Drawing.Color.Red;
             this.txtAccID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtAccID.Location = new System.Drawing.Point(89, 358);
+            this.txtAccID.Location = new System.Drawing.Point(88, 344);
             this.txtAccID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAccID.Name = "txtAccID";
             this.txtAccID.PasswordChar = '\0';
@@ -519,7 +519,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Account_VIEW";
-            this.Text = "Account_VIEW";
+            this.Text = "      ";
             this.Load += new System.EventHandler(this.Account_VIEW_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();

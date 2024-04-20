@@ -13,17 +13,19 @@ namespace RestaurentManagement.Models
         public DateTime dayIn {  get; set; }
         public DateTime dayOut { get; set; }
 
-        public int totalMoney { get; set; }
+        public double totalMoney { get; set; }
+        public string staffID { get; set; }
         public string tableID { get; set; }
         
         public BillSale() { }
 
-        public BillSale(string id, DateTime dayin, DateTime dayout, int totalmoney, string tableid)
+        public BillSale(string id, DateTime dayin, DateTime dayout, double totalmoney, string staffid, string tableid)
         {
             this.Id = id;
             this.dayIn = dayin;
             this.dayOut = dayout;
             this.totalMoney = totalmoney;
+            this.staffID = staffid;
             this.tableID = tableid;
         }
 
@@ -32,8 +34,9 @@ namespace RestaurentManagement.Models
             this.Id = (string)row["boSale_id "];
             this.dayIn = (DateTime)row["dayIn"];
             this.dayOut = (DateTime)row["dayOut"];
-            this.totalMoney = (int)row["totalMoney"];
-            this.tableID = (string)row["table-id"];
+            this.totalMoney = (double)row["totalMoney"];
+            this.staffID = (string)row["staff_id"];
+            this.tableID = (string)row["table_id"];
         }
 
     }

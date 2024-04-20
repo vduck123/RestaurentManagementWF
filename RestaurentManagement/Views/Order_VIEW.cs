@@ -20,14 +20,16 @@ namespace RestaurentManagement.Views
 {
     public partial class Order_VIEW : Form
     {
-        public Order_VIEW()
+        MainForm mf = new MainForm();
+        string _nameStaff = string.Empty;
+        public Order_VIEW(string nameStaff)
         {
             InitializeComponent();
+            _nameStaff = nameStaff;
         }
 
         private void Order_VIEW_Load(object sender, EventArgs e)
         {
-            txtTotalBill.Enabled = false;
             LoadVoucher();
             LoadCategoryFood();
             LoadTables();
@@ -93,20 +95,8 @@ namespace RestaurentManagement.Views
             cbbTable.DataSource = listNameTable;
         }
 
-        //Event click button 
-        void TableButton_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
-            if (button != null && button.Tag is Table)
-            {
-                Table table = (Table)button.Tag;
-                string id = table.Id;
-                cbbTable.SelectedItem = TableController.Instance.GetNameTableById(id);
-                DisplayMenuForTable(cbbTable.SelectedItem.ToString());
-            }
-        }
+        
         //
-
         void LoadCategoryFood()
         {
             List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
@@ -196,6 +186,11 @@ namespace RestaurentManagement.Views
             return nameFood;
         }
 
+        //Làm mới
+        private void Refresh()
+        {
+            
+        }
         #endregion
 
 
@@ -223,7 +218,6 @@ namespace RestaurentManagement.Views
             int quantity = Convert.ToInt32(txtNumOrder.Value);
             int priceFood = 0;
             int total = 0;
-            double totalTable = 0;
 
             if (quantity == 0)
             {
@@ -249,19 +243,19 @@ namespace RestaurentManagement.Views
                     {
                         foodID = FoodController.Instance.GetIDFoodByName(nameFoodChoose),
                         Quantity = existingQuantity,
-                        Total = existingTotalMoney
+                        Total = total,
+                        tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
                     };
                     int rs = MenuController.Instance.UpdateMenu(menu);
                     if (rs == 1)
                     {
-                        foodExists = true;
-                        break;
+                        DisplayMenuForTable(lbTable.Text);
+                                           
                     }
+                    foodExists = true;
+                    break;
                 }
             }
-
-
-
 
             if (!foodExists)
             {
@@ -277,63 +271,110 @@ namespace RestaurentManagement.Views
                     Price = priceFood,
                     Quantity = quantity,
                     Total = total,
-                    tableID = TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString())
+                    tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
                 };
                 int rs = MenuController.Instance.InsertMenu(menu);
                 if (rs == 1)
                 {
-                    DisplayMenuForTable(cbbTable.SelectedItem.ToString());
-                    int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()), "Đã đầy");
+                    DisplayMenuForTable(lbTable.Text);
+                    int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Đã đầy");
                     if(rs1 == 1)
                     {
                         LoadTables();
                     }
                 }
             }
-
-
-           
-            txtTotalBill.Text = $"{LoadTotalBill().ToString()} Vnđ";
+            txtTotalBill.Text = LoadTotalBill().ToString();
         }
 
+        //Chọn bàn 
+        void TableButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button button = sender as System.Windows.Forms.Button;
+            if (button != null && button.Tag is Table)
+            {
+                Table table = (Table)button.Tag;
+                string id = table.Id;
+                lbTable.Text = TableController.Instance.GetNameTableById(id);
+                DisplayMenuForTable(lbTable.Text);
+                txtTotalBill.Text = LoadTotalBill().ToString();
+                txtNumOrder.Value = 0;
+            }
+        }
+
+        //Thanh toán
         private void btnPay_Click(object sender, EventArgs e)
         {
-            TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()), "Trống");
-            MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(cbbTable.SelectedItem.ToString()));
-            LoadTables();
+            DialogResult qs = mf.NotifyConfirm($"Chọn OK để xác nhận thanh toán {lbTable.Text}");
+            {
+                if(qs == DialogResult.OK)
+                {
+                    //re-render giao diện
+                    TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Trống");
+                    MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(lbTable.Text));
+                    LoadTables();
+                    DisplayMenuForTable(lbTable.Text);
+                    txtNumOrder.Value = 0;
+                    txtTotalBill.Text = "0";
+                    //Thêm dữ liệu vào db
 
-            //int rdHours = new Random().Next(1, 4);
-            //int idBillNum = BillSaleController.Instance.GetNumOrderBill();
-            //BillSale bill = new BillSale()
-            //{
-            //    Id = $"HDB00{idBillNum + 1}",
-            //    dayIn = DateTime.Now,
-            //    dayOut = DateTime.Now.AddHours(rdHours),
-            //    totalMoney = Convert.ToInt32(txtTotalBill.Text),
+                    //Hóa đơn bán
+                    int rdhours = new Random().Next(1, 4);
+                    string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill()}";
+                    BillSale billSale = new BillSale()
+                    {
+                        Id = idBillSale,
+                        dayIn = DateTime.Now,
+                        dayOut = DateTime.Now.AddHours(rdhours),
+                        totalMoney = Convert.ToDouble(txtTotalBill.Text),
+                        staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
+                        tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
+                    };
 
-            //};
+                    int rs1 = BillSaleController.Instance.InsertBillSale(billSale);
 
-            //int rs = BillSaleController.Instance.InsertBillSale(bill);
-            //MessageBox.Show(rs.ToString());
+                    //Chi tiết hóa đơn bán
+                    if(dgvListFoodOrder.Rows.Count > 0 )
+                    {
+                        foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+                        {
+                            string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo()}";
+                            string nameFood = row.Cells[0].Value.ToString();
+                            int quantity = Convert.ToInt32(row.Cells[1].Value);
+                            int price = Convert.ToInt32(row.Cells[2].Value);
+                            int total = Convert.ToInt32(row.Cells[3].Value);
+                            string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
+                            BillSaleInfo billSaleInfo = new BillSaleInfo()
+                            {
+                                ID = idBillSaleInfo,
+                                foodId = FoodController.Instance.GetIDFoodByName(nameFood),
+                                Quantity = quantity,
+                                foodPrice = price,
+                                Total = total,
+                                voucherId = VoucherController.Instance.GetIdVoucherByName(voucherName),
+                                boSaleId = idBillSale
+                            };
+
+                            BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
+                        }
+
+                    }
 
 
-            //foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
-            //{
+                    if (rs1 == 1)
+                    {
+                        mf.NotifySuss("Thanh toán hóa đơn thành công");
+                    }
+                    
+                    
+                }
+            }
+            
 
-            //    string foodName = row.Cells["Column2"].Value.ToString();
-            //    int quantity = Convert.ToInt32(row.Cells["Column3"].Value);
-
-            //    int idBillInfoNum = BillSaleInfoController.Instance.GetNumOrderBillInfo();
-            //    BillInfo billInfo = new BillInfo()
-            //    {
-            //        Id = $"DBOS{idBillInfoNum + 1}",
-            //        IdFood = FoodController.Instance.GetIDFoodByName(foodName),
-            //        Quantity = quantity,
-            //        IdBill = bill.Id
-            //    };
-            //}
+            
         }
 
+        //Sử dụng phiếu giảm giá
         private void cbbVoucher_SelectedIndexChanged(object sender, EventArgs e)
         {
             string voucherChoose = cbbVoucher.SelectedItem.ToString();
@@ -367,36 +408,59 @@ namespace RestaurentManagement.Views
                 }
 
 
-                txtTotalBill.Text = $"{CalcBill(totalBill, expiry, expriryOption).ToString()} Vnđ";
+                txtTotalBill.Text = CalcBill(totalBill, expiry, expriryOption).ToString();
             }
 
 
-            if (Convert.ToInt32(txtTotalBill.Text) < 0)
+            if (Convert.ToDouble(txtTotalBill.Text) < 0)
             {
                 txtTotalBill.Text = "0";
             }
-
-
-
         }
 
-
+        //Chuyển bàn
         private void btnNextTable_Click(object sender, EventArgs e)
         {
-
+            DisplayMenuForTable(cbbTable.SelectedItem.ToString());
+            lbTable.Text = cbbTable.SelectedItem.ToString();
         }
 
+        //
         private void cbbFood_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtNumOrder.Value = 0;
         }
 
 
-
-
         #endregion
 
 
+        private DataGridViewRow selectedRow = null;       
+        private void dgvListFoodOrder_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                selectedRow = dgvListFoodOrder.Rows[e.RowIndex];
+            }
+            MessageBox.Show(selectedRow.Cells[0].Value.ToString());
+        }
 
+        //Xóa món ăn
+        private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(selectedRow == null)
+            {
+                return;
+            }
+            
+
+            int rs = MenuController.Instance.DeleteFoodFromMenu(FoodController.Instance.GetIDFoodByName(selectedRow.Cells[0].Value.ToString()),
+                                                                TableController.Instance.GetIDTableByName(lbTable.Text));
+            if(rs == 1)
+            {
+                DisplayMenuForTable(lbTable.Text);
+                txtTotalBill.Text = LoadTotalBill().ToString();
+            }
+        }
     }
 }

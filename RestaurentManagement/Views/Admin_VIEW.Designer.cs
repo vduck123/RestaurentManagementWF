@@ -43,8 +43,6 @@
             this.btnTable = new Guna.UI2.WinForms.Guna2Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnStaff = new Guna.UI2.WinForms.Guna2Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSalary = new Guna.UI2.WinForms.Guna2Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnSupplier = new Guna.UI2.WinForms.Guna2Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -70,6 +68,8 @@
             this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnSalary = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -78,7 +78,6 @@
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -95,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).BeginInit();
             this.guna2Panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -281,33 +281,6 @@
             this.btnStaff.TabIndex = 0;
             this.btnStaff.Text = "Nhân viên";
             this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnSalary);
-            this.panel2.Location = new System.Drawing.Point(3, 203);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 34);
-            this.panel2.TabIndex = 25;
-            // 
-            // btnSalary
-            // 
-            this.btnSalary.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSalary.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSalary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSalary.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnSalary.FocusedColor = System.Drawing.Color.White;
-            this.btnSalary.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalary.ForeColor = System.Drawing.Color.White;
-            this.btnSalary.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btnSalary.Location = new System.Drawing.Point(0, 0);
-            this.btnSalary.Name = "btnSalary";
-            this.btnSalary.Size = new System.Drawing.Size(203, 34);
-            this.btnSalary.TabIndex = 0;
-            this.btnSalary.Text = "Lương nhân viên";
-            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
             // 
             // panel6
             // 
@@ -649,6 +622,33 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1085, 38);
             this.guna2Panel1.TabIndex = 10;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnSalary);
+            this.panel2.Location = new System.Drawing.Point(3, 203);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(203, 34);
+            this.panel2.TabIndex = 25;
+            // 
+            // btnSalary
+            // 
+            this.btnSalary.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSalary.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSalary.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSalary.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSalary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSalary.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnSalary.FocusedColor = System.Drawing.Color.White;
+            this.btnSalary.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalary.ForeColor = System.Drawing.Color.White;
+            this.btnSalary.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnSalary.Location = new System.Drawing.Point(0, 0);
+            this.btnSalary.Name = "btnSalary";
+            this.btnSalary.Size = new System.Drawing.Size(203, 34);
+            this.btnSalary.TabIndex = 0;
+            this.btnSalary.Text = "Lương nhân viên";
+            this.btnSalary.Click += new System.EventHandler(this.btnSalary_Click);
+            // 
             // Admin_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -672,7 +672,6 @@
             this.panel4.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
@@ -690,6 +689,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -724,8 +724,6 @@
         private Guna.UI2.WinForms.Guna2Button btnAccount;
         private System.Windows.Forms.Panel panel13;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2Button btnSalary;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2PictureBox btnClose;
         private Guna.UI2.WinForms.Guna2CirclePictureBox btnHide;
@@ -737,5 +735,7 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label lbUser;
+        private System.Windows.Forms.Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button btnSalary;
     }
 }

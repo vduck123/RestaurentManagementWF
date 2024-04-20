@@ -112,6 +112,17 @@ namespace RestaurentManagement.Controllers
             return vouchers;
         }
 
+        public string GetIdVoucherByName(string name)
+        {
+            string nameVoucher = null;
+            string query = $"SELECT * FROM Voucher WHERE voucher_name = N'{name}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                nameVoucher = row["voucher_id"].ToString();
+            }
+            return nameVoucher;
+        }
         public int GetOrderNumInList()
         {
             string query = $"SELECT COUNT(voucher_id) FROM Voucher";

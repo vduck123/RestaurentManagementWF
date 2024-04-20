@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace RestaurentManagement.Views
@@ -55,14 +56,11 @@ namespace RestaurentManagement.Views
         }
         void LoadMaterial()
         {
-            List<string> listNameItem = new List<string>();
-            List<Warehouse> listItem = WarehouseController.Instance.GetListItem();
-            foreach (Warehouse w in listItem)
-            {
-                listNameItem.Add(w.Name);
-            }
+            
+            
+            
 
-            cbbMaterial.DataSource = listNameItem;
+            
         }
 
         void LoadCategory()
@@ -71,9 +69,8 @@ namespace RestaurentManagement.Views
             List<FoodCategory> listCategory = FoodCategoryController.Instance.GetListCategoryFood();
             foreach (FoodCategory fg in listCategory)
             {
-                listNameCategory.Add(fg.Name);
+                listNameCategory.Add(fg.Name);              
             }
-
             cbbCategory.DataSource = listNameCategory;
         }
 
@@ -176,10 +173,28 @@ namespace RestaurentManagement.Views
             dgvFood.DataSource = dt;
         }
 
+        private void cbbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> listNameMaterial = new List<string>();
+            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
+            foreach(Warehouse material in listMaterial)
+            {
+                if (material.CategoryID.Equals(FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())))
+                {
+                    listNameMaterial.Add(material.Name);
+                }
+            }
+
+            cbbMaterial.DataSource = listNameMaterial;
+        }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             Refresh();
         }
+
+
+
 
         #endregion
 

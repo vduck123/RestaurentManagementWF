@@ -87,6 +87,17 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
+        public int DeleteSalaryBystaffId(string id)
+        {
+            string query = @"DELETE FROM Salary WHERE staff_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@id", id}
+            };
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            return data;
+        }
+
         public int DeleteAll()
         {
             string query = @"DELETE FROM Salary";
@@ -106,6 +117,8 @@ namespace RestaurentManagement.Controllers
             }
             return salaries;
         }
+
+
 
         public List<Salary> GetListSalary()
         {

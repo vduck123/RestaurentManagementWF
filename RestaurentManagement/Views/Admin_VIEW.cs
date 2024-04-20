@@ -1,4 +1,5 @@
 ﻿using RestaurentManagement.Controllers;
+using RestaurentManagement.Views.Employee;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,7 +54,7 @@ namespace RestaurentManagement.Views
 
         private void btnOrder_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Order_VIEW());
+            OpenChildForm(new Order_VIEW(lbUser.Text));
 
         }
 
@@ -69,7 +70,7 @@ namespace RestaurentManagement.Views
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Staff_VIEW());
+            OpenChildForm(new StaffInfo_VIEW());
         }
 
         private void btnSupplier_Click(object sender, EventArgs e)
@@ -119,7 +120,7 @@ namespace RestaurentManagement.Views
 
         private void btnTable_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Order_VIEW());
+            OpenChildForm(new Order_VIEW(lbUser.Text));
         }
     }
 }

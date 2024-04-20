@@ -46,7 +46,6 @@ namespace RestaurentManagement.Controllers
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@tableID", tableID}
-
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query1, parameters);
@@ -74,14 +73,28 @@ namespace RestaurentManagement.Controllers
             string query = @"UPDATE Menu
                             SET quantity = @quantity ,
                                 total = @total
-                            WHERE food_id = @id";
+                            WHERE food_id = @food_id AND table_id = @table_id";
             Dictionary<string, object> paramaters = new Dictionary<string, object>
             {
-                {"@id", menu.foodID } ,
+                {"@table_id", menu.tableID },               
+                {"@food_id", menu.foodID } ,
                 {"@quantity", menu.Quantity } ,
                 {"@total", menu.Total }
             };
             int rs = DBHelper.Instance.ExecuteNonQuery(query, paramaters);
+            return rs;
+        }
+
+        public int DeleteFoodFromMenu(string foodId, string tableId)
+        {
+            string query = @"DELETE FROM Menu WHERE food_id = @foodId AND table_id = @tableId";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@foodId", foodId} ,
+                {"@tableId", tableId }
+            };
+
+            int rs = DBHelper.Instance.ExecuteNonQuery(query, parameters);
             return rs;
         }
     }

@@ -93,6 +93,25 @@ namespace RestaurentManagement.Controllers
             return listStaff;
         }
 
+        public List<Staff> SelectStaffByParam(string param, string option)
+        {
+            List<Staff> listStaff = new List<Staff>();
+            string query = $"SELECT * FROM Staff Where {option} = N'{param}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                Staff staff = new Staff(item);
+                listStaff.Add(staff);
+            }
+
+            return listStaff;
+        }
+
+
+
+
         public List<Staff> GetListStaff()
         {
             List<Staff> listStaff = new List<Staff>();

@@ -38,7 +38,11 @@
             this.lbCLock = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSignOut
@@ -53,9 +57,10 @@
             this.btnSignOut.ForeColor = System.Drawing.Color.White;
             this.btnSignOut.Image = ((System.Drawing.Image)(resources.GetObject("btnSignOut.Image")));
             this.btnSignOut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSignOut.Location = new System.Drawing.Point(428, 448);
+            this.btnSignOut.Location = new System.Drawing.Point(571, 551);
+            this.btnSignOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSignOut.Name = "btnSignOut";
-            this.btnSignOut.Size = new System.Drawing.Size(197, 39);
+            this.btnSignOut.Size = new System.Drawing.Size(263, 48);
             this.btnSignOut.TabIndex = 32;
             this.btnSignOut.Text = "Sign out";
             // 
@@ -71,9 +76,10 @@
             this.btnChangeAccount.ForeColor = System.Drawing.Color.White;
             this.btnChangeAccount.Image = ((System.Drawing.Image)(resources.GetObject("btnChangeAccount.Image")));
             this.btnChangeAccount.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnChangeAccount.Location = new System.Drawing.Point(428, 386);
+            this.btnChangeAccount.Location = new System.Drawing.Point(571, 475);
+            this.btnChangeAccount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnChangeAccount.Name = "btnChangeAccount";
-            this.btnChangeAccount.Size = new System.Drawing.Size(197, 39);
+            this.btnChangeAccount.Size = new System.Drawing.Size(263, 48);
             this.btnChangeAccount.TabIndex = 31;
             this.btnChangeAccount.Text = "Change Account";
             // 
@@ -81,7 +87,8 @@
             // 
             this.lbDay.AutoSize = true;
             this.lbDay.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDay.Location = new System.Drawing.Point(671, 306);
+            this.lbDay.Location = new System.Drawing.Point(895, 377);
+            this.lbDay.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDay.Name = "lbDay";
             this.lbDay.Size = new System.Drawing.Size(58, 32);
             this.lbDay.TabIndex = 30;
@@ -91,7 +98,8 @@
             // 
             this.lbCalendar.AutoSize = true;
             this.lbCalendar.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCalendar.Location = new System.Drawing.Point(271, 306);
+            this.lbCalendar.Location = new System.Drawing.Point(361, 377);
+            this.lbCalendar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCalendar.Name = "lbCalendar";
             this.lbCalendar.Size = new System.Drawing.Size(74, 32);
             this.lbCalendar.TabIndex = 29;
@@ -101,7 +109,8 @@
             // 
             this.lbSecond.AutoSize = true;
             this.lbSecond.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSecond.Location = new System.Drawing.Point(553, 259);
+            this.lbSecond.Location = new System.Drawing.Point(737, 319);
+            this.lbSecond.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbSecond.Name = "lbSecond";
             this.lbSecond.Size = new System.Drawing.Size(40, 21);
             this.lbSecond.TabIndex = 28;
@@ -111,7 +120,8 @@
             // 
             this.lbCLock.AutoSize = true;
             this.lbCLock.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCLock.Location = new System.Drawing.Point(451, 243);
+            this.lbCLock.Location = new System.Drawing.Point(601, 299);
+            this.lbCLock.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbCLock.Name = "lbCLock";
             this.lbCLock.Size = new System.Drawing.Size(61, 37);
             this.lbCLock.TabIndex = 27;
@@ -122,9 +132,10 @@
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.InitialImage = null;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(428, 51);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(571, 63);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(208, 176);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(277, 217);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 26;
             this.guna2PictureBox1.TabStop = false;
@@ -133,11 +144,32 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmToolStripMenuItem,
+            this.sửaToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 48);
+            // 
+            // thêmToolStripMenuItem
+            // 
+            this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
+            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.thêmToolStripMenuItem.Text = "Thêm";
+            // 
+            // sửaToolStripMenuItem
+            // 
+            this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
+            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.sửaToolStripMenuItem.Text = "Sửa";
+            // 
             // Home_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.ClientSize = new System.Drawing.Size(1447, 930);
+            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.btnSignOut);
             this.Controls.Add(this.btnChangeAccount);
             this.Controls.Add(this.lbDay);
@@ -146,11 +178,13 @@
             this.Controls.Add(this.lbCLock);
             this.Controls.Add(this.guna2PictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Home_VIEW";
             this.ShowIcon = false;
             this.Text = "Home_VIEW";
             this.Load += new System.EventHandler(this.Home_VIEW_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +200,8 @@
         private System.Windows.Forms.Label lbCLock;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem thêmToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sửaToolStripMenuItem;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,7 +47,6 @@
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.btnUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnInforAcc = new System.Windows.Forms.ToolStripMenuItem();
             this.btnInfoSalary = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCheckBillImport = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -193,7 +192,6 @@
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnUpdate,
             this.btnDel,
-            this.btnInforAcc,
             this.btnInfoSalary,
             this.btnCheckSaleBill,
             this.btnCheckBillImport});
@@ -207,7 +205,7 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(245, 136);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(245, 114);
             // 
             // btnUpdate
             // 
@@ -224,14 +222,6 @@
             this.btnDel.Size = new System.Drawing.Size(244, 22);
             this.btnDel.Text = "Xóa nhân viên";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // btnInforAcc
-            // 
-            this.btnInforAcc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInforAcc.Name = "btnInforAcc";
-            this.btnInforAcc.Size = new System.Drawing.Size(244, 22);
-            this.btnInforAcc.Text = "Thông tin tài khoản";
-            this.btnInforAcc.Click += new System.EventHandler(this.btnInforAcc_Click);
             // 
             // btnInfoSalary
             // 
@@ -256,16 +246,16 @@
             // 
             // dgvStaff
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStaff.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStaff.ColumnHeadersHeight = 40;
             this.dgvStaff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvStaff.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -278,14 +268,14 @@
             this.Column6,
             this.Column8});
             this.dgvStaff.ContextMenuStrip = this.guna2ContextMenuStrip1;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvStaff.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvStaff.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStaff.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStaff.Location = new System.Drawing.Point(0, 101);
@@ -372,7 +362,6 @@
         private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnUpdate;
         private System.Windows.Forms.ToolStripMenuItem btnDel;
-        private System.Windows.Forms.ToolStripMenuItem btnInforAcc;
         private System.Windows.Forms.ToolStripMenuItem btnInfoSalary;
         private System.Windows.Forms.ToolStripMenuItem btnCheckBillImport;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

@@ -206,6 +206,7 @@
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnClose.TabIndex = 22;
             this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label1
             // 

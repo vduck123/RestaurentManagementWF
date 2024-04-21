@@ -97,11 +97,17 @@
     </Compile>
     <Compile Include="utils\CheckNum.cs" />
     <Compile Include="utils\DBHelper.cs" />
-    <Compile Include="Views\Account_VIEW.cs">
+    <Compile Include="Views\Account\AccountInfo_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Account_VIEW.Designer.cs">
-      <DependentUpon>Account_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Account\AccountInfo_VIEW.Designer.cs">
+      <DependentUpon>AccountInfo_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Account\UpdateAccount_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Account\UpdateAccount_VIEW.Designer.cs">
+      <DependentUpon>UpdateAccount_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin_VIEW.cs">
       <SubType>Form</SubType>
@@ -213,8 +219,11 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Account_VIEW.resx">
-      <DependentUpon>Account_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Account\AccountInfo_VIEW.resx">
+      <DependentUpon>AccountInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Account\UpdateAccount_VIEW.resx">
+      <DependentUpon>UpdateAccount_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Admin_VIEW.resx">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>

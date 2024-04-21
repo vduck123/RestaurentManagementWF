@@ -104,7 +104,23 @@ namespace RestaurentManagement.Controllers
 
             return accounts;
 
-        } 
+        }
+
+        public List<Account> SelectAccountByParam(string option, string keyword)
+        {
+            List<Account> accounts = new List<Account>();
+            string query = $"SELECT * FROM Account WHERE {option} = N'{keyword}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow account in dt.Rows)
+            {
+                Account acc = new Account(account);
+                accounts.Add(acc);
+            }
+
+            return accounts;
+
+        }
 
         public List<Account> GetAccountsNoOwner()
         {

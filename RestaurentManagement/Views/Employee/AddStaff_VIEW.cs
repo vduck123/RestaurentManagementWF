@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using _Account = RestaurentManagement.Models.Account;
 namespace RestaurentManagement.Views.Employee
 {
     public partial class AddStaff_VIEW : Form
@@ -23,7 +23,7 @@ namespace RestaurentManagement.Views.Employee
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string idAcc = $"ACC00{AccountController.Instance.GetOrderNumInList()}";
-            Account acc = new Account()
+            _Account acc = new _Account()
             {
                 ID = idAcc,
                 User = txtUsername.Text,

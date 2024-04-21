@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using _Account = RestaurentManagement.Models.Account;
 namespace RestaurentManagement.Views
 {
     public partial class Login_VIEW : Form
@@ -33,9 +33,9 @@ namespace RestaurentManagement.Views
             string role = cbbRole.SelectedItem.ToString();
 
             
-            List<Account> accounts = AccountController.Instance.GetListAccount();
+            List<_Account> accounts = AccountController.Instance.GetListAccount();
 
-            foreach (Account acc in accounts)
+            foreach (_Account acc in accounts)
             {
                 
                 if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))

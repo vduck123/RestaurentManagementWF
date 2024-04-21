@@ -145,6 +145,11 @@ CREATE TABLE Menu
 
 DROP TABLE Menu
 
+SELECT 
+FROM dbo.Account acc
+INNER JOIN dbo.Staff sf ON sf.acc_id = acc.acc_id
+INNER JOIN dbo.Salary sl ON sl.staff_id = sf.staff_id
+
 
 --
 

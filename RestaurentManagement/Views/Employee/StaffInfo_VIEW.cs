@@ -10,6 +10,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _Account = RestaurentManagement.Models.Account;
 
 namespace RestaurentManagement.Views.Employee
 {
@@ -80,10 +81,6 @@ namespace RestaurentManagement.Views.Employee
             Refresh();
         }
 
-        private void btnInforAcc_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnInfoSalary_Click(object sender, EventArgs e)
         {
@@ -121,7 +118,7 @@ namespace RestaurentManagement.Views.Employee
         {
             dgvStaff.Columns.Clear();
             DataTable dt = new DataTable();
-            List<Account> listAccount = AccountController.Instance.GetListAccount();
+            List<_Account> listAccount = AccountController.Instance.GetListAccount();
             List<Staff> listStaff = StaffController.Instance.GetListStaff();
             List<Salary> listSalary = SalaryController.Instance.GetListSalary();
 
@@ -146,7 +143,7 @@ namespace RestaurentManagement.Views.Employee
                 row["Số điện thoại"] = staff.Phone;
 
 
-                foreach (Account account in listAccount)
+                foreach (_Account account in listAccount)
                 {
                     if (account.ID == staff.Acc_ID)
                     {

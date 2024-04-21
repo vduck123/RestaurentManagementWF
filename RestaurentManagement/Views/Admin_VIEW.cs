@@ -1,4 +1,5 @@
 ﻿using RestaurentManagement.Controllers;
+using RestaurentManagement.Views.Account;
 using RestaurentManagement.Views.Employee;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ namespace RestaurentManagement.Views
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Account_VIEW());
+            OpenChildForm(new AccountInfo_VIEW());
         }
 
         private void btnStaff_Click(object sender, EventArgs e)

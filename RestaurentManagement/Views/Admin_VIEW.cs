@@ -1,6 +1,8 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Views.Account;
 using RestaurentManagement.Views.Employee;
+using RestaurentManagement.Views.Foods;
+using RestaurentManagement.Views.Salaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,12 +103,12 @@ namespace RestaurentManagement.Views
 
         private void btnFood_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Food_VIEW());
+            OpenChildForm(new FoodInfo());
         }
 
         private void btnSalary_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Salary_VIEW());
+            OpenChildForm(new SalaryInfo_VIEW());
         }
 
         private void btnBillImport_Click(object sender, EventArgs e)
@@ -117,6 +119,7 @@ namespace RestaurentManagement.Views
         private void Admin_VIEW_Load(object sender, EventArgs e)
         {
             lbUser.Text = StaffController.Instance.GetNameStaffByAccID(AccountController.Instance.GetIdAccountByUsername(_user));
+            OpenChildForm(new Home_VIEW());
         }
 
         private void btnTable_Click(object sender, EventArgs e)

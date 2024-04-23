@@ -74,10 +74,10 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public List<Supplier> SelectSupplierByID(string id)
+        public List<Supplier> SelectSupplierByParam(string option, string param, string opera)
         {
             List<Supplier> suppliers = new List<Supplier>();
-            string query = $"SELECT * FROM Supplier WHERE supplier_id = '{id}'";
+            string query = $"SELECT * FROM Supplier WHERE {option} {opera} N'{param}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow row in dt.Rows)

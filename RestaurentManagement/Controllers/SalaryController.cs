@@ -105,10 +105,11 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public List<Salary> SelectSalaryByID(string id)
+
+        public List<Salary> SelectSalaryByParam(string option, string param)
         {
             List<Salary> salaries = new List<Salary>();
-            string query = $"SELECT * FROM Salary WHERE salary_id = '{id}'";
+            string query = $"SELECT * FROM Salary WHERE {option} = N'{param}'";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {
@@ -117,6 +118,7 @@ namespace RestaurentManagement.Controllers
             }
             return salaries;
         }
+
 
 
 

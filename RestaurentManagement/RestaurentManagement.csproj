@@ -151,11 +151,23 @@
     <Compile Include="Views\FoodCategory_VIEW.Designer.cs">
       <DependentUpon>FoodCategory_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Food_VIEW.cs">
+    <Compile Include="Views\Foods\AddFood.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Food_VIEW.Designer.cs">
-      <DependentUpon>Food_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Foods\AddFood.Designer.cs">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foods\EditFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Foods\EditFood.Designer.cs">
+      <DependentUpon>EditFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Foods\FoodInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Foods\FoodInfo.Designer.cs">
+      <DependentUpon>FoodInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ForgetPassword_VIEW.cs">
       <SubType>Form</SubType>
@@ -181,17 +193,47 @@
     <Compile Include="Views\Order_VIEW.Designer.cs">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Provider\AddProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\AddProvider.Designer.cs">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Provider\EditProvider.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\EditProvider.Designer.cs">
+      <DependentUpon>EditProvider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Provider\ProviderInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Provider\ProviderInfo_VIEW.Designer.cs">
+      <DependentUpon>ProviderInfo_VIEW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Reports\Report_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Reports\Report_VIEW.Designer.cs">
       <DependentUpon>Report_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Salary_VIEW.cs">
+    <Compile Include="Views\Salaries\AddSalary_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Salary_VIEW.Designer.cs">
-      <DependentUpon>Salary_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Salaries\AddSalary_VIEW.Designer.cs">
+      <DependentUpon>AddSalary_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salaries\EditSalary_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Salaries\EditSalary_VIEW.Designer.cs">
+      <DependentUpon>EditSalary_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Salaries\SalaryInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Salaries\SalaryInfo_VIEW.Designer.cs">
+      <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Supplier_VIEW.cs">
       <SubType>Form</SubType>
@@ -246,8 +288,14 @@
     <EmbeddedResource Include="Views\FoodCategory_VIEW.resx">
       <DependentUpon>FoodCategory_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Food_VIEW.resx">
-      <DependentUpon>Food_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Foods\AddFood.resx">
+      <DependentUpon>AddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Foods\EditFood.resx">
+      <DependentUpon>EditFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Foods\FoodInfo.resx">
+      <DependentUpon>FoodInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ForgetPassword_VIEW.resx">
       <DependentUpon>ForgetPassword_VIEW.cs</DependentUpon>
@@ -261,8 +309,17 @@
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Salary_VIEW.resx">
-      <DependentUpon>Salary_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Provider\ProviderInfo_VIEW.resx">
+      <DependentUpon>ProviderInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Salaries\AddSalary_VIEW.resx">
+      <DependentUpon>AddSalary_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Salaries\EditSalary_VIEW.resx">
+      <DependentUpon>EditSalary_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Salaries\SalaryInfo_VIEW.resx">
+      <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Supplier_VIEW.resx">
       <DependentUpon>Supplier_VIEW.cs</DependentUpon>
@@ -287,7 +344,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\BillImports\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bear.gif" />
     <Content Include="Resources\close.png" />

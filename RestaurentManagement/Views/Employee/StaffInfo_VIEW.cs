@@ -59,7 +59,7 @@ namespace RestaurentManagement.Views.Employee
         private void btnDel_Click(object sender, EventArgs e)
         {
             string id = selectedRow.Cells[0].Value.ToString();
-            if (string.IsNullOrEmpty(_ID))
+            if (!string.IsNullOrEmpty(_ID))
             {
                 DialogResult qs = mf.NotifyConfirm($"Ấn OK để xác nhận xóa nhân viên có mã: {id}");
                 if (qs == DialogResult.OK)
@@ -117,98 +117,84 @@ namespace RestaurentManagement.Views.Employee
         void LoadListStaff()
         {
             dgvStaff.Columns.Clear();
-            DataTable dt = new DataTable();
-            List<_Account> listAccount = AccountController.Instance.GetListAccount();
-            List<Staff> listStaff = StaffController.Instance.GetListStaff();
-            List<Salary> listSalary = SalaryController.Instance.GetListSalary();
+            DataTable dt = StaffController.Instance.GetAllInfoStaff();
 
-            dt.Columns.Add("Mã nhân viên");
-            dt.Columns.Add("Tên nhân viên");
-            dt.Columns.Add("Giới tính");
-            dt.Columns.Add("Ngày sinh");
-            dt.Columns.Add("Địa chỉ");
-            dt.Columns.Add("Số điện thoại");
-            dt.Columns.Add("Chức vụ");
-            dt.Columns.Add("Lương cơ bản");
-
-
-            foreach (Staff staff in listStaff)
+            DataTable dtDisplay = new DataTable();
+            dtDisplay.Columns.Add("Mã nhân viên");
+            dtDisplay.Columns.Add("Tên nhân viên");
+            dtDisplay.Columns.Add("Giới tính");
+            dtDisplay.Columns.Add("Ngày sinh");
+            dtDisplay.Columns.Add("Địa chỉ");
+            dtDisplay.Columns.Add("Số điện thoại");
+            dtDisplay.Columns.Add("Chức vụ");
+            dtDisplay.Columns.Add("Lương cơ bản");
+            foreach (DataRow row in dt.Rows)
             {
-                DataRow row = dt.NewRow();
-                row["Mã nhân viên"] = staff.ID;
-                row["Tên nhân viên"] = staff.Name;
-                row["Giới tính"] = staff.Gender;
-                row["Ngày sinh"] = staff.Birth.ToShortDateString();
-                row["Địa chỉ"] = staff.Address;
-                row["Số điện thoại"] = staff.Phone;
-
-
-                foreach (_Account account in listAccount)
-                {
-                    if (account.ID == staff.Acc_ID)
-                    {
-                        row["Chức vụ"] = account.Role;
-                        break;
-                    }
-                }
-
-                foreach (Salary salary in listSalary)
-                {
-                    if (salary.staffID == staff.ID)
-                    {
-                        row["Lương cơ bản"] = salary.salaryBasic;
-                        break;
-                    }
-                }
-
-                dt.Rows.Add(row);
+                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToShortDateString(), row["address"], row["phone"], row["role"], row["salary_basic"]);
             }
 
-            dgvStaff.DataSource = dt;
+            dgvStaff.DataSource = dtDisplay;
         }
+
+
 
         DataTable HandleSearch(string option, string keyword)
         {
             DataTable dt = new DataTable();
-            dt = ((DataTable)dgvStaff.DataSource).Clone();
-            foreach (DataRow row in ((DataTable)dgvStaff.DataSource).Rows)
+            DataTable dtDisplay = new DataTable();
+            dtDisplay.Columns.Add("Mã nhân viên");
+            dtDisplay.Columns.Add("Tên nhân viên");
+            dtDisplay.Columns.Add("Giới tính");
+            dtDisplay.Columns.Add("Ngày sinh");
+            dtDisplay.Columns.Add("Địa chỉ");
+            dtDisplay.Columns.Add("Số điện thoại");
+            dtDisplay.Columns.Add("Chức vụ");
+            dtDisplay.Columns.Add("Lương cơ bản");
+
+            switch(option)
             {
-                switch (option)
-                {
-                    case "Tìm kiếm theo mã":
-                        if (row["Mã nhân viên"].ToString().Trim().Equals(keyword))
-                            dt.ImportRow(row);
+                case"Tìm kiếm theo mã": 
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_id", txtParam.Text, "=");
                         break;
-                    case "Tìm kiếm theo tên":
-                        if (row["Tên nhân viên"].ToString().Contains(keyword))
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo tên":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_name", $"%{txtParam.Text}%", "LIKE");
                         break;
-                    case "Tìm kiếm theo giới tính":
-                        if (row["Giới tính"].ToString() == keyword)
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo giới tính":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.gender", txtParam.Text, "=");
                         break;
-                    case "Tìm kiếm theo ngày sinh":
-                        if (row["Ngày sinh"].ToString() == keyword)
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo địa chỉ":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.address", $"%{txtParam.Text}%", "LIKE");
                         break;
-                    case "Tìm kiếm theo địa chỉ":
-                        if (row["Địa chỉ"].ToString().Contains(keyword))
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo số điện thoại":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.phone", $"%{txtParam.Text}%", "LIKE");
                         break;
-                    case "Tìm kiếm theo chức vụ":
-                        if (row["Chức vụ"].ToString().Contains(keyword))
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo chức vụ":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("acc.role", $"%{txtParam.Text}%", "LIKE");
                         break;
-                    case "Tìm kiếm theo số điện thoại":
-                        if (row["Số điện thoại"].ToString().Trim().Equals(keyword))
-                            dt.ImportRow(row);
+                    }
+                case "Tìm kiếm theo năm sinh":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("YEAR(sf.birth)", $"{txtParam.Text}", "=");
                         break;
-                    default:
-                        break;
-                }
+                    }
             }
 
-            return dt;
+            foreach (DataRow row in dt.Rows)
+            {
+                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToShortDateString(), row["address"], row["phone"], row["role"], row["salary_basic"]);
+            }
+            return dtDisplay;
         }
 
 
@@ -219,7 +205,7 @@ namespace RestaurentManagement.Views.Employee
                 "Tìm kiếm theo mã" ,
                 "Tìm kiếm theo tên" ,
                 "Tìm kiếm theo giới tính" ,
-                "Tìm kiếm theo ngày sinh" ,
+                "Tìm kiếm theo năm sinh" ,
                 "Tìm kiếm theo địa chỉ" ,
                 "Tìm kiếm theo số điện thoại" ,
                 "Tìm kiếm theo chức vụ"

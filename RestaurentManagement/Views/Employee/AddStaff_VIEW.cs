@@ -52,11 +52,11 @@ namespace RestaurentManagement.Views.Employee
                     Salary salary = new Salary()
                     {
                         ID = idSalary,
-                        Month = dtMonth.Value.Month,
+                        Month = dtMonth.Value,
                         salaryBasic = Convert.ToInt32(txtSalaryBasic.Value),
                         hsl = Convert.ToDouble(txtHsl.Value),
                         salaryHour = Convert.ToInt32(txtSalaryHour.Value),
-                        numHour = Convert.ToInt32(txtNum.Value),
+                        numHour = Convert.ToDouble(txtNum.Value),
                         Fine = Convert.ToInt32(txtFine.Value),
                         Bonus = Convert.ToInt32(txtBonus.Value),
                         Total = Convert.ToDouble(txtTotal.Text),

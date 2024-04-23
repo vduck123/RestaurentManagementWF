@@ -4,6 +4,7 @@ GO
 USE RestaurantManagement
 GO
 
+
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,
@@ -11,6 +12,11 @@ CREATE TABLE Account
 	password CHAR(30) ,
 	role NVARCHAR(30)
 )
+SELECT a.acc_id, a.username, a.password, a.role
+                                FROM Account a
+                                LEFT JOIN Staff s ON s.acc_id = a.acc_id
+                                WHERE s.acc_id IS NULL;
+
 --
 CREATE TABLE Staff
 (
@@ -18,23 +24,32 @@ CREATE TABLE Staff
 	staff_name NVARCHAR(30) ,
 	gender NVARCHAR(5) ,
 	birth DATE ,
+	address NVARCHAR(30) ,
 	phone CHAR(11) ,
 	acc_id CHAR(10) REFERENCES Account(acc_id)
 )
+SELECT acc.role, sf.*, sl.salary_basic
+FROM Account acc 
+INNER JOIN Staff sf ON acc.acc_id = sf.acc_id
+INNER JOIN Salary sl ON sf.staff_id = sl.staff_id
+WHERE YEAR(sf.birth) = YEAR('2024-01-01')
+
+
 --
 CREATE TABLE Salary
 (
 	salary_id CHAR(10) PRIMARY KEY ,
-	salary_month INT ,
+	salary_month DATE ,
 	salary_basic INT ,
 	hsl FLOAT ,
 	salary_hour INT ,
-	num_hour INT ,
+	num_hour FLOAT ,
 	bonus INT ,
 	fine INT ,
-	total INT,
+	total FLOAT,
 	staff_id CHAR(10) REFERENCES Staff(staff_id)
 )
+DROP TABLE dbo.Salary
 --
 CREATE TABLE _Table
 (
@@ -77,6 +92,8 @@ CREATE TABLE Food
 	item_quantity INT ,
 	cgFood_id CHAR(10) REFERENCES FoodCategory(cgFood_id)
 )
+USE RestaurantManagement
+SELECT * FROM dbo.Food
 
 --
 CREATE TABLE BillOfImport
@@ -87,7 +104,6 @@ CREATE TABLE BillOfImport
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	total_money INT 
 )
-SELECT * FROM dbo.BillOfImport
 --
 CREATE TABLE DetailBillOfImport
 (
@@ -103,12 +119,15 @@ CREATE TABLE Voucher
 (	
 	voucher_id CHAR(10) PRIMARY KEY ,
 	voucher_name NVARCHAR(30) ,
-	voucher_expiry CHAR(30) ,
+	voucher_expiry INT ,
 	status NVARCHAR(30)
 )
+SELECT * FROM BillOfSale 
 
-DROP TABLE VOUCHER
-SELECT * FROM Voucher
+SELECT * FROM DetailBillOfSale
+
+DELETE FROM BillOfSale
+
 --
 CREATE TABLE BillOfSale 
 (
@@ -119,6 +138,7 @@ CREATE TABLE BillOfSale
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	table_id CHAR(10) REFERENCES dbo._Table(table_id)
 )
+SELECT * FROM BillOfSale 
 --
 CREATE TABLE DetailBillOfSale
 (
@@ -131,8 +151,6 @@ CREATE TABLE DetailBillOfSale
 	boSale_id CHAR(10) REFERENCES BillOfSale(boSale_id)
 )
 
-DROP TABLE DetailBillOfSale
-
 --
 CREATE TABLE Menu
 (
@@ -140,27 +158,30 @@ CREATE TABLE Menu
 	food_price INT ,
 	quantity INT ,
 	total INT ,
+	totalTable INT ,
 	table_id CHAR(10) REFERENCES dbo._TABLE(table_id)
 )
-
-DROP TABLE Menu
-
-SELECT 
-FROM dbo.Account acc
-INNER JOIN dbo.Staff sf ON sf.acc_id = acc.acc_id
-INNER JOIN dbo.Salary sl ON sl.staff_id = sf.staff_id
 
 
 --
 
 
+
 --Insert Data
+SELECT * FROM dbo.BillOfImport
+SELECT * FROM dbo.DetailBillOfImport
 SELECT * FROM dbo.Voucher
 INSERT INTO _Table
 VALUES 
-('0',N'Bàn 0',N'Trống'),
-('1',N'Bàn 1',N'Trống');
+('BA000',N'Bàn 0',N'Trống'),
+('BA001',N'Bàn 1',N'Trống');
 GO
+SELECT * FROM Menu
+SELECT * FROM _Table
+DELETE FROM Menu
+UPDATE _Table
+SET status = N'Trống'
+WHERE table_id = 'BA000'
 
 INSERT INTO Account
 VALUES ('AC0001','Admin','1',N'Quản trị viên')
@@ -228,3 +249,4 @@ VALUES ('F0',N'Táo Việt Nam',5000,'FC0'),
 			food_price = @price 
 		WHERE food_id = @id
 GO
+

@@ -403,7 +403,7 @@
             this.btnHide.FillColor = System.Drawing.Color.Transparent;
             this.btnHide.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHide.ForeColor = System.Drawing.Color.Black;
-            this.btnHide.Location = new System.Drawing.Point(893, 634);
+            this.btnHide.Location = new System.Drawing.Point(877, 634);
             this.btnHide.Name = "btnHide";
             this.btnHide.Size = new System.Drawing.Size(96, 34);
             this.btnHide.TabIndex = 47;

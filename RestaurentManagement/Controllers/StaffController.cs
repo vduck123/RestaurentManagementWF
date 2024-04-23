@@ -16,7 +16,7 @@ namespace RestaurentManagement.Controllers
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     instance = new StaffController();
                 }
@@ -169,6 +169,27 @@ namespace RestaurentManagement.Controllers
             }
 
             return name;
+        }
+
+        public DataTable GetAllInfoStaff()
+        {
+            string query = @"SELECT acc.role, sf.*, sl.salary_basic
+                                FROM Account acc 
+                                INNER JOIN Staff sf ON acc.acc_id = sf.acc_id
+                                INNER JOIN Salary sl ON sf.staff_id = sl.staff_id";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
+        }
+
+        public DataTable GetAllInfoStaffByParam(string option, string param, string opera)
+        {
+            string query = $@"SELECT acc.role, sf.*, sl.salary_basic
+                                FROM Account acc 
+                                INNER JOIN Staff sf ON acc.acc_id = sf.acc_id
+                                INNER JOIN Salary sl ON sf.staff_id = sl.staff_id
+                                WHERE {option} {opera} N'{param}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
         }
 
         public int GetOrderNumInList()

@@ -139,16 +139,31 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public List<Food> SelectFoodByID(string id)
+        public List<Food> SelectFoodByParam(string option, string param)
         {
             List<Food> foods = new List<Food>();    
-            string query = $@"SELECT * FROM dbo.Food WHERE food_id = '{id}'";
+            string query = $@"SELECT * FROM dbo.Food WHERE {option} = N'{param}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {
                 Food f = new Food(item);
                 foods.Add(f);   
+            }
+
+            return foods;
+        }
+
+        public List<Food> GetFoodListByPrice(string option, int price) 
+        {
+            List<Food> foods = new List<Food>();
+            string query = $@"SELECT * FROM dbo.Food WHERE food_price {option} {price}";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow item in dt.Rows)
+            {
+                Food f = new Food(item);
+                foods.Add(f);
             }
 
             return foods;

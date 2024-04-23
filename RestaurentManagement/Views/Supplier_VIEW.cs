@@ -86,21 +86,21 @@ namespace RestaurentManagement.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            dgvSupplier.Columns.Clear();
-            List<Supplier> listSupplier = SupplierController.Instance.SelectSupplierByID(txtID.Text);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Tên NCC");
-            dt.Columns.Add("Địa chỉ");
-            dt.Columns.Add("Phone");
-            dt.Columns.Add("Note");
+            //dgvSupplier.Columns.Clear();
+            ////List<Supplier> listSupplier = SupplierController.Instance.SelectSupplierByID(txtID.Text);
+            //DataTable dt = new DataTable();
+            //dt.Columns.Add("ID");
+            //dt.Columns.Add("Tên NCC");
+            //dt.Columns.Add("Địa chỉ");
+            //dt.Columns.Add("Phone");
+            //dt.Columns.Add("Note");
 
-            foreach (Supplier supplier in listSupplier)
-            {
-                dt.Rows.Add(supplier.ID, supplier.Name, supplier.Address, supplier.Phone, supplier.Note);
-            }
+            //foreach (Supplier supplier in listSupplier)
+            //{
+            //    dt.Rows.Add(supplier.ID, supplier.Name, supplier.Address, supplier.Phone, supplier.Note);
+            //}
 
-            dgvSupplier.DataSource = dt;
+            //dgvSupplier.DataSource = dt;
 
 
         }

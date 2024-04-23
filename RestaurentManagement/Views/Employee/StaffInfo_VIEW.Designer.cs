@@ -76,36 +76,43 @@
             // 
             this.Column2.HeaderText = "Name";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Gender";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Birth";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Address";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Phone";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Chức vụ";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Lương cơ bản";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             // 
             // cbbOption
             // 
@@ -243,9 +250,12 @@
             // 
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // dgvStaff
             // 
+            this.dgvStaff.AllowUserToAddRows = false;
+            this.dgvStaff.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvStaff.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -280,6 +290,7 @@
             this.dgvStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvStaff.Location = new System.Drawing.Point(0, 101);
             this.dgvStaff.Name = "dgvStaff";
+            this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersVisible = false;
             this.dgvStaff.RowHeadersWidth = 40;
             this.dgvStaff.Size = new System.Drawing.Size(1085, 655);
@@ -297,7 +308,7 @@
             this.dgvStaff.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvStaff.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvStaff.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvStaff.ThemeStyle.ReadOnly = false;
+            this.dgvStaff.ThemeStyle.ReadOnly = true;
             this.dgvStaff.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvStaff.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvStaff.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

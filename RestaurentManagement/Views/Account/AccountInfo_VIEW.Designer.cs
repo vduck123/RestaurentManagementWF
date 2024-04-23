@@ -123,6 +123,8 @@
             // 
             // dgvAccount
             // 
+            this.dgvAccount.AllowUserToAddRows = false;
+            this.dgvAccount.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvAccount.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -154,6 +156,7 @@
             this.dgvAccount.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvAccount.Location = new System.Drawing.Point(0, 88);
             this.dgvAccount.Name = "dgvAccount";
+            this.dgvAccount.ReadOnly = true;
             this.dgvAccount.RowHeadersVisible = false;
             this.dgvAccount.RowHeadersWidth = 40;
             this.dgvAccount.Size = new System.Drawing.Size(1085, 668);
@@ -171,7 +174,7 @@
             this.dgvAccount.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvAccount.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvAccount.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvAccount.ThemeStyle.ReadOnly = false;
+            this.dgvAccount.ThemeStyle.ReadOnly = true;
             this.dgvAccount.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvAccount.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvAccount.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,26 +188,31 @@
             // 
             this.Column1.HeaderText = "Mã tài khoản";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tên đăng nhập";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Mật khẩu";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Vai trò";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Nhân viên";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 

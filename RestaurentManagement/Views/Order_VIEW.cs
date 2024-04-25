@@ -39,10 +39,7 @@ namespace RestaurentManagement.Views
         void LoadVoucher()
         {
             List<Voucher> vouchers = VoucherController.Instance.GetListVoucher();
-            List<string> nameVouchers = new List<string>()
-            {
-                "Không dùng"
-            };
+            List<string> nameVouchers = new List<string>(){};
             string nameVoucher = null;
             foreach (Voucher voucher in vouchers)
             {

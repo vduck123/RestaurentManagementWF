@@ -2,7 +2,9 @@
 using RestaurentManagement.Views.Account;
 using RestaurentManagement.Views.Employee;
 using RestaurentManagement.Views.Foods;
+using RestaurentManagement.Views.Provider;
 using RestaurentManagement.Views.Salaries;
+using RestaurentManagement.Views.Vouchers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,7 +80,7 @@ namespace RestaurentManagement.Views
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Supplier_VIEW());
+            OpenChildForm(new ProviderInfo_VIEW());
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -98,7 +100,7 @@ namespace RestaurentManagement.Views
 
         private void btnVoucher_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Voucher_VIEW());
+            OpenChildForm(new VoucherInfo_VIEW());
         }
 
         private void btnFood_Click(object sender, EventArgs e)

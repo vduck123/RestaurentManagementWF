@@ -98,6 +98,19 @@ namespace RestaurentManagement.Controllers
             }
             return vouchers;
         }
+        public List<Voucher> SelectVoucherByParam(string option, string param, string opera)
+        {
+            List<Voucher> vouchers = new List<Voucher>();
+            string query = $"SELECT * FROM Voucher WHERE {option} {opera} N'{param}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Voucher voucher = new Voucher(dr);
+                vouchers.Add(voucher);
+            }
+            return vouchers;
+        }
+
 
         public List<Voucher> GetListVoucher()
         {

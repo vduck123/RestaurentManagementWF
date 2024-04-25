@@ -235,17 +235,23 @@
     <Compile Include="Views\Salaries\SalaryInfo_VIEW.Designer.cs">
       <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Supplier_VIEW.cs">
+    <Compile Include="Views\Vouchers\AddVoucher_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Supplier_VIEW.Designer.cs">
-      <DependentUpon>Supplier_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Vouchers\AddVoucher_VIEW.Designer.cs">
+      <DependentUpon>AddVoucher_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Voucher_VIEW.cs">
+    <Compile Include="Views\Vouchers\EditVoucher_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Voucher_VIEW.Designer.cs">
-      <DependentUpon>Voucher_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Vouchers\EditVoucher_VIEW.Designer.cs">
+      <DependentUpon>EditVoucher_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vouchers\VoucherInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Vouchers\VoucherInfo_VIEW.Designer.cs">
+      <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Warehouse_VIEW.cs">
       <SubType>Form</SubType>
@@ -309,6 +315,12 @@
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Provider\AddProvider.resx">
+      <DependentUpon>AddProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Provider\EditProvider.resx">
+      <DependentUpon>EditProvider.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Provider\ProviderInfo_VIEW.resx">
       <DependentUpon>ProviderInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
@@ -321,11 +333,14 @@
     <EmbeddedResource Include="Views\Salaries\SalaryInfo_VIEW.resx">
       <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Supplier_VIEW.resx">
-      <DependentUpon>Supplier_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Vouchers\AddVoucher_VIEW.resx">
+      <DependentUpon>AddVoucher_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Voucher_VIEW.resx">
-      <DependentUpon>Voucher_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Vouchers\EditVoucher_VIEW.resx">
+      <DependentUpon>EditVoucher_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Vouchers\VoucherInfo_VIEW.resx">
+      <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Warehouse_VIEW.resx">
       <DependentUpon>Warehouse_VIEW.cs</DependentUpon>

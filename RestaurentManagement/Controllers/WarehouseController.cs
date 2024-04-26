@@ -91,6 +91,23 @@ namespace RestaurentManagement.Controllers
             return listItem;
         }
 
+        public List<Warehouse> SelectItemByParam(string option, string param, string opera)
+        {
+            List<Warehouse> listItem = new List<Warehouse>();
+
+            string query = $"SELECT * FROM Warehouse WHERE {option} {opera} {param}";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Warehouse item = new Warehouse(row);
+                listItem.Add(item);
+
+            }
+            return listItem;
+        }
+
 
         public List<Warehouse> GetListItem()
         {

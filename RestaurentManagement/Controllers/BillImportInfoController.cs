@@ -76,9 +76,9 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public int DeleteBillImportInfoByID(string id)
+        public int DeleteBillImportInfoByMaterialID(string id)
         {
-            string query = @"DELETE FROM DetailBillOfImport WHERE dboImport_id = @id";
+            string query = @"DELETE FROM DetailBillOfImport WHERE item_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", id }
@@ -89,7 +89,23 @@ namespace RestaurentManagement.Controllers
         }
      
 
-        public List<BillImportInfo> SelectBillImportInfo(string id)
+        public List<BillImportInfo> SelectBillImportInfoByID(string id)
+        {
+            List<BillImportInfo> list = new List<BillImportInfo>();
+
+            string query = $"SELECT * FROM DetailBillOfImport WHERE dboImport_id = '{id}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillImportInfo bill = new BillImportInfo(item);
+                list.Add(bill);
+            }
+            return list;
+        }
+
+        public List<BillImportInfo> GetAllBillImportInfoByBillImportID(string id)
         {
             List<BillImportInfo> list = new List<BillImportInfo>();
 

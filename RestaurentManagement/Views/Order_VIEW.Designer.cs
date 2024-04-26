@@ -140,7 +140,7 @@
             this.txtNumOrder.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNumOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumOrder.Location = new System.Drawing.Point(433, 110);
-            this.txtNumOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumOrder.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumOrder.Name = "txtNumOrder";
             this.txtNumOrder.Size = new System.Drawing.Size(68, 24);
             this.txtNumOrder.TabIndex = 16;
@@ -191,6 +191,8 @@
             // 
             // dgvListFoodOrder
             // 
+            this.dgvListFoodOrder.AllowUserToAddRows = false;
+            this.dgvListFoodOrder.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvListFoodOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -219,6 +221,7 @@
             this.dgvListFoodOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvListFoodOrder.Location = new System.Drawing.Point(3, 180);
             this.dgvListFoodOrder.Name = "dgvListFoodOrder";
+            this.dgvListFoodOrder.ReadOnly = true;
             this.dgvListFoodOrder.RowHeadersVisible = false;
             this.dgvListFoodOrder.RowHeadersWidth = 51;
             this.dgvListFoodOrder.Size = new System.Drawing.Size(503, 411);
@@ -236,7 +239,7 @@
             this.dgvListFoodOrder.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvListFoodOrder.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvListFoodOrder.ThemeStyle.HeaderStyle.Height = 30;
-            this.dgvListFoodOrder.ThemeStyle.ReadOnly = false;
+            this.dgvListFoodOrder.ThemeStyle.ReadOnly = true;
             this.dgvListFoodOrder.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvListFoodOrder.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvListFoodOrder.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -251,24 +254,28 @@
             this.Column1.HeaderText = "Món ăn";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Số lượng";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Đơn giá";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Thành tiền";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 

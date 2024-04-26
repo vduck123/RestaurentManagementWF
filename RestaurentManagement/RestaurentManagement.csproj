@@ -115,17 +115,23 @@
     <Compile Include="Views\Admin_VIEW.Designer.cs">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\BillImportInfor_VIEW.cs">
+    <Compile Include="Views\Billmports\AddBillImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\BillImportInfor_VIEW.Designer.cs">
-      <DependentUpon>BillImportInfor_VIEW.cs</DependentUpon>
+    <Compile Include="Views\Billmports\AddBillImport.Designer.cs">
+      <DependentUpon>AddBillImport.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\BillImport_VIEW.cs">
+    <Compile Include="Views\Billmports\BillImport_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\BillImport_VIEW.Designer.cs">
+    <Compile Include="Views\Billmports\BillImport_VIEW.Designer.cs">
       <DependentUpon>BillImport_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Billmports\DetailBillImport_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Billmports\DetailBillImport_VIEW.Designer.cs">
+      <DependentUpon>DetailBillImport_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Employee\AddStaff_VIEW.cs">
       <SubType>Form</SubType>
@@ -186,6 +192,24 @@
     </Compile>
     <Compile Include="Views\Login_VIEW.Designer.cs">
       <DependentUpon>Login_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Material\AddMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Material\AddMaterial.Designer.cs">
+      <DependentUpon>AddMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Material\EditMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Material\EditMaterial.Designer.cs">
+      <DependentUpon>EditMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Material\MaterialInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Material\MaterialInfo_VIEW.Designer.cs">
+      <DependentUpon>MaterialInfo_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Order_VIEW.cs">
       <SubType>Form</SubType>
@@ -253,12 +277,6 @@
     <Compile Include="Views\Vouchers\VoucherInfo_VIEW.Designer.cs">
       <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Warehouse_VIEW.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Warehouse_VIEW.Designer.cs">
-      <DependentUpon>Warehouse_VIEW.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,11 +294,14 @@
     <EmbeddedResource Include="Views\Admin_VIEW.resx">
       <DependentUpon>Admin_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\BillImportInfor_VIEW.resx">
-      <DependentUpon>BillImportInfor_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Billmports\AddBillImport.resx">
+      <DependentUpon>AddBillImport.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\BillImport_VIEW.resx">
+    <EmbeddedResource Include="Views\Billmports\BillImport_VIEW.resx">
       <DependentUpon>BillImport_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Billmports\DetailBillImport_VIEW.resx">
+      <DependentUpon>DetailBillImport_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Employee\AddStaff_VIEW.resx">
       <DependentUpon>AddStaff_VIEW.cs</DependentUpon>
@@ -312,6 +333,15 @@
     <EmbeddedResource Include="Views\Login_VIEW.resx">
       <DependentUpon>Login_VIEW.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Material\AddMaterial.resx">
+      <DependentUpon>AddMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Material\EditMaterial.resx">
+      <DependentUpon>EditMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Material\MaterialInfo_VIEW.resx">
+      <DependentUpon>MaterialInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
     </EmbeddedResource>
@@ -342,9 +372,6 @@
     <EmbeddedResource Include="Views\Vouchers\VoucherInfo_VIEW.resx">
       <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Warehouse_VIEW.resx">
-      <DependentUpon>Warehouse_VIEW.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -359,9 +386,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\BillImports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Resources\bear.gif" />
     <Content Include="Resources\close.png" />

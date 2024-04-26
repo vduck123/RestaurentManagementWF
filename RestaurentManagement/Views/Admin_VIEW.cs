@@ -5,6 +5,7 @@ using RestaurentManagement.Views.Foods;
 using RestaurentManagement.Views.Provider;
 using RestaurentManagement.Views.Salaries;
 using RestaurentManagement.Views.Vouchers;
+using RestaurentManagement.Views.Material;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,7 +96,7 @@ namespace RestaurentManagement.Views
 
         private void btnWarehouse_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Warehouse_VIEW());
+            OpenChildForm(new MaterialInfo_VIEW());
         }
 
         private void btnVoucher_Click(object sender, EventArgs e)

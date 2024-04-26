@@ -5,6 +5,7 @@ USE RestaurantManagement
 GO
 
 
+
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,

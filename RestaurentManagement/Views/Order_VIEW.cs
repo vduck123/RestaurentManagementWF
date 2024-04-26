@@ -336,6 +336,7 @@ namespace RestaurentManagement.Views
                         foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
                         {
                             string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo()}";
+                            MessageBox.Show(row.Cells[0].Value.ToString());
                             string nameFood = row.Cells[0].Value.ToString();
                             int quantity = Convert.ToInt32(row.Cells[1].Value);
                             int price = Convert.ToInt32(row.Cells[2].Value);

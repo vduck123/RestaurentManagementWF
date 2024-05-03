@@ -74,6 +74,7 @@
             this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.panel14.SuspendLayout();
@@ -493,6 +494,7 @@
             this.btnBillSale.Size = new System.Drawing.Size(197, 34);
             this.btnBillSale.TabIndex = 0;
             this.btnBillSale.Text = "Hóa đơn bán";
+            this.btnBillSale.Click += new System.EventHandler(this.btnBillSale_Click);
             // 
             // panel11
             // 
@@ -523,6 +525,7 @@
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.guna2Button2);
             this.panel13.Controls.Add(this.guna2Button3);
             this.panel13.Location = new System.Drawing.Point(3, 483);
             this.panel13.Name = "panel13";
@@ -700,6 +703,25 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1085, 38);
             this.guna2Panel1.TabIndex = 10;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.guna2Button2.FocusedColor = System.Drawing.Color.White;
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.guna2Button2.Location = new System.Drawing.Point(0, 0);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(197, 34);
+            this.guna2Button2.TabIndex = 1;
+            this.guna2Button2.Text = "Bán hàng";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
             // Admin_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -795,5 +817,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

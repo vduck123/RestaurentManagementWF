@@ -22,7 +22,7 @@ namespace RestaurentManagement.Views.Employee
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string idAcc = $"ACC00{AccountController.Instance.GetOrderNumInList()}";
+            string idAcc = $"ACC00{AccountController.Instance.GetOrderNumInList() + 1}";
             _Account acc = new _Account()
             {
                 ID = idAcc,

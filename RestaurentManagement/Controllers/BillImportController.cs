@@ -91,6 +91,39 @@ namespace RestaurentManagement.Controllers
             return listbillImport;
         }
 
+        public List<BillImport> SelectBillImportByParam(string option, string param, string opera)
+        {
+            List<BillImport> listbillImport = new List<BillImport>();
+
+            string query = $"SELECT * FROM BillOfImport WHERE {option} {opera} {param}";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillImport billImport = new BillImport(item);
+                listbillImport.Add(billImport);
+            }
+            return listbillImport;
+        }
+
+        public List<BillImport> SelectBillImportByTime(DateTime time1, DateTime time2)
+        {
+            List<BillImport> listbillImport = new List<BillImport>();
+
+            string query = $"SELECT * FROM BillOfImport WHERE dayCreate BETWEEN '{time1}' AND '{time2}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillImport billImport = new BillImport(item);
+                listbillImport.Add(billImport);
+            }
+            return listbillImport;
+        }
+
+
         public List<BillImport> GetListBillImport()
         {
             List<BillImport> listbillImport = new List<BillImport>();
@@ -128,5 +161,18 @@ namespace RestaurentManagement.Controllers
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
             return data;
         }
+
+        public int AutoDeleteBillNotBillInfo()
+        {
+            string query = @"DELETE FROM dbo.BillOfImport
+                                WHERE NOT EXISTS (
+                                    SELECT 1 
+                                    FROM dbo.DetailBillOfImport dboi
+                                WHERE dboi.boImport_id = dbo.BillOfImport.boImport_id
+                                )";
+            int data = DBHelper.Instance.ExecuteNonQuery(query, null);
+            return data;
+        }
+
     }
 }

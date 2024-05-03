@@ -6,6 +6,7 @@ using RestaurentManagement.Views.Provider;
 using RestaurentManagement.Views.Salaries;
 using RestaurentManagement.Views.Vouchers;
 using RestaurentManagement.Views.Material;
+using RestaurentManagement.Views.BillSales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using RestaurentManagement.Views._Table;
 
 namespace RestaurentManagement.Views
 {
@@ -127,7 +129,17 @@ namespace RestaurentManagement.Views
 
         private void btnTable_Click(object sender, EventArgs e)
         {
+            OpenChildForm(new _TableInfo_VIEW());
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
             OpenChildForm(new Order_VIEW(lbUser.Text));
+        }
+
+        private void btnBillSale_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new BillSaleInfo_VIEW());
         }
     }
 }

@@ -26,17 +26,18 @@ namespace RestaurentManagement.Views.Billmports
             _nameStaff = nameStaff;
         }
 
+        bool isAddedBillImport = false;
+        string nameSupplier = null;
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            bool isAddedBillImport = false;
-
-            if(isAddedBillImport == false) 
+            nameSupplier = cbbSupplier.SelectedItem.ToString();
+            if (isAddedBillImport == false) 
             {
                 BillImport billImport = new BillImport()
                 {
                     ID = _billImportID,
                     StaffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
-                    SupplierID = SupplierController.Instance.GetIDSupplierByName(cbbSupplier.SelectedItem.ToString()),
+                    SupplierID = SupplierController.Instance.GetIDSupplierByName(nameSupplier),
                     DayCreated = DateTime.Now,
                     TotalMoney = Convert.ToInt32(txtTotalMoney.Text)
                 };
@@ -48,7 +49,7 @@ namespace RestaurentManagement.Views.Billmports
             }
             
 
-            string id = $"BIF00{BillImportInfoController.Instance.GetOrderNumBillImportInfo()}";
+            string id = $"BIF00{BillImportInfoController.Instance.GetOrderNumBillImportInfo() + 1}";
             BillImportInfo bill = new BillImportInfo()
             {
                 ID = id,
@@ -59,19 +60,26 @@ namespace RestaurentManagement.Views.Billmports
                 BillID  = _billImportID,
             };
 
-            int rsCheckExit = WarehouseController.Instance.CheckExitItem(cbbMaterial.SelectedItem.ToString());
+            int rsCheckExit = WarehouseController.Instance.CheckExitItem(WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()), _billImportID);
+            int rs2 = 0;
             if (rsCheckExit == 1)
             {
-                BillImportInfoController.Instance.UpdateQuantityItem(WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()), Convert.ToInt32(txtQuantity.Value));
+                rs2 = BillImportInfoController.Instance.UpdateQuantityItem(WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()), Convert.ToInt32(txtQuantity.Value));
+
             }
             else
             {
-                BillImportInfoController.Instance.InsertBillImportInfor(bill);
+                rs2 = BillImportInfoController.Instance.InsertBillImportInfor(bill);
             }
-            BillImportController.Instance.UpdateTotalBillByID(_billImportID, Convert.ToInt32(txtTotalMoney.Text));
-            WarehouseController.Instance.UpdateQuantityItemByName(cbbMaterial.SelectedItem.ToString(), Convert.ToInt32(txtQuantity.Value));
-            mf.NotifySuss("Thêm hóa đơn thành công");
-            Refresh();
+
+           if(rs2 > 0)
+            {
+                BillImportController.Instance.UpdateTotalBillByID(_billImportID, Convert.ToInt32(txtTotalMoney.Text));
+                WarehouseController.Instance.UpdateQuantityItemByName(cbbMaterial.SelectedItem.ToString(), Convert.ToInt32(txtQuantity.Value));
+                mf.NotifySuss("Thêm hóa đơn thành công");
+                Refresh();
+            }
+            
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -110,7 +118,7 @@ namespace RestaurentManagement.Views.Billmports
                 rowSelected = dgvBilImportInfo.Rows[e.RowIndex];
             }
 
-            _ID_Material = rowSelected.Cells[0].Value.ToString();
+            _ID_Material = WarehouseController.Instance.GetIDItemByName(rowSelected.Cells[0].Value.ToString());
         }
 
         private void xóaNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,11 +127,11 @@ namespace RestaurentManagement.Views.Billmports
             {
                 return;
             }
-
-            int rs = BillImportInfoController.Instance.DeleteBillImportInfoByMaterialID(_ID_Material);
-            if(rs == 1)
-            {
+            int rs = BillImportInfoController.Instance.DeleteBillImportInfoByMaterialID(_ID_Material, _billImportID);
+            if(rs > 0)
+            {          
                 Refresh();
+                BillImportController.Instance.UpdateTotalBillByID(_billImportID, Convert.ToInt32(txtTotalMoney.Text));
             }
 
         }
@@ -183,9 +191,23 @@ namespace RestaurentManagement.Views.Billmports
             LoadData();
             LoadAllBillImportByBillImportID(_billImportID);
             LoadTotalBill(_billImportID);
+            A();
             txtMaterial.ResetText();
             txtPrice.Value = 0;
             txtQuantity.Value = 0;
+        }
+
+        void A()
+        {
+            if(nameSupplier != null)
+            {
+                List<string> a = new List<string>()
+                {
+                    nameSupplier
+                };
+                cbbSupplier.DataSource = a;
+            }
+            
         }
 
         void LoadTotalBill(string id)

@@ -179,10 +179,9 @@ namespace RestaurentManagement.Controllers
             return orderNum;
         }
 
-        public int CheckExitItem(string name)
+        public int CheckExitItem(string itemID, string billId)
         {
-            string query = $"SELECT COUNT(*) FROM Warehouse WHERE item_name = N'{name}'";
-
+            string query = $"SELECT COUNT(*) FROM dbo.DetailBillOfImport WHERE item_id= N'{itemID}' AND boImport_id = N'{billId}'";
             int data = DBHelper.Instance.ExecuteScalar(query);
             return data;
         }

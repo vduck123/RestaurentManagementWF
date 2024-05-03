@@ -56,9 +56,10 @@
             this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(563, 67);
+            this.btnRefresh.Location = new System.Drawing.Point(565, 49);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(117, 36);
@@ -73,9 +74,10 @@
             this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(688, 67);
+            this.btnAdd.Location = new System.Drawing.Point(690, 49);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(168, 36);
@@ -96,7 +98,7 @@
             this.txtParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParam.ForeColor = System.Drawing.Color.Black;
             this.txtParam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtParam.Location = new System.Drawing.Point(15, 67);
+            this.txtParam.Location = new System.Drawing.Point(17, 49);
             this.txtParam.Margin = new System.Windows.Forms.Padding(6);
             this.txtParam.Name = "txtParam";
             this.txtParam.PasswordChar = '\0';
@@ -118,7 +120,7 @@
             this.cbbOption.ItemHeight = 30;
             this.cbbOption.Items.AddRange(new object[] {
             "Lựa chọn tìm kiếm"});
-            this.cbbOption.Location = new System.Drawing.Point(229, 67);
+            this.cbbOption.Location = new System.Drawing.Point(231, 49);
             this.cbbOption.Margin = new System.Windows.Forms.Padding(4);
             this.cbbOption.Name = "cbbOption";
             this.cbbOption.Size = new System.Drawing.Size(190, 36);
@@ -131,9 +133,10 @@
             this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(427, 67);
+            this.btnFind.Location = new System.Drawing.Point(429, 49);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(117, 36);
@@ -172,7 +175,7 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(195, 70);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(195, 48);
             // 
             // dgvProvider
             // 
@@ -207,12 +210,12 @@
             this.dgvProvider.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvProvider.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvProvider.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvProvider.Location = new System.Drawing.Point(0, 113);
+            this.dgvProvider.Location = new System.Drawing.Point(0, 95);
             this.dgvProvider.Margin = new System.Windows.Forms.Padding(4);
             this.dgvProvider.Name = "dgvProvider";
             this.dgvProvider.ReadOnly = true;
             this.dgvProvider.RowHeadersVisible = false;
-            this.dgvProvider.Size = new System.Drawing.Size(1085, 643);
+            this.dgvProvider.Size = new System.Drawing.Size(1085, 661);
             this.dgvProvider.TabIndex = 40;
             this.dgvProvider.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvProvider.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -280,7 +283,7 @@
             this.Controls.Add(this.dgvProvider);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProviderInfo_VIEW";
             this.Text = "ProviderInfo_VIEW";
             this.Load += new System.EventHandler(this.ProviderInfo_VIEW_Load);

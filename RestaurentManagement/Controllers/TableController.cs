@@ -37,7 +37,7 @@ namespace RestaurentManagement.Controllers
         public TableController() { }
 
         
-        public int InsertTable(Table tb,string mess)
+        public int InsertTable(Table tb)
         {
             string query = $@"INSERT INTO _Table
                              VALUES(@id, @name, @status)";
@@ -54,6 +54,24 @@ namespace RestaurentManagement.Controllers
 
         }
 
+        public int UpdateTable(Table tb)
+        {
+            string query = $@"UPDATE _Table
+                             SET table_name = @name,
+                                 status = @status
+                             WHERE table_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "@id", tb.Id } ,
+                { "@name", tb.Name } ,
+                { "@status", tb.Status }
+            };
+
+            int result = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+
+            return result;
+        }
+
         public int UpdateStatusTable(string id, string status)
         {
             string query = $@"UPDATE _Table
@@ -68,6 +86,32 @@ namespace RestaurentManagement.Controllers
             int result = DBHelper.Instance.ExecuteNonQuery(query, parameters);
 
             return result;
+        }
+
+        public int DeleteTableByID(string id)
+        {
+            string query = $@"DELETE FROM _Table WHERE table_id = @id";
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "@id", id }
+            };
+
+            int result = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+
+            return result;
+        }
+
+        public List<Table> GetTablesByParam(string option, string param, string opera)
+        {
+            List<Table> tables = new List<Table>();
+            string query = $"SELECT * FROM _Table WHERE {option} {opera} {param}";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                Table tb = new Table(dr);
+                tables.Add(tb);
+            }
+            return tables;
         }
 
 
@@ -107,6 +151,13 @@ namespace RestaurentManagement.Controllers
                 id = row["table_id"].ToString();
             }
             return id;
+        }
+
+        public int GetOrderNumInList()
+        {
+            string query = $"SELECT COUNT(table_id) FROM _Table";
+            int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
+            return orderNum;
         }
 
     }

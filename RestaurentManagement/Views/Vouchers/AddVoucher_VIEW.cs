@@ -25,7 +25,7 @@ namespace RestaurentManagement.Views.Vouchers
             DialogResult qs = mf.NotifyConfirm($"Chọn OK để thêm voucher {txtName.Text}");
             if(qs == DialogResult.OK)
             {
-                string id = $"PGG00{VoucherController.Instance.GetOrderNumInList()}";
+                string id = $"PGG00{VoucherController.Instance.GetOrderNumInList() + 1}";
                 string exprice = $"{txtExpiry.Value} {cbbOptionExpiry.SelectedItem}";
                 Voucher voucher = new Voucher()
                 {

@@ -34,6 +34,7 @@
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbbRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtRole = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             this.btnHide = new Guna.UI2.WinForms.Guna2Button();
-            this.cbbRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -119,6 +119,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin tài khoản";
+            // 
+            // cbbRole
+            // 
+            this.cbbRole.BackColor = System.Drawing.Color.Transparent;
+            this.cbbRole.BorderRadius = 5;
+            this.cbbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.cbbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbRole.ForeColor = System.Drawing.Color.Black;
+            this.cbbRole.ItemHeight = 25;
+            this.cbbRole.Location = new System.Drawing.Point(117, 267);
+            this.cbbRole.Name = "cbbRole";
+            this.cbbRole.Size = new System.Drawing.Size(266, 31);
+            this.cbbRole.TabIndex = 42;
+            this.cbbRole.SelectedValueChanged += new System.EventHandler(this.cbbRole_SelectedValueChanged);
             // 
             // guna2Panel5
             // 
@@ -287,6 +305,7 @@
             this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnUpdate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(96, 470);
@@ -313,24 +332,6 @@
             this.btnHide.TabIndex = 8;
             this.btnHide.Text = "Đóng";
             this.btnHide.Click += new System.EventHandler(this.btnHide_Click);
-            // 
-            // cbbRole
-            // 
-            this.cbbRole.BackColor = System.Drawing.Color.Transparent;
-            this.cbbRole.BorderRadius = 5;
-            this.cbbRole.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbbRole.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.cbbRole.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbRole.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbRole.ForeColor = System.Drawing.Color.Black;
-            this.cbbRole.ItemHeight = 25;
-            this.cbbRole.Location = new System.Drawing.Point(117, 267);
-            this.cbbRole.Name = "cbbRole";
-            this.cbbRole.Size = new System.Drawing.Size(266, 31);
-            this.cbbRole.TabIndex = 42;
-            this.cbbRole.SelectedValueChanged += new System.EventHandler(this.cbbRole_SelectedValueChanged);
             // 
             // UpdateAccount_VIEW
             // 

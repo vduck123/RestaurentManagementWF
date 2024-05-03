@@ -70,22 +70,22 @@ namespace RestaurentManagement.Controllers
             return result;
         }
 
-        public int DeleteBillSale(BillSale bill)
+        public int DeleteBillSale(string id)
         {
             string query = @"DELETE FROM dbo.BillOfSale WHERE boSale_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                { "@id", bill.Id }
+                { "@id", id }
             };
 
             int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
             return result;
         }
 
-        public List<BillSale> GetBillSaleById(string id)
+        public List<BillSale> GetBillSaleByParam(string option, string param, string opera)
         {
             List<BillSale> listBillSale = new List<BillSale>();
-            string query = $"SELECT * FROM BillOfSale WHERE boSale_id = '{id}'";
+            string query = $"SELECT * FROM BillOfSale WHERE {option} {opera} {param}";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {
@@ -96,10 +96,26 @@ namespace RestaurentManagement.Controllers
             return listBillSale;
         }
 
+        public List<BillSale> SelectBillSaleByTime(string option, DateTime time1, DateTime time2)
+        {
+            List<BillSale> listBillSale = new List<BillSale>();
+
+            string query = $"SELECT * FROM BillOfSale WHERE {option} BETWEEN '{time1}' AND '{time2}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillSale b = new BillSale(item);
+                listBillSale.Add(b);
+            }
+            return listBillSale;
+        }
+
         public List<BillSale> GetListBillSale()
         {
             List<BillSale> listBillSale = new List<BillSale>();
-            string query = $"SELECT * FROM BillOfSale'";
+            string query = $"SELECT * FROM BillOfSale";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {

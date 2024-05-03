@@ -26,7 +26,7 @@ namespace RestaurentManagement.Views.Material
             {
                 if(qs == DialogResult.OK)
                 {
-                    string id = $"NL000{WarehouseController.Instance.GetOrderNumInList()}";
+                    string id = $"NL000{WarehouseController.Instance.GetOrderNumInList() + 1}";
                     Warehouse item = new Warehouse()
                     {
                         ID = id,

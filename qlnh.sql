@@ -116,6 +116,12 @@ CREATE TABLE DetailBillOfImport
 	boImport_id CHAR(10) REFERENCES dbo.BillOfImport(boImport_id)
 )
 --
+
+DELETE FROM dbo.BillOfImport
+SELECT * FROM dbo.BillOfImport
+SELECT * FROM dbo.DetailBillOfImport
+
+
 CREATE TABLE Voucher
 (	
 	voucher_id CHAR(10) PRIMARY KEY ,

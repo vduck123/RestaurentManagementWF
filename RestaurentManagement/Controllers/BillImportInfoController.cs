@@ -76,12 +76,13 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public int DeleteBillImportInfoByMaterialID(string id)
+        public int DeleteBillImportInfoByMaterialID(string idItem, string idBill)
         {
-            string query = @"DELETE FROM DetailBillOfImport WHERE item_id = @id";
+            string query = @"DELETE FROM DetailBillOfImport WHERE item_id = @iditem AND boImport_id = @idbill ";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                {"@id", id }
+                {"@iditem", idItem },
+                {"@idbill", idBill }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -121,6 +122,39 @@ namespace RestaurentManagement.Controllers
             return list;
         }
 
+        public List<BillImportInfo> GetBillImportByParam(string option, string param, string opera)
+        {
+            List<BillImportInfo> list = new List<BillImportInfo>();
+
+            string query = $"SELECT * FROM DetailBillOfImport WHERE {option} {opera} {param}";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillImportInfo bill = new BillImportInfo(item);
+                list.Add(bill);
+            }
+            return list;
+        }
+
+        public List<BillImportInfo> GetBillImportByMaterialAndIDBill(string iditem, string idBill)
+        {
+            List<BillImportInfo> list = new List<BillImportInfo>();
+
+            string query = $"SELECT * FROM DetailBillOfImport WHERE item_id = '{iditem}' AND boImport_id = '{idBill}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow item in dt.Rows)
+            {
+                BillImportInfo bill = new BillImportInfo(item);
+                list.Add(bill);
+            }
+            return list;
+        }
+
+
         public List<BillImport> GetListBillImportInfo()
         {
             List<BillImport> listbillImport = new List<BillImport>();
@@ -148,9 +182,12 @@ namespace RestaurentManagement.Controllers
         public int UpdateQuantityItem(string id, int quantity)
         {
             string query = $@"UPDATE dbo.DetailBillOfImport
-                              SET quantity = quantity + @quantity ,
-                                  total_money = quantity * price
+                              SET quantity = quantity + @quantity
                               WHERE item_id = @id";
+
+            string query2 = @"UPDATE dbo.DetailBillOfImport
+                              SET total_money = quantity * price";
+
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", id } ,
@@ -158,10 +195,47 @@ namespace RestaurentManagement.Controllers
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
-
+            int data2 = DBHelper.Instance.ExecuteNonQuery(query2, null);
             return data;
         }
 
-       
+        public int UpdateItem(string itemID, int quantity, int price, string billID)
+        {
+            string query = $@"UPDATE dbo.DetailBillOfImport
+                              SET quantity = @quantity ,
+                                  price = @price
+                              WHERE item_id = @itemid AND boImport_id = @idBill";
+
+            string query2 = @"UPDATE dbo.DetailBillOfImport
+                              SET total_money = quantity * price";
+
+            
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                {"@itemid", itemID } ,
+                {"@idBill", billID } ,
+                {"@quantity", quantity } ,
+                {"@price", price }
+            };
+
+            int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
+            int data2 = DBHelper.Instance.ExecuteNonQuery(query2, null);
+            return data;
+        }
+
+        public int UpdateMoneyBillImport()
+        {
+            string query3 = @"UPDATE BillOfImport
+                                SET total_money = (
+                                SELECT SUM(total_money)
+                                FROM DetailBillOfImport
+                                WHERE DetailBillOfImport.boImport_id = BillOfImport.boImport_id 
+                                )";
+            int data3 = DBHelper.Instance.ExecuteNonQuery(query3, null);
+            return data3;
+        }
+
+
     }
 }

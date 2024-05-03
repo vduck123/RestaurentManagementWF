@@ -274,7 +274,7 @@ namespace RestaurentManagement.Views
                 if (rs == 1)
                 {
                     DisplayMenuForTable(lbTable.Text);
-                    int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Đã đầy");
+                    int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Đầy");
                     if(rs1 == 1)
                     {
                         LoadTables();
@@ -306,24 +306,18 @@ namespace RestaurentManagement.Views
             {
                 if(qs == DialogResult.OK)
                 {
-                    //re-render giao diện
-                    TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Trống");
-                    MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(lbTable.Text));
-                    LoadTables();
-                    DisplayMenuForTable(lbTable.Text);
-                    txtNumOrder.Value = 0;
-                    txtTotalBill.Text = "0";
+                    
                     //Thêm dữ liệu vào db
 
                     //Hóa đơn bán
                     int rdhours = new Random().Next(1, 4);
-                    string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill()}";
+                    string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
                     BillSale billSale = new BillSale()
                     {
                         Id = idBillSale,
                         dayIn = DateTime.Now,
                         dayOut = DateTime.Now.AddHours(rdhours),
-                        totalMoney = Convert.ToDouble(txtTotalBill.Text),
+                        totalMoney = Convert.ToInt32(txtTotalBill.Text),
                         staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
                         tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
                     };
@@ -335,8 +329,7 @@ namespace RestaurentManagement.Views
                     {
                         foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
                         {
-                            string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo()}";
-                            MessageBox.Show(row.Cells[0].Value.ToString());
+                            string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo() + 1}";
                             string nameFood = row.Cells[0].Value.ToString();
                             int quantity = Convert.ToInt32(row.Cells[1].Value);
                             int price = Convert.ToInt32(row.Cells[2].Value);
@@ -362,6 +355,13 @@ namespace RestaurentManagement.Views
                     if (rs1 == 1)
                     {
                         mf.NotifySuss("Thanh toán hóa đơn thành công");
+                        //re-render giao diện
+                        TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Trống");
+                        MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(lbTable.Text));
+                        LoadTables();
+                        DisplayMenuForTable(lbTable.Text);
+                        txtNumOrder.Value = 0;
+                        txtTotalBill.Text = "0";
                     }
                     
                     

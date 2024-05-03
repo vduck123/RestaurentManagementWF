@@ -26,7 +26,7 @@ namespace RestaurentManagement.Views.Provider
             {
                 if(qs == DialogResult.OK)
                 {
-                    string id = $"NCC00{SupplierController.Instance.GetOrderNumInList()}";
+                    string id = $"NCC00{SupplierController.Instance.GetOrderNumInList() + 1}";
                     Supplier supplier = new Supplier()
                     {
                         ID = id,

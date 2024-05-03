@@ -30,11 +30,12 @@ namespace RestaurentManagement.Views
         private void BillImportStaff_VIEW_Load(object sender, EventArgs e)
         {
             LoadData();
+            BillImportController.Instance.AutoDeleteBillNotBillInfo();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string id = $"HDN00{BillImportController.Instance.GetOrderNumInList()}";           
+            string id = $"HDN00{BillImportController.Instance.GetOrderNumInList() + 1}";           
             AddBillImport view = new AddBillImport(id,_nameStaff);
             view.Show();
         }
@@ -42,28 +43,12 @@ namespace RestaurentManagement.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //dgvBilImport.Columns.Clear();
-            //List<BillImport> listBillImport = BillImportController.Instance.SelectBillImportByID(txtID.Text);
-            //DataTable dt = new DataTable();
-            //dt.Columns.Add("ID");
-            //dt.Columns.Add("Nhân viên");
-            //dt.Columns.Add("Nhà cung cấp");
-            //dt.Columns.Add("Ngày tạo");
-            //dt.Columns.Add("Tổng hóa đơn");
-
-            //foreach (BillImport billImport in listBillImport)
-            //{
-            //    dt.Rows.Add(
-            //        billImport.ID,
-            //        StaffController.Instance.GetNameStaffByID(billImport.StaffID),
-            //        SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
-            //        billImport.DayCreated,
-            //        billImport.TotalMoney
-            //   );
-            //}
-
-            //dgvBilImport.DataSource = dt;
+            dgvBilImport.Columns.Clear();
+            string opera = cbbOpera.SelectedItem == null ? null : cbbOpera.SelectedItem.ToString();
+            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, opera);
+            dgvBilImport.DataSource = dt;
         }
+
 
 
         private void btnExcel_Click(object sender, EventArgs e)
@@ -89,13 +74,18 @@ namespace RestaurentManagement.Views
 
         private void xóaHóaĐơnNhậpToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(_ID == null)
+            {
+                return;
+            }
+
             DialogResult qs = mf.NotifyConfirm($"Ấn OK để xóa hóa đơn id={_ID}");
             if (qs == DialogResult.OK)
             {
-                int rs = BillImportController.Instance.DeleteBillImport(_ID);
-                if (rs == 1)
+                int rs = BillImportInfoController.Instance.DeleteAll(_ID); 
+                if (rs > 0)
                 {
-                    BillImportInfoController.Instance.DeleteAll(_ID);
+                    BillImportController.Instance.DeleteBillImport(_ID);
                     mf.NotifySuss("Xóa hóa đơn thành công");
                     Refresh();
                 }
@@ -123,6 +113,64 @@ namespace RestaurentManagement.Views
         }
 
         #region Method
+
+        DataTable HandleSearch(string option, string param, string opera)
+        {
+            List<BillImport> listBillImport = new List<BillImport>();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("ID");
+            dt.Columns.Add("Nhân viên");
+            dt.Columns.Add("Nhà cung cấp");
+            dt.Columns.Add("Ngày tạo");
+            dt.Columns.Add("Tổng hóa đơn");
+            switch (option)
+            {
+                case "Tìm kiếm theo mã":
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByParam("boImport_id", $"'{param}'", "=");
+                        break;
+                    }
+                case "Tìm kiếm theo tên nhân viên": 
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByParam("staff_id", $"'{StaffController.Instance.GetIDStaffByName(param)}'", "=");
+                        break;
+                    }
+                case "Tìm kiếm theo nhà cung cấp":
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByParam("supplier_id", $"'{SupplierController.Instance.GetIDSupplierByName(param)}'", "=");
+                        break;
+                    }
+                case "Tìm kiếm theo tổng tiền":
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByParam("total_money", $"{param}", opera);
+                        break;
+                    }
+                case "Tìm kiếm theo khoảng thời gian vào":
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtprev.Value, dtNext.Value);
+                        break;
+                    }
+                case "Tìm kiếm theo khoảng thời gian ra":
+                    {
+                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtprev.Value, dtNext.Value);
+                        break;
+                    }
+            }
+        
+
+            foreach (BillImport billImport in listBillImport)
+            {
+                dt.Rows.Add(
+                    billImport.ID,
+                    StaffController.Instance.GetNameStaffByID(billImport.StaffID),
+                    SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
+                    billImport.DayCreated,
+                    billImport.TotalMoney
+               );
+            }
+
+            return dt;
+        }
         void LoadData()
         {
             LoadBill();
@@ -158,10 +206,11 @@ namespace RestaurentManagement.Views
             List<string> listOption = new List<string>()
             {
                 "Tìm kiếm theo mã" ,
-                "Tìm kiếm theo tên nhân viên" ,
-                "Tìm kiếm theo khoảng thời gian" ,
+                "Tìm kiếm theo tên nhân viên" ,     
                 "Tìm kiếm theo nhà cung cấp" ,
-                "Tìm kiếm theo tổng tiền"
+                "Tìm kiếm theo tổng tiền",
+                "Tìm kiếm theo khoảng thời gian vào" ,
+                "Tìm kiếm theo khoảng thời gian ra" 
             };
             cbbOption.DataSource = listOption;
         }
@@ -170,6 +219,7 @@ namespace RestaurentManagement.Views
         {
             LoadData();
             txtParam.ResetText();
+            BillImportController.Instance.AutoDeleteBillNotBillInfo();
         }
 
         #endregion

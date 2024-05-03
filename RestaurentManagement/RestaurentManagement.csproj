@@ -133,6 +133,30 @@
     <Compile Include="Views\Billmports\DetailBillImport_VIEW.Designer.cs">
       <DependentUpon>DetailBillImport_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Billmports\EditDetailBillImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Billmports\EditDetailBillImport.Designer.cs">
+      <DependentUpon>EditDetailBillImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillSales\BillSaleInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BillSales\BillSaleInfo_VIEW.Designer.cs">
+      <DependentUpon>BillSaleInfo_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillSales\DetailBillSales_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BillSales\DetailBillSales_VIEW.Designer.cs">
+      <DependentUpon>DetailBillSales_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BillSales\EditDetailBillSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BillSales\EditDetailBillSale.Designer.cs">
+      <DependentUpon>EditDetailBillSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Employee\AddStaff_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +301,24 @@
     <Compile Include="Views\Vouchers\VoucherInfo_VIEW.Designer.cs">
       <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\_Table\_AddTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Table\_AddTable.Designer.cs">
+      <DependentUpon>_AddTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Table\_EditTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Table\_EditTable.Designer.cs">
+      <DependentUpon>_EditTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Table\_TableInfo_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\_Table\_TableInfo_VIEW.Designer.cs">
+      <DependentUpon>_TableInfo_VIEW.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,6 +344,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Billmports\DetailBillImport_VIEW.resx">
       <DependentUpon>DetailBillImport_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Billmports\EditDetailBillImport.resx">
+      <DependentUpon>EditDetailBillImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BillSales\BillSaleInfo_VIEW.resx">
+      <DependentUpon>BillSaleInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BillSales\DetailBillSales_VIEW.resx">
+      <DependentUpon>DetailBillSales_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BillSales\EditDetailBillSale.resx">
+      <DependentUpon>EditDetailBillSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Employee\AddStaff_VIEW.resx">
       <DependentUpon>AddStaff_VIEW.cs</DependentUpon>
@@ -371,6 +425,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Vouchers\VoucherInfo_VIEW.resx">
       <DependentUpon>VoucherInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Table\_AddTable.resx">
+      <DependentUpon>_AddTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Table\_EditTable.resx">
+      <DependentUpon>_EditTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\_Table\_TableInfo_VIEW.resx">
+      <DependentUpon>_TableInfo_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

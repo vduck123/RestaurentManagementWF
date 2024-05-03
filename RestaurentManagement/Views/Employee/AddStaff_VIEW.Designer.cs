@@ -107,9 +107,9 @@
             this.btnAdd.FillColor = System.Drawing.Color.Chartreuse;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Black;
-            this.btnAdd.Location = new System.Drawing.Point(352, 634);
+            this.btnAdd.Location = new System.Drawing.Point(300, 628);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(331, 34);
+            this.btnAdd.Size = new System.Drawing.Size(331, 42);
             this.btnAdd.TabIndex = 46;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -403,9 +403,9 @@
             this.btnHide.FillColor = System.Drawing.Color.Transparent;
             this.btnHide.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHide.ForeColor = System.Drawing.Color.Black;
-            this.btnHide.Location = new System.Drawing.Point(877, 634);
+            this.btnHide.Location = new System.Drawing.Point(859, 628);
             this.btnHide.Name = "btnHide";
-            this.btnHide.Size = new System.Drawing.Size(96, 34);
+            this.btnHide.Size = new System.Drawing.Size(112, 42);
             this.btnHide.TabIndex = 47;
             this.btnHide.Text = "Đóng";
             // 
@@ -459,7 +459,7 @@
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageRotate = 0F;
             this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose.Location = new System.Drawing.Point(945, 9);
+            this.btnClose.Location = new System.Drawing.Point(959, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(28, 21);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -805,7 +805,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 674);
+            this.ClientSize = new System.Drawing.Size(999, 699);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnHide);
             this.Controls.Add(this.groupBox2);

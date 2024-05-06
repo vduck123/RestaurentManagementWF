@@ -7,6 +7,7 @@ using RestaurentManagement.Views.Salaries;
 using RestaurentManagement.Views.Vouchers;
 using RestaurentManagement.Views.Material;
 using RestaurentManagement.Views.BillSales;
+using RestaurentManagement.Views.Reports;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,7 +58,7 @@ namespace RestaurentManagement.Views
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Home_VIEW());
+            OpenChildForm(new Report_VIEW());
         }
 
         private void btnOrder_Click(object sender, EventArgs e)

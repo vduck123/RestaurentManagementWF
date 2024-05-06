@@ -60,6 +60,8 @@
             // 
             // dgvFoodCategory
             // 
+            this.dgvFoodCategory.AllowUserToAddRows = false;
+            this.dgvFoodCategory.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvFoodCategory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -86,6 +88,7 @@
             this.dgvFoodCategory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFoodCategory.Location = new System.Drawing.Point(0, 0);
             this.dgvFoodCategory.Name = "dgvFoodCategory";
+            this.dgvFoodCategory.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,7 +113,7 @@
             this.dgvFoodCategory.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvFoodCategory.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvFoodCategory.ThemeStyle.HeaderStyle.Height = 30;
-            this.dgvFoodCategory.ThemeStyle.ReadOnly = false;
+            this.dgvFoodCategory.ThemeStyle.ReadOnly = true;
             this.dgvFoodCategory.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvFoodCategory.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvFoodCategory.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -124,11 +127,13 @@
             // 
             this.Column1.HeaderText = "ID";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "FoodCategory";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // panel2
             // 

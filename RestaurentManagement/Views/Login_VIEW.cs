@@ -45,6 +45,8 @@ namespace RestaurentManagement.Views
                 } 
                 else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
                 {
+                    Admin_VIEW admin_VIEW = new Admin_VIEW(user);
+                    admin_VIEW.ShowDialog();
                     return;
                 }
                 else

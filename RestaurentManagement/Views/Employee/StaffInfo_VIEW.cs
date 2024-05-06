@@ -64,10 +64,11 @@ namespace RestaurentManagement.Views.Employee
                 DialogResult qs = mf.NotifyConfirm($"Ấn OK để xác nhận xóa nhân viên có mã: {id}");
                 if (qs == DialogResult.OK)
                 {
-                    int rs = StaffController.Instance.DeleteStaff(id);
+
+                    int rs =  SalaryController.Instance.DeleteSalaryBystaffId(id);
                     if (rs == 1)
                     {
-                        SalaryController.Instance.DeleteSalaryBystaffId(id);
+                        StaffController.Instance.DeleteStaff(id);
                         mf.NotifySuss("Xóa nhân viên thành công");
                     }
                 }

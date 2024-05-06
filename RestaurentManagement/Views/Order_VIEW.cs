@@ -218,7 +218,13 @@ namespace RestaurentManagement.Views
 
             if (quantity == 0)
             {
-                MessageBox.Show("Vui lòng chọn số lượng");
+                mf.NotifyErr("Vui lòng chọn số lượng");
+                return;
+            }
+
+            if(lbTable.Text.Equals("bàn"))
+            {
+                mf.NotifyErr("Vui lòng chọn bàn");
                 return;
             }
 

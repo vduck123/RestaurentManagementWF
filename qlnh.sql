@@ -6,6 +6,33 @@ GO
 
 
 
+
+
+SELECT *
+FROM dbo.BillOfImport
+
+SELECT SUM(totalMoney) AS [Tổng thu]
+FROM dbo.BillOfSale
+WHERE dayIn = GETDATE()
+
+
+
+
+
+
+
+
+
+
+SELECT spl.supplier_id AS [Mã nhà cung cấp], 
+	   spl.supplier_name AS [Tên nhà cung cấp], 
+	   COUNT(boImport_id) AS [Số hóa đơn]
+FROM dbo.Supplier spl
+LEFT JOIN dbo.BillOfImport boi ON boi.supplier_id = spl.supplier_id
+WHERE boi.dayCreate = '2023-05-03'
+GROUP BY spl.supplier_id, spl.supplier_name 
+HAVING COUNT(boImport_id) > 0
+ 
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,
@@ -13,11 +40,12 @@ CREATE TABLE Account
 	password CHAR(30) ,
 	role NVARCHAR(30)
 )
-SELECT a.acc_id, a.username, a.password, a.role
-                                FROM Account a
-                                LEFT JOIN Staff s ON s.acc_id = a.acc_id
-                                WHERE s.acc_id IS NULL;
 
+
+
+
+SELECT * FROM dbo.BillOfImport
+SELECT * FROM dbo.BillOfSale
 --
 CREATE TABLE Staff
 (
@@ -29,11 +57,7 @@ CREATE TABLE Staff
 	phone CHAR(11) ,
 	acc_id CHAR(10) REFERENCES Account(acc_id)
 )
-SELECT acc.role, sf.*, sl.salary_basic
-FROM Account acc 
-INNER JOIN Staff sf ON acc.acc_id = sf.acc_id
-INNER JOIN Salary sl ON sf.staff_id = sl.staff_id
-WHERE YEAR(sf.birth) = YEAR('2024-01-01')
+
 
 
 --
@@ -93,8 +117,7 @@ CREATE TABLE Food
 	item_quantity INT ,
 	cgFood_id CHAR(10) REFERENCES FoodCategory(cgFood_id)
 )
-USE RestaurantManagement
-SELECT * FROM dbo.Food
+
 
 --
 CREATE TABLE BillOfImport
@@ -104,6 +127,15 @@ CREATE TABLE BillOfImport
 	supplier_id CHAR(10) REFERENCES dbo.Supplier(supplier_id) ,
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	total_money INT 
+)
+CREATE TABLE BillOfSale 
+(
+	boSale_id CHAR(10) PRIMARY KEY ,
+	dayIn DATETIME ,
+	dayOut DATETIME ,
+	totalMoney INT ,
+	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
+	table_id CHAR(10) REFERENCES dbo._Table(table_id)
 )
 --
 CREATE TABLE DetailBillOfImport
@@ -157,6 +189,9 @@ CREATE TABLE DetailBillOfSale
 	voucher_id CHAR(10) REFERENCES dbo.Voucher(voucher_id) ,
 	boSale_id CHAR(10) REFERENCES BillOfSale(boSale_id)
 )
+
+
+
 
 --
 CREATE TABLE Menu

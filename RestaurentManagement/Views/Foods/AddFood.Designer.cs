@@ -50,11 +50,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.picture = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.txtImage = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnChoosseImage = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumMaterial)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -179,7 +185,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(531, 36);
+            this.panel1.Size = new System.Drawing.Size(902, 36);
             this.panel1.TabIndex = 48;
             // 
             // guna2PictureBox1
@@ -188,7 +194,7 @@
             this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(491, 6);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(862, 6);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.Size = new System.Drawing.Size(28, 21);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,7 +211,7 @@
             this.btnClose.FillColor = System.Drawing.Color.Gray;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(333, 487);
+            this.btnClose.Location = new System.Drawing.Point(709, 485);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(117, 38);
             this.btnClose.TabIndex = 47;
@@ -223,7 +229,7 @@
             this.btnAdd.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(85, 487);
+            this.btnAdd.Location = new System.Drawing.Point(140, 485);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(118, 36);
             this.btnAdd.TabIndex = 46;
@@ -326,12 +332,85 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin món ăn";
             // 
+            // picture
+            // 
+            this.picture.ImageRotate = 0F;
+            this.picture.Location = new System.Drawing.Point(561, 61);
+            this.picture.Name = "picture";
+            this.picture.Size = new System.Drawing.Size(296, 221);
+            this.picture.TabIndex = 49;
+            this.picture.TabStop = false;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.BackColor = System.Drawing.Color.Black;
+            this.guna2Panel1.Location = new System.Drawing.Point(545, 354);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(345, 2);
+            this.guna2Panel1.TabIndex = 43;
+            // 
+            // txtImage
+            // 
+            this.txtImage.BorderColor = System.Drawing.Color.Transparent;
+            this.txtImage.BorderRadius = 10;
+            this.txtImage.BorderThickness = 0;
+            this.txtImage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtImage.DefaultText = "";
+            this.txtImage.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtImage.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtImage.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.txtImage.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.ForeColor = System.Drawing.Color.Black;
+            this.txtImage.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtImage.Location = new System.Drawing.Point(625, 318);
+            this.txtImage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.PasswordChar = '\0';
+            this.txtImage.PlaceholderText = "";
+            this.txtImage.SelectedText = "";
+            this.txtImage.Size = new System.Drawing.Size(265, 29);
+            this.txtImage.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(541, 324);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 20);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Hình ảnh:";
+            // 
+            // btnChoosseImage
+            // 
+            this.btnChoosseImage.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnChoosseImage.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnChoosseImage.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnChoosseImage.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnChoosseImage.FillColor = System.Drawing.Color.Gray;
+            this.btnChoosseImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoosseImage.ForeColor = System.Drawing.Color.White;
+            this.btnChoosseImage.Location = new System.Drawing.Point(545, 370);
+            this.btnChoosseImage.Name = "btnChoosseImage";
+            this.btnChoosseImage.Size = new System.Drawing.Size(150, 30);
+            this.btnChoosseImage.TabIndex = 50;
+            this.btnChoosseImage.Text = "Chọn hình ảnh..";
+            this.btnChoosseImage.Click += new System.EventHandler(this.btnChoosseImage_Click);
+            // 
             // AddFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(531, 547);
+            this.ClientSize = new System.Drawing.Size(902, 559);
+            this.Controls.Add(this.btnChoosseImage);
+            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.picture);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAdd);
@@ -348,7 +427,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -375,5 +456,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox picture;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2TextBox txtImage;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2Button btnChoosseImage;
     }
 }

@@ -37,16 +37,17 @@
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             this.dgvFood = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -165,7 +166,8 @@
             this.Column3,
             this.Column4,
             this.Column5,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dgvFood.ContextMenuStrip = this.guna2ContextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -206,42 +208,6 @@
             this.dgvFood.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvFood.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellClick);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã món ăn";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên món ăn";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá bán";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tên nguyên liệu";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số lượng yêu cầu";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Loại món ăn";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // guna2ContextMenuStrip1
             // 
@@ -297,6 +263,51 @@
             this.cbbOptionPrice.TabIndex = 27;
             this.cbbOptionPrice.Visible = false;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã món ăn";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên món ăn";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá bán";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tên nguyên liệu";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số lượng yêu cầu";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Loại món ăn";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Hình ảnh";
+            this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // FoodInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,15 +337,16 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbOption;
         private Guna.UI2.WinForms.Guna2Button btnFind;
         private Guna.UI2.WinForms.Guna2DataGridView dgvFood;
+        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem sửaMónĂnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xóaMónĂnToolStripMenuItem;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbOptionPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private Guna.UI2.WinForms.Guna2ContextMenuStrip guna2ContextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem sửaMónĂnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xóaMónĂnToolStripMenuItem;
-        private Guna.UI2.WinForms.Guna2ComboBox cbbOptionPrice;
+        private System.Windows.Forms.DataGridViewImageColumn Column7;
     }
 }

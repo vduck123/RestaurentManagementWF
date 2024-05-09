@@ -33,6 +33,7 @@ namespace RestaurentManagement.Views
             LoadVoucher();
             LoadCategoryFood();
             LoadTables();
+            LoadFood();
         }
 
         #region Method
@@ -43,8 +44,12 @@ namespace RestaurentManagement.Views
             string nameVoucher = null;
             foreach (Voucher voucher in vouchers)
             {
-                nameVoucher = $"{voucher.Name} giảm {voucher.Expiry}";
-                nameVouchers.Add(nameVoucher);
+                if(voucher.Status.Equals("Bật"))
+                {
+                    nameVoucher = $"{voucher.Name} giảm {voucher.Expiry}";
+                    nameVouchers.Add(nameVoucher);
+                }
+                
             }
             cbbVoucher.DataSource = nameVouchers;
         }
@@ -122,6 +127,127 @@ namespace RestaurentManagement.Views
 
             dgvListFoodOrder.DataSource = dt;
         }
+
+        void LoadFood()
+        {
+            dgvFood.Columns.Clear();
+            List<Food> foods = FoodController.Instance.GetListFood();
+
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Tên món ăn");
+            dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Hình ảnh", typeof(byte[]));
+            foreach (Food f in foods)
+            {
+                dt.Rows.Add(f.Name, f.Price, f.imageFood);
+            }
+
+            dgvFood.RowTemplate.Height = 70;
+            dgvFood.DataSource = dt;
+
+            var imageColumn = dgvFood.Columns["Hình ảnh"] as DataGridViewImageColumn;
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            var btnAdd = new DataGridViewButtonColumn();
+            btnAdd.Name = "Tùy chọn";
+            btnAdd.Text = "Thêm";
+            btnAdd.UseColumnTextForButtonValue = true;
+            btnAdd.Width = 10;
+            dgvFood.Columns.Add(btnAdd);
+
+            dgvFood.CellContentClick += dgvFood_CellContentClick;
+        }
+
+        private void dgvFood_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(lbTable.Text.Equals("bàn"))
+            {
+                mf.NotifyErr("Vui lòng chọn bàn");
+                return;
+            }
+
+            if (e.ColumnIndex == dgvFood.Columns["Tùy chọn"].Index && e.RowIndex >= 0)
+            {
+                string nameFoodChoose = dgvFood.Rows[e.RowIndex].Cells["Tên món ăn"].Value.ToString();
+                int quantity = Convert.ToInt32(txtNumOrder.Value);
+                int priceFood = 0;
+                int total = 0;
+
+                if (quantity == 0)
+                {
+                    mf.NotifyErr("Vui lòng chọn số lượng");
+                    return;
+                }
+
+                if (lbTable.Text.Equals("bàn"))
+                {
+                    mf.NotifyErr("Vui lòng chọn bàn");
+                    return;
+                }
+
+                bool foodExists = false;
+
+
+                foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+                {
+                    if (row.Cells[0].Value != null && row.Cells[0].Value.ToString() == nameFoodChoose)
+                    {
+                        int existingQuantity = Convert.ToInt32(row.Cells[1].Value);
+                        int existingTotalMoney = Convert.ToInt32(row.Cells[3].Value);
+                        existingQuantity += quantity;
+                        priceFood = Convert.ToInt32(row.Cells[2].Value);
+                        total = existingQuantity * priceFood;
+                        row.Cells[1].Value = existingQuantity;
+                        row.Cells[3].Value = total;
+                        Menu menu = new Menu()
+                        {
+                            foodID = FoodController.Instance.GetIDFoodByName(nameFoodChoose),
+                            Quantity = existingQuantity,
+                            Total = total,
+                            tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
+                        };
+                        int rs = MenuController.Instance.UpdateMenu(menu);
+                        if (rs == 1)
+                        {
+                            DisplayMenuForTable(lbTable.Text);
+
+                        }
+                        foodExists = true;
+                        break;
+                    }
+                }
+
+                if (!foodExists)
+                {
+                    List<Food> selectedFood = FoodController.Instance.GetFoodByName(nameFoodChoose);
+                    foreach (Food f in selectedFood)
+                    {
+                        priceFood = f.Price;
+                        total = quantity * priceFood;
+                    }
+                    Menu menu = new Menu()
+                    {
+                        foodID = FoodController.Instance.GetIDFoodByName(nameFoodChoose),
+                        Price = priceFood,
+                        Quantity = quantity,
+                        Total = total,
+                        tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
+                    };
+                    int rs = MenuController.Instance.InsertMenu(menu);
+                    if (rs == 1)
+                    {
+                        DisplayMenuForTable(lbTable.Text);
+                        int rs1 = TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Đầy");
+                        if (rs1 == 1)
+                        {
+                            LoadTables();
+                        }
+                    }
+                }
+                txtTotalBill.Text = LoadTotalBill().ToString();
+            }
+        }
+
 
         private double CalcBill(double priceOriginal, double expiry, string expiryOption)
         {
@@ -312,18 +438,31 @@ namespace RestaurentManagement.Views
             {
                 if(qs == DialogResult.OK)
                 {
-                    
                     //Thêm dữ liệu vào db
 
                     //Hóa đơn bán
                     int rdhours = new Random().Next(1, 4);
+                    DateTime dayIn = DateTime.Now;
+                    DateTime dayOut;
+
+                    if (dayIn.Hour > 12)
+                    {
+                        dayOut = dayIn.AddDays(1).Date;
+                    }
+                    else
+                    {
+                        dayOut = dayIn.Date;
+                    }
+
+                    dayOut = dayOut.AddHours(rdhours);
+
                     string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
                     BillSale billSale = new BillSale()
                     {
                         Id = idBillSale,
-                        dayIn = DateTime.Now,
-                        dayOut = DateTime.Now.AddHours(rdhours),
-                        totalMoney = Convert.ToInt32(txtTotalBill.Text),
+                        dayIn = dayIn,
+                        dayOut = dayOut,
+                        totalMoney = Convert.ToDouble(txtTotalBill.Text),
                         staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
                         tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
                     };
@@ -354,7 +493,6 @@ namespace RestaurentManagement.Views
 
                             BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
                         }
-
                     }
 
 
@@ -446,7 +584,6 @@ namespace RestaurentManagement.Views
             {
                 selectedRow = dgvListFoodOrder.Rows[e.RowIndex];
             }
-            MessageBox.Show(selectedRow.Cells[0].Value.ToString());
         }
 
         //Xóa món ăn

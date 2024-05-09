@@ -217,5 +217,19 @@ namespace RestaurentManagement.Controllers
 
         }
 
+        public DataTable GetTopFoodByTime(DateTime dt1, DateTime dt2)
+        {
+            string query = $@"SELECT TOP(5) COUNT(dbos.food_id) [Số lượng], 
+                                            dbos.food_id
+                                            FROM dbo.BillOfSale bos
+                                            INNER JOIN dbo.DetailBillOfSale dbos ON dbos.boSale_id = bos.boSale_id
+                             WHERE YEAR(bos.dayOut) = '2024'
+                             GROUP BY dbos.food_id
+                            ORDER BY COUNT(dbos.food_id) DESC";
+            DataTable dt = new DataTable();
+            dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
+        }
+
     }
 }

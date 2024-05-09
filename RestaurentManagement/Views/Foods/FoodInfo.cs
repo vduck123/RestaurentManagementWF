@@ -98,14 +98,22 @@ namespace RestaurentManagement.Views.Foods
             dt.Columns.Add("Nguyên liệu");
             dt.Columns.Add("Số lượng");
             dt.Columns.Add("Loại món ăn");
+            dt.Columns.Add("Hình ảnh", typeof(byte[]));
             foreach (Food f in foods)
             {
                 string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
                 string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
-                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category);
+                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category, f.imageFood);
             }
+
+            dgvFood.RowTemplate.Height = 100;
             dgvFood.DataSource = dt;
+
+            var imageColumn = dgvFood.Columns["Hình ảnh"] as DataGridViewImageColumn;
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
         }
+
+
 
         void LoadOption()
         {

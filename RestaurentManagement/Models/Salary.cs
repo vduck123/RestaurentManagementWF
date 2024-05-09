@@ -39,17 +39,18 @@ namespace RestaurentManagement.Models
 
         public Salary(DataRow row)
         {
-            this.ID = (string)row["salary_id"];
+            this.ID = row["salary_id"].ToString();
             this.Month = (DateTime)row["salary_month"];
-            this.salaryBasic = (int)row["salary_basic"];
-            this.hsl = (double)row["hsl"]; ;
-            this.salaryHour = (int)row["salary_hour"];
-            this.numHour = (double)row["num_hour"]; ;
-            this.Bonus = (int)row["bonus"]; ;
-            this.Fine = (int)row["fine"]; ;
-            this.Total = (double)row["total"]; ;
-            this.staffID = (string)row["staff_id"]; ;
+            this.salaryBasic = Convert.ToInt32(row["salary_basic"]);
+            this.hsl = Convert.ToDouble(row["hsl"]);
+            this.salaryHour = Convert.ToInt32(row["salary_hour"]);
+            this.numHour = Convert.ToDouble(row["num_hour"]);
+            this.Bonus = Convert.ToInt32(row["bonus"]);
+            this.Fine = Convert.ToInt32(row["fine"]);
+            this.Total = Convert.ToDouble(row["total"]);
+            this.staffID = row["staff_id"].ToString();
         }
+
 
     }
 }

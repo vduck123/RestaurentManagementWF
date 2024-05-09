@@ -11,7 +11,7 @@ namespace RestaurentManagement.utils
 {
     internal class DBHelper
     {
-        private string conn = @"Data Source=CAOVIET;Initial Catalog=RestaurantManagement;Integrated Security=True;TrustServerCertificate=True";
+        public static string conn = @"Data Source=CAOVIET;Initial Catalog=RestaurantManagement;Integrated Security=True;TrustServerCertificate=True";
 
         private static DBHelper instance;
 

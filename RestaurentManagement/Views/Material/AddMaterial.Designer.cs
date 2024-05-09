@@ -267,6 +267,7 @@
             this.Name = "AddMaterial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddMaterial";
+            this.Load += new System.EventHandler(this.AddMaterial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtQuantity)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

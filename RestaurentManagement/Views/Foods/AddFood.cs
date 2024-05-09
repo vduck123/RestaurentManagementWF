@@ -1,10 +1,12 @@
-﻿using RestaurentManagement.Controllers;
+﻿using Guna.UI2.WinForms;
+using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -35,7 +37,8 @@ namespace RestaurentManagement.Views.Foods
                 Price = Convert.ToInt32(txtPrice.Value),
                 materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
                 numMaterial = Convert.ToInt32(txtNumMaterial.Value),
-                categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
+                categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString()),
+                imageFood = ConvertImgToByte(txtImage.Text)
             };
 
             int data = FoodController.Instance.InsertFood(f);
@@ -86,5 +89,28 @@ namespace RestaurentManagement.Views.Foods
         }
 
 
+
+        private void btnChoosseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = openFileDialog.Filter = "JPG files (*.jpg) | *.jpg|All files (*.*) | *.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picture.ImageLocation = openFileDialog.FileName;
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                txtImage.Text = openFileDialog.FileName;
+            }
+        }
+
+        private byte[] ConvertImgToByte(string path)
+        {
+            FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            byte[] picture = new byte[fs.Length];
+            fs.Read(picture, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picture;
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace RestaurentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Admin_VIEW("Cao Bá Việt"));
+            Application.Run(new Admin_VIEW("admin"));
         }
     }
 }

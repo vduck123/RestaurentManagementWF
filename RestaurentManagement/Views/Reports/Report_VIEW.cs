@@ -131,6 +131,9 @@ namespace RestaurentManagement.Views.Reports
             LoadNumBill(dtb1, dtb2);
 
 
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
+            LoadHotFood(dtHotFood, dt1, dt2);
+
 
         }
 
@@ -291,6 +294,33 @@ namespace RestaurentManagement.Views.Reports
             charRevenue.Datasets.Add(barDatasetExpense);
 
             charRevenue.Update();
+        }
+
+        void LoadHotFood(DataTable dtb, DateTime dt1, DateTime dt2)
+        {
+            chartFood.Datasets.Clear();
+            chartFood.Title.Text = $"Top món ăn {dt1.ToString("dd/MM/yyyy")}";
+            List<string> list = new List<string>() { "Monday", "TueDay"};
+            var dataset = new Guna.Charts.WinForms.GunaPieDataset();
+
+            chartFood.Legend.Position = Guna.Charts.WinForms.LegendPosition.Right;
+
+            chartFood.XAxes.Display = false;
+            chartFood.YAxes.Display = false;
+            int i = 0;
+            foreach (DataRow row in dtb.Rows)
+            {
+                MessageBox.Show(row["food_id"].ToString());
+                int quantity = Convert.ToInt32(row["Số lượng"]);
+                dataset.DataPoints.Add(FoodController.Instance.GetNameFoodByID(row["food_id"].ToString()), quantity);
+                dataset.Label = FoodController.Instance.GetNameFoodByID(row["food_id"].ToString());
+            }
+
+            
+
+            chartFood.Datasets.Add(dataset);
+
+            chartFood.Update();
         }
 
         void LoadNumBill(DataTable dt1, DataTable dt2)

@@ -54,5 +54,21 @@ namespace RestaurentManagement.Views.Material
         {
             this.Close();
         }
+
+        private void AddMaterial_Load(object sender, EventArgs e)
+        {
+            LoadCategory();
+        }
+
+        void LoadCategory()
+        {
+            List<string> listnameCategory = new List<string>();
+            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
+            foreach (FoodCategory category in foodCategories)
+            {
+                listnameCategory.Add(category.Name);
+            }
+            cbbCategory.DataSource = listnameCategory;
+        }
     }
 }

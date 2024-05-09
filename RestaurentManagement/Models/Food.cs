@@ -15,17 +15,19 @@ namespace RestaurentManagement.Models
         public string materialID;
         public int numMaterial;
         public string categoryID;
+        public byte[] imageFood;
 
         public Food()
         {
 
         }
 
-        public Food(string id, string name, int price, string materialid, int nummaterial, string categoryid )
+        public Food(string id, string name, int price, string materialid, int nummaterial, string categoryid , byte[] imagefood)
         {
             this.ID = id;
             this.Name = name;
             this.Price = price;
+            this.imageFood = imagefood;
             this.materialID = materialid;
             this.numMaterial = nummaterial;
             this.categoryID = categoryid;
@@ -39,6 +41,7 @@ namespace RestaurentManagement.Models
             this.materialID = (string)row["item_id"];
             this.numMaterial = (int)row["item_quantity"];
             this.categoryID = row["cgFood_id"].ToString();
+            this.imageFood = (byte[])row["image"];
         }
 
 

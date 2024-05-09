@@ -82,7 +82,6 @@
     <Compile Include="Models\BillSale.cs" />
     <Compile Include="Models\BillImport.cs" />
     <Compile Include="Models\BillImportInfo.cs" />
-    <Compile Include="Models\BillInfo.cs" />
     <Compile Include="Models\BillSaleInfo.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />

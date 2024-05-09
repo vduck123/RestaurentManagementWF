@@ -119,7 +119,13 @@
             this.txtNum.BackColor = System.Drawing.Color.Transparent;
             this.txtNum.BorderRadius = 5;
             this.txtNum.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtNum.DecimalPlaces = 1;
             this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNum.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.txtNum.Location = new System.Drawing.Point(174, 301);
             this.txtNum.Maximum = new decimal(new int[] {
             9999999,
@@ -263,7 +269,13 @@
             this.txtHsl.BackColor = System.Drawing.Color.Transparent;
             this.txtHsl.BorderRadius = 5;
             this.txtHsl.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtHsl.DecimalPlaces = 2;
             this.txtHsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHsl.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.txtHsl.Location = new System.Drawing.Point(174, 187);
             this.txtHsl.Maximum = new decimal(new int[] {
             99999999,

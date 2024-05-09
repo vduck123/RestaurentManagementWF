@@ -87,15 +87,17 @@ namespace RestaurentManagement.Controllers
         public int InsertFood(Food food)
         {
             string query = @"INSERT INTO Food
-                             VALUES (@id,@name,@price,@material,@num,@category)";
+                             VALUES (@id,@name,@price,@img,@material,@num,@category)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", food.ID},
                 {"@name", food.Name},
                 {"@price", food.Price},
+                {"@img", food.imageFood},
                 {"@material", food.materialID},
                 {"@num", food.numMaterial},
                 {"@category", food.categoryID}
+                
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -109,7 +111,8 @@ namespace RestaurentManagement.Controllers
 			                    food_price = @price ,
                                 item_id = @material ,
                                 item_quantity = @num ,
-                                cgFood_id = @category
+                                cgFood_id = @category ,
+                                image = @img
 		                     WHERE food_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -118,7 +121,8 @@ namespace RestaurentManagement.Controllers
                 {"@price", food.Price},
                 {"@material", food.materialID},
                 {"@num", food.numMaterial},
-                {"@category", food.categoryID}
+                {"@category", food.categoryID},
+                {"@img", food.imageFood}
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query,parameters);

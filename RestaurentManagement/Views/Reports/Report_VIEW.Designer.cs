@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -53,6 +50,21 @@
             Guna.Charts.WinForms.ChartFont chartFont7 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.Tick tick3 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont8 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont9 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont10 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont11 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.ChartFont chartFont12 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid4 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick4 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont13 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid5 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.Tick tick5 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont14 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Grid grid6 = new Guna.Charts.WinForms.Grid();
+            Guna.Charts.WinForms.PointLabel pointLabel2 = new Guna.Charts.WinForms.PointLabel();
+            Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
+            Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
+            Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +79,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.chartFood = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dtPrev = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.dtNext = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnExcute = new Guna.UI2.WinForms.Guna2Button();
@@ -88,7 +99,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.charRevenue = new Guna.Charts.WinForms.GunaChart();
-            ((System.ComponentModel.ISupportInitialize)(this.chartFood)).BeginInit();
+            this.chartFood = new Guna.Charts.WinForms.GunaChart();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
@@ -104,17 +115,19 @@
             this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(52, 101);
+            this.guna2Button1.Location = new System.Drawing.Point(69, 124);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(200, 94);
+            this.guna2Button1.Size = new System.Drawing.Size(267, 116);
             this.guna2Button1.TabIndex = 0;
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 92);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 113);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1084, 3);
+            this.guna2Panel1.Size = new System.Drawing.Size(1445, 4);
             this.guna2Panel1.TabIndex = 1;
             // 
             // label1
@@ -123,9 +136,10 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(70, 123);
+            this.label1.Location = new System.Drawing.Point(93, 151);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 24);
+            this.label1.Size = new System.Drawing.Size(210, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Số hóa đơn nhập";
             // 
@@ -135,9 +149,10 @@
             this.lbNumBillImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lbNumBillImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumBillImport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNumBillImport.Location = new System.Drawing.Point(70, 156);
+            this.lbNumBillImport.Location = new System.Drawing.Point(93, 192);
+            this.lbNumBillImport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNumBillImport.Name = "lbNumBillImport";
-            this.lbNumBillImport.Size = new System.Drawing.Size(21, 24);
+            this.lbNumBillImport.Size = new System.Drawing.Size(27, 29);
             this.lbNumBillImport.TabIndex = 3;
             this.lbNumBillImport.Text = "0";
             // 
@@ -147,9 +162,10 @@
             this.lbNumBillImSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.lbNumBillImSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumBillImSale.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNumBillImSale.Location = new System.Drawing.Point(329, 156);
+            this.lbNumBillImSale.Location = new System.Drawing.Point(439, 192);
+            this.lbNumBillImSale.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNumBillImSale.Name = "lbNumBillImSale";
-            this.lbNumBillImSale.Size = new System.Drawing.Size(21, 24);
+            this.lbNumBillImSale.Size = new System.Drawing.Size(27, 29);
             this.lbNumBillImSale.TabIndex = 6;
             this.lbNumBillImSale.Text = "0";
             // 
@@ -159,9 +175,10 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(329, 123);
+            this.label4.Location = new System.Drawing.Point(439, 151);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(160, 24);
+            this.label4.Size = new System.Drawing.Size(196, 29);
             this.label4.TabIndex = 5;
             this.label4.Text = "Số hóa đơn bán";
             // 
@@ -175,9 +192,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(311, 101);
+            this.guna2Button2.Location = new System.Drawing.Point(415, 124);
+            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(200, 94);
+            this.guna2Button2.Size = new System.Drawing.Size(267, 116);
             this.guna2Button2.TabIndex = 4;
             // 
             // lbRevenue
@@ -186,9 +204,10 @@
             this.lbRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRevenue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbRevenue.Location = new System.Drawing.Point(601, 156);
+            this.lbRevenue.Location = new System.Drawing.Point(801, 192);
+            this.lbRevenue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbRevenue.Name = "lbRevenue";
-            this.lbRevenue.Size = new System.Drawing.Size(21, 24);
+            this.lbRevenue.Size = new System.Drawing.Size(27, 29);
             this.lbRevenue.TabIndex = 9;
             this.lbRevenue.Text = "0";
             // 
@@ -198,9 +217,10 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(601, 123);
+            this.label6.Location = new System.Drawing.Point(801, 151);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(106, 24);
+            this.label6.Size = new System.Drawing.Size(130, 29);
             this.label6.TabIndex = 8;
             this.label6.Text = "Doanh thu";
             // 
@@ -214,9 +234,10 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(583, 101);
+            this.guna2Button3.Location = new System.Drawing.Point(777, 124);
+            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(200, 94);
+            this.guna2Button3.Size = new System.Drawing.Size(267, 116);
             this.guna2Button3.TabIndex = 7;
             // 
             // label7
@@ -225,9 +246,10 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(859, 156);
+            this.label7.Location = new System.Drawing.Point(1145, 192);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 24);
+            this.label7.Size = new System.Drawing.Size(27, 29);
             this.label7.TabIndex = 12;
             this.label7.Text = "0";
             // 
@@ -237,9 +259,10 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(859, 123);
+            this.label8.Location = new System.Drawing.Point(1145, 151);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 24);
+            this.label8.Size = new System.Drawing.Size(126, 29);
             this.label8.TabIndex = 11;
             this.label8.Text = "Lợi nhuận";
             // 
@@ -253,34 +276,20 @@
             this.guna2Button4.FillColor = System.Drawing.Color.CornflowerBlue;
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(841, 101);
+            this.guna2Button4.Location = new System.Drawing.Point(1121, 124);
+            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(200, 94);
+            this.guna2Button4.Size = new System.Drawing.Size(267, 116);
             this.guna2Button4.TabIndex = 10;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 216);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 266);
+            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1084, 3);
+            this.guna2Panel2.Size = new System.Drawing.Size(1445, 4);
             this.guna2Panel2.TabIndex = 2;
-            // 
-            // chartFood
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartFood.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartFood.Legends.Add(legend1);
-            this.chartFood.Location = new System.Drawing.Point(756, 252);
-            this.chartFood.Name = "chartFood";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartFood.Series.Add(series1);
-            this.chartFood.Size = new System.Drawing.Size(315, 254);
-            this.chartFood.TabIndex = 14;
-            this.chartFood.Text = "chart1";
             // 
             // dtPrev
             // 
@@ -288,11 +297,12 @@
             this.dtPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPrev.Location = new System.Drawing.Point(52, 40);
+            this.dtPrev.Location = new System.Drawing.Point(69, 49);
+            this.dtPrev.Margin = new System.Windows.Forms.Padding(4);
             this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtPrev.Name = "dtPrev";
-            this.dtPrev.Size = new System.Drawing.Size(151, 29);
+            this.dtPrev.Size = new System.Drawing.Size(201, 36);
             this.dtPrev.TabIndex = 15;
             this.dtPrev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtPrev.Value = new System.DateTime(2024, 5, 4, 16, 23, 16, 861);
@@ -304,11 +314,12 @@
             this.dtNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNext.Location = new System.Drawing.Point(243, 40);
+            this.dtNext.Location = new System.Drawing.Point(324, 49);
+            this.dtNext.Margin = new System.Windows.Forms.Padding(4);
             this.dtNext.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtNext.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtNext.Name = "dtNext";
-            this.dtNext.Size = new System.Drawing.Size(151, 29);
+            this.dtNext.Size = new System.Drawing.Size(201, 36);
             this.dtNext.TabIndex = 16;
             this.dtNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtNext.Value = new System.DateTime(2024, 5, 4, 16, 14, 28, 471);
@@ -324,9 +335,10 @@
             this.btnExcute.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnExcute.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcute.ForeColor = System.Drawing.Color.White;
-            this.btnExcute.Location = new System.Drawing.Point(400, 41);
+            this.btnExcute.Location = new System.Drawing.Point(533, 50);
+            this.btnExcute.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcute.Name = "btnExcute";
-            this.btnExcute.Size = new System.Drawing.Size(68, 30);
+            this.btnExcute.Size = new System.Drawing.Size(91, 37);
             this.btnExcute.TabIndex = 17;
             this.btnExcute.Text = "OK";
             this.btnExcute.Visible = false;
@@ -362,11 +374,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStaff.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvStaff.Location = new System.Drawing.Point(756, 524);
+            this.dgvStaff.Location = new System.Drawing.Point(1008, 645);
+            this.dgvStaff.Margin = new System.Windows.Forms.Padding(4);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersVisible = false;
-            this.dgvStaff.Size = new System.Drawing.Size(314, 107);
+            this.dgvStaff.RowHeadersWidth = 51;
+            this.dgvStaff.Size = new System.Drawing.Size(419, 132);
             this.dgvStaff.TabIndex = 22;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -393,24 +407,28 @@
             // Column1
             // 
             this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Nhân viên";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Số hóa đơn bán";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Số hóa đơn nhập";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -443,11 +461,13 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSupplier.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSupplier.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvSupplier.Location = new System.Drawing.Point(755, 637);
+            this.dgvSupplier.Location = new System.Drawing.Point(1007, 784);
+            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
-            this.dgvSupplier.Size = new System.Drawing.Size(315, 107);
+            this.dgvSupplier.RowHeadersWidth = 51;
+            this.dgvSupplier.Size = new System.Drawing.Size(420, 132);
             this.dgvSupplier.TabIndex = 23;
             this.dgvSupplier.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSupplier.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -474,18 +494,21 @@
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Nhà cung cấp";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Số hóa đơn ";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
@@ -499,9 +522,10 @@
             this.btnShowOption.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnShowOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowOption.ForeColor = System.Drawing.Color.White;
-            this.btnShowOption.Location = new System.Drawing.Point(474, 41);
+            this.btnShowOption.Location = new System.Drawing.Point(632, 50);
+            this.btnShowOption.Margin = new System.Windows.Forms.Padding(4);
             this.btnShowOption.Name = "btnShowOption";
-            this.btnShowOption.Size = new System.Drawing.Size(110, 30);
+            this.btnShowOption.Size = new System.Drawing.Size(147, 37);
             this.btnShowOption.TabIndex = 24;
             this.btnShowOption.Text = "Tùy chọn";
             this.btnShowOption.Click += new System.EventHandler(this.btnShowOption_Click);
@@ -516,9 +540,10 @@
             this.btnToday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToday.ForeColor = System.Drawing.Color.White;
-            this.btnToday.Location = new System.Drawing.Point(601, 41);
+            this.btnToday.Location = new System.Drawing.Point(801, 50);
+            this.btnToday.Margin = new System.Windows.Forms.Padding(4);
             this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(110, 30);
+            this.btnToday.Size = new System.Drawing.Size(147, 37);
             this.btnToday.TabIndex = 25;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
@@ -533,9 +558,10 @@
             this.btnWeek.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeek.ForeColor = System.Drawing.Color.White;
-            this.btnWeek.Location = new System.Drawing.Point(717, 40);
+            this.btnWeek.Location = new System.Drawing.Point(956, 49);
+            this.btnWeek.Margin = new System.Windows.Forms.Padding(4);
             this.btnWeek.Name = "btnWeek";
-            this.btnWeek.Size = new System.Drawing.Size(110, 30);
+            this.btnWeek.Size = new System.Drawing.Size(147, 37);
             this.btnWeek.TabIndex = 26;
             this.btnWeek.Text = "Tuần này";
             this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
@@ -550,9 +576,10 @@
             this.btnMonth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonth.ForeColor = System.Drawing.Color.White;
-            this.btnMonth.Location = new System.Drawing.Point(833, 41);
+            this.btnMonth.Location = new System.Drawing.Point(1111, 50);
+            this.btnMonth.Margin = new System.Windows.Forms.Padding(4);
             this.btnMonth.Name = "btnMonth";
-            this.btnMonth.Size = new System.Drawing.Size(110, 30);
+            this.btnMonth.Size = new System.Drawing.Size(147, 37);
             this.btnMonth.TabIndex = 27;
             this.btnMonth.Text = "Tháng này";
             this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
@@ -567,9 +594,10 @@
             this.btnYear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYear.ForeColor = System.Drawing.Color.White;
-            this.btnYear.Location = new System.Drawing.Point(949, 41);
+            this.btnYear.Location = new System.Drawing.Point(1265, 50);
+            this.btnYear.Margin = new System.Windows.Forms.Padding(4);
             this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(110, 30);
+            this.btnYear.Size = new System.Drawing.Size(147, 37);
             this.btnYear.TabIndex = 28;
             this.btnYear.Text = "Năm nay";
             this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
@@ -578,9 +606,10 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(209, 47);
+            this.label9.Location = new System.Drawing.Point(279, 58);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(30, 16);
+            this.label9.Size = new System.Drawing.Size(36, 20);
             this.label9.TabIndex = 29;
             this.label9.Text = "đến";
             this.label9.Visible = false;
@@ -591,9 +620,10 @@
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageRotate = 0F;
             this.btnRefresh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRefresh.Location = new System.Drawing.Point(1020, 12);
+            this.btnRefresh.Location = new System.Drawing.Point(1360, 15);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(39, 19);
+            this.btnRefresh.Size = new System.Drawing.Size(52, 23);
             this.btnRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRefresh.TabIndex = 30;
             this.btnRefresh.TabStop = false;
@@ -602,9 +632,10 @@
             // 
             chartFont1.FontName = "Arial";
             this.charRevenue.Legend.LabelFont = chartFont1;
-            this.charRevenue.Location = new System.Drawing.Point(18, 252);
+            this.charRevenue.Location = new System.Drawing.Point(24, 310);
+            this.charRevenue.Margin = new System.Windows.Forms.Padding(4);
             this.charRevenue.Name = "charRevenue";
-            this.charRevenue.Size = new System.Drawing.Size(732, 492);
+            this.charRevenue.Size = new System.Drawing.Size(976, 606);
             this.charRevenue.TabIndex = 13;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -632,11 +663,46 @@
             tick3.Font = chartFont8;
             this.charRevenue.ZAxes.Ticks = tick3;
             // 
+            // chartFood
+            // 
+            chartFont9.FontName = "Arial";
+            this.chartFood.Legend.LabelFont = chartFont9;
+            this.chartFood.Location = new System.Drawing.Point(1008, 310);
+            this.chartFood.Name = "chartFood";
+            this.chartFood.Size = new System.Drawing.Size(419, 316);
+            this.chartFood.TabIndex = 31;
+            chartFont10.FontName = "Arial";
+            chartFont10.Size = 12;
+            chartFont10.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.chartFood.Title.Font = chartFont10;
+            chartFont11.FontName = "Arial";
+            this.chartFood.Tooltips.BodyFont = chartFont11;
+            chartFont12.FontName = "Arial";
+            chartFont12.Size = 9;
+            chartFont12.Style = Guna.Charts.WinForms.ChartFontStyle.Bold;
+            this.chartFood.Tooltips.TitleFont = chartFont12;
+            this.chartFood.XAxes.GridLines = grid4;
+            chartFont13.FontName = "Arial";
+            tick4.Font = chartFont13;
+            this.chartFood.XAxes.Ticks = tick4;
+            this.chartFood.YAxes.GridLines = grid5;
+            chartFont14.FontName = "Arial";
+            tick5.Font = chartFont14;
+            this.chartFood.YAxes.Ticks = tick5;
+            this.chartFood.ZAxes.GridLines = grid6;
+            chartFont15.FontName = "Arial";
+            pointLabel2.Font = chartFont15;
+            this.chartFood.ZAxes.PointLabels = pointLabel2;
+            chartFont16.FontName = "Arial";
+            tick6.Font = chartFont16;
+            this.chartFood.ZAxes.Ticks = tick6;
+            // 
             // Report_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.ClientSize = new System.Drawing.Size(1447, 930);
+            this.Controls.Add(this.chartFood);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.btnYear);
@@ -649,7 +715,6 @@
             this.Controls.Add(this.btnExcute);
             this.Controls.Add(this.dtNext);
             this.Controls.Add(this.dtPrev);
-            this.Controls.Add(this.chartFood);
             this.Controls.Add(this.charRevenue);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.label7);
@@ -666,10 +731,10 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Report_VIEW";
             this.Text = "Report_VIEW";
             this.Load += new System.EventHandler(this.Report_VIEW_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.chartFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
@@ -694,7 +759,6 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartFood;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtPrev;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtNext;
         private Guna.UI2.WinForms.Guna2Button btnExcute;
@@ -715,5 +779,6 @@
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2PictureBox btnRefresh;
         private Guna.Charts.WinForms.GunaChart charRevenue;
+        private Guna.Charts.WinForms.GunaChart chartFood;
     }
 }

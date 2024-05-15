@@ -2,6 +2,8 @@
 CREATE DATABASE RestaurantManagement
 GO
 
+
+
 USE RestaurantManagement
 GO
 
@@ -38,8 +40,9 @@ VALUES
     '0388036937',        -- phone - char(11)
     '0'         -- acc_id - char(10)
     )
-SELECT * FROM dbo.Menu
 
+	SELECT * FROM Account
+	SELECT * FROM Staff
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,
@@ -153,6 +156,7 @@ CREATE TABLE BillOfSale
 	boSale_id CHAR(10) PRIMARY KEY ,
 	dayIn DATETIME ,
 	dayOut DATETIME ,
+	voucher_id CHAR(10) REFERENCES dbo.Voucher(voucher_id) ,
 	totalMoney INT ,
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	table_id CHAR(10) REFERENCES dbo._Table(table_id)
@@ -164,8 +168,7 @@ CREATE TABLE DetailBillOfSale
 	food_id CHAR(10) REFERENCES Food(food_id) ,
 	food_quantity INT ,
 	food_price INT ,
-	food_total INT ,
-	voucher_id CHAR(10) REFERENCES dbo.Voucher(voucher_id) ,
+	food_total INT ,	
 	boSale_id CHAR(10) REFERENCES BillOfSale(boSale_id)
 )
 
@@ -180,4 +183,19 @@ CREATE TABLE Menu
 )
 
 
+SELECT * FROM WareHouse
 
+SELECT * FROM BillSale
+SELECT * FROM Supplier
+INSERT INTO Supplier
+VALUES ('NCC006','Simson-6',N'Hải Dương','093423423', 'Test') ,
+('NCC007','Simson-7',N'Hải Dương','093423423', 'Test') ,
+('NCC008','Simson-8',N'Hải Dương','093423423', 'Test') ,
+('NCC009','Simson-9',N'Hải Dương','093423423', 'Test') ,
+('NCC0010','Simson-10',N'Hải Dương','093423423', 'Test')
+
+SELECT * FROM BillOfImport
+DELETE FROM BillOfImport
+DELETE FROM DetailBillOfImport
+SELECT * FROM Staff
+SELECT * FROM WareHouse

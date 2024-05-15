@@ -129,7 +129,7 @@ namespace RestaurentManagement.Controllers
         public int UpdateQuantityItemByName(string name,int quantity)
         {
             string query = $@"UPDATE Warehouse 
-                              SET quantity = @quantity 
+                              SET quantity = quantity + @quantity 
                               WHERE item_name = @name";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()

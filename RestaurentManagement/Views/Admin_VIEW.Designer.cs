@@ -250,7 +250,7 @@
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(197, 34);
             this.btnCategory.TabIndex = 0;
-            this.btnCategory.Text = "Category";
+            this.btnCategory.Text = "Loại";
             this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // panel4

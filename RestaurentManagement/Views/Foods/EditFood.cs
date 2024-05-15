@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,7 +35,8 @@ namespace RestaurentManagement.Views.Foods
                     Price = Convert.ToInt32(txtPrice.Value),
                     materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
                     numMaterial = Convert.ToInt32(txtNumMaterial.Value),
-                    categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
+                    categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString()),
+                    imageFood = ConvertImgToByte(txtImage.Text)
                 };
 
                 int data = FoodController.Instance.UpdateFood(f);
@@ -81,6 +83,13 @@ namespace RestaurentManagement.Views.Foods
                 cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(food.categoryID);
                 txtFoodName.Text = food.Name;
                 txtPrice.Value = Convert.ToInt32(food.Price);
+                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;
+                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;
+                if (food.imageFood != null)
+                {
+                    picture.Image = ByteArrayToImage(food.imageFood);
+                    picture.SizeMode = PictureBoxSizeMode.Zoom;
+                }
                 cbbMaterial.SelectedItem = WarehouseController.Instance.GetNameItemByID(food.materialID);
                 txtNumMaterial.Value = Convert.ToInt32(food.numMaterial);
             }
@@ -107,6 +116,45 @@ namespace RestaurentManagement.Views.Foods
             }
 
             cbbMaterial.DataSource = listNameMaterial;
+        }
+
+        private void btnChoosseImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = openFileDialog.Filter = "JPG files (*.jpg) | *.jpg|All files (*.*) | *.*";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                picture.ImageLocation = openFileDialog.FileName;
+                picture.SizeMode = PictureBoxSizeMode.Zoom;
+                txtImage.Text = openFileDialog.FileName;
+            }
+        }
+
+        private byte[] ConvertImgToByte(string path)
+        {
+            FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+            byte[] picture = new byte[fs.Length];
+            fs.Read(picture, 0, Convert.ToInt32(fs.Length));
+            fs.Close();
+            return picture;
+        }
+
+        private Image ByteArrayToImage(byte[] byteArray)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
+
+        private string ConvertByteToImgPath(byte[] byteArray)
+        {
+            // If you need to get a path for some reason (like for a text field)
+            string tempPath = Path.Combine(Path.GetTempPath(), "tempImage.jpg");
+            File.WriteAllBytes(tempPath, byteArray);
+            return tempPath;
         }
     }
 }

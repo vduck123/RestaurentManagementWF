@@ -82,7 +82,7 @@ namespace RestaurentManagement.Controllers
                 query = $@"SELECT 
                         spl.supplier_id AS [Mã nhà cung cấp], 
                         spl.supplier_name AS [Tên nhà cung cấp], 
-                        COUNT(boi.boImport_id) AS [Số hóa đơn]
+                        COUNT(boi.boImport_id) AS [Số hóa đơn nhập]
                    FROM 
                         dbo.Supplier spl
                    LEFT JOIN 
@@ -97,7 +97,7 @@ namespace RestaurentManagement.Controllers
                 query = $@"SELECT 
                         spl.supplier_id AS [Mã nhà cung cấp], 
                         spl.supplier_name AS [Tên nhà cung cấp], 
-                        COUNT(boi.boImport_id) AS [Số hóa đơn]
+                        COUNT(boi.boImport_id) AS [Số hóa đơn nhập]
                    FROM 
                         dbo.Supplier spl
                    LEFT JOIN 
@@ -110,6 +110,8 @@ namespace RestaurentManagement.Controllers
             dt = DBHelper.Instance.ExecuteQuery(query);
             return dt;
         }
+
+        
 
         public DataTable ReportsBillImportOfTime(DateTime dt1, DateTime dt2, string type)
         {
@@ -217,13 +219,29 @@ namespace RestaurentManagement.Controllers
 
         }
 
+        public Dictionary<string, int> GetNumBillByTime(DateTime dt1, DateTime dt2)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+            result.Add("Số hóa đơn bán", GetBillCount("boSale_id", "BillOfSale", "dayOut", dt1, dt2));
+            result.Add("Số hóa đơn nhập", GetBillCount("boImport_id", "BillOfImport", "dayCreate", dt1, dt2));
+            return result;
+        }
+
+        private int GetBillCount(string columnName, string tableName, string dateColumn, DateTime dt1, DateTime dt2)
+        {
+            string query = $@"SELECT COUNT({columnName}) 
+                      FROM {tableName} 
+                      WHERE {dateColumn} BETWEEN '{dt1}' AND '{dt2}'";
+            return DBHelper.Instance.ExecuteScalar(query);
+        }
+
         public DataTable GetTopFoodByTime(DateTime dt1, DateTime dt2)
         {
             string query = $@"SELECT TOP(5) COUNT(dbos.food_id) [Số lượng], 
                                             dbos.food_id
                                             FROM dbo.BillOfSale bos
                                             INNER JOIN dbo.DetailBillOfSale dbos ON dbos.boSale_id = bos.boSale_id
-                             WHERE YEAR(bos.dayOut) = '2024'
+                             WHERE bos.dayOut BETWEEN '{dt1}' AND '{dt2}'
                              GROUP BY dbos.food_id
                             ORDER BY COUNT(dbos.food_id) DESC";
             DataTable dt = new DataTable();

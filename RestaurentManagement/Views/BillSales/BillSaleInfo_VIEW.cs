@@ -154,6 +154,7 @@ namespace RestaurentManagement.Views.BillSales
                     billSale.Id,
                     billSale.dayIn,
                     billSale.dayOut,
+                    billSale.voucherId,
                     billSale.totalMoney,
                     StaffController.Instance.GetNameStaffByID(billSale.staffID),
                     TableController.Instance.GetNameTableById(billSale.tableID)
@@ -175,6 +176,7 @@ namespace RestaurentManagement.Views.BillSales
             dt.Columns.Add("ID");
             dt.Columns.Add("Thời gian vào");
             dt.Columns.Add("Thời gian ra");
+            dt.Columns.Add("Giảm giá");
             dt.Columns.Add("Tổng hóa đơn");
             dt.Columns.Add("Nhân viên");
             dt.Columns.Add("Bàn");
@@ -185,6 +187,7 @@ namespace RestaurentManagement.Views.BillSales
                     billSale.Id,
                     billSale.dayIn ,
                     billSale.dayOut ,
+                    VoucherController.Instance.GetExpiryById(billSale.voucherId),
                     billSale.totalMoney,
                     StaffController.Instance.GetNameStaffByID(billSale.staffID) ,
                     TableController.Instance.GetNameTableById(billSale.tableID)

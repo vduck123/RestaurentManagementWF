@@ -457,11 +457,13 @@ namespace RestaurentManagement.Views
                     dayOut = dayOut.AddHours(rdhours);
 
                     string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
+                    string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
                     BillSale billSale = new BillSale()
                     {
                         Id = idBillSale,
                         dayIn = dayIn,
                         dayOut = dayOut,
+                        voucherId = VoucherController.Instance.GetIdVoucherByName(voucherName),
                         totalMoney = Convert.ToDouble(txtTotalBill.Text),
                         staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
                         tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
@@ -479,7 +481,7 @@ namespace RestaurentManagement.Views
                             int quantity = Convert.ToInt32(row.Cells[1].Value);
                             int price = Convert.ToInt32(row.Cells[2].Value);
                             int total = Convert.ToInt32(row.Cells[3].Value);
-                            string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
+                            
                             BillSaleInfo billSaleInfo = new BillSaleInfo()
                             {
                                 ID = idBillSaleInfo,
@@ -487,7 +489,6 @@ namespace RestaurentManagement.Views
                                 Quantity = quantity,
                                 foodPrice = price,
                                 Total = total,
-                                voucherId = VoucherController.Instance.GetIdVoucherByName(voucherName),
                                 boSaleId = idBillSale
                             };
 

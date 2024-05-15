@@ -20,13 +20,24 @@ namespace RestaurentManagement.Views.Reports
         {
             InitializeComponent();
         }
-
+        int click = 0;
         private void btnShowOption_Click(object sender, EventArgs e)
         {
-            dtPrev.Visible = true;
-            dtNext.Visible = true;
-            label9.Visible = true;
-            btnExcute.Visible = true;
+            click++;
+            if(click % 2 == 1)
+            {
+                dtPrev.Visible = true;
+                dtNext.Visible = true;
+                label9.Visible = true;
+                btnExcute.Visible = true;
+            }
+            else
+            {
+                dtPrev.Visible = false;
+                dtNext.Visible = false;
+                label9.Visible = false;
+                btnExcute.Visible = false;
+            }
         }
 
         private void btnToday_Click(object sender, EventArgs e)
@@ -49,7 +60,11 @@ namespace RestaurentManagement.Views.Reports
             ChartReportOfToday(BillSale, BillImport, dt, dt);
 
             // Hiển thị số hóa đơn nhập và số hóa đơn bán
-            LoadNumBill(dt1, dt2);
+            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt, dt);
+            LoadNumBill(list);
+            // 
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt, dt);
+            LoadChartHotFood(dtHotFood, dt, dt);
 
         }
 
@@ -70,13 +85,17 @@ namespace RestaurentManagement.Views.Reports
 
             DataTable dtb2 = ReportController.Instance.GetNumBillBySupplierIdAndTime(startOfWeek, endOfWeek);
             dgvSupplier.DataSource = dtb2;
-
-
+            //
+            Dictionary<string,int> list = ReportController.Instance.GetNumBillByTime(startOfWeek, endOfWeek);
+            LoadNumBill(list);
             //Chart
             DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dt1, dt2, "Tuần");
             DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(dt1, dt2, "Tuần");
             ChartReportOfWeek(BillSale, BillImport, startOfWeek, endOfWeek);
-            LoadNumBill(dtb1, dtb2);
+            
+            
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(startOfWeek, endOfWeek);
+            LoadChartHotFood(dtHotFood, startOfWeek, endOfWeek);
 
 
         }
@@ -102,7 +121,12 @@ namespace RestaurentManagement.Views.Reports
 
             ChartReportOfMonth(BillSale, BillImport, dt1, dt2);
 
-            LoadNumBill(dtb1, dtb2);
+            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt1, dt2);
+            LoadNumBill(list);
+
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
+            LoadChartHotFood(dtHotFood, dt1, dt2);
+
 
 
         }
@@ -128,11 +152,10 @@ namespace RestaurentManagement.Views.Reports
 
             ChartReportMultiTime(BillSale, BillImport,dt1, dt2);
 
-            LoadNumBill(dtb1, dtb2);
-
-
+            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt1, dt2);
+            LoadNumBill(list);
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
-            LoadHotFood(dtHotFood, dt1, dt2);
+            LoadChartHotFood(dtHotFood, dt1, dt2);
 
 
         }
@@ -155,13 +178,16 @@ namespace RestaurentManagement.Views.Reports
 
 
             //Chart
-            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dtPrev.Value, dtNext.Value, "Mốc");
+            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dtPrev.Value, dtPrev.Value, "Mốc");
             DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(dtPrev.Value, dtNext.Value, "Mốc");
 
             ChartReportMultiTime(BillSale, BillImport, dtPrev.Value, dtNext.Value);
 
-            LoadNumBill(dtb1, dtb2);
+            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dtPrev.Value, dtPrev.Value);
+            LoadNumBill(list);
 
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dtPrev.Value, dtNext.Value);
+            LoadChartHotFood(dtHotFood, dtPrev.Value, dtNext.Value);
 
             //
 
@@ -296,21 +322,15 @@ namespace RestaurentManagement.Views.Reports
             charRevenue.Update();
         }
 
-        void LoadHotFood(DataTable dtb, DateTime dt1, DateTime dt2)
+        void LoadChartHotFood(DataTable dtb, DateTime dt1, DateTime dt2)
         {
             chartFood.Datasets.Clear();
             chartFood.Title.Text = $"Top món ăn {dt1.ToString("dd/MM/yyyy")}";
-            List<string> list = new List<string>() { "Monday", "TueDay"};
             var dataset = new Guna.Charts.WinForms.GunaPieDataset();
 
             chartFood.Legend.Position = Guna.Charts.WinForms.LegendPosition.Right;
-
-            chartFood.XAxes.Display = false;
-            chartFood.YAxes.Display = false;
-            int i = 0;
             foreach (DataRow row in dtb.Rows)
             {
-                MessageBox.Show(row["food_id"].ToString());
                 int quantity = Convert.ToInt32(row["Số lượng"]);
                 dataset.DataPoints.Add(FoodController.Instance.GetNameFoodByID(row["food_id"].ToString()), quantity);
                 dataset.Label = FoodController.Instance.GetNameFoodByID(row["food_id"].ToString());
@@ -323,17 +343,26 @@ namespace RestaurentManagement.Views.Reports
             chartFood.Update();
         }
 
-        void LoadNumBill(DataTable dt1, DataTable dt2)
+        void LoadNumBill(Dictionary<string, int> list)
         {
-            if(dt1.Rows.Count > 0 && dt2.Rows.Count > 0)
+            if (list.Count > 0)
             {
-                foreach (DataRow row1 in dt1.Rows)
+                if (list.ContainsKey("Số hóa đơn nhập"))
                 {
-                    lbNumBillImport.Text = dt1.Rows[0]["Số hóa đơn nhập"].ToString();
+                    lbNumBillImport.Text = list["Số hóa đơn nhập"].ToString();
                 }
-                foreach(DataRow row2 in dt2.Rows)
+                else
                 {
-                    lbNumBillImSale.Text = dt1.Rows[0]["Số hóa đơn bán"].ToString();
+                    lbNumBillImport.Text = "0";
+                }
+
+                if (list.ContainsKey("Số hóa đơn bán"))
+                {
+                    lbNumBillImSale.Text = list["Số hóa đơn bán"].ToString();
+                }
+                else
+                {
+                    lbNumBillImSale.Text = "0";
                 }
             }
             else
@@ -341,8 +370,10 @@ namespace RestaurentManagement.Views.Reports
                 lbNumBillImport.Text = "0";
                 lbNumBillImSale.Text = "0";
             }
-
         }
+
+
+
 
         #endregion
     }

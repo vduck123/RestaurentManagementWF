@@ -65,7 +65,6 @@
             Guna.Charts.WinForms.ChartFont chartFont15 = new Guna.Charts.WinForms.ChartFont();
             Guna.Charts.WinForms.Tick tick6 = new Guna.Charts.WinForms.Tick();
             Guna.Charts.WinForms.ChartFont chartFont16 = new Guna.Charts.WinForms.ChartFont();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lbNumBillImport = new System.Windows.Forms.Label();
@@ -100,34 +99,18 @@
             this.btnRefresh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.charRevenue = new Guna.Charts.WinForms.GunaChart();
             this.chartFood = new Guna.Charts.WinForms.GunaChart();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(69, 124);
-            this.guna2Button1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(267, 116);
-            this.guna2Button1.TabIndex = 0;
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 113);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 92);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1445, 4);
+            this.guna2Panel1.Size = new System.Drawing.Size(1084, 3);
             this.guna2Panel1.TabIndex = 1;
             // 
             // label1
@@ -136,10 +119,9 @@
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(93, 151);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(70, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(210, 29);
+            this.label1.Size = new System.Drawing.Size(172, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Số hóa đơn nhập";
             // 
@@ -149,10 +131,9 @@
             this.lbNumBillImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lbNumBillImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumBillImport.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNumBillImport.Location = new System.Drawing.Point(93, 192);
-            this.lbNumBillImport.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNumBillImport.Location = new System.Drawing.Point(70, 156);
             this.lbNumBillImport.Name = "lbNumBillImport";
-            this.lbNumBillImport.Size = new System.Drawing.Size(27, 29);
+            this.lbNumBillImport.Size = new System.Drawing.Size(21, 24);
             this.lbNumBillImport.TabIndex = 3;
             this.lbNumBillImport.Text = "0";
             // 
@@ -162,10 +143,9 @@
             this.lbNumBillImSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.lbNumBillImSale.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumBillImSale.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbNumBillImSale.Location = new System.Drawing.Point(439, 192);
-            this.lbNumBillImSale.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbNumBillImSale.Location = new System.Drawing.Point(329, 156);
             this.lbNumBillImSale.Name = "lbNumBillImSale";
-            this.lbNumBillImSale.Size = new System.Drawing.Size(27, 29);
+            this.lbNumBillImSale.Size = new System.Drawing.Size(21, 24);
             this.lbNumBillImSale.TabIndex = 6;
             this.lbNumBillImSale.Text = "0";
             // 
@@ -175,10 +155,9 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(439, 151);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(329, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(196, 29);
+            this.label4.Size = new System.Drawing.Size(160, 24);
             this.label4.TabIndex = 5;
             this.label4.Text = "Số hóa đơn bán";
             // 
@@ -192,10 +171,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(415, 124);
-            this.guna2Button2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2Button2.Location = new System.Drawing.Point(311, 101);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(267, 116);
+            this.guna2Button2.Size = new System.Drawing.Size(200, 94);
             this.guna2Button2.TabIndex = 4;
             // 
             // lbRevenue
@@ -204,10 +183,9 @@
             this.lbRevenue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lbRevenue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbRevenue.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbRevenue.Location = new System.Drawing.Point(801, 192);
-            this.lbRevenue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbRevenue.Location = new System.Drawing.Point(601, 156);
             this.lbRevenue.Name = "lbRevenue";
-            this.lbRevenue.Size = new System.Drawing.Size(27, 29);
+            this.lbRevenue.Size = new System.Drawing.Size(21, 24);
             this.lbRevenue.TabIndex = 9;
             this.lbRevenue.Text = "0";
             // 
@@ -217,10 +195,9 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(801, 151);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(601, 123);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 29);
+            this.label6.Size = new System.Drawing.Size(106, 24);
             this.label6.TabIndex = 8;
             this.label6.Text = "Doanh thu";
             // 
@@ -234,10 +211,10 @@
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(777, 124);
-            this.guna2Button3.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.guna2Button3.Location = new System.Drawing.Point(583, 101);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(267, 116);
+            this.guna2Button3.Size = new System.Drawing.Size(200, 94);
             this.guna2Button3.TabIndex = 7;
             // 
             // label7
@@ -246,10 +223,9 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Location = new System.Drawing.Point(1145, 192);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(859, 156);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 29);
+            this.label7.Size = new System.Drawing.Size(21, 24);
             this.label7.TabIndex = 12;
             this.label7.Text = "0";
             // 
@@ -259,10 +235,9 @@
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(1145, 151);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(859, 123);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(126, 29);
+            this.label8.Size = new System.Drawing.Size(103, 24);
             this.label8.TabIndex = 11;
             this.label8.Text = "Lợi nhuận";
             // 
@@ -276,19 +251,18 @@
             this.guna2Button4.FillColor = System.Drawing.Color.CornflowerBlue;
             this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(1121, 124);
-            this.guna2Button4.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.CornflowerBlue;
+            this.guna2Button4.Location = new System.Drawing.Point(841, 101);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(267, 116);
+            this.guna2Button4.Size = new System.Drawing.Size(200, 94);
             this.guna2Button4.TabIndex = 10;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 266);
-            this.guna2Panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 216);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1445, 4);
+            this.guna2Panel2.Size = new System.Drawing.Size(1084, 3);
             this.guna2Panel2.TabIndex = 2;
             // 
             // dtPrev
@@ -297,12 +271,11 @@
             this.dtPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtPrev.Location = new System.Drawing.Point(69, 49);
-            this.dtPrev.Margin = new System.Windows.Forms.Padding(4);
+            this.dtPrev.Location = new System.Drawing.Point(52, 40);
             this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtPrev.Name = "dtPrev";
-            this.dtPrev.Size = new System.Drawing.Size(201, 36);
+            this.dtPrev.Size = new System.Drawing.Size(151, 29);
             this.dtPrev.TabIndex = 15;
             this.dtPrev.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtPrev.Value = new System.DateTime(2024, 5, 4, 16, 23, 16, 861);
@@ -314,12 +287,11 @@
             this.dtNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtNext.Location = new System.Drawing.Point(324, 49);
-            this.dtNext.Margin = new System.Windows.Forms.Padding(4);
+            this.dtNext.Location = new System.Drawing.Point(243, 40);
             this.dtNext.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtNext.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtNext.Name = "dtNext";
-            this.dtNext.Size = new System.Drawing.Size(201, 36);
+            this.dtNext.Size = new System.Drawing.Size(151, 29);
             this.dtNext.TabIndex = 16;
             this.dtNext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dtNext.Value = new System.DateTime(2024, 5, 4, 16, 14, 28, 471);
@@ -335,10 +307,9 @@
             this.btnExcute.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnExcute.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcute.ForeColor = System.Drawing.Color.White;
-            this.btnExcute.Location = new System.Drawing.Point(533, 50);
-            this.btnExcute.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExcute.Location = new System.Drawing.Point(400, 41);
             this.btnExcute.Name = "btnExcute";
-            this.btnExcute.Size = new System.Drawing.Size(91, 37);
+            this.btnExcute.Size = new System.Drawing.Size(68, 30);
             this.btnExcute.TabIndex = 17;
             this.btnExcute.Text = "OK";
             this.btnExcute.Visible = false;
@@ -374,13 +345,12 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvStaff.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvStaff.Location = new System.Drawing.Point(1008, 645);
-            this.dgvStaff.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvStaff.Location = new System.Drawing.Point(756, 524);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersVisible = false;
             this.dgvStaff.RowHeadersWidth = 51;
-            this.dgvStaff.Size = new System.Drawing.Size(419, 132);
+            this.dgvStaff.Size = new System.Drawing.Size(314, 107);
             this.dgvStaff.TabIndex = 22;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -461,13 +431,12 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvSupplier.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSupplier.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvSupplier.Location = new System.Drawing.Point(1007, 784);
-            this.dgvSupplier.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSupplier.Location = new System.Drawing.Point(755, 637);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
             this.dgvSupplier.RowHeadersWidth = 51;
-            this.dgvSupplier.Size = new System.Drawing.Size(420, 132);
+            this.dgvSupplier.Size = new System.Drawing.Size(315, 107);
             this.dgvSupplier.TabIndex = 23;
             this.dgvSupplier.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvSupplier.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -522,10 +491,9 @@
             this.btnShowOption.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnShowOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowOption.ForeColor = System.Drawing.Color.White;
-            this.btnShowOption.Location = new System.Drawing.Point(632, 50);
-            this.btnShowOption.Margin = new System.Windows.Forms.Padding(4);
+            this.btnShowOption.Location = new System.Drawing.Point(474, 41);
             this.btnShowOption.Name = "btnShowOption";
-            this.btnShowOption.Size = new System.Drawing.Size(147, 37);
+            this.btnShowOption.Size = new System.Drawing.Size(110, 30);
             this.btnShowOption.TabIndex = 24;
             this.btnShowOption.Text = "Tùy chọn";
             this.btnShowOption.Click += new System.EventHandler(this.btnShowOption_Click);
@@ -540,10 +508,9 @@
             this.btnToday.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnToday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToday.ForeColor = System.Drawing.Color.White;
-            this.btnToday.Location = new System.Drawing.Point(801, 50);
-            this.btnToday.Margin = new System.Windows.Forms.Padding(4);
+            this.btnToday.Location = new System.Drawing.Point(601, 41);
             this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(147, 37);
+            this.btnToday.Size = new System.Drawing.Size(110, 30);
             this.btnToday.TabIndex = 25;
             this.btnToday.Text = "Hôm nay";
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
@@ -558,10 +525,9 @@
             this.btnWeek.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnWeek.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWeek.ForeColor = System.Drawing.Color.White;
-            this.btnWeek.Location = new System.Drawing.Point(956, 49);
-            this.btnWeek.Margin = new System.Windows.Forms.Padding(4);
+            this.btnWeek.Location = new System.Drawing.Point(717, 40);
             this.btnWeek.Name = "btnWeek";
-            this.btnWeek.Size = new System.Drawing.Size(147, 37);
+            this.btnWeek.Size = new System.Drawing.Size(110, 30);
             this.btnWeek.TabIndex = 26;
             this.btnWeek.Text = "Tuần này";
             this.btnWeek.Click += new System.EventHandler(this.btnWeek_Click);
@@ -576,10 +542,9 @@
             this.btnMonth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMonth.ForeColor = System.Drawing.Color.White;
-            this.btnMonth.Location = new System.Drawing.Point(1111, 50);
-            this.btnMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMonth.Location = new System.Drawing.Point(833, 41);
             this.btnMonth.Name = "btnMonth";
-            this.btnMonth.Size = new System.Drawing.Size(147, 37);
+            this.btnMonth.Size = new System.Drawing.Size(110, 30);
             this.btnMonth.TabIndex = 27;
             this.btnMonth.Text = "Tháng này";
             this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
@@ -594,10 +559,9 @@
             this.btnYear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnYear.ForeColor = System.Drawing.Color.White;
-            this.btnYear.Location = new System.Drawing.Point(1265, 50);
-            this.btnYear.Margin = new System.Windows.Forms.Padding(4);
+            this.btnYear.Location = new System.Drawing.Point(949, 41);
             this.btnYear.Name = "btnYear";
-            this.btnYear.Size = new System.Drawing.Size(147, 37);
+            this.btnYear.Size = new System.Drawing.Size(110, 30);
             this.btnYear.TabIndex = 28;
             this.btnYear.Text = "Năm nay";
             this.btnYear.Click += new System.EventHandler(this.btnYear_Click);
@@ -606,10 +570,9 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(279, 58);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(209, 47);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 20);
+            this.label9.Size = new System.Drawing.Size(30, 16);
             this.label9.TabIndex = 29;
             this.label9.Text = "đến";
             this.label9.Visible = false;
@@ -620,10 +583,9 @@
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageRotate = 0F;
             this.btnRefresh.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRefresh.Location = new System.Drawing.Point(1360, 15);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Location = new System.Drawing.Point(1020, 12);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(52, 23);
+            this.btnRefresh.Size = new System.Drawing.Size(39, 19);
             this.btnRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRefresh.TabIndex = 30;
             this.btnRefresh.TabStop = false;
@@ -632,10 +594,9 @@
             // 
             chartFont1.FontName = "Arial";
             this.charRevenue.Legend.LabelFont = chartFont1;
-            this.charRevenue.Location = new System.Drawing.Point(24, 310);
-            this.charRevenue.Margin = new System.Windows.Forms.Padding(4);
+            this.charRevenue.Location = new System.Drawing.Point(18, 252);
             this.charRevenue.Name = "charRevenue";
-            this.charRevenue.Size = new System.Drawing.Size(976, 606);
+            this.charRevenue.Size = new System.Drawing.Size(732, 492);
             this.charRevenue.TabIndex = 13;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -667,9 +628,10 @@
             // 
             chartFont9.FontName = "Arial";
             this.chartFood.Legend.LabelFont = chartFont9;
-            this.chartFood.Location = new System.Drawing.Point(1008, 310);
+            this.chartFood.Location = new System.Drawing.Point(756, 252);
+            this.chartFood.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartFood.Name = "chartFood";
-            this.chartFood.Size = new System.Drawing.Size(419, 316);
+            this.chartFood.Size = new System.Drawing.Size(314, 257);
             this.chartFood.TabIndex = 31;
             chartFont10.FontName = "Arial";
             chartFont10.Size = 12;
@@ -697,11 +659,27 @@
             tick6.Font = chartFont16;
             this.chartFood.ZAxes.Ticks = tick6;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.guna2Button1.Location = new System.Drawing.Point(52, 101);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(200, 94);
+            this.guna2Button1.TabIndex = 0;
+            // 
             // Report_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1447, 930);
+            this.ClientSize = new System.Drawing.Size(1085, 756);
             this.Controls.Add(this.chartFood);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.label9);
@@ -731,7 +709,6 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Report_VIEW";
             this.Text = "Report_VIEW";
             this.Load += new System.EventHandler(this.Report_VIEW_Load);
@@ -744,8 +721,6 @@
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbNumBillImport;
@@ -780,5 +755,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox btnRefresh;
         private Guna.Charts.WinForms.GunaChart charRevenue;
         private Guna.Charts.WinForms.GunaChart chartFood;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }

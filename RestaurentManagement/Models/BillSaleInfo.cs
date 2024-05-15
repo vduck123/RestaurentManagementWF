@@ -15,8 +15,6 @@ namespace RestaurentManagement.Models
         public int Quantity { get; set; }
         public int foodPrice { get; set; }
         public int Total { get; set; }
-
-        public string voucherId { get; set; }
         public string boSaleId { get; set; }    
 
         public BillSaleInfo() { }
@@ -28,7 +26,6 @@ namespace RestaurentManagement.Models
             this.Quantity = quantity;
             this.foodPrice = foodprice;
             this.Total = total;
-            this.voucherId = voucherId;
             this.boSaleId = boSaleId;
         }
 
@@ -39,7 +36,6 @@ namespace RestaurentManagement.Models
             this.Quantity = (int)row["food_quantity"];
             this.foodPrice = (int)row["food_price"];
             this.Total = (int)row["food_total"]; ;
-            this.voucherId = (string)row["voucher_id"];
             this.boSaleId = (string)row["BoSale_id"];
         }
     }

@@ -28,7 +28,7 @@ namespace RestaurentManagement.Controllers
         public int InsertBillSaleInfo(BillSaleInfo billInfo)
         {
             string query = $@"INSERT INTO DetailBillOfSale 
-                              VALUES (@dboSaleId,@foodId,@quantity,@foodPrice,@total,@voucherId,@boSaleId)";
+                              VALUES (@dboSaleId,@foodId,@quantity,@foodPrice,@total,@boSaleId)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@dboSaleId", billInfo.ID} ,
@@ -36,7 +36,6 @@ namespace RestaurentManagement.Controllers
                 {"@quantity", billInfo.Quantity } ,
                 {"@foodPrice", billInfo.foodPrice } ,
                 {"@total", billInfo.Total } ,
-                {"@voucherId", billInfo.voucherId } ,
                 {"@boSaleId", billInfo.boSaleId }
             };
 
@@ -51,7 +50,6 @@ namespace RestaurentManagement.Controllers
                                     food_quantity = @quantity ,
                                     food_price = @foodPrice ,
                                     food_total = @total ,
-                                    voucher_id = @voucherId
                               WHERE dboSale_id = @dboSaleId";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -60,7 +58,6 @@ namespace RestaurentManagement.Controllers
                 {"@quantity", billInfo.Quantity } ,
                 {"@foodPrice", billInfo.foodPrice } ,
                 {"@total", billInfo.Total } ,
-                {"@voucherId", billInfo.voucherId } 
             };
 
             int rs = DBHelper.Instance.ExecuteNonQuery(query, parameters);

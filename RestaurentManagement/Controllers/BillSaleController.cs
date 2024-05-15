@@ -27,21 +27,20 @@ namespace RestaurentManagement.Controllers
 
         public int InsertBillSale(BillSale bill)
         {
-            string query = @"INSERT INTO BillOfSale (boSale_id, dayIn, dayOut, totalMoney, staff_id, table_id) 
-                            VALUES (@Id, @DayIn, @DayOut, @TotalMoney, @staffId, @tableId)";
+            string query = @"INSERT INTO BillOfSale (boSale_id, dayIn, dayOut, voucher_id, totalMoney, staff_id, table_id) 
+                            VALUES (@Id, @DayIn, @DayOut, @voucherId, @TotalMoney, @staffId, @tableId)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 { "@Id", bill.Id },
                 { "@DayIn", bill.dayIn },
-                { "@DayOut", bill.dayOut },               
+                { "@DayOut", bill.dayOut },
+                { "@voucherId", bill.voucherId },
                 { "@TotalMoney", bill.totalMoney } ,
                 { "@staffId", bill.staffID } ,
                 { "@tableId", bill.tableID } 
             };
-
-            int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
-
+            int result = Convert.ToInt32(DBHelper.Instance.ExecuteNonQuery(query, parameters));
             return result;
         }
 
@@ -51,21 +50,39 @@ namespace RestaurentManagement.Controllers
                                 SET totalMoney = @total,
 	                                dayIn = @dayin ,
 	                                dayOut = @dayout ,
+                                    voucher_id = @voucherId
                                     staff_id = @staffId ,
                                     table_id = @tableId ,
                             WHERE boSale_id = @id";
-  
+
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                { "@Id", bill.Id },
+                { "@id", bill.Id },
                 { "@DayIn", bill.dayIn },
                 { "@DayOut", bill.dayOut },
-                { "@TotalMoney", bill.totalMoney } ,
+                { "@voucherId", bill.voucherId },
+                { "@total", bill.totalMoney } ,
                 { "@staffId", bill.staffID } ,
                 { "@tableId", bill.tableID }
             };
-     
 
+
+            int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
+            return result;
+        }
+
+        public int UpdateTotalBillByID(string id, double total)
+        {
+
+            string query = @"UPDATE dbo.BillOfSale
+                                SET totalMoney = @total
+                            WHERE boSale_id = @id";
+
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@id", id},
+                { "@total", total } 
+            };
             int result = Convert.ToInt16(DBHelper.Instance.ExecuteNonQuery(query, parameters));
             return result;
         }

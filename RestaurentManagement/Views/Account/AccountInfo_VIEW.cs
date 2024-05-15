@@ -205,6 +205,10 @@ namespace RestaurentManagement.Views.Account
             LoadData();
         }
 
-        
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            frmData view = new frmData();
+            view.Show();
+        }
     }
 }

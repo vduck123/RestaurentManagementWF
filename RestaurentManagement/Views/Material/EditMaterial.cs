@@ -75,14 +75,14 @@ namespace RestaurentManagement.Views.Material
 
         void LoadCategory()
         {
-            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
-            List<string> listNameCategory = new List<string>();
-            foreach (Warehouse item in listMaterial)
+            List<string> listnameCategory = new List<string>();
+            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
+            foreach (FoodCategory category in foodCategories)
             {
-                listNameCategory.Add(item.Name);
+                listnameCategory.Add(category.Name);
             }
-
-            cbbCategory.DataSource = listNameCategory;
+            cbbCategory.DataSource = listnameCategory;
         }
+
     }
 }

@@ -3,6 +3,7 @@ using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -173,6 +174,11 @@ namespace RestaurentManagement.Controllers
             return foods;
         }
 
+        public int GetPriceFoodById(string id)
+        {
+            string query = $@"SELECT food_price FROM dbo.Food WHERE food_id = N'{id}'";
+            return DBHelper.Instance.ExecuteScalar(query); ;
+        }
         public int GetOrderNumInList()
         {
             string query = "SELECT COUNT(food_id) FROM Food";

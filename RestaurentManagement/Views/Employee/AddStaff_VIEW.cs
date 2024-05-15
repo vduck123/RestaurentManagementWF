@@ -71,15 +71,46 @@ namespace RestaurentManagement.Views.Employee
                     }
                 }
             }
+        }
 
-           
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void btnHide_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void AddStaff_VIEW_Load(object sender, EventArgs e)
+        {
             
+        }
 
-           
+        private void txtSalaryBasic_ValueChanged(object sender, EventArgs e)
+        {
+            LoadTotalSalary();
+        }
 
-            
+        private void txtHsl_ValueChanged(object sender, EventArgs e)
+        {
+            LoadTotalSalary();
+        }
+
+        private void txtNum_ValueChanged(object sender, EventArgs e)
+        {
+            LoadTotalSalary();
+        }
+
+        private void txtSalaryHour_ValueChanged(object sender, EventArgs e)
+        {
+            LoadTotalSalary();
+        }
+
+        void LoadTotalSalary()
+        {
+            txtTotal.Text = ((txtSalaryBasic.Value * txtHsl.Value) + (txtSalaryHour.Value * txtNum.Value) + txtBonus.Value - txtFine.Value).ToString();
         }
     }
 }

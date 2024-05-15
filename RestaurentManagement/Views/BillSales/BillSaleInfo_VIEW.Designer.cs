@@ -38,6 +38,9 @@
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvBillSale = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xóaHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtprev = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
@@ -45,12 +48,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xóaHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillSale)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -164,6 +165,7 @@
             this.Column1,
             this.Column2,
             this.Column3,
+            this.Column7,
             this.Column4,
             this.Column5,
             this.Column6});
@@ -207,6 +209,30 @@
             this.dgvBillSale.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBillSale.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBillSale.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBilImport_CellClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaHóaĐơnBánToolStripMenuItem,
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(239, 48);
+            // 
+            // xóaHóaĐơnBánToolStripMenuItem
+            // 
+            this.xóaHóaĐơnBánToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xóaHóaĐơnBánToolStripMenuItem.Name = "xóaHóaĐơnBánToolStripMenuItem";
+            this.xóaHóaĐơnBánToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.xóaHóaĐơnBánToolStripMenuItem.Text = "Xóa hóa đơn bán";
+            this.xóaHóaĐơnBánToolStripMenuItem.Click += new System.EventHandler(this.xóaHóaĐơnBánToolStripMenuItem_Click);
+            // 
+            // xemChiTiếtHóaĐơnBánToolStripMenuItem
+            // 
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Name = "xemChiTiếtHóaĐơnBánToolStripMenuItem";
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Text = "Xem chi tiết hóa đơn bán";
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtHóaĐơnBánToolStripMenuItem_Click);
             // 
             // dtprev
             // 
@@ -293,6 +319,12 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Giảm giá";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
             // Column4
             // 
             this.Column4.HeaderText = "Total money";
@@ -311,30 +343,6 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaHóaĐơnBánToolStripMenuItem,
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(239, 48);
-            // 
-            // xóaHóaĐơnBánToolStripMenuItem
-            // 
-            this.xóaHóaĐơnBánToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xóaHóaĐơnBánToolStripMenuItem.Name = "xóaHóaĐơnBánToolStripMenuItem";
-            this.xóaHóaĐơnBánToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.xóaHóaĐơnBánToolStripMenuItem.Text = "Xóa hóa đơn bán";
-            this.xóaHóaĐơnBánToolStripMenuItem.Click += new System.EventHandler(this.xóaHóaĐơnBánToolStripMenuItem_Click);
-            // 
-            // xemChiTiếtHóaĐơnBánToolStripMenuItem
-            // 
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Name = "xemChiTiếtHóaĐơnBánToolStripMenuItem";
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Size = new System.Drawing.Size(238, 22);
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Text = "Xem chi tiết hóa đơn bán";
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtHóaĐơnBánToolStripMenuItem_Click);
-            // 
             // BillSaleInfo_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -352,7 +360,7 @@
             this.Controls.Add(this.btnExcel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BillSaleInfo_VIEW";
             this.Text = "BillSaleInfo_VIEW";
             this.Load += new System.EventHandler(this.BillSaleInfo_VIEW_Load);
@@ -371,12 +379,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbOption;
         private Guna.UI2.WinForms.Guna2TextBox txtParam;
         private Guna.UI2.WinForms.Guna2DataGridView dgvBillSale;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtprev;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
@@ -384,5 +386,12 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xóaHóaĐơnBánToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xemChiTiếtHóaĐơnBánToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

@@ -1,4 +1,5 @@
-﻿using RestaurentManagement.Models;
+﻿using Bogus.DataSets;
+using RestaurentManagement.Models;
 using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
@@ -135,6 +136,17 @@ namespace RestaurentManagement.Controllers
                 nameVoucher = row["voucher_id"].ToString();
             }
             return nameVoucher;
+        }
+        public string GetExpiryById(string id)
+        {
+            string expiry = null;
+            string query = $"SELECT * FROM Voucher WHERE voucher_id = '{id}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            foreach (DataRow row in dt.Rows)
+            {
+                expiry = row["voucher_expiry"].ToString();
+            }
+            return expiry;
         }
         public int GetOrderNumInList()
         {

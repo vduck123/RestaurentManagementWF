@@ -65,7 +65,7 @@ namespace RestaurentManagement.utils
                     object result = cmd.ExecuteScalar();
                     if (result != null && result != DBNull.Value)
                     {
-                        data = Convert.ToInt16(result);
+                        data = Convert.ToInt32(result);
                     }
                 }
             }

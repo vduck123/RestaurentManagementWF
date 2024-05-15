@@ -63,6 +63,25 @@ namespace RestaurentManagement.Views.Salaries
         {
             LoadData();
         }
+        private void txtFindStaff_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFindStaff.Text.Length == 0)
+            {
+                LoadStaff();
+                return;
+            }
+
+            listnameStaff = new List<string>();
+            List<Staff> listStaff = StaffController.Instance.GetListStaff();
+            foreach (Staff staff in listStaff)
+            {
+                if (staff.Name.Contains(txtFindStaff.Text))
+                {
+                    listnameStaff.Add(staff.Name);
+                }
+            }
+            cbbStaff.DataSource = listnameStaff;
+        }
 
         void LoadData()
         {
@@ -83,24 +102,6 @@ namespace RestaurentManagement.Views.Salaries
             cbbStaff.DataSource = listnameStaff;
         }
 
-        private void txtFindStaff_TextChanged(object sender, EventArgs e)
-        {
-            if(txtFindStaff.Text.Length == 0)
-            {
-                LoadStaff();
-                return;
-            }
-
-            listnameStaff = new List<string>();
-            List<Staff> listStaff = StaffController.Instance.GetListStaff();
-            foreach (Staff staff in listStaff)
-            {
-                if(staff.Name.Contains(txtFindStaff.Text))
-                {
-                    listnameStaff.Add(staff.Name);
-                }
-            }
-            cbbStaff.DataSource = listnameStaff;
-        }
+        
     }
 }

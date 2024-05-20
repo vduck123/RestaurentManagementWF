@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
@@ -59,12 +59,13 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(573, 72);
+            this.btnRefresh.Image = global::RestaurentManagement.Properties.Resources.R_removebg_preview;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(606, 72);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(117, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(88, 36);
             this.btnRefresh.TabIndex = 42;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
@@ -80,7 +81,7 @@
             this.btnAdd.Location = new System.Drawing.Point(708, 72);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 36);
+            this.btnAdd.Size = new System.Drawing.Size(205, 36);
             this.btnAdd.TabIndex = 43;
             this.btnAdd.Text = "Thêm nguyên liệu";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -120,10 +121,10 @@
             this.cbbOption.ItemHeight = 30;
             this.cbbOption.Items.AddRange(new object[] {
             "Lựa chọn tìm kiếm"});
-            this.cbbOption.Location = new System.Drawing.Point(239, 72);
+            this.cbbOption.Location = new System.Drawing.Point(249, 72);
             this.cbbOption.Margin = new System.Windows.Forms.Padding(4);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(190, 36);
+            this.cbbOption.Size = new System.Drawing.Size(244, 36);
             this.cbbOption.TabIndex = 44;
             this.cbbOption.SelectedValueChanged += new System.EventHandler(this.cbbOption_SelectedValueChanged);
             // 
@@ -137,28 +138,29 @@
             this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(437, 72);
+            this.btnFind.Image = global::RestaurentManagement.Properties.Resources.R__2__removebg_preview;
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(501, 72);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(117, 36);
+            this.btnFind.Size = new System.Drawing.Size(88, 36);
             this.btnFind.TabIndex = 41;
-            this.btnFind.Text = "Tìm kiếm";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // dgvMaterial
             // 
             this.dgvMaterial.AllowUserToAddRows = false;
             this.dgvMaterial.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvMaterial.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMaterial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvMaterial.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMaterial.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvMaterial.ColumnHeadersHeight = 35;
             this.dgvMaterial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvMaterial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -167,22 +169,22 @@
             this.Column3,
             this.Column4});
             this.dgvMaterial.ContextMenuStrip = this.guna2ContextMenuStrip1;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterial.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvMaterial.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMaterial.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvMaterial.Location = new System.Drawing.Point(0, 143);
+            this.dgvMaterial.Location = new System.Drawing.Point(0, 117);
             this.dgvMaterial.Name = "dgvMaterial";
             this.dgvMaterial.ReadOnly = true;
             this.dgvMaterial.RowHeadersVisible = false;
             this.dgvMaterial.RowHeadersWidth = 40;
-            this.dgvMaterial.Size = new System.Drawing.Size(1085, 613);
+            this.dgvMaterial.Size = new System.Drawing.Size(1085, 639);
             this.dgvMaterial.TabIndex = 45;
             this.dgvMaterial.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvMaterial.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -237,6 +239,7 @@
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sửaNguyênLiệuToolStripMenuItem,
             this.xóaNguyênLiệuToolStripMenuItem});
@@ -283,10 +286,10 @@
             ">",
             "= ",
             "<"});
-            this.cbbOpera.Location = new System.Drawing.Point(239, 28);
+            this.cbbOpera.Location = new System.Drawing.Point(249, 28);
             this.cbbOpera.Margin = new System.Windows.Forms.Padding(4);
             this.cbbOpera.Name = "cbbOpera";
-            this.cbbOpera.Size = new System.Drawing.Size(90, 36);
+            this.cbbOpera.Size = new System.Drawing.Size(107, 36);
             this.cbbOpera.TabIndex = 47;
             this.cbbOpera.Visible = false;
             // 

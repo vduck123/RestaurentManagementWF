@@ -60,11 +60,11 @@ namespace RestaurentManagement.Views.Reports
             ChartReportOfToday(BillSale, BillImport, dt, dt);
 
             // Hiển thị số hóa đơn nhập và số hóa đơn bán
-            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt, dt);
-            LoadNumBill(list);
+            LoadNumBill(dt, dt);
+
             // 
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt, dt);
-            LoadChartHotFood(dtHotFood, dt, dt);
+            LoadChartHotFood2(dtHotFood, dt, dt);
 
         }
 
@@ -86,8 +86,7 @@ namespace RestaurentManagement.Views.Reports
             DataTable dtb2 = ReportController.Instance.GetNumBillBySupplierIdAndTime(startOfWeek, endOfWeek);
             dgvSupplier.DataSource = dtb2;
             //
-            Dictionary<string,int> list = ReportController.Instance.GetNumBillByTime(startOfWeek, endOfWeek);
-            LoadNumBill(list);
+            LoadNumBill(startOfWeek, endOfWeek);
             //Chart
             DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dt1, dt2, "Tuần");
             DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(dt1, dt2, "Tuần");
@@ -95,7 +94,7 @@ namespace RestaurentManagement.Views.Reports
             
             
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(startOfWeek, endOfWeek);
-            LoadChartHotFood(dtHotFood, startOfWeek, endOfWeek);
+            LoadChartHotFood2(dtHotFood, startOfWeek, endOfWeek);
 
 
         }
@@ -121,11 +120,10 @@ namespace RestaurentManagement.Views.Reports
 
             ChartReportOfMonth(BillSale, BillImport, dt1, dt2);
 
-            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt1, dt2);
-            LoadNumBill(list);
+            LoadNumBill(dt1,dt2);
 
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
-            LoadChartHotFood(dtHotFood, dt1, dt2);
+            LoadChartHotFood2(dtHotFood, dt1, dt2);
 
 
 
@@ -152,11 +150,10 @@ namespace RestaurentManagement.Views.Reports
 
             ChartReportMultiTime(BillSale, BillImport,dt1, dt2);
 
-            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dt1, dt2);
-            LoadNumBill(list);
-            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
-            LoadChartHotFood(dtHotFood, dt1, dt2);
+            LoadNumBill(dt1, dt2);
 
+            DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt1, dt2);
+            LoadChartHotFood2(dtHotFood, dt1, dt2);
 
         }
 
@@ -178,16 +175,15 @@ namespace RestaurentManagement.Views.Reports
 
 
             //Chart
-            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dtPrev.Value, dtPrev.Value, "Mốc");
+            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dtPrev.Value, dtNext.Value, "Mốc");
             DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(dtPrev.Value, dtNext.Value, "Mốc");
 
             ChartReportMultiTime(BillSale, BillImport, dtPrev.Value, dtNext.Value);
 
-            Dictionary<string, int> list = ReportController.Instance.GetNumBillByTime(dtPrev.Value, dtPrev.Value);
-            LoadNumBill(list);
+            LoadNumBill(dtPrev.Value, dtNext.Value);
 
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dtPrev.Value, dtNext.Value);
-            LoadChartHotFood(dtHotFood, dtPrev.Value, dtNext.Value);
+            LoadChartHotFood2(dtHotFood, dtPrev.Value, dtNext.Value);
 
             //
 
@@ -203,173 +199,261 @@ namespace RestaurentManagement.Views.Reports
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            barDatasetExpense.Label = "Mục thu";
-            barDatasetRevenue.Label = "Mục chi";
+            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset();
+
+            barDatasetRevenue.Label = "Mục thu";
+            barDatasetExpense.Label = "Mục chi";
+            barDatasetProfit.Label = "Lợi nhuận";
+
+            int totalRevenue = 0;
+            int totalExpense = 0;
+            int revenue = 0;
+            int expense = 0;
+
+            Dictionary<string, int> revenueByMonth = new Dictionary<string, int>();
 
             foreach (DataRow row in dtb1.Rows)
             {
-                int totalRevenue = Convert.ToInt32(row["Tổng thu"]);
-                barDatasetRevenue.DataPoints.Add($"Tháng {row["Tháng"]}", totalRevenue);
+                totalRevenue = Convert.ToInt32(row["Tổng thu"]);
+                totalRevenue = Convert.ToInt32(row["Tổng thu"]);
+                
+                revenue += totalRevenue;
+                string month = $"Tháng {row["Tháng"]}";
+                revenueByMonth[month] = totalRevenue;
+                barDatasetRevenue.DataPoints.Add(month, totalRevenue);
             }
 
             foreach (DataRow row in dtb2.Rows)
             {
-                int totalExpense = Convert.ToInt32(row["Tổng chi"]);
-                barDatasetExpense.DataPoints.Add($"Tháng {row["Tháng"]}", totalExpense);
+                totalExpense = Convert.ToInt32(row["Tổng chi"]);
+                expense += totalExpense;
+                string month = $"Tháng {row["Tháng"]}";
+                barDatasetExpense.DataPoints.Add(month, totalExpense);
+                if (revenueByMonth.ContainsKey(month))
+                {
+                    int profit = revenueByMonth[month] - totalExpense;
+                    barDatasetProfit.DataPoints.Add(month, profit);
+                }
             }
 
             barDatasetRevenue.FillColors.Add(Color.FromArgb(0, 122, 204));
             barDatasetExpense.FillColors.Add(Color.FromArgb(0, 166, 90));
+            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0)); 
 
             charRevenue.Datasets.Add(barDatasetRevenue);
             charRevenue.Datasets.Add(barDatasetExpense);
-            
-            charRevenue.Update();
+            charRevenue.Datasets.Add(barDatasetProfit);
 
+            LoadTotalRevenueExpenseProfit(revenue, expense);
+            charRevenue.Update();
         }
+
 
         void ChartReportOfMonth(DataTable dtb1, DataTable dtb2, DateTime dt1, DateTime dt2)
         {
             charRevenue.Datasets.Clear();
-            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu tháng {dt1.Month} năm {dt1.Month}";
+            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu tháng {dt1.Month} năm {dt1.Year}";
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            barDatasetExpense.Label = "Mục thu";
-            barDatasetRevenue.Label = "Mục chi";
+            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset(); // Dataset cho lợi nhuận
+
+            barDatasetRevenue.Label = "Mục thu";
+            barDatasetExpense.Label = "Mục chi";
+            barDatasetProfit.Label = "Lợi nhuận";
+
+            int totalRevenue = 0;
+            int totalExpense = 0;
 
             foreach (DataRow row in dtb1.Rows)
             {
-                int totalRevenue = Convert.ToInt32(row["Tổng thu"]);
-                barDatasetRevenue.DataPoints.Add($"Tháng {dt1.Month} ", totalRevenue);
+                totalRevenue = Convert.ToInt32(row["Tổng thu"]);
+                barDatasetRevenue.DataPoints.Add($"Tháng {dt1.Month}", totalRevenue);
             }
 
             foreach (DataRow row in dtb2.Rows)
             {
-                int totalExpense = Convert.ToInt32(row["Tổng chi"]);
+                totalExpense = Convert.ToInt32(row["Tổng chi"]);
                 barDatasetExpense.DataPoints.Add($"Tháng {dt1.Month}", totalExpense);
             }
 
+            int profit = totalRevenue - totalExpense;
+            barDatasetProfit.DataPoints.Add($"Tháng {dt1.Month}", profit);
+
             barDatasetRevenue.FillColors.Add(Color.FromArgb(0, 122, 204));
             barDatasetExpense.FillColors.Add(Color.FromArgb(0, 166, 90));
+            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0)); 
 
             charRevenue.Datasets.Add(barDatasetRevenue);
             charRevenue.Datasets.Add(barDatasetExpense);
+            charRevenue.Datasets.Add(barDatasetProfit);
+
+            LoadTotalRevenueExpenseProfit(totalRevenue, totalExpense);
 
             charRevenue.Update();
-
         }
+
 
         void ChartReportOfWeek(DataTable dtb1, DataTable dtb2, DateTime dt1, DateTime dt2)
         {
             charRevenue.Datasets.Clear();
-            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu tuần từ ngày {dt1.ToString("dd/MM/yyyy")} đến {dt2.ToString("dd/MM/yyyy")}";
+            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu tuần từ ngày {dt1:dd/MM/yyyy} đến {dt2:dd/MM/yyyy}";
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            barDatasetExpense.Label = "Mục chi";
-            barDatasetRevenue.Label = "Mục thu";
+            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset();
 
+            barDatasetRevenue.Label = "Mục thu";
+            barDatasetExpense.Label = "Mục chi";
+            barDatasetProfit.Label = "Lợi nhuận";
+
+            int totalRevenue = 0;
+            int totalExpense = 0;
+
+            Dictionary<DateTime, int> revenueByDate = new Dictionary<DateTime, int>();
+            Dictionary<DateTime, int> expenseByDate = new Dictionary<DateTime, int>();
             foreach (DataRow row in dtb1.Rows)
             {
-                int totalRevenue = Convert.ToInt32(row["Tổng thu"]);
-                barDatasetRevenue.DataPoints.Add($"Tháng {dt1.Month} ", totalRevenue);
+                DateTime date = Convert.ToDateTime(row["Ngày"]);
+                int revenue = Convert.ToInt32(row["Tổng thu"]);
+                totalRevenue += revenue;
+                revenueByDate[date] = revenue;
+                barDatasetRevenue.DataPoints.Add(date.ToString("dd/MM"), revenue);
             }
 
+ 
             foreach (DataRow row in dtb2.Rows)
             {
-                int totalExpense = Convert.ToInt32(row["Tổng chi"]);
-                barDatasetExpense.DataPoints.Add($"Tháng {dt1.Month}", totalExpense);
+                DateTime date = Convert.ToDateTime(row["Ngày"]);
+                int expense = Convert.ToInt32(row["Tổng chi"]);
+                totalExpense += expense;
+                expenseByDate[date] = expense;
+                barDatasetExpense.DataPoints.Add(date.ToString("dd/MM"), expense);
+            }
+
+            foreach (var date in revenueByDate.Keys)
+            {
+                int revenue = revenueByDate[date];
+                int expense = expenseByDate.ContainsKey(date) ? expenseByDate[date] : 0;
+                int profit = revenue - expense;
+                barDatasetProfit.DataPoints.Add(date.ToString("dd/MM"), profit);
             }
 
             barDatasetRevenue.FillColors.Add(Color.FromArgb(0, 122, 204));
             barDatasetExpense.FillColors.Add(Color.FromArgb(0, 166, 90));
+            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0)); 
 
             charRevenue.Datasets.Add(barDatasetRevenue);
             charRevenue.Datasets.Add(barDatasetExpense);
+            charRevenue.Datasets.Add(barDatasetProfit);
 
+            LoadTotalRevenueExpenseProfit(totalRevenue, totalExpense);
             charRevenue.Update();
         }
+
 
         void ChartReportOfToday(DataTable dtb1, DataTable dtb2, DateTime dt1, DateTime dt2)
         {
             charRevenue.Datasets.Clear();
-            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu ngày {dt1.ToString("dd/MM/yyyy")}";
+            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu ngày {dt1:dd/MM/yyyy}";
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            barDatasetExpense.Label = "Mục thu";
-            barDatasetRevenue.Label = "Mục chi";
+            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset();
+
+            barDatasetRevenue.Label = "Mục thu";
+            barDatasetExpense.Label = "Mục chi";
+            barDatasetProfit.Label = "Lợi nhuận";
+
+            int totalRevenue = 0;
+            int totalExpense = 0;
 
             foreach (DataRow row in dtb1.Rows)
             {
-                int totalRevenue = Convert.ToInt32(row["Tổng thu"]);
-                barDatasetRevenue.DataPoints.Add($"Ngày {dt1.ToString("dd/MM/yyyy")} ", totalRevenue);
+                totalRevenue = Convert.ToInt32(row["Tổng thu"]);
+                barDatasetRevenue.DataPoints.Add($"Ngày {dt1:dd/MM/yyyy}", totalRevenue);
             }
-
             foreach (DataRow row in dtb2.Rows)
             {
-                int totalExpense = Convert.ToInt32(row["Tổng chi"]);
-                barDatasetExpense.DataPoints.Add($"Ngày {dt1.ToString("dd/MM/yyyy")}", totalExpense);
+                totalExpense = Convert.ToInt32(row["Tổng chi"]);
+                barDatasetExpense.DataPoints.Add($"Ngày {dt1:dd/MM/yyyy}", totalExpense);
             }
 
+     
+            int profit = totalRevenue - totalExpense;
+            barDatasetProfit.DataPoints.Add($"Ngày {dt1:dd/MM/yyyy}", profit);
+
+           
             barDatasetRevenue.FillColors.Add(Color.FromArgb(0, 122, 204));
             barDatasetExpense.FillColors.Add(Color.FromArgb(0, 166, 90));
+            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0)); 
 
+            
             charRevenue.Datasets.Add(barDatasetRevenue);
             charRevenue.Datasets.Add(barDatasetExpense);
+            charRevenue.Datasets.Add(barDatasetProfit);
 
+            LoadTotalRevenueExpenseProfit(totalRevenue, totalExpense);
             charRevenue.Update();
         }
 
-        void LoadChartHotFood(DataTable dtb, DateTime dt1, DateTime dt2)
-        {
-            chartFood.Datasets.Clear();
-            chartFood.Title.Text = $"Top món ăn {dt1.ToString("dd/MM/yyyy")}";
-            var dataset = new Guna.Charts.WinForms.GunaPieDataset();
 
-            chartFood.Legend.Position = Guna.Charts.WinForms.LegendPosition.Right;
+        void LoadChartHotFood2(DataTable dtb, DateTime dt1, DateTime dt2)
+        {
+
+            chartHotFood.Series.Clear();
+            chartHotFood.Titles.Clear();
+            chartHotFood.ChartAreas.Clear();
+            chartHotFood.Titles.Add($"Top món ăn {dt1.ToString("dd/MM/yyyy")}");
+            ChartArea chartArea = new ChartArea();
+            chartHotFood.ChartAreas.Add(chartArea);
+            Series series = new Series
+            {
+                Name = "FoodSeries",
+                IsVisibleInLegend = true,
+                ChartType = SeriesChartType.Pie
+            };
+            chartHotFood.Series.Add(series);
+
+
             foreach (DataRow row in dtb.Rows)
             {
                 int quantity = Convert.ToInt32(row["Số lượng"]);
-                dataset.DataPoints.Add(FoodController.Instance.GetNameFoodByID(row["food_id"].ToString()), quantity);
-                dataset.Label = FoodController.Instance.GetNameFoodByID(row["food_id"].ToString());
+                string foodName = FoodController.Instance.GetNameFoodByID(row["food_id"].ToString());
+                series.Points.AddXY(foodName, quantity);
             }
 
-            
-
-            chartFood.Datasets.Add(dataset);
-
-            chartFood.Update();
+            chartHotFood.Invalidate();
         }
 
-        void LoadNumBill(Dictionary<string, int> list)
+        void LoadNumBill(DateTime dt1, DateTime dt2)
         {
-            if (list.Count > 0)
+            int num1 =  ReportController.Instance.GetBillCount("boSale_id", "BillOfSale", "dayOut", dt1, dt2);
+            int num2 = ReportController.Instance.GetBillCount("boImport_id", "BillOfImport", "dayCreate", dt1, dt2);
+            if (num1 == null)
             {
-                if (list.ContainsKey("Số hóa đơn nhập"))
-                {
-                    lbNumBillImport.Text = list["Số hóa đơn nhập"].ToString();
-                }
-                else
-                {
-                    lbNumBillImport.Text = "0";
-                }
-
-                if (list.ContainsKey("Số hóa đơn bán"))
-                {
-                    lbNumBillImSale.Text = list["Số hóa đơn bán"].ToString();
-                }
-                else
-                {
-                    lbNumBillImSale.Text = "0";
-                }
+                lbNumBillImSale.Text = "0";
             }
             else
             {
-                lbNumBillImport.Text = "0";
-                lbNumBillImSale.Text = "0";
+                lbNumBillImSale.Text = num1.ToString();
             }
+
+            if (num2 == null)
+            {
+                lbNumBillImport.Text = "0";
+            }
+            else
+            {
+                lbNumBillImport.Text = num2.ToString();
+            }
+        }
+
+        void LoadTotalRevenueExpenseProfit(int revenue, int expense)
+        {
+            lbExpense.Text = $"{expense.ToString()} VNĐ";
+            lbRevenue.Text = $"{revenue.ToString()} VNĐ";
+            lbProfit.Text = $"{(revenue - expense).ToString()} VNĐ";
         }
 
 

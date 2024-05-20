@@ -18,20 +18,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RestaurentManagement.Views._Table;
+using RestaurentManagement.Models;
+using System.Xml.Linq;
 
 namespace RestaurentManagement.Views
 {
     public partial class Admin_VIEW : Form
     {
         public string _user;
+
         public Admin_VIEW(string user)
         {
             InitializeComponent();
-            if(user != null)
+            if (user != null)
             {
                 _user = user;
             }
         }
+
+        private void Admin_VIEW_Load(object sender, EventArgs e)
+        {
+            lbUser.Text = StaffController.Instance.GetNameStaffByAccID(AccountController.Instance.GetIdAccountByUsername(_user));
+            Refresh();
+            
+        }
+
+
 
         Form currentForm = null;
 
@@ -122,11 +134,7 @@ namespace RestaurentManagement.Views
             OpenChildForm(new BillImport_VIEW(lbUser.Text));
         }
 
-        private void Admin_VIEW_Load(object sender, EventArgs e)
-        {
-            lbUser.Text = StaffController.Instance.GetNameStaffByAccID(AccountController.Instance.GetIdAccountByUsername(_user));
-            OpenChildForm(new Home_VIEW());
-        }
+        
 
         private void btnTable_Click(object sender, EventArgs e)
         {
@@ -141,6 +149,37 @@ namespace RestaurentManagement.Views
         private void btnBillSale_Click(object sender, EventArgs e)
         {
             OpenChildForm(new BillSaleInfo_VIEW());
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Setting.Setting_VIEW());
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            string nameRes = null;
+            List<InForRestaurant> data = InfoRestaurantController.Instance.GetData();
+            foreach (var item in data)
+            {
+                nameRes = item.Name;
+            }
+
+            lbRes1.Text = nameRes.Split(' ')[0];
+            lbRes2.Text = nameRes.Split(' ')[1];
+        }
+
+
+        private void btnSignOut_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login_VIEW view = new Login_VIEW();
+            view.ShowDialog();
         }
     }
 }

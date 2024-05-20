@@ -36,16 +36,54 @@
     <Reference Include="Bogus, Version=35.5.1.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a, processorArchitecture=MSIL">
       <HintPath>..\packages\Bogus.35.5.1\lib\net40\Bogus.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.1.2.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.1.2\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=6.1.1.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.6.1.1\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=6.1.1.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.6.1.1\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="Guna.Charts.WinForms, Version=1.0.9.0, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.Charts.WinForms.1.0.9\lib\net472\Guna.Charts.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
@@ -66,6 +104,7 @@
     <Compile Include="Controllers\BillSaleInfoController.cs" />
     <Compile Include="Controllers\FoodCategoryController.cs" />
     <Compile Include="Controllers\FoodController.cs" />
+    <Compile Include="Controllers\InfoRestaurantController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -88,6 +127,7 @@
     <Compile Include="Models\BillSaleInfo.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\FoodCategory.cs" />
+    <Compile Include="Models\InForRestaurant.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Salary.cs" />
@@ -108,6 +148,7 @@
     <Compile Include="utils\DBHelper.cs" />
     <Compile Include="utils\Faker.cs" />
     <Compile Include="utils\HandleData.cs" />
+    <Compile Include="utils\Office.cs" />
     <Compile Include="Views\Account\AccountInfo_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,11 +263,11 @@
     <Compile Include="Views\frmData.Designer.cs">
       <DependentUpon>frmData.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home_VIEW.cs">
+    <Compile Include="Views\FrmStaff_VIEW.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Home_VIEW.Designer.cs">
-      <DependentUpon>Home_VIEW.cs</DependentUpon>
+    <Compile Include="Views\FrmStaff_VIEW.Designer.cs">
+      <DependentUpon>FrmStaff_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login_VIEW.cs">
       <SubType>Form</SubType>
@@ -251,6 +292,12 @@
     </Compile>
     <Compile Include="Views\Material\MaterialInfo_VIEW.Designer.cs">
       <DependentUpon>MaterialInfo_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotifyBill\NotifyBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\NotifyBill\NotifyBill.Designer.cs">
+      <DependentUpon>NotifyBill.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Order_VIEW.cs">
       <SubType>Form</SubType>
@@ -299,6 +346,12 @@
     </Compile>
     <Compile Include="Views\Salaries\SalaryInfo_VIEW.Designer.cs">
       <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Setting\Setting_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Setting\Setting_VIEW.Designer.cs">
+      <DependentUpon>Setting_VIEW.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Vouchers\AddVoucher_VIEW.cs">
       <SubType>Form</SubType>
@@ -401,8 +454,8 @@
     <EmbeddedResource Include="Views\frmData.resx">
       <DependentUpon>frmData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Home_VIEW.resx">
-      <DependentUpon>Home_VIEW.cs</DependentUpon>
+    <EmbeddedResource Include="Views\FrmStaff_VIEW.resx">
+      <DependentUpon>FrmStaff_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login_VIEW.resx">
       <DependentUpon>Login_VIEW.cs</DependentUpon>
@@ -415,6 +468,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Material\MaterialInfo_VIEW.resx">
       <DependentUpon>MaterialInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\NotifyBill\NotifyBill.resx">
+      <DependentUpon>NotifyBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Order_VIEW.resx">
       <DependentUpon>Order_VIEW.cs</DependentUpon>
@@ -439,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Salaries\SalaryInfo_VIEW.resx">
       <DependentUpon>SalaryInfo_VIEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Setting\Setting_VIEW.resx">
+      <DependentUpon>Setting_VIEW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Vouchers\AddVoucher_VIEW.resx">
       <DependentUpon>AddVoucher_VIEW.cs</DependentUpon>
@@ -472,13 +531,25 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\bear.gif" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\dash.png" />
     <Content Include="Resources\hello.png" />
     <Content Include="Resources\icon-rtr.png" />
+    <None Include="Resources\R__2_-removebg-preview.png" />
+    <None Include="Resources\R-removebg-preview.png" />
     <Content Include="Resources\star.png" />
     <Content Include="Resources\user.png" />
   </ItemGroup>

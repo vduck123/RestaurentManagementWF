@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,13 @@ namespace RestaurentManagement.Views.Employee
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtNameStaff.Text) ||
+                txtNameStaff.Text.Length < 5 ||
+                HandleData.Instance.ExitNumber(txtNameStaff.Text))
+            {
+                mf.NotifyErr("Tên nhân viên không hợp lệ");
+                return;
+            }
             Staff staff = new Staff()
             {
                 ID = _ID,

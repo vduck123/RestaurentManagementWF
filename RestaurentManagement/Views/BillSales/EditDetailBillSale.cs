@@ -32,6 +32,11 @@ namespace RestaurentManagement.Views.BillSales
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtName.Text) || txtPrice.Value <= 0 || txtQuantity.Value <= 0)
+            {
+                mf.NotifyErr("Giá trị nhập vào không hợp lệ");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm("Chọn OK để xác nhân thông tin");
             if (qs == DialogResult.OK)
             {

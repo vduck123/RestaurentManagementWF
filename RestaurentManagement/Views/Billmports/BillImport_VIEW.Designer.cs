@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillImport_VIEW));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,16 +41,16 @@
             this.xóaHóaĐơnNhậpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemChiTiếtHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvBilImport = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbbOpera = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtNext = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.dtprev = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtPrev = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lbDt = new System.Windows.Forms.Label();
             this.guna2ContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBilImport)).BeginInit();
@@ -65,11 +66,12 @@
             this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(467, 56);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnSearch.Location = new System.Drawing.Point(525, 56);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(115, 37);
+            this.btnSearch.Size = new System.Drawing.Size(66, 36);
             this.btnSearch.TabIndex = 8;
-            this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnAdd
@@ -83,9 +85,9 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(700, 56);
+            this.btnAdd.Location = new System.Drawing.Point(707, 56);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(162, 37);
+            this.btnAdd.Size = new System.Drawing.Size(162, 36);
             this.btnAdd.TabIndex = 27;
             this.btnAdd.Text = "Tạo hóa đơn";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -100,7 +102,7 @@
             this.btnExcel.FillColor = System.Drawing.Color.ForestGreen;
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Location = new System.Drawing.Point(970, 56);
+            this.btnExcel.Location = new System.Drawing.Point(975, 55);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(98, 37);
             this.btnExcel.TabIndex = 24;
@@ -117,15 +119,17 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(588, 56);
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(610, 56);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(95, 37);
+            this.btnRefresh.Size = new System.Drawing.Size(63, 36);
             this.btnRefresh.TabIndex = 5;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sửaHóaĐơnNhậpToolStripMenuItem,
             this.xóaHóaĐơnNhậpToolStripMenuItem,
@@ -229,35 +233,40 @@
             this.dgvBilImport.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBilImport.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBilImport_CellClick);
             // 
-            // Column5
+            // Column1
             // 
-            this.Column5.HeaderText = "TotalMoney";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "CreatedDay";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Supplier";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Staff created";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
-            // Column1
+            // Column3
             // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.Column3.HeaderText = "Supplier";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "CreatedDay";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "TotalMoney";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // cbbOption
             // 
@@ -272,9 +281,9 @@
             this.cbbOption.ItemHeight = 30;
             this.cbbOption.Items.AddRange(new object[] {
             "Lựa chọn tìm kiếm"});
-            this.cbbOption.Location = new System.Drawing.Point(221, 57);
+            this.cbbOption.Location = new System.Drawing.Point(252, 57);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(240, 36);
+            this.cbbOption.Size = new System.Drawing.Size(267, 36);
             this.cbbOption.TabIndex = 29;
             this.cbbOption.SelectedValueChanged += new System.EventHandler(this.cbbOption_SelectedValueChanged);
             // 
@@ -291,7 +300,7 @@
             this.txtParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParam.ForeColor = System.Drawing.Color.Black;
             this.txtParam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtParam.Location = new System.Drawing.Point(13, 57);
+            this.txtParam.Location = new System.Drawing.Point(34, 56);
             this.txtParam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtParam.Name = "txtParam";
             this.txtParam.PasswordChar = '\0';
@@ -315,7 +324,7 @@
             ">",
             "=",
             "<"});
-            this.cbbOpera.Location = new System.Drawing.Point(221, 15);
+            this.cbbOpera.Location = new System.Drawing.Point(410, 12);
             this.cbbOpera.Name = "cbbOpera";
             this.cbbOpera.Size = new System.Drawing.Size(109, 36);
             this.cbbOpera.TabIndex = 30;
@@ -337,21 +346,21 @@
             this.dtNext.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 963);
             this.dtNext.Visible = false;
             // 
-            // dtprev
+            // dtPrev
             // 
-            this.dtprev.Checked = true;
-            this.dtprev.FillColor = System.Drawing.Color.DimGray;
-            this.dtprev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtprev.ForeColor = System.Drawing.Color.White;
-            this.dtprev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtprev.Location = new System.Drawing.Point(34, 99);
-            this.dtprev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtprev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtprev.Name = "dtprev";
-            this.dtprev.Size = new System.Drawing.Size(180, 25);
-            this.dtprev.TabIndex = 32;
-            this.dtprev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
-            this.dtprev.Visible = false;
+            this.dtPrev.Checked = true;
+            this.dtPrev.FillColor = System.Drawing.Color.DimGray;
+            this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPrev.ForeColor = System.Drawing.Color.White;
+            this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPrev.Location = new System.Drawing.Point(34, 99);
+            this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtPrev.Name = "dtPrev";
+            this.dtPrev.Size = new System.Drawing.Size(180, 25);
+            this.dtPrev.TabIndex = 32;
+            this.dtPrev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
+            this.dtPrev.Visible = false;
             // 
             // lbDt
             // 
@@ -370,7 +379,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 756);
             this.Controls.Add(this.lbDt);
-            this.Controls.Add(this.dtprev);
+            this.Controls.Add(this.dtPrev);
             this.Controls.Add(this.dtNext);
             this.Controls.Add(this.cbbOpera);
             this.Controls.Add(this.cbbOption);
@@ -410,7 +419,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtParam;
         private Guna.UI2.WinForms.Guna2ComboBox cbbOpera;
         private System.Windows.Forms.Label lbDt;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtprev;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtPrev;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtNext;
     }
 }

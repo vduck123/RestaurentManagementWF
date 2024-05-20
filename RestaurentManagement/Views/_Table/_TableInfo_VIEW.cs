@@ -40,6 +40,11 @@ namespace RestaurentManagement.Views._Table
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
             dgvTable.Columns.Clear();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
             dgvTable.DataSource = dt;

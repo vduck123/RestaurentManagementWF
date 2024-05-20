@@ -31,16 +31,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             this.dgvFood = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,26 +42,15 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BorderRadius = 6;
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(565, 48);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(114, 36);
-            this.btnRefresh.TabIndex = 22;
-            this.btnRefresh.Text = "Làm mới";
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
             // 
@@ -79,9 +62,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(706, 48);
+            this.btnAdd.Location = new System.Drawing.Point(941, 59);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(140, 36);
+            this.btnAdd.Size = new System.Drawing.Size(187, 44);
             this.btnAdd.TabIndex = 23;
             this.btnAdd.Text = "Thêm món ăn";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -99,13 +83,13 @@
             this.txtParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParam.ForeColor = System.Drawing.Color.Black;
             this.txtParam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtParam.Location = new System.Drawing.Point(13, 48);
-            this.txtParam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtParam.Location = new System.Drawing.Point(17, 59);
+            this.txtParam.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtParam.Name = "txtParam";
             this.txtParam.PasswordChar = '\0';
             this.txtParam.PlaceholderText = "";
             this.txtParam.SelectedText = "";
-            this.txtParam.Size = new System.Drawing.Size(201, 36);
+            this.txtParam.Size = new System.Drawing.Size(268, 44);
             this.txtParam.TabIndex = 20;
             // 
             // cbbOption
@@ -121,28 +105,12 @@
             this.cbbOption.ItemHeight = 30;
             this.cbbOption.Items.AddRange(new object[] {
             "Lựa chọn tìm kiếm"});
-            this.cbbOption.Location = new System.Drawing.Point(221, 48);
+            this.cbbOption.Location = new System.Drawing.Point(295, 59);
+            this.cbbOption.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(218, 36);
+            this.cbbOption.Size = new System.Drawing.Size(344, 36);
             this.cbbOption.TabIndex = 24;
             this.cbbOption.SelectedValueChanged += new System.EventHandler(this.cbbOption_SelectedValueChanged);
-            // 
-            // btnFind
-            // 
-            this.btnFind.BorderRadius = 6;
-            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(445, 48);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(114, 36);
-            this.btnFind.TabIndex = 21;
-            this.btnFind.Text = "Tìm kiếm";
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // dgvFood
             // 
@@ -151,10 +119,10 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvFood.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFood.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -179,12 +147,13 @@
             this.dgvFood.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvFood.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvFood.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvFood.Location = new System.Drawing.Point(0, 101);
+            this.dgvFood.Location = new System.Drawing.Point(0, 124);
+            this.dgvFood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.ReadOnly = true;
             this.dgvFood.RowHeadersVisible = false;
             this.dgvFood.RowHeadersWidth = 40;
-            this.dgvFood.Size = new System.Drawing.Size(1085, 655);
+            this.dgvFood.Size = new System.Drawing.Size(1447, 806);
             this.dgvFood.TabIndex = 25;
             this.dgvFood.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvFood.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -209,8 +178,61 @@
             this.dgvFood.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã món ăn";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên món ăn";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá bán";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tên nguyên liệu";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Số lượng yêu cầu";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Loại món ăn";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Hình ảnh";
+            this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sửaMónĂnToolStripMenuItem,
             this.xóaMónĂnToolStripMenuItem});
@@ -224,13 +246,13 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(157, 48);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(184, 60);
             // 
             // sửaMónĂnToolStripMenuItem
             // 
             this.sửaMónĂnToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sửaMónĂnToolStripMenuItem.Name = "sửaMónĂnToolStripMenuItem";
-            this.sửaMónĂnToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.sửaMónĂnToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.sửaMónĂnToolStripMenuItem.Text = "Sửa món ăn";
             this.sửaMónĂnToolStripMenuItem.Click += new System.EventHandler(this.sửaMónĂnToolStripMenuItem_Click);
             // 
@@ -238,7 +260,7 @@
             // 
             this.xóaMónĂnToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xóaMónĂnToolStripMenuItem.Name = "xóaMónĂnToolStripMenuItem";
-            this.xóaMónĂnToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.xóaMónĂnToolStripMenuItem.Size = new System.Drawing.Size(183, 28);
             this.xóaMónĂnToolStripMenuItem.Text = "Xóa món ăn";
             this.xóaMónĂnToolStripMenuItem.Click += new System.EventHandler(this.xóaMónĂnToolStripMenuItem_Click);
             // 
@@ -257,62 +279,56 @@
             ">",
             "= ",
             "<"});
-            this.cbbOptionPrice.Location = new System.Drawing.Point(316, 6);
+            this.cbbOptionPrice.Location = new System.Drawing.Point(421, 15);
+            this.cbbOptionPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbOptionPrice.Name = "cbbOptionPrice";
-            this.cbbOptionPrice.Size = new System.Drawing.Size(123, 36);
+            this.cbbOptionPrice.Size = new System.Drawing.Size(218, 36);
             this.cbbOptionPrice.TabIndex = 27;
             this.cbbOptionPrice.Visible = false;
             // 
-            // Column1
+            // btnRefresh
             // 
-            this.Column1.HeaderText = "Mã món ăn";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.btnRefresh.BorderRadius = 6;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::RestaurentManagement.Properties.Resources.R_removebg_preview;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(753, 59);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(85, 44);
+            this.btnRefresh.TabIndex = 22;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // Column2
+            // btnFind
             // 
-            this.Column2.HeaderText = "Tên món ăn";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá bán";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tên nguyên liệu";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Số lượng yêu cầu";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Loại món ăn";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Hình ảnh";
-            this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.btnFind.BorderRadius = 6;
+            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.Image = global::RestaurentManagement.Properties.Resources.R__2__removebg_preview;
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(647, 59);
+            this.btnFind.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(88, 44);
+            this.btnFind.TabIndex = 21;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // FoodInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.ClientSize = new System.Drawing.Size(1447, 930);
             this.Controls.Add(this.cbbOptionPrice);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.btnRefresh);
@@ -321,6 +337,7 @@
             this.Controls.Add(this.cbbOption);
             this.Controls.Add(this.btnFind);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FoodInfo";
             this.Text = "FoodInfo";
             this.Load += new System.EventHandler(this.FoodInfo_Load);

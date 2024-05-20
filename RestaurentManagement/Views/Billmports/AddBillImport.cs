@@ -30,6 +30,13 @@ namespace RestaurentManagement.Views.Billmports
         string nameSupplier = null;
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(txtQuantity.Value <= 0 || txtPrice.Value <= 0) 
+            {
+                mf.NotifyErr("Vui lòng nhập số lớn hơn 0");
+                return;
+            }
+
+
             LoadTotalBill(_billImportID);
             nameSupplier = cbbSupplier.SelectedItem.ToString();
             if (isAddedBillImport == false) 
@@ -85,6 +92,11 @@ namespace RestaurentManagement.Views.Billmports
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtMaterial.Text))
+            {
+                mf.NotifyErr("Vui lòng nhập tên nguyên liệu");
+                return;
+            }
             List<string> listNameMaterial = new List<string>();
             List<Warehouse> list = WarehouseController.Instance.SelectItemByParam("item_name", $"N'%{txtMaterial.Text}%'", "LIKE");
             foreach (Warehouse item in list)

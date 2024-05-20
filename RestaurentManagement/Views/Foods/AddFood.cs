@@ -29,6 +29,12 @@ namespace RestaurentManagement.Views.Foods
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtFoodName.Text) ||
+                string.IsNullOrEmpty(txtImage.Text))
+            {
+                mf.NotifyErr("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
             string id = $"F0000{FoodController.Instance.GetOrderNumInList()}";
             Food f = new Food()
             {

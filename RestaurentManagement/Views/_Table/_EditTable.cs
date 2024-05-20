@@ -28,6 +28,11 @@ namespace RestaurentManagement.Views._Table
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtName.Text))
+            {
+                mf.NotifyErr("Tên không hợp lệ");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm("Chọn OK để xác nhận thông tin");
             if(qs == DialogResult.OK)
             {

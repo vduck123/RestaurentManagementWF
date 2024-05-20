@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.utils;
 using RestaurentManagement.Views.Billmports;
 using System;
 using System.Collections.Generic;
@@ -43,6 +44,11 @@ namespace RestaurentManagement.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text) || dtPrev.Value < dtNext.Value)
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
             dgvBilImport.Columns.Clear();
             string opera = cbbOpera.SelectedItem == null ? null : cbbOpera.SelectedItem.ToString();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, opera);
@@ -53,7 +59,21 @@ namespace RestaurentManagement.Views
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Save an Excel File";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Office.Instance.ExportExcel(dgvBilImport, saveFileDialog.FileName);
+                    mf.NotifySuss("Xuất file thành công");
+                }
+                catch (Exception exception)
+                {
+                    mf.NotifySuss($"Lỗi: {exception.Message}");
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -147,12 +167,12 @@ namespace RestaurentManagement.Views
                     }
                 case "Tìm kiếm theo khoảng thời gian vào":
                     {
-                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtprev.Value, dtNext.Value);
+                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtPrev.Value, dtNext.Value);
                         break;
                     }
                 case "Tìm kiếm theo khoảng thời gian ra":
                     {
-                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtprev.Value, dtNext.Value);
+                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtPrev.Value, dtNext.Value);
                         break;
                     }
             }
@@ -228,7 +248,7 @@ namespace RestaurentManagement.Views
         {
             if(cbbOption.SelectedItem.ToString().Equals("Tìm kiếm theo khoảng thời gian"))
             {
-                dtprev.Visible = true;
+                dtPrev.Visible = true;
                 lbDt.Visible = true;
                 dtNext.Visible = true;
             }
@@ -238,7 +258,7 @@ namespace RestaurentManagement.Views
             }
             else
             {
-                dtprev.Visible = false;
+                dtPrev.Visible = false;
                 lbDt.Visible = false;
                 dtNext.Visible = false;
                 cbbOpera.Visible = false;

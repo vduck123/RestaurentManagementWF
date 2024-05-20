@@ -1,4 +1,5 @@
-﻿using RestaurentManagement.Controllers;
+﻿
+using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using RestaurentManagement.utils;
+
 
 namespace RestaurentManagement.Views.Salaries
 {
@@ -53,7 +57,21 @@ namespace RestaurentManagement.Views.Salaries
 
         private void btnExcel_Click(object sender, EventArgs e)
         {
-
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files|*.xlsx";
+            saveFileDialog.Title = "Save an Excel File";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    Office.Instance.ExportExcel(dgvSalary, saveFileDialog.FileName);
+                    mf.NotifySuss("Xuất file thành công");
+                }
+                catch (Exception exception)
+                {
+                    mf.NotifySuss($"Lỗi: {exception.Message}");
+                }
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -174,5 +192,23 @@ namespace RestaurentManagement.Views.Salaries
                 }
             }
         }
+
+        public void ExportExcel(DataGridView dataGridView1, string fileName)
+        {
+            
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2CirclePictureBox5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
+
+
+
     }
 }

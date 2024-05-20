@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,14 @@ namespace RestaurentManagement.Views.Provider
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtName.Text) || 
+                string.IsNullOrEmpty(txtAddress.Text) ||
+                string.IsNullOrEmpty(txtPhone.Text) ||
+                !HandleData.Instance.ExitNumber(txtPhone.Text))
+            {
+                mf.NotifyErr("Giá trị không hợp lệ");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm("Chọn OK để xác nhận thông tin");
             {
                 if(qs == DialogResult.OK)

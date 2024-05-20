@@ -30,7 +30,11 @@ namespace RestaurentManagement.Views.Material
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            if(string.IsNullOrEmpty(txtName.Text))
+            {
+                mf.NotifyErr("Giá trị không hợp lệ");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm($"Chọn OK thay đổi thông tin nguyên liệu {txtName.Text}");
             if(qs == DialogResult.OK)
             {

@@ -69,6 +69,15 @@ namespace RestaurentManagement.Views.Account
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtUser.Text) ||
+                txtUser.Text.Length < 5 ||
+                txtPass.Text.Length < 5 ||
+                string.IsNullOrEmpty(txtPass.Text))
+                    
+            {
+                mf.NotifyErr("Giá trị nhập khác rỗng và lớn hơn 5 kí tự");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm("Ấn OK xác nhận thay đổi thông tin");
             if(qs == DialogResult.OK)
             {

@@ -151,6 +151,14 @@ CREATE TABLE Voucher
 )
 
 --
+SELECT COUNT(boSale_id) AS [Số hóa đơn bán]
+FROM BillOfSale
+WHERE dayOut BETWEEN '1/1/2024' AND '12/31/2024'
+SELECT * FROM  BillOfSale
+SELECT COUNT(boImport_id) AS [Số hóa đơn nhập]
+FROM BillOfIMport
+WHERE dayOut BETWEEN AND
+
 CREATE TABLE BillOfSale 
 (
 	boSale_id CHAR(10) PRIMARY KEY ,
@@ -164,7 +172,7 @@ CREATE TABLE BillOfSale
 --
 CREATE TABLE DetailBillOfSale
 (
-	dboSale_id CHAR(10) ,
+	dboSale_id CHAR(10) PRIMARY KEY,
 	food_id CHAR(10) REFERENCES Food(food_id) ,
 	food_quantity INT ,
 	food_price INT ,
@@ -183,19 +191,19 @@ CREATE TABLE Menu
 )
 
 
-SELECT * FROM WareHouse
 
-SELECT * FROM BillSale
-SELECT * FROM Supplier
-INSERT INTO Supplier
-VALUES ('NCC006','Simson-6',N'Hải Dương','093423423', 'Test') ,
-('NCC007','Simson-7',N'Hải Dương','093423423', 'Test') ,
-('NCC008','Simson-8',N'Hải Dương','093423423', 'Test') ,
-('NCC009','Simson-9',N'Hải Dương','093423423', 'Test') ,
-('NCC0010','Simson-10',N'Hải Dương','093423423', 'Test')
+INSERT INTO _Table
+VALUES ('BA0001', N'Bàn ăn số 1', N'Trống'),
+('BA0002', N'Bàn ăn số 2', N'Trống'),
+('BA0003', N'Bàn ăn số 3', N'Trống'),
+('BA0004', N'Bàn ăn số 4', N'Trống'),
+('BA0005', N'Bàn ăn số 5', N'Trống'),
+('BA0006', N'Bàn ăn số 6', N'Trống'),
+('BA0007', N'Bàn ăn số 7', N'Trống'),
+('BA0008', N'Bàn ăn số 8', N'Trống'),
+('BA0009', N'Bàn ăn số 9', N'Trống'),
+('BA00010', N'Bàn ăn số 10', N'Trống')
 
-SELECT * FROM BillOfImport
 DELETE FROM BillOfImport
 DELETE FROM DetailBillOfImport
-SELECT * FROM Staff
-SELECT * FROM WareHouse
+

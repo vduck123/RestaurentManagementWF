@@ -25,6 +25,12 @@ namespace RestaurentManagement.Views.Foods
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtFoodName.Text) ||
+                string.IsNullOrEmpty(txtImage.Text))
+            {
+                mf.NotifyErr("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm("Ấn Ok xác nhận thay đổi thông tin");
             if(qs == DialogResult.OK)
             {
@@ -83,8 +89,7 @@ namespace RestaurentManagement.Views.Foods
                 cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(food.categoryID);
                 txtFoodName.Text = food.Name;
                 txtPrice.Value = Convert.ToInt32(food.Price);
-                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;
-                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;
+                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;       
                 if (food.imageFood != null)
                 {
                     picture.Image = ByteArrayToImage(food.imageFood);

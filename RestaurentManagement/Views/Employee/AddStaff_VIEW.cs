@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +23,22 @@ namespace RestaurentManagement.Views.Employee
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtNameStaff.Text) || 
+                HandleData.Instance.ExitNumber(txtNameStaff.Text) ||
+                txtNameStaff.Text.Length < 6
+                )
+            {
+                mf.NotifyErr("Tên nhân viên không hợp lê");
+                return;
+            }
+
+            if(string.IsNullOrEmpty(txtUsername.Text) || txtUsername.Text.Length < 5 ||
+                string.IsNullOrEmpty(txtPassword.Text) || txtPassword.Text.Length < 5) 
+            {
+                mf.NotifyErr("Tài khoản và mật khẩu phải dài hơn 5 kí tự");
+                return;
+            }
+
             string idAcc = $"ACC00{AccountController.Instance.GetOrderNumInList() + 1}";
             _Account acc = new _Account()
             {

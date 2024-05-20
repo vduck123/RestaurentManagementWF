@@ -52,6 +52,7 @@
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditVoucher,
             this.DelSalary});
@@ -93,12 +94,13 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(552, 31);
+            this.btnRefresh.Image = global::RestaurentManagement.Properties.Resources.R_removebg_preview;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(523, 29);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(94, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(75, 38);
             this.btnRefresh.TabIndex = 37;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
@@ -111,10 +113,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(654, 31);
+            this.btnAdd.Location = new System.Drawing.Point(606, 29);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(170, 36);
+            this.btnAdd.Size = new System.Drawing.Size(221, 38);
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "Thêm phiếu giảm giá";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -170,12 +172,13 @@
             this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(427, 31);
+            this.btnFind.Image = global::RestaurentManagement.Properties.Resources.R__2__removebg_preview;
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(427, 29);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(117, 36);
+            this.btnFind.Size = new System.Drawing.Size(88, 38);
             this.btnFind.TabIndex = 36;
-            this.btnFind.Text = "Tìm kiếm";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // dgvVoucher
@@ -185,10 +188,10 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvVoucher.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvVoucher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -243,29 +246,34 @@
             // Column1
             // 
             this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Name";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Expiry";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Status";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // btnOnAll
             // 
+            this.btnOnAll.BorderRadius = 6;
             this.btnOnAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOnAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOnAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -273,15 +281,16 @@
             this.btnOnAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnOnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOnAll.ForeColor = System.Drawing.Color.White;
-            this.btnOnAll.Location = new System.Drawing.Point(863, 35);
+            this.btnOnAll.Location = new System.Drawing.Point(932, 2);
             this.btnOnAll.Name = "btnOnAll";
-            this.btnOnAll.Size = new System.Drawing.Size(98, 32);
+            this.btnOnAll.Size = new System.Drawing.Size(127, 36);
             this.btnOnAll.TabIndex = 41;
             this.btnOnAll.Text = "Bật tất cả";
             this.btnOnAll.Click += new System.EventHandler(this.btnOnAll_Click);
             // 
             // btnOffAll
             // 
+            this.btnOffAll.BorderRadius = 6;
             this.btnOffAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOffAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnOffAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -289,9 +298,9 @@
             this.btnOffAll.FillColor = System.Drawing.Color.Red;
             this.btnOffAll.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOffAll.ForeColor = System.Drawing.Color.Black;
-            this.btnOffAll.Location = new System.Drawing.Point(978, 35);
+            this.btnOffAll.Location = new System.Drawing.Point(932, 44);
             this.btnOffAll.Name = "btnOffAll";
-            this.btnOffAll.Size = new System.Drawing.Size(95, 32);
+            this.btnOffAll.Size = new System.Drawing.Size(127, 32);
             this.btnOffAll.TabIndex = 42;
             this.btnOffAll.Text = "Tắt tất cả";
             this.btnOffAll.Click += new System.EventHandler(this.btnOffAll_Click);

@@ -1,6 +1,7 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
 using RestaurentManagement.utils;
+using RestaurentManagement.Views.NotifyBill;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using Menu = RestaurentManagement.Models.Menu;
 using Table = RestaurentManagement.Models.Table;
@@ -434,84 +434,92 @@ namespace RestaurentManagement.Views
         //Thanh toán
         private void btnPay_Click(object sender, EventArgs e)
         {
-            DialogResult qs = mf.NotifyConfirm($"Chọn OK để xác nhận thanh toán {lbTable.Text}");
-            {
-                if(qs == DialogResult.OK)
-                {
-                    //Thêm dữ liệu vào db
+            string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
+            NotifyBill.NotifyBill view = new NotifyBill.NotifyBill( "admin", 
+                StaffController.Instance.GetIDStaffByName(_nameStaff), 
+                TableController.Instance.GetIDTableByName(lbTable.Text), 
+                VoucherController.Instance.GetIdVoucherByName(voucherName)
+                );
+            view.ShowDialog();
 
-                    //Hóa đơn bán
-                    int rdhours = new Random().Next(1, 4);
-                    DateTime dayIn = DateTime.Now;
-                    DateTime dayOut;
+            //DialogResult qs = mf.NotifyConfirm($"Chọn OK để xác nhận thanh toán {lbTable.Text}");
+            //{
+            //    if(qs == DialogResult.OK)
+            //    {
+            //        //Thêm dữ liệu vào db
 
-                    if (dayIn.Hour > 12)
-                    {
-                        dayOut = dayIn.AddDays(1).Date;
-                    }
-                    else
-                    {
-                        dayOut = dayIn.Date;
-                    }
+            //        //Hóa đơn bán
+            //        int rdhours = new Random().Next(1, 4);
+            //        DateTime dayIn = DateTime.Now;
+            //        DateTime dayOut;
 
-                    dayOut = dayOut.AddHours(rdhours);
+            //        if (dayIn.Hour > 12)
+            //        {
+            //            dayOut = dayIn.AddDays(1).Date;
+            //        }
+            //        else
+            //        {
+            //            dayOut = dayIn.Date;
+            //        }
 
-                    string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
-                    string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
-                    BillSale billSale = new BillSale()
-                    {
-                        Id = idBillSale,
-                        dayIn = dayIn,
-                        dayOut = dayOut,
-                        voucherId = VoucherController.Instance.GetIdVoucherByName(voucherName),
-                        totalMoney = Convert.ToDouble(txtTotalBill.Text),
-                        staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
-                        tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
-                    };
+            //        dayOut = dayOut.AddHours(rdhours);
 
-                    int rs1 = BillSaleController.Instance.InsertBillSale(billSale);
+            //        string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
+            //        string voucherName = cbbVoucher.SelectedItem.ToString().Split(' ')[0];
+            //        BillSale billSale = new BillSale()
+            //        {
+            //            Id = idBillSale,
+            //            dayIn = dayIn,
+            //            dayOut = dayOut,
+            //            voucherId = VoucherController.Instance.GetIdVoucherByName(voucherName),
+            //            totalMoney = Convert.ToDouble(txtTotalBill.Text),
+            //            staffID = StaffController.Instance.GetIDStaffByName(_nameStaff),
+            //            tableID = TableController.Instance.GetIDTableByName(lbTable.Text)
+            //        };
 
-                    //Chi tiết hóa đơn bán
-                    if(dgvListFoodOrder.Rows.Count > 0 )
-                    {
-                        foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
-                        {
-                            string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo() + 1}";
-                            string nameFood = row.Cells[0].Value.ToString();
-                            int quantity = Convert.ToInt32(row.Cells[1].Value);
-                            int price = Convert.ToInt32(row.Cells[2].Value);
-                            int total = Convert.ToInt32(row.Cells[3].Value);
+            //        int rs1 = BillSaleController.Instance.InsertBillSale(billSale);
+
+            //        //Chi tiết hóa đơn bán
+            //        if(dgvListFoodOrder.Rows.Count > 0 )
+            //        {
+            //            foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
+            //            {
+            //                string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo() + 1}";
+            //                string nameFood = row.Cells[0].Value.ToString();
+            //                int quantity = Convert.ToInt32(row.Cells[1].Value);
+            //                int price = Convert.ToInt32(row.Cells[2].Value);
+            //                int total = Convert.ToInt32(row.Cells[3].Value);
                             
-                            BillSaleInfo billSaleInfo = new BillSaleInfo()
-                            {
-                                ID = idBillSaleInfo,
-                                foodId = FoodController.Instance.GetIDFoodByName(nameFood),
-                                Quantity = quantity,
-                                foodPrice = price,
-                                Total = total,
-                                boSaleId = idBillSale
-                            };
+            //                BillSaleInfo billSaleInfo = new BillSaleInfo()
+            //                {
+            //                    ID = idBillSaleInfo,
+            //                    foodId = FoodController.Instance.GetIDFoodByName(nameFood),
+            //                    Quantity = quantity,
+            //                    foodPrice = price,
+            //                    Total = total,
+            //                    boSaleId = idBillSale
+            //                };
 
-                            BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
-                        }
-                    }
+            //                BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
+            //            }
+            //        }
 
 
-                    if (rs1 == 1)
-                    {
-                        mf.NotifySuss("Thanh toán hóa đơn thành công");
-                        //re-render giao diện
-                        TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Trống");
-                        MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(lbTable.Text));
-                        LoadTables();
-                        DisplayMenuForTable(lbTable.Text);
-                        txtNumOrder.Value = 0;
-                        txtTotalBill.Text = "0";
-                    }
+            //        if (rs1 == 1)
+            //        {
+            //            mf.NotifySuss("Thanh toán hóa đơn thành công");
+            //            //re-render giao diện
+            //            TableController.Instance.UpdateStatusTable(TableController.Instance.GetIDTableByName(lbTable.Text), "Trống");
+            //            MenuController.Instance.DeleteMenu(TableController.Instance.GetIDTableByName(lbTable.Text));
+            //            LoadTables();
+            //            DisplayMenuForTable(lbTable.Text);
+            //            txtNumOrder.Value = 0;
+            //            txtTotalBill.Text = "0";
+            //        }
                     
                     
-                }
-            }
+            //    }
+            //}
             
 
             

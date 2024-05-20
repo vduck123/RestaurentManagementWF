@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalaryInfo_VIEW));
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.EditSalary = new System.Windows.Forms.ToolStripMenuItem();
             this.DelSalary = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +52,17 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExcel = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2CirclePictureBox5 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditSalary,
             this.DelSalary});
@@ -98,12 +104,13 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(563, 62);
+            this.btnRefresh.Image = global::RestaurentManagement.Properties.Resources.R_removebg_preview;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(601, 62);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(117, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(84, 36);
             this.btnRefresh.TabIndex = 30;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
@@ -116,10 +123,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(688, 62);
+            this.btnAdd.Location = new System.Drawing.Point(708, 62);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 36);
+            this.btnAdd.Size = new System.Drawing.Size(197, 36);
             this.btnAdd.TabIndex = 31;
             this.btnAdd.Text = "Thêm bảng lương";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -162,7 +169,7 @@
             this.cbbOption.Location = new System.Drawing.Point(229, 62);
             this.cbbOption.Margin = new System.Windows.Forms.Padding(4);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(190, 36);
+            this.cbbOption.Size = new System.Drawing.Size(272, 36);
             this.cbbOption.TabIndex = 32;
             // 
             // btnFind
@@ -175,12 +182,13 @@
             this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(427, 62);
+            this.btnFind.Image = global::RestaurentManagement.Properties.Resources.R__2__removebg_preview;
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(509, 62);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(117, 36);
+            this.btnFind.Size = new System.Drawing.Size(84, 36);
             this.btnFind.TabIndex = 29;
-            this.btnFind.Text = "Tìm kiếm";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // dgvSalary
@@ -226,6 +234,7 @@
             this.dgvSalary.Name = "dgvSalary";
             this.dgvSalary.ReadOnly = true;
             this.dgvSalary.RowHeadersVisible = false;
+            this.dgvSalary.RowHeadersWidth = 51;
             this.dgvSalary.Size = new System.Drawing.Size(1085, 634);
             this.dgvSalary.TabIndex = 33;
             this.dgvSalary.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -254,60 +263,70 @@
             // Column1
             // 
             this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tháng lương";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Nhân viên";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Lương cơ bản";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Hsl";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Lương giờ";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Số công";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
             this.Column8.HeaderText = "Thưởng";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
             // Column9
             // 
             this.Column9.HeaderText = "Phạt";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
             this.Column10.HeaderText = "Tổng lương";
+            this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
@@ -320,19 +339,53 @@
             this.btnExcel.FillColor = System.Drawing.Color.ForestGreen;
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Location = new System.Drawing.Point(956, 62);
+            this.btnExcel.Location = new System.Drawing.Point(931, 62);
             this.btnExcel.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(116, 36);
+            this.btnExcel.Size = new System.Drawing.Size(141, 36);
             this.btnExcel.TabIndex = 34;
             this.btnExcel.Text = "Xuất Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
+            // 
+            // guna2CirclePictureBox5
+            // 
+            this.guna2CirclePictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2CirclePictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("guna2CirclePictureBox5.Image")));
+            this.guna2CirclePictureBox5.ImageRotate = 0F;
+            this.guna2CirclePictureBox5.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.guna2CirclePictureBox5.InitialImage = null;
+            this.guna2CirclePictureBox5.Location = new System.Drawing.Point(1008, 5);
+            this.guna2CirclePictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2CirclePictureBox5.Name = "guna2CirclePictureBox5";
+            this.guna2CirclePictureBox5.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CirclePictureBox5.Size = new System.Drawing.Size(29, 22);
+            this.guna2CirclePictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2CirclePictureBox5.TabIndex = 36;
+            this.guna2CirclePictureBox5.TabStop = false;
+            this.guna2CirclePictureBox5.Click += new System.EventHandler(this.guna2CirclePictureBox5_Click);
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(1045, 1);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(24, 26);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 35;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // SalaryInfo_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.Controls.Add(this.guna2CirclePictureBox5);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.dgvSalary);
             this.Controls.Add(this.btnRefresh);
@@ -344,10 +397,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SalaryInfo_VIEW";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SalaryInfo_VIEW";
             this.Load += new System.EventHandler(this.SalaryInfo_VIEW_Load);
             this.guna2ContextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalary)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,5 +429,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private Guna.UI2.WinForms.Guna2Button btnExcel;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox5;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.Views.Salaries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -76,6 +77,12 @@ namespace RestaurentManagement.Views.Employee
             }
         }
 
+        private void btnShowSalary_Click(object sender, EventArgs e)
+        {
+            SalaryInfo_VIEW view = new SalaryInfo_VIEW();
+            view.ShowDialog();
+        }
+
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -107,6 +114,11 @@ namespace RestaurentManagement.Views.Employee
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
             dgvStaff.Columns.Clear();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
             if (dt.Rows.Count > 0)
@@ -221,5 +233,7 @@ namespace RestaurentManagement.Views.Employee
             LoadData();
         }
         #endregion
+
+        
     }
 }

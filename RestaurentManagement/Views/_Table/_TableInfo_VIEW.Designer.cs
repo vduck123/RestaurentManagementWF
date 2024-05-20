@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_TableInfo_VIEW));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,12 +59,12 @@
             this.cbbOption.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbbOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbOption.ForeColor = System.Drawing.Color.Black;
-            this.cbbOption.ItemHeight = 30;
+            this.cbbOption.ItemHeight = 35;
             this.cbbOption.Items.AddRange(new object[] {
             "Lựa chọn tìm kiếm"});
-            this.cbbOption.Location = new System.Drawing.Point(221, 50);
+            this.cbbOption.Location = new System.Drawing.Point(290, 45);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(240, 36);
+            this.cbbOption.Size = new System.Drawing.Size(267, 41);
             this.cbbOption.TabIndex = 40;
             // 
             // txtParam
@@ -79,13 +80,13 @@
             this.txtParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParam.ForeColor = System.Drawing.Color.Black;
             this.txtParam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtParam.Location = new System.Drawing.Point(13, 50);
+            this.txtParam.Location = new System.Drawing.Point(23, 45);
             this.txtParam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtParam.Name = "txtParam";
             this.txtParam.PasswordChar = '\0';
             this.txtParam.PlaceholderText = "";
             this.txtParam.SelectedText = "";
-            this.txtParam.Size = new System.Drawing.Size(201, 36);
+            this.txtParam.Size = new System.Drawing.Size(243, 43);
             this.txtParam.TabIndex = 39;
             // 
             // btnSearch
@@ -98,11 +99,12 @@
             this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(467, 49);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnSearch.Location = new System.Drawing.Point(572, 45);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(115, 37);
+            this.btnSearch.Size = new System.Drawing.Size(86, 41);
             this.btnSearch.TabIndex = 36;
-            this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnRefresh
@@ -115,11 +117,12 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(588, 49);
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(682, 45);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(95, 37);
+            this.btnRefresh.Size = new System.Drawing.Size(74, 41);
             this.btnRefresh.TabIndex = 35;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
@@ -133,9 +136,9 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(700, 49);
+            this.btnAdd.Location = new System.Drawing.Point(795, 45);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(162, 37);
+            this.btnAdd.Size = new System.Drawing.Size(190, 41);
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "Thêm bàn";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -174,6 +177,7 @@
             this.dgvTable.Name = "dgvTable";
             this.dgvTable.ReadOnly = true;
             this.dgvTable.RowHeadersVisible = false;
+            this.dgvTable.RowHeadersWidth = 51;
             this.dgvTable.Size = new System.Drawing.Size(1085, 648);
             this.dgvTable.TabIndex = 41;
             this.dgvTable.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -202,23 +206,27 @@
             // Column1
             // 
             this.Column1.HeaderText = "Mã bàn";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tên bàn";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Trạng thái";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sửaBànToolStripMenuItem,
             this.xóaBànToolStripMenuItem});
@@ -254,7 +262,7 @@
             this.Controls.Add(this.btnAdd);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "_TableInfo_VIEW";
             this.Text = "_TableInfo_VIEW";
             this.Load += new System.EventHandler(this._TableInfo_VIEW_Load);

@@ -28,6 +28,11 @@ namespace RestaurentManagement.Views.Foods
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Vui lòng nhập giá tri tìm kiếm");
+                return;
+            }
             string optionPrice = cbbOptionPrice.SelectedItem != null ? cbbOptionPrice.SelectedItem.ToString() : null;
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, optionPrice);
             dgvFood.DataSource = dt;

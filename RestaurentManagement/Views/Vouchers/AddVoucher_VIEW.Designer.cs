@@ -71,7 +71,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 18);
+            this.label1.Size = new System.Drawing.Size(189, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thêm phiếu giảm giá";
             // 
@@ -148,9 +148,9 @@
             this.cbbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbStatus.ForeColor = System.Drawing.Color.Black;
             this.cbbStatus.ItemHeight = 25;
-            this.cbbStatus.Location = new System.Drawing.Point(129, 163);
+            this.cbbStatus.Location = new System.Drawing.Point(144, 163);
             this.cbbStatus.Name = "cbbStatus";
-            this.cbbStatus.Size = new System.Drawing.Size(251, 31);
+            this.cbbStatus.Size = new System.Drawing.Size(236, 31);
             this.cbbStatus.TabIndex = 60;
             // 
             // txtExpiry
@@ -159,14 +159,15 @@
             this.txtExpiry.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.txtExpiry.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtExpiry.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtExpiry.Location = new System.Drawing.Point(129, 102);
+            this.txtExpiry.Location = new System.Drawing.Point(158, 102);
+            this.txtExpiry.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtExpiry.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
             this.txtExpiry.Name = "txtExpiry";
-            this.txtExpiry.Size = new System.Drawing.Size(161, 32);
+            this.txtExpiry.Size = new System.Drawing.Size(132, 32);
             this.txtExpiry.TabIndex = 59;
             // 
             // guna2Panel7
@@ -192,13 +193,13 @@
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Black;
             this.txtName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtName.Location = new System.Drawing.Point(129, 53);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(158, 53);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.PasswordChar = '\0';
             this.txtName.PlaceholderText = "";
             this.txtName.SelectedText = "";
-            this.txtName.Size = new System.Drawing.Size(250, 29);
+            this.txtName.Size = new System.Drawing.Size(221, 29);
             this.txtName.TabIndex = 58;
             // 
             // label7
@@ -207,7 +208,7 @@
             this.label7.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(35, 168);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.Size = new System.Drawing.Size(103, 25);
             this.label7.TabIndex = 54;
             this.label7.Text = "Trạng thái:";
             // 
@@ -226,7 +227,7 @@
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(31, 58);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 20);
+            this.label6.Size = new System.Drawing.Size(120, 25);
             this.label6.TabIndex = 56;
             this.label6.Text = "Tên voucher:";
             // 
@@ -244,7 +245,7 @@
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(31, 110);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 20);
+            this.label3.Size = new System.Drawing.Size(121, 25);
             this.label3.TabIndex = 52;
             this.label3.Text = "Khuyến mãi:";
             // 
@@ -269,7 +270,7 @@
             // 
             // AddVoucher_VIEW
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(466, 398);

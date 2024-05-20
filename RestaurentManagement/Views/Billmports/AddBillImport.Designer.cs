@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBillImport));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cbbSupplier = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtTotalMoney = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
@@ -86,9 +86,9 @@
             this.cbbSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbSupplier.ForeColor = System.Drawing.Color.Black;
             this.cbbSupplier.ItemHeight = 25;
-            this.cbbSupplier.Location = new System.Drawing.Point(147, 285);
+            this.cbbSupplier.Location = new System.Drawing.Point(174, 285);
             this.cbbSupplier.Name = "cbbSupplier";
-            this.cbbSupplier.Size = new System.Drawing.Size(228, 31);
+            this.cbbSupplier.Size = new System.Drawing.Size(201, 31);
             this.cbbSupplier.TabIndex = 41;
             // 
             // txtTotalMoney
@@ -106,13 +106,13 @@
             this.txtTotalMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalMoney.ForeColor = System.Drawing.Color.Red;
             this.txtTotalMoney.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTotalMoney.Location = new System.Drawing.Point(121, 352);
-            this.txtTotalMoney.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotalMoney.Location = new System.Drawing.Point(145, 352);
+            this.txtTotalMoney.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotalMoney.Name = "txtTotalMoney";
             this.txtTotalMoney.PasswordChar = '\0';
             this.txtTotalMoney.PlaceholderText = "";
             this.txtTotalMoney.SelectedText = "";
-            this.txtTotalMoney.Size = new System.Drawing.Size(255, 29);
+            this.txtTotalMoney.Size = new System.Drawing.Size(231, 29);
             this.txtTotalMoney.TabIndex = 40;
             // 
             // guna2Panel8
@@ -129,7 +129,7 @@
             this.label8.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(34, 356);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 20);
+            this.label8.Size = new System.Drawing.Size(101, 25);
             this.label8.TabIndex = 38;
             this.label8.Text = "Tổng tiền:";
             // 
@@ -147,7 +147,7 @@
             this.label7.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(32, 291);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 20);
+            this.label7.Size = new System.Drawing.Size(136, 25);
             this.label7.TabIndex = 36;
             this.label7.Text = "Nhà cung cấp:";
             // 
@@ -157,7 +157,7 @@
             this.txtQuantity.BorderRadius = 5;
             this.txtQuantity.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(117, 165);
+            this.txtQuantity.Location = new System.Drawing.Point(133, 165);
             this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtQuantity.Maximum = new decimal(new int[] {
             99999999,
@@ -165,7 +165,7 @@
             0,
             0});
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(264, 30);
+            this.txtQuantity.Size = new System.Drawing.Size(248, 30);
             this.txtQuantity.TabIndex = 85;
             this.txtQuantity.ValueChanged += new System.EventHandler(this.txtQuantity_ValueChanged_1);
             // 
@@ -183,7 +183,7 @@
             this.label6.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(33, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.Size = new System.Drawing.Size(95, 25);
             this.label6.TabIndex = 83;
             this.label6.Text = "Số lượng:";
             // 
@@ -202,9 +202,9 @@
             this.cbbMaterial.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
-            this.cbbMaterial.Location = new System.Drawing.Point(121, 35);
+            this.cbbMaterial.Location = new System.Drawing.Point(145, 35);
             this.cbbMaterial.Name = "cbbMaterial";
-            this.cbbMaterial.Size = new System.Drawing.Size(262, 31);
+            this.cbbMaterial.Size = new System.Drawing.Size(238, 31);
             this.cbbMaterial.TabIndex = 82;
             // 
             // txtSum
@@ -222,13 +222,13 @@
             this.txtSum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSum.ForeColor = System.Drawing.Color.Black;
             this.txtSum.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSum.Location = new System.Drawing.Point(123, 229);
-            this.txtSum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSum.Location = new System.Drawing.Point(145, 229);
+            this.txtSum.Margin = new System.Windows.Forms.Padding(4);
             this.txtSum.Name = "txtSum";
             this.txtSum.PasswordChar = '\0';
             this.txtSum.PlaceholderText = "";
             this.txtSum.SelectedText = "";
-            this.txtSum.Size = new System.Drawing.Size(262, 29);
+            this.txtSum.Size = new System.Drawing.Size(240, 29);
             this.txtSum.TabIndex = 81;
             // 
             // guna2Panel3
@@ -245,7 +245,7 @@
             this.label5.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(34, 233);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 20);
+            this.label5.Size = new System.Drawing.Size(110, 25);
             this.label5.TabIndex = 79;
             this.label5.Text = "Thành tiền:";
             // 
@@ -255,7 +255,7 @@
             this.txtPrice.BorderRadius = 5;
             this.txtPrice.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(117, 99);
+            this.txtPrice.Location = new System.Drawing.Point(133, 99);
             this.txtPrice.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPrice.Maximum = new decimal(new int[] {
             99999999,
@@ -263,7 +263,7 @@
             0,
             0});
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(264, 30);
+            this.txtPrice.Size = new System.Drawing.Size(248, 30);
             this.txtPrice.TabIndex = 78;
             this.txtPrice.ValueChanged += new System.EventHandler(this.txtPrice_ValueChanged);
             // 
@@ -281,7 +281,7 @@
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(33, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 20);
+            this.label3.Size = new System.Drawing.Size(94, 25);
             this.label3.TabIndex = 76;
             this.label3.Text = "Giá nhập:";
             // 
@@ -299,7 +299,7 @@
             this.label4.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(37, 41);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.Size = new System.Drawing.Size(102, 25);
             this.label4.TabIndex = 74;
             this.label4.Text = "Vật phẩm:";
             // 
@@ -361,7 +361,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 18);
+            this.label1.Size = new System.Drawing.Size(189, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thêm hóa đơn nhập ";
             // 
@@ -369,16 +369,16 @@
             // 
             this.dgvBilImportInfo.AllowUserToAddRows = false;
             this.dgvBilImportInfo.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvBilImportInfo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBilImportInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvBilImportInfo.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBilImportInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBilImportInfo.ColumnHeadersHeight = 30;
             this.dgvBilImportInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBilImportInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -387,14 +387,14 @@
             this.Column4,
             this.Column5});
             this.dgvBilImportInfo.ContextMenuStrip = this.guna2ContextMenuStrip1;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBilImportInfo.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBilImportInfo.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBilImportInfo.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvBilImportInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBilImportInfo.Location = new System.Drawing.Point(446, 36);
@@ -458,6 +458,7 @@
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xóaNguyênLiệuToolStripMenuItem});
             this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
@@ -470,13 +471,13 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(183, 28);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(218, 34);
             // 
             // xóaNguyênLiệuToolStripMenuItem
             // 
             this.xóaNguyênLiệuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xóaNguyênLiệuToolStripMenuItem.Name = "xóaNguyênLiệuToolStripMenuItem";
-            this.xóaNguyênLiệuToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.xóaNguyênLiệuToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.xóaNguyênLiệuToolStripMenuItem.Text = "Xóa nguyên liệu";
             this.xóaNguyênLiệuToolStripMenuItem.Click += new System.EventHandler(this.xóaNguyênLiệuToolStripMenuItem_Click);
             // 
@@ -492,7 +493,7 @@
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(51, 612);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(115, 37);
+            this.btnAdd.Size = new System.Drawing.Size(134, 37);
             this.btnAdd.TabIndex = 86;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -528,7 +529,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Location = new System.Drawing.Point(17, 73);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(185, 30);
+            this.btnSearch.Size = new System.Drawing.Size(216, 30);
             this.btnSearch.TabIndex = 90;
             this.btnSearch.Text = "Tìm kiếm nguyên liệu";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -548,19 +549,19 @@
             this.txtMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaterial.ForeColor = System.Drawing.Color.Black;
             this.txtMaterial.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtMaterial.Location = new System.Drawing.Point(209, 73);
-            this.txtMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaterial.Location = new System.Drawing.Point(240, 73);
+            this.txtMaterial.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaterial.Name = "txtMaterial";
             this.txtMaterial.PasswordChar = '\0';
             this.txtMaterial.PlaceholderText = "";
             this.txtMaterial.SelectedText = "";
-            this.txtMaterial.Size = new System.Drawing.Size(219, 29);
+            this.txtMaterial.Size = new System.Drawing.Size(188, 29);
             this.txtMaterial.TabIndex = 86;
             this.txtMaterial.TextChanged += new System.EventHandler(this.txtMaterial_TextChanged);
             // 
             // AddBillImport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(943, 701);

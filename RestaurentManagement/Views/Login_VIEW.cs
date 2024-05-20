@@ -40,18 +40,20 @@ namespace RestaurentManagement.Views
                 
                 if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
                 {
+                    this.Close();
                     Admin_VIEW admin_VIEW = new Admin_VIEW(user);
                     admin_VIEW.ShowDialog();
                 } 
                 else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
                 {
-                    Admin_VIEW admin_VIEW = new Admin_VIEW(user);
-                    admin_VIEW.ShowDialog();
-                    return;
+                    this.Close();
+                    FrmStaff_VIEW view = new FrmStaff_VIEW(user);
+                    view.ShowDialog();
                 }
                 else
                 {
                     mf.NotifyErr("Thông tin tài khoản và mật khẩu không chính xác!");
+                    return;
                 }
             }
         }
@@ -63,6 +65,7 @@ namespace RestaurentManagement.Views
 
         private void lbForgetPass_Click(object sender, EventArgs e)
         {
+            this.Hide();
             ForgetPassword_VIEW forgetPassword_VIEW = new ForgetPassword_VIEW();
             forgetPassword_VIEW.ShowDialog();
         }

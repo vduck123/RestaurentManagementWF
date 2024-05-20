@@ -43,6 +43,11 @@ namespace RestaurentManagement.Views.Provider
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
             dgvProvider.Columns.Clear();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
             dgvProvider.DataSource = dt;

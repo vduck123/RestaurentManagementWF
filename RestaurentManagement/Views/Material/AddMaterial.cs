@@ -22,6 +22,11 @@ namespace RestaurentManagement.Views.Material
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtName.Text))
+            {
+                mf.NotifyErr("Giá trị không hợp lệ");
+                return;
+            }
             DialogResult qs = mf.NotifyConfirm($"Chọn OK để xác nhận thêm nguyên liệu {txtName.Text}");
             {
                 if(qs == DialogResult.OK)
@@ -69,6 +74,11 @@ namespace RestaurentManagement.Views.Material
                 listnameCategory.Add(category.Name);
             }
             cbbCategory.DataSource = listnameCategory;
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

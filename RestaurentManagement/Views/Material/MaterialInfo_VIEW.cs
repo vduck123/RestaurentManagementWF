@@ -58,6 +58,11 @@ namespace RestaurentManagement.Views.Material
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
             dgvMaterial.Columns.Clear();
             string opera = cbbOpera.SelectedItem != null ? cbbOpera.SelectedItem.ToString() : null;
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, opera);

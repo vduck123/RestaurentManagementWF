@@ -59,12 +59,13 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(565, 49);
+            this.btnRefresh.Image = global::RestaurentManagement.Properties.Resources.R_removebg_preview;
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(573, 51);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(117, 36);
+            this.btnRefresh.Size = new System.Drawing.Size(78, 36);
             this.btnRefresh.TabIndex = 37;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnAdd
@@ -77,10 +78,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(690, 49);
+            this.btnAdd.Location = new System.Drawing.Point(852, 49);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(168, 36);
+            this.btnAdd.Size = new System.Drawing.Size(220, 36);
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "Thêm nhà cung cấp";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -123,7 +124,7 @@
             this.cbbOption.Location = new System.Drawing.Point(231, 49);
             this.cbbOption.Margin = new System.Windows.Forms.Padding(4);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(190, 36);
+            this.cbbOption.Size = new System.Drawing.Size(235, 36);
             this.cbbOption.TabIndex = 39;
             // 
             // btnFind
@@ -136,12 +137,13 @@
             this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Location = new System.Drawing.Point(429, 49);
+            this.btnFind.Image = global::RestaurentManagement.Properties.Resources.R__2__removebg_preview;
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(488, 51);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(117, 36);
+            this.btnFind.Size = new System.Drawing.Size(77, 36);
             this.btnFind.TabIndex = 36;
-            this.btnFind.Text = "Tìm kiếm";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // DelProvider
@@ -162,6 +164,7 @@
             // 
             // guna2ContextMenuStrip1
             // 
+            this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditProvider,
             this.DelProvider});
@@ -215,6 +218,7 @@
             this.dgvProvider.Name = "dgvProvider";
             this.dgvProvider.ReadOnly = true;
             this.dgvProvider.RowHeadersVisible = false;
+            this.dgvProvider.RowHeadersWidth = 51;
             this.dgvProvider.Size = new System.Drawing.Size(1085, 661);
             this.dgvProvider.TabIndex = 40;
             this.dgvProvider.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -243,30 +247,35 @@
             // Column1
             // 
             this.Column1.HeaderText = "Mã nhà cung cấp";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tên nhà cung cấp";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Địa chỉ";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Số điện thoại";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Ghi chú";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 

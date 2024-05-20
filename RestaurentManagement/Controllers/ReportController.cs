@@ -137,9 +137,12 @@ namespace RestaurentManagement.Controllers
                     }
                 case "Tuần":
                     {
-                        query = $@"SELECT ISNULL(SUM(total_money),0) AS [Tổng chi]
-                                FROM dbo.BillOfImport
-                               WHERE dayCreate BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'";
+                        query = $@"SELECT dayCreate AS [Ngày], ISNULL(SUM(total_money), 0) AS [Tổng chi]
+                                    FROM dbo.BillOfImport
+                                    WHERE dayCreate BETWEEN '{dt1.ToString("yyyy-MM-dd")}' AND '{dt2.ToString("yyyy-MM-dd")}'
+                                    GROUP BY dayCreate
+                                    ORDER BY Ngày";
+
                         break;
                     }
                 case "Hôm nay":
@@ -190,9 +193,12 @@ namespace RestaurentManagement.Controllers
                     }
                 case "Tuần":
                     {
-                        query = $@"SELECT ISNULL(SUM(totalMoney),0) AS [Tổng thu]
+                        query = $@"SELECT dayOut AS [Ngày], ISNULL(SUM(totalMoney),0) AS [Tổng thu] 
                                 FROM dbo.BillOfSale
-                                WHERE dayIn BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'"; ;
+                                WHERE dayIn BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'
+                                GROUP BY dayOut
+                                ORDER BY Ngày";
+                                
                         break;
                     }
                 case "Hôm nay":
@@ -219,15 +225,8 @@ namespace RestaurentManagement.Controllers
 
         }
 
-        public Dictionary<string, int> GetNumBillByTime(DateTime dt1, DateTime dt2)
-        {
-            Dictionary<string, int> result = new Dictionary<string, int>();
-            result.Add("Số hóa đơn bán", GetBillCount("boSale_id", "BillOfSale", "dayOut", dt1, dt2));
-            result.Add("Số hóa đơn nhập", GetBillCount("boImport_id", "BillOfImport", "dayCreate", dt1, dt2));
-            return result;
-        }
 
-        private int GetBillCount(string columnName, string tableName, string dateColumn, DateTime dt1, DateTime dt2)
+        public int GetBillCount(string columnName, string tableName, string dateColumn, DateTime dt1, DateTime dt2)
         {
             string query = $@"SELECT COUNT({columnName}) 
                       FROM {tableName} 

@@ -38,6 +38,12 @@ namespace RestaurentManagement.Views.Account
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
+
             if (_ID == null)
             {
                 return;

@@ -29,22 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSaleInfo_VIEW));
             this.lbDt = new System.Windows.Forms.Label();
             this.dtNext = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.cbbOpera = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
             this.dgvBillSale = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.xóaHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemChiTiếtHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dtprev = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnExcel = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +46,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.xóaHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemChiTiếtHóaĐơnBánToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtPrev = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnExcel = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillSale)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,7 +120,7 @@
             "Lựa chọn tìm kiếm"});
             this.cbbOption.Location = new System.Drawing.Point(221, 50);
             this.cbbOption.Name = "cbbOption";
-            this.cbbOption.Size = new System.Drawing.Size(240, 36);
+            this.cbbOption.Size = new System.Drawing.Size(318, 36);
             this.cbbOption.TabIndex = 40;
             this.cbbOption.SelectedValueChanged += new System.EventHandler(this.cbbOption_SelectedValueChanged);
             // 
@@ -149,16 +150,16 @@
             // 
             this.dgvBillSale.AllowUserToAddRows = false;
             this.dgvBillSale.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvBillSale.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBillSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvBillSale.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBillSale.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvBillSale.ColumnHeadersHeight = 30;
             this.dgvBillSale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dgvBillSale.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -170,14 +171,14 @@
             this.Column5,
             this.Column6});
             this.dgvBillSale.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBillSale.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvBillSale.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvBillSale.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBillSale.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBillSale.Location = new System.Drawing.Point(0, 131);
@@ -210,8 +211,58 @@
             this.dgvBillSale.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvBillSale.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBilImport_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "ID";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Day in";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Day out";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Giảm giá";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Total money";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Staff name";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Table id";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xóaHóaĐơnBánToolStripMenuItem,
             this.xemChiTiếtHóaĐơnBánToolStripMenuItem});
@@ -234,21 +285,21 @@
             this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Text = "Xem chi tiết hóa đơn bán";
             this.xemChiTiếtHóaĐơnBánToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtHóaĐơnBánToolStripMenuItem_Click);
             // 
-            // dtprev
+            // dtPrev
             // 
-            this.dtprev.Checked = true;
-            this.dtprev.FillColor = System.Drawing.Color.DimGray;
-            this.dtprev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtprev.ForeColor = System.Drawing.Color.White;
-            this.dtprev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtprev.Location = new System.Drawing.Point(34, 92);
-            this.dtprev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtprev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtprev.Name = "dtprev";
-            this.dtprev.Size = new System.Drawing.Size(180, 25);
-            this.dtprev.TabIndex = 43;
-            this.dtprev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
-            this.dtprev.Visible = false;
+            this.dtPrev.Checked = true;
+            this.dtPrev.FillColor = System.Drawing.Color.DimGray;
+            this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPrev.ForeColor = System.Drawing.Color.White;
+            this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPrev.Location = new System.Drawing.Point(34, 92);
+            this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtPrev.Name = "dtPrev";
+            this.dtPrev.Size = new System.Drawing.Size(180, 25);
+            this.dtPrev.TabIndex = 43;
+            this.dtPrev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
+            this.dtPrev.Visible = false;
             // 
             // btnSearch
             // 
@@ -260,11 +311,12 @@
             this.btnSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(467, 49);
+            this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
+            this.btnSearch.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnSearch.Location = new System.Drawing.Point(545, 50);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(115, 37);
+            this.btnSearch.Size = new System.Drawing.Size(92, 36);
             this.btnSearch.TabIndex = 36;
-            this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnRefresh
@@ -277,11 +329,12 @@
             this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(588, 49);
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(657, 49);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(95, 37);
+            this.btnRefresh.Size = new System.Drawing.Size(92, 36);
             this.btnRefresh.TabIndex = 35;
-            this.btnRefresh.Text = "Làm mới";
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnExcel
@@ -294,54 +347,12 @@
             this.btnExcel.FillColor = System.Drawing.Color.ForestGreen;
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Location = new System.Drawing.Point(970, 49);
+            this.btnExcel.Location = new System.Drawing.Point(933, 49);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(98, 37);
+            this.btnExcel.Size = new System.Drawing.Size(135, 36);
             this.btnExcel.TabIndex = 37;
             this.btnExcel.Text = "Xuất Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Day in";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Day out";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Giảm giá";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Total money";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Staff name";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Table id";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // BillSaleInfo_VIEW
             // 
@@ -354,7 +365,7 @@
             this.Controls.Add(this.cbbOption);
             this.Controls.Add(this.txtParam);
             this.Controls.Add(this.dgvBillSale);
-            this.Controls.Add(this.dtprev);
+            this.Controls.Add(this.dtPrev);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnExcel);
@@ -379,7 +390,7 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbbOption;
         private Guna.UI2.WinForms.Guna2TextBox txtParam;
         private Guna.UI2.WinForms.Guna2DataGridView dgvBillSale;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtprev;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtPrev;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2Button btnExcel;

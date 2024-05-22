@@ -32,7 +32,7 @@ namespace RestaurentManagement.Views.Foods
             if(string.IsNullOrEmpty(txtFoodName.Text) ||
                 string.IsNullOrEmpty(txtImage.Text))
             {
-                mf.NotifyErr("Vui lòng nhập đầy đủ thông tin");
+                mf.NotifyErr("Vui lòng không được để trống các trường !");
                 return;
             }
             string id = $"F0000{FoodController.Instance.GetOrderNumInList()}";

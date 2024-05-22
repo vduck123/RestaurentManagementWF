@@ -2,6 +2,7 @@
 using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
 using RestaurentManagement.utils;
+using RestaurentManagement.Views.BillPdf;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using _Menu = RestaurentManagement.Models.Menu;
 
@@ -22,6 +24,8 @@ namespace RestaurentManagement.Views.NotifyBill
         string _idStaff = null;
         string _idTable = null;
         string _idVoucher = null;   
+        DateTime dayIn = DateTime.Now;
+        DateTime dayOut = DateTime.Now.AddHours(new Random().Next(1,4));
         public NotifyBill(string nameCus, string idStaff, string idTable, string idVoucher)
         {
             InitializeComponent();
@@ -36,16 +40,93 @@ namespace RestaurentManagement.Views.NotifyBill
             GetData();
         }
 
-        private void btnXuatFile_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
 
         private void btbClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+
+        int _totalBill = 0;
+        void GetData()
+        {
+
+            if (_idTable == null)
+            {
+                return;
+            }
+            dgvListFoodOrder.Columns.Clear();
+            List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Tên món ăn");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Thành tiền");
+
+            foreach (_Menu menu in menus)
+            {
+                dt.Rows.Add(FoodController.Instance.GetNameFoodByID(menu.foodID), menu.Quantity, menu.Price, menu.Total);
+                _totalBill += menu.Total;
+            }
+
+
+
+            dgvListFoodOrder.DataSource = dt;
+            lbThuNgan.Text = StaffController.Instance.GetNameStaffByID(_idStaff);
+            lbTable.Text = TableController.Instance.GetNameTableById(_idTable);
+            lbNgay.Text = dayOut.ToString("dd/MM/yyyy");
+            lbTimeIn.Text = dayIn.ToString("HH:mm");
+            lbTimeOut.Text = dayOut.ToString("HH:mm");
+            lbTotal.Text = _totalBill.ToString();
+            lbExpiry.Text = CalcExpiry();
+            lbPayMoney.Text = CalcBill(_totalBill).ToString();
+            lbCusname.Text = _nameCus;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Print_VIEW view = new Print_VIEW(lbCusname.Text, lbThuNgan.Text, TableController.Instance.GetIDTableByName(lbTable.Text), lbExpiry.Text, lbNgay.Text, lbTimeIn.Text, lbTimeOut.Text , lbTotal.Text, lbPayMoney.Text)  ;
+            view.Show();
+        }
+
+        double CalcBill(double totalBill)
+        {
+            string voucherChoose = VoucherController.Instance.GetExpiryById(_idVoucher);
+            string[] a = voucherChoose.Split(' ');
+            if (a[1] == "Vnđ")
+            {
+                totalBill = totalBill - Convert.ToDouble(a[0]);               
+            }
+            else
+            {
+                totalBill = totalBill - (totalBill * Convert.ToDouble(a[0]) / 100); 
+            }
+            return totalBill;
+        }
+
+        string CalcExpiry()
+        {
+            string voucherChoose = VoucherController.Instance.GetExpiryById(_idVoucher);
+            string output = null;
+            string[] a = voucherChoose.Split(' ');
+            if (a[1] == "Vnđ")
+            {
+                output = voucherChoose;
+            }
+            else
+            {
+                int gg = _totalBill * Convert.ToInt32(a[0]) / 100;
+                output = $"{gg} Vnđ";
+            }
+
+            return output;
+        }
+
+
+        private void btnPay_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void btnPay_Click(object sender, EventArgs e)
@@ -54,23 +135,6 @@ namespace RestaurentManagement.Views.NotifyBill
             {
                 if (qs == DialogResult.OK)
                 {
-                    //Thêm dữ liệu vào db
-
-                    //Hóa đơn bán
-                    int rdhours = new Random().Next(1, 4);
-                    DateTime dayIn = DateTime.Now;
-                    DateTime dayOut;
-
-                    if (dayIn.Hour > 12)
-                    {
-                        dayOut = dayIn.AddDays(1).Date;
-                    }
-                    else
-                    {
-                        dayOut = dayIn.Date;
-                    }
-
-                    dayOut = dayOut.AddHours(rdhours);
 
                     string idBillSale = $"HDB00{BillSaleController.Instance.GetNumOrderBill() + 1}";
                     BillSale billSale = new BillSale()
@@ -78,18 +142,29 @@ namespace RestaurentManagement.Views.NotifyBill
                         Id = idBillSale,
                         dayIn = dayIn,
                         dayOut = dayOut,
-                        voucherId = idBillSale,
+                        voucherId = _idVoucher,
                         totalMoney = Convert.ToDouble(lbTotal.Text),
+                        Customer = lbCusname.Text,
                         staffID = _idStaff,
                         tableID = _idTable
                     };
 
-                    int rs1 = BillSaleController.Instance.InsertBillSale(billSale);
+                    BillSaleController.Instance.InsertBillSale(billSale);
 
                     if (dgvListFoodOrder.Rows.Count > 0)
                     {
                         foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
                         {
+                            if (row == null || row.Cells == null)
+                            {
+                                break;
+                            }
+
+                            if (row.Cells[0].Value == null || row.Cells[1].Value == null || row.Cells[2].Value == null || row.Cells[3].Value == null)
+                            {
+                                break;
+                            }
+
                             string idBillSaleInfo = $"CTHDB0{BillSaleInfoController.Instance.GetNumOrderBillInfo() + 1}";
                             string nameFood = row.Cells[0].Value.ToString();
                             int quantity = Convert.ToInt32(row.Cells[1].Value);
@@ -109,67 +184,15 @@ namespace RestaurentManagement.Views.NotifyBill
                             BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
                         }
                     }
+                    mf.NotifySuss("Thanh toán hóa đơn thành công !");
+                    MenuController.Instance.DeleteMenu(_idTable);
+                    TableController.Instance.UpdateStatusTable(_idTable, "Trống");
                 }
-            }
-        }
-
-
-        void GetData()
-        {
-            if(_idTable == null)
-            {
-                return;
-            }
-            int totalBill = 0;
-
-            dgvListFoodOrder.Columns.Clear();
-            List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Tên món ăn");
-            dt.Columns.Add("Số lượng");
-            dt.Columns.Add("Giá bán");
-            dt.Columns.Add("Thành tiền");
-
-            foreach (_Menu menu in menus)
-            {
-                dt.Rows.Add(FoodController.Instance.GetNameFoodByID(menu.foodID), menu.Quantity, menu.Price, menu.Total);
-                totalBill += menu.Total;
-            }
-
-  
-            int hours = new Random().Next(1, 3);
-
-            lbThuNgan.Text = StaffController.Instance.GetNameStaffByID(_idStaff);
-            lbNgay.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lbTimeIn.Text = DateTime.Now.ToString("HH:mm");
-            lbTimeOut.Text = DateTime.Now.AddHours(hours).ToString("HH:mm");
-
-
-            dgvListFoodOrder.DataSource = dt;
-            lbTotal.Text = totalBill.ToString();
-
-
-        }
-
-        private void btnPrint_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf"; // Corrected filter string
-            saveFileDialog.Title = "Save a PDF File";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
+                else
                 {
-                    Office.Instance.ExportPdf(dgvListFoodOrder, saveFileDialog.FileName);
-                    mf.NotifySuss("Xuất file thành công");
-                }
-                catch (Exception exception)
-                {
-                    mf.NotifySuss($"Lỗi: {exception.Message}");
+                    this.Close();
                 }
             }
         }
-
     }
 }

@@ -27,8 +27,8 @@ namespace RestaurentManagement.Controllers
 
         public int InsertBillSale(BillSale bill)
         {
-            string query = @"INSERT INTO BillOfSale (boSale_id, dayIn, dayOut, voucher_id, totalMoney, staff_id, table_id) 
-                            VALUES (@Id, @DayIn, @DayOut, @voucherId, @TotalMoney, @staffId, @tableId)";
+            string query = @"INSERT INTO BillOfSale (boSale_id, dayIn, dayOut, voucher_id, totalMoney, customer, staff_id, table_id) 
+                            VALUES (@Id, @DayIn, @DayOut, @voucherId, @TotalMoney, @customer, @staffId, @tableId)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
@@ -37,6 +37,7 @@ namespace RestaurentManagement.Controllers
                 { "@DayOut", bill.dayOut },
                 { "@voucherId", bill.voucherId },
                 { "@TotalMoney", bill.totalMoney } ,
+                { "@customer", bill.Customer } ,
                 { "@staffId", bill.staffID } ,
                 { "@tableId", bill.tableID } 
             };
@@ -50,18 +51,20 @@ namespace RestaurentManagement.Controllers
                                 SET totalMoney = @total,
 	                                dayIn = @dayin ,
 	                                dayOut = @dayout ,
-                                    voucher_id = @voucherId
+                                    voucher_id = @voucherId ,
+                                    customer = @customer ,
                                     staff_id = @staffId ,
                                     table_id = @tableId ,
                             WHERE boSale_id = @id";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
             {
-                { "@id", bill.Id },
+                { "@Id", bill.Id },
                 { "@DayIn", bill.dayIn },
                 { "@DayOut", bill.dayOut },
                 { "@voucherId", bill.voucherId },
-                { "@total", bill.totalMoney } ,
+                { "@TotalMoney", bill.totalMoney } ,
+                { "@customer", bill.Customer } ,
                 { "@staffId", bill.staffID } ,
                 { "@tableId", bill.tableID }
             };
@@ -75,7 +78,7 @@ namespace RestaurentManagement.Controllers
         {
 
             string query = @"UPDATE dbo.BillOfSale
-                                SET totalMoney = @total
+                            SET totalMoney = @total
                             WHERE boSale_id = @id";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>

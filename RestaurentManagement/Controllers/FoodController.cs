@@ -144,10 +144,10 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public List<Food> SelectFoodByParam(string option, string param)
+        public List<Food> SelectFoodByParam(string option, string opera, string param)
         {
             List<Food> foods = new List<Food>();    
-            string query = $@"SELECT * FROM dbo.Food WHERE {option} = N'{param}'";
+            string query = $@"SELECT * FROM dbo.Food WHERE {option} {opera} {param}";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)

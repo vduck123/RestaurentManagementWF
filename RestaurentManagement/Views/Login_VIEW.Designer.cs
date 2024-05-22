@@ -55,6 +55,7 @@
             this.guna2CirclePictureBox11 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.ttNotify = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -144,6 +145,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(152)))));
+            this.panel1.Controls.Add(this.ttNotify);
             this.panel1.Controls.Add(this.cbbRole);
             this.panel1.Controls.Add(this.guna2PictureBox4);
             this.panel1.Controls.Add(this.btnExit);
@@ -250,13 +252,14 @@
             this.txtPass.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtPass.IconLeft")));
             this.txtPass.IconLeftCursor = System.Windows.Forms.Cursors.Cross;
             this.txtPass.Location = new System.Drawing.Point(134, 392);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.PlaceholderText = "*";
             this.txtPass.SelectedText = "";
             this.txtPass.Size = new System.Drawing.Size(234, 29);
             this.txtPass.TabIndex = 4;
+            this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
             // 
             // txtUser
             // 
@@ -276,13 +279,14 @@
             this.txtUser.IconLeft = ((System.Drawing.Image)(resources.GetObject("txtUser.IconLeft")));
             this.txtUser.IconLeftCursor = System.Windows.Forms.Cursors.Cross;
             this.txtUser.Location = new System.Drawing.Point(134, 346);
-            this.txtUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUser.Margin = new System.Windows.Forms.Padding(4);
             this.txtUser.Name = "txtUser";
             this.txtUser.PasswordChar = '\0';
             this.txtUser.PlaceholderText = "";
             this.txtUser.SelectedText = "";
             this.txtUser.Size = new System.Drawing.Size(234, 29);
             this.txtUser.TabIndex = 3;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // l
             // 
@@ -452,6 +456,23 @@
             this.guna2PictureBox6.TabIndex = 20;
             this.guna2PictureBox6.TabStop = false;
             // 
+            // ttNotify
+            // 
+            this.ttNotify.BorderRadius = 10;
+            this.ttNotify.BorderThickness = 2;
+            this.ttNotify.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ttNotify.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ttNotify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ttNotify.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ttNotify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(152)))));
+            this.ttNotify.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ttNotify.ForeColor = System.Drawing.Color.Black;
+            this.ttNotify.Location = new System.Drawing.Point(225, 96);
+            this.ttNotify.Name = "ttNotify";
+            this.ttNotify.Size = new System.Drawing.Size(211, 55);
+            this.ttNotify.TabIndex = 22;
+            this.ttNotify.Text = "Hello";
+            // 
             // Login_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -513,5 +534,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2ComboBox cbbRole;
+        private Guna.UI2.WinForms.Guna2TileButton ttNotify;
     }
 }

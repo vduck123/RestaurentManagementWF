@@ -1,5 +1,6 @@
 ﻿using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
+using RestaurentManagement.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,10 +29,18 @@ namespace RestaurentManagement.Views
                 return;
             }
 
+            if (string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtPass.Text))
+            {
+                mf.NotifyErr("Vui lòng không được để trống các trường!");
+                return;
+            }
+
+
+
             string user = txtUser.Text;
             string pass = txtPass.Text;
             string role = cbbRole.SelectedItem.ToString();
-
+            bool find = false;
             
             List<_Account> accounts = AccountController.Instance.GetListAccount();
 
@@ -40,21 +49,24 @@ namespace RestaurentManagement.Views
                 
                 if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
                 {
-                    this.Close();
+                    find = true;
+                    this.Hide();
                     Admin_VIEW admin_VIEW = new Admin_VIEW(user);
                     admin_VIEW.ShowDialog();
                 } 
                 else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
                 {
-                    this.Close();
+                    find = true;
+                    this.Hide();
                     FrmStaff_VIEW view = new FrmStaff_VIEW(user);
                     view.ShowDialog();
                 }
-                else
-                {
-                    mf.NotifyErr("Thông tin tài khoản và mật khẩu không chính xác!");
-                    return;
-                }
+            }
+
+            if(!find)
+            {
+                mf.NotifyErr("Tài khoản hoặc mật khẩu không đúng!");
+                return;
             }
         }
 
@@ -79,6 +91,31 @@ namespace RestaurentManagement.Views
         private void guna2PictureBox5_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+            if (!HandleData.Instance.CheckEmail(txtUser.Text))
+            {
+                ttNotify.Text = "Email không hợp lệ!";
+            }
+            if(txtUser.Text.Length == 0 || HandleData.Instance.CheckEmail(txtUser.Text))
+            {
+                ttNotify.Text = "Hello";
+            }
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPass.Text.Length < 6)
+            {
+                ttNotify.Text = "Mật khẩu phải lớn hơn 6 ký tự!";
+            }
+
+            if (txtPass.Text.Length == 0 || txtPass.Text.Length >= 6)
+            {
+                ttNotify.Text = "Hello";
+            }
         }
     }
 }

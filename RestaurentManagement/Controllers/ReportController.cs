@@ -130,9 +130,11 @@ namespace RestaurentManagement.Controllers
                     }
                 case "Tháng":
                     {
-                        query = $@"SELECT ISNULL(SUM(total_money),0) AS [Tổng chi]
+                        query = $@"SELECT dayCreate AS [Ngày],  ISNULL(SUM(total_money),0) AS [Tổng chi]
                                 FROM dbo.BillOfImport
-                               WHERE dayCreate BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'";
+                               WHERE dayCreate BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}' 
+                                GROUP BY dayCreate
+                                    ORDER BY Ngày";
                         break;
                     }
                 case "Tuần":
@@ -186,9 +188,11 @@ namespace RestaurentManagement.Controllers
                     }
                 case "Tháng":
                     {
-                        query = $@"SELECT ISNULL(SUM(totalMoney),0) AS [Tổng thu]
+                        query = $@"SELECT dayOut AS [Ngày], ISNULL(SUM(totalMoney),0) AS [Tổng thu]
                                 FROM dbo.BillOfSale
-                                WHERE dayIn BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'"; ;
+                                WHERE dayIn BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'
+                                GROUP BY dayOut
+                                ORDER BY Ngày;"; 
                         break;
                     }
                 case "Tuần":

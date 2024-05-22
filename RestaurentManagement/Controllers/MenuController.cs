@@ -26,13 +26,14 @@ namespace RestaurentManagement.Controllers
         public int InsertMenu(Menu menu)
         {
             string query1 = @"INSERT INTO Menu
-                              VALUES (@food_id,@price,@quantity,@total,@table_id)";
+                              VALUES (@food_id,@price,@quantity,@total,@customer,@table_id)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@food_id",menu.foodID} ,
                 {"price", menu.Price} ,
                 {"@quantity", menu.Quantity } ,
                 {"@total", menu.Total} ,
+                {"@customer", menu.Customer } ,
                 {"@table_id", menu.tableID}
             };
 

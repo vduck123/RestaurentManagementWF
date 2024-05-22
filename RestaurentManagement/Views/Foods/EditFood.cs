@@ -83,7 +83,7 @@ namespace RestaurentManagement.Views.Foods
                 return;
             }
 
-            List<Food> listFood = FoodController.Instance.SelectFoodByParam("food_id", _ID);
+            List<Food> listFood = FoodController.Instance.SelectFoodByParam("food_id", "=", $"'{_ID}'");
             foreach (Food food in listFood)
             {
                 cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(food.categoryID);

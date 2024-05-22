@@ -3,7 +3,6 @@ CREATE DATABASE RestaurantManagement
 GO
 
 
-
 USE RestaurantManagement
 GO
 
@@ -40,9 +39,24 @@ VALUES
     '0388036937',        -- phone - char(11)
     '0'         -- acc_id - char(10)
     )
+	SELECT MONTH(dayOut) AS [Tháng],
+                                    ISNULL(SUM(totalMoney), 0) AS [Tổng thu]
+                                    FROM BillOfSale
+                                    WHERE dayOut BETWEEN '' AND '{dt2}'
+                                    GROUP BY MONTH(dayOut)
+                                    ORDER BY Tháng
 
 	SELECT * FROM Account
 	SELECT * FROM Staff
+
+	SELECT COUNT(boSale_id)
+	FROM dbo.BillOfSale
+
+	SELECT COUNT(boImport_id)
+	FROM dbo.BillOfImport
+
+	DELETE FROM dbo.BillOfImport
+	DELETE FROM dbo.DetailBillOfImport
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,
@@ -191,6 +205,20 @@ CREATE TABLE Menu
 )
 
 
+CREATE TABLE Infomation
+(
+	name NVARCHAR(255) ,
+	address NVARCHAR(255) ,
+	phone CHAR(11) ,
+	time_open NVARCHAR(100) ,
+	time_close NVARCHAR(100) 
+)
+
+SELECT * FROM dbo.Account
+
+INSERT INTO dbo.Infomation
+VALUES (N'Sileo Restaurant', N'Hải Dương', '0388036937', '6:00', '2:00')
+
 
 INSERT INTO _Table
 VALUES ('BA0001', N'Bàn ăn số 1', N'Trống'),
@@ -206,4 +234,5 @@ VALUES ('BA0001', N'Bàn ăn số 1', N'Trống'),
 
 DELETE FROM BillOfImport
 DELETE FROM DetailBillOfImport
+
 

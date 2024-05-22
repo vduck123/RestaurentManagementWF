@@ -16,17 +16,19 @@ namespace RestaurentManagement.Models
         public int Total{ get; set; }
 
         public string tableID { get; set; }
+        public string Customer { get; set;}
 
 
         public Menu() { }
 
-        public Menu(string foodID, int quantity, int price, int total, string tableID)
+        public Menu(string foodID, int quantity, int price, int total, string tableID, string customer)
         {
             this.foodID = foodID;
             this.Quantity = quantity;
             this.Price = price;
             this.Total = total;
             this.tableID = tableID;
+            this.Customer = customer;
         }
 
         public Menu(DataRow row)
@@ -36,6 +38,7 @@ namespace RestaurentManagement.Models
             this.Quantity = (int)row["quantity"];
             this.Total = (int)row["total"];
             this.tableID = (string)row["table_id"];
+            this.Customer = (string)row["customer"];    
         }
 
 

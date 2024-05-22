@@ -145,6 +145,7 @@ namespace RestaurentManagement.utils
                 .RuleFor(o => o.dayOut, f => f.Date.Between(new DateTime(2023, 01, 01), new DateTime(2024, 6, 1)).AddHours(f.Random.Number(2, 4)))
                 .RuleFor(o => o.staffID, f => f.PickRandom(idStaffs))
                 .RuleFor(o => o.voucherId, f => f.PickRandom(idVouchers))
+                .RuleFor(o => o.Customer, f => $"{f.Name.LastName()} {f.Name.FirstName()}")
                 .RuleFor(o => o.tableID, f => f.PickRandom(idTables))
                 .RuleFor(o => o.totalMoney, f => total);
             var billSaleFaker = billSale.Generate(count);

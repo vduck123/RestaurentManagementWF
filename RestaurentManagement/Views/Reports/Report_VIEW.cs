@@ -40,7 +40,17 @@ namespace RestaurentManagement.Views.Reports
             }
         }
 
+        private void Report_VIEW_Load(object sender, EventArgs e)
+        {
+            LoadAllToday();
+        }
+
         private void btnToday_Click(object sender, EventArgs e)
+        {
+            LoadAllToday();
+        }
+
+        void LoadAllToday()
         {
             DateTime dt = DateTime.Now;
             //Post Data to datagridview
@@ -65,7 +75,6 @@ namespace RestaurentManagement.Views.Reports
             // 
             DataTable dtHotFood = ReportController.Instance.GetTopFoodByTime(dt, dt);
             LoadChartHotFood2(dtHotFood, dt, dt);
-
         }
 
         private void btnWeek_Click(object sender, EventArgs e)
@@ -157,10 +166,7 @@ namespace RestaurentManagement.Views.Reports
 
         }
 
-        private void Report_VIEW_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnExcute_Click(object sender, EventArgs e)
         {
@@ -256,7 +262,7 @@ namespace RestaurentManagement.Views.Reports
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
-            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset(); // Dataset cho lợi nhuận
+            var barDatasetProfit = new Guna.Charts.WinForms.GunaBarDataset();
 
             barDatasetRevenue.Label = "Mục thu";
             barDatasetExpense.Label = "Mục chi";
@@ -265,24 +271,35 @@ namespace RestaurentManagement.Views.Reports
             int totalRevenue = 0;
             int totalExpense = 0;
 
+            var dailyRevenueDict = new Dictionary<string, int>();
+            var dailyExpenseDict = new Dictionary<string, int>();
             foreach (DataRow row in dtb1.Rows)
             {
-                totalRevenue = Convert.ToInt32(row["Tổng thu"]);
-                barDatasetRevenue.DataPoints.Add($"Tháng {dt1.Month}", totalRevenue);
+                string dayOut = Convert.ToDateTime(row["Ngày"]).ToString("dd/MM/yyyy");
+                int dailyRevenue = Convert.ToInt32(row["Tổng thu"]);
+                totalRevenue += dailyRevenue;
+                dailyRevenueDict[dayOut] = dailyRevenue;
+                barDatasetRevenue.DataPoints.Add(dayOut, dailyRevenue);
             }
 
             foreach (DataRow row in dtb2.Rows)
             {
-                totalExpense = Convert.ToInt32(row["Tổng chi"]);
-                barDatasetExpense.DataPoints.Add($"Tháng {dt1.Month}", totalExpense);
+                string dayOut = Convert.ToDateTime(row["Ngày"]).ToString("dd/MM/yyyy");
+                int dailyExpense = Convert.ToInt32(row["Tổng chi"]);
+                totalExpense += dailyExpense;
+                dailyExpenseDict[dayOut] = dailyExpense;
+                barDatasetExpense.DataPoints.Add(dayOut, dailyExpense);
             }
 
-            int profit = totalRevenue - totalExpense;
-            barDatasetProfit.DataPoints.Add($"Tháng {dt1.Month}", profit);
+            foreach (var date in dailyRevenueDict.Keys)
+            {
+                int dailyProfit = dailyRevenueDict[date] - (dailyExpenseDict.ContainsKey(date) ? dailyExpenseDict[date] : 0);
+                barDatasetProfit.DataPoints.Add(date, dailyProfit);
+            }
 
             barDatasetRevenue.FillColors.Add(Color.FromArgb(0, 122, 204));
             barDatasetExpense.FillColors.Add(Color.FromArgb(0, 166, 90));
-            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0)); 
+            barDatasetProfit.FillColors.Add(Color.FromArgb(255, 165, 0));
 
             charRevenue.Datasets.Add(barDatasetRevenue);
             charRevenue.Datasets.Add(barDatasetExpense);
@@ -292,6 +309,7 @@ namespace RestaurentManagement.Views.Reports
 
             charRevenue.Update();
         }
+
 
 
         void ChartReportOfWeek(DataTable dtb1, DataTable dtb2, DateTime dt1, DateTime dt2)

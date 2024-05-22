@@ -33,5 +33,11 @@ namespace RestaurentManagement
         {
             return MessageBox.Show(mess, "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+
+        }
     } 
 }

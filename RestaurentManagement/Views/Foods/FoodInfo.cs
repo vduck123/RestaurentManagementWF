@@ -34,9 +34,14 @@ namespace RestaurentManagement.Views.Foods
                 return;
             }
             string optionPrice = cbbOptionPrice.SelectedItem != null ? cbbOptionPrice.SelectedItem.ToString() : null;
-            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, optionPrice);
+            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
             dgvFood.DataSource = dt;
-            
+            dgvFood.RowTemplate.Height = 100;
+            dgvFood.DataSource = dt;
+
+            var imageColumn = dgvFood.Columns["Hình ảnh"] as DataGridViewImageColumn;
+            imageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -101,7 +106,7 @@ namespace RestaurentManagement.Views.Foods
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Giá bán");
             dt.Columns.Add("Nguyên liệu");
-            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Số lượng NL");
             dt.Columns.Add("Loại món ăn");
             dt.Columns.Add("Hình ảnh", typeof(byte[]));
             foreach (Food f in foods)
@@ -141,7 +146,7 @@ namespace RestaurentManagement.Views.Foods
         }
 
 
-        DataTable HandleSearch(string option, string keyword, string opera)
+        DataTable HandleSearch(string option, string keyword)
         {
             dgvFood.Columns.Clear();
             List<Food> foods = new List<Food>();
@@ -151,33 +156,34 @@ namespace RestaurentManagement.Views.Foods
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Giá bán");
             dt.Columns.Add("Nguyên liệu");
-            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Số lượng NL");
             dt.Columns.Add("Loại món ăn");
-            switch(option)
+            dt.Columns.Add("Hình ảnh", typeof(byte[]));
+            switch (option)
             {
                 case "Tìm kiếm theo mã":
                     {
-                        foods = FoodController.Instance.SelectFoodByParam("food_id", keyword);
+                        foods = FoodController.Instance.SelectFoodByParam("food_id", "=" , $"'{keyword}'");
                         break;
                     }
                 case "Tìm kiếm theo tên món ăn":
                     {
-                        foods = FoodController.Instance.SelectFoodByParam("food_name", keyword);
+                        foods = FoodController.Instance.SelectFoodByParam("food_name", "LIKE", $"N'%{keyword}%'");
                         break;
                     }
                 case "Tìm kiếm theo giá bán":
                     {
-                        foods = FoodController.Instance.GetFoodListByPrice(opera, Convert.ToInt32(keyword));
+                        foods = FoodController.Instance.SelectFoodByParam("food_price", cbbOptionPrice.SelectedItem.ToString(), keyword);
                         break;
                     }
                 case "Tìm kiếm theo nguyên liệu":
                     {
-                        foods = FoodController.Instance.SelectFoodByParam("item_id", keyword);
+                        foods = FoodController.Instance.SelectFoodByParam("item_id", "=", $"'{WarehouseController.Instance.GetIDItemByName(keyword)}'");
                         break;
                     }
                 case "Tìm kiếm theo loại món ăn":
                     {
-                        foods = FoodController.Instance.SelectFoodByParam("cgFood_id", keyword);
+                        foods = FoodController.Instance.SelectFoodByParam("cgFood_id", "=", $"N'{FoodCategoryController.Instance.GetIDCatgoryFoodByName(keyword)}'");
                         break;
                     }
             }
@@ -186,10 +192,10 @@ namespace RestaurentManagement.Views.Foods
             {
                 string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
                 string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
-                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category);
+                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category, f.imageFood);
             }
 
-            dgvFood.DataSource = dt;
+            
 
             return dt;
         }

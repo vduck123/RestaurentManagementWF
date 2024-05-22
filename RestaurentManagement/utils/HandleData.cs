@@ -23,9 +23,19 @@ namespace RestaurentManagement.utils
             }
         }
 
+
         public bool ExitNumber(string str)
         {
             if(Regex.IsMatch(str, @"^/d"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool CheckEmail(string email)
+        {
+            if (Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 return true;
             }

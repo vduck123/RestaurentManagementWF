@@ -524,6 +524,7 @@
             // 
             // btnMonth
             // 
+            this.btnMonth.Animated = true;
             this.btnMonth.BorderRadius = 8;
             this.btnMonth.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnMonth.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;

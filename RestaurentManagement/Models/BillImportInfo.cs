@@ -14,29 +14,32 @@ namespace RestaurentManagement.Models
         public int Price { get; set; }
 
         public int Quantity { get; set; }
+        public string Unit {  get; set; }
         public int TotalMoney { get; set; }
         public string BillID { get; set; }
 
         public BillImportInfo() { }
 
-        public BillImportInfo(string iD, string itemID, int price, int quantity, int totalMoney, string billID)
+        public BillImportInfo(string iD, string itemID, int price, int quantity, string unit, int totalMoney, string billID)
         {
-            ID = iD;
-            ItemID = itemID;
-            Price = price;
-            Quantity = quantity;
-            TotalMoney = totalMoney;
-            BillID = billID;
+            this.ID = iD;
+            this.ItemID = itemID;
+            this.Price = price;
+            this.Quantity = quantity;
+            this.Unit = unit;
+            this.TotalMoney = totalMoney;
+            this.BillID = billID;
         }
 
         public BillImportInfo(DataRow row)
         {
-            ID = (string)row["dboImport_id"];
-            ItemID = (string)row["item_id"];
-            Price = (int)row["price"];
-            Quantity = (int)row["quantity"];
-            TotalMoney = (int)row["total_money"];
-            BillID = (string)row["boImport_id"];
+            this.ID = (string)row["dboImport_id"];
+            this.ItemID = (string)row["material_id"];
+            this.Price = (int)row["price"];
+            this.Quantity = (int)row["quantity"];
+            this.Unit = (string)row["unit"];
+            this.TotalMoney = (int)row["total_money"];
+            this.BillID = (string)row["boImport_id"];
         }
     }
 }

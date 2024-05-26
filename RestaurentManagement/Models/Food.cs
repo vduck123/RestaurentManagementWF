@@ -9,27 +9,26 @@ namespace RestaurentManagement.Models
 {
     internal class Food
     {
-        public string Name;
-        public string ID;
-        public int Price;
-        public string materialID;
-        public int numMaterial;
-        public string categoryID;
-        public byte[] imageFood;
+        public string ID { get; set; }
+        public string Name { get; set; }
+        
+        public int Price { get; set; }
+        public string Unit { get; set; }
+        public string categoryID { get; set; }
+        public byte[] imageFood { get; set; }
 
         public Food()
         {
 
         }
 
-        public Food(string id, string name, int price, string materialid, int nummaterial, string categoryid , byte[] imagefood)
+        public Food(string id, string name, int price, string unit, string categoryid , byte[] imagefood)
         {
             this.ID = id;
             this.Name = name;
             this.Price = price;
+            this.Unit = unit;
             this.imageFood = imagefood;
-            this.materialID = materialid;
-            this.numMaterial = nummaterial;
             this.categoryID = categoryid;
         }
 
@@ -37,9 +36,8 @@ namespace RestaurentManagement.Models
         {
             this.ID = row["food_id"].ToString();
             this.Name = row["food_name"].ToString();
-            this.Price = (int)row["food_price"];
-            this.materialID = (string)row["item_id"];
-            this.numMaterial = (int)row["item_quantity"];
+            this.Price = Convert.ToInt32(row["food_price"]);
+            this.Unit = row["unit"].ToString();
             this.categoryID = row["cgFood_id"].ToString();
             this.imageFood = (byte[])row["image"];
         }

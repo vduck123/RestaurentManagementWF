@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _Account = RestaurentManagement.Models.Account;
 using static System.Net.WebRequestMethods;
+using RestaurentManagement.utils;
 
 namespace RestaurentManagement.Views
 {
@@ -86,6 +87,31 @@ namespace RestaurentManagement.Views
             {
                 MessageBox.Show($"OTP không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+        }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+            if (!HandleData.Instance.CheckEmail(txtUser.Text))
+            {
+                ttNotify.Text = "Email không hợp lệ!";
+            }
+            if (txtUser.Text.Length == 0 || HandleData.Instance.CheckEmail(txtUser.Text))
+            {
+                ttNotify.Text = "Hello";
+            }
+        }
+
+        private void txtPass_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPass.Text.Length < 6)
+            {
+                ttNotify.Text = "Mật khẩu phải lớn hơn 6 ký tự!";
+            }
+
+            if (txtPass.Text.Length == 0 || txtPass.Text.Length >= 6)
+            {
+                ttNotify.Text = "Hello";
             }
         }
     }

@@ -64,7 +64,7 @@
             this.btnAddBillImport.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAddBillImport.ForeColor = System.Drawing.Color.White;
             this.btnAddBillImport.Location = new System.Drawing.Point(36, 115);
-            this.btnAddBillImport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAddBillImport.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddBillImport.Name = "btnAddBillImport";
             this.btnAddBillImport.Size = new System.Drawing.Size(154, 36);
             this.btnAddBillImport.TabIndex = 1;
@@ -74,7 +74,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(36, 170);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(154, 33);
             this.button1.TabIndex = 2;
@@ -119,7 +119,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAddBillImport);
             this.Controls.Add(this.txtQuantity);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmData";
             this.Text = "frmData";
             this.ResumeLayout(false);

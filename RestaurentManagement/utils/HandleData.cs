@@ -26,7 +26,7 @@ namespace RestaurentManagement.utils
 
         public bool ExitNumber(string str)
         {
-            if(Regex.IsMatch(str, @"^/d"))
+            if(Regex.IsMatch(str, @"[0,9]"))
             {
                 return true;
             }
@@ -36,6 +36,15 @@ namespace RestaurentManagement.utils
         public bool CheckEmail(string email)
         {
             if (Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool checkCharacter(string str)
+        {
+            if (Regex.IsMatch(str, @"[$'~@#$]"))
             {
                 return true;
             }

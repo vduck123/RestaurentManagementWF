@@ -111,7 +111,7 @@ namespace RestaurentManagement.utils
 
         public List<BillImportInfo> FakeBillImportInfo(int count, string idBill)
         {
-            string[] idMaterials = new string[] { "NL0001", "NL0002", "NL0003", "NL0004", "NL0005", "NL0006", "NL0007", "NL0008", "NL0009", "NL00010" };
+            string[] idMaterials = new string[] { "NL0001", "NL0002", "NL0003", "NL0004", "NL0005", "NL0006", "NL0007", "NL0008", "NL0009", "NL00010", "NL00011", "NL00012", "NL00013", "NL00014", "NL00015" };
             int orderBillImportInfo = BillImportInfoController.Instance.GetOrderNumBillImportInfo();
             int totalBill = 0;
             var billImportInfo = new Faker<BillImportInfo>()
@@ -121,6 +121,7 @@ namespace RestaurentManagement.utils
                 .RuleFor(o => o.Price, f => (f.Random.Number(10, 50) / 10) * 10000)
                 .RuleFor(o => o.Quantity, f => f.Random.Number(5, 20))
                 .RuleFor(o => o.TotalMoney, (f, u) => u.Price * u.Quantity)
+                .RuleFor(o => o.Unit, (f,u) => WarehouseController.Instance.GetUnitMaterialById(u.ItemID))
                 .RuleFor(o => o.BillID, f => idBill);
             var billImportInfoFaker = billImportInfo.Generate(count);
             billImportInfoFaker.ForEach(o =>
@@ -135,10 +136,10 @@ namespace RestaurentManagement.utils
         {
             string[] idTables = new string[] { "BA0001", "BA0002", "BA0003", "BA0004", "BA0005", "BA0006", "BA0007", "BA0008", "BA0009", "BA00010" };
             string[] idStaffs = new string[] { "NV0000", "NV0001", "NV0002", "NV0003", "NV0004", "NV0005", "NV0006", "NV0007", "NV0008", "NV0009" };
-            string[] idVouchers = new string[] { "PGG001", "PGG002", "PGG003", "PGG004", "PGG005", "PGG006", "PGG007", "PGG008", "PGG009", "PGG0010"};
+            string[] idVouchers = new string[] { "PGG001"};
             int orderBillSale = BillSaleController.Instance.GetNumOrderBill();
             int total = 0;
-            var billSale = new Faker<BillSale>()
+            var billSale = new Faker<BillSale>("vi")
                 .StrictMode(true)
                 .RuleFor(o => o.Id, f => $"HDB00{orderBillSale++}")
                 .RuleFor(o => o.dayIn, f => f.Date.Between(new DateTime(2023, 01, 01), new DateTime(2024, 6, 1)))
@@ -157,7 +158,7 @@ namespace RestaurentManagement.utils
             string[] idFoods = new string[] { "F00001", "F00002", "F00003", "F00004", "F00005", "F00006", "F00007", "F00008", "F00009", "F000010"};
             int orderBillImportInfo = BillSaleInfoController.Instance.GetNumOrderBillInfo();
             int totalBill = 0;       
-            var billSaleInfo = new Faker<BillSaleInfo>()
+            var billSaleInfo = new Faker<BillSaleInfo>("vi")
                 .StrictMode(true)
                 .RuleFor(o => o.ID, f => $"CTHDN0{orderBillImportInfo++}")
                 .RuleFor(o => o.foodId, f => f.PickRandom(idFoods))

@@ -28,7 +28,7 @@ namespace RestaurentManagement.Controllers
         public List<FoodCategory> GetListCategoryFood()
         {
             List<FoodCategory> foodCategories = new List<FoodCategory>();
-            string query = "SELECT * FROM FoodCategory";
+            string query = "SELECT * FROM Category";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach(DataRow dr in dt.Rows)
             {
@@ -42,13 +42,13 @@ namespace RestaurentManagement.Controllers
         {
             string name = null;
 
-            string query = $"SELECT * FROM FoodCategory WHERE cgFood_id = '{id}'" ;
+            string query = $"SELECT * FROM Category WHERE category_id = '{id}'" ;
 
             DataTable data = DBHelper.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {
-                name = item["cgFood_name"].ToString();
+                name = item["category_name"].ToString();
                 break;
             }
 
@@ -59,13 +59,13 @@ namespace RestaurentManagement.Controllers
         {
             string id = null;
 
-            string query = $"SELECT * FROM FoodCategory WHERE cgFood_name = N'{name}'";
+            string query = $"SELECT * FROM Category WHERE category_name = N'{name}'";
 
             DataTable data = DBHelper.Instance.ExecuteQuery(query);
 
             foreach (DataRow item in data.Rows)
             {
-                id = item["cgFood_id"].ToString();
+                id = item["category_id"].ToString();
                 break;
             }
 
@@ -74,7 +74,7 @@ namespace RestaurentManagement.Controllers
 
         public int InsertCategory(FoodCategory category)
         {
-            string query = @"INSERT INTO dbo.FoodCategory
+            string query = @"INSERT INTO dbo.Category
                              VALUES (@id,@name)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -89,8 +89,8 @@ namespace RestaurentManagement.Controllers
         public int UpdateCategory(FoodCategory category)
         {
             string query = @"UPDATE dbo.FoodCategory 
-                             SET cgFood_name = @name 
-                             WHERE cgFood_id = @id";
+                             SET category_name = @name 
+                             WHERE catogory_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", category.ID },
@@ -102,7 +102,7 @@ namespace RestaurentManagement.Controllers
 
         public int DeleteCategory(string id)
         {
-            string query = "DELETE FROM dbo.FoodCategory WHERE cgFood_id = @id";
+            string query = "DELETE FROM dbo.Category WHERE category_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", id }               
@@ -114,7 +114,7 @@ namespace RestaurentManagement.Controllers
         public List<FoodCategory> SearchCategory(string id)
         {
             List<FoodCategory> foodCategories = new List<FoodCategory>();   
-            string query = $@"SELECT * FROM dbo.FoodCategory WHERE cgFood_id = '{id}'";
+            string query = $@"SELECT * FROM dbo.Category WHERE category_id = '{id}'";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow item in dt.Rows)
             {
@@ -126,7 +126,7 @@ namespace RestaurentManagement.Controllers
 
         public int GetOrderNumInList()
         {
-            string query = @"SELECT COUNT(cgFood_id) FROM FoodCategory";
+            string query = @"SELECT COUNT(category_id) FROM Category";
             int data = DBHelper.Instance.ExecuteScalar(query);
             return data;
         }

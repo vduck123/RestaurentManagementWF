@@ -32,8 +32,8 @@ namespace RestaurentManagement.Views
             List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Tên loại hàng");
+            dt.Columns.Add("Mã danh mục");
+            dt.Columns.Add("Tên danh mục");
             foreach (FoodCategory foodCategory in foodCategories)
             {
                 dt.Rows.Add(foodCategory.ID, foodCategory.Name);
@@ -67,7 +67,7 @@ namespace RestaurentManagement.Views
             int rs = FoodCategoryController.Instance.InsertCategory(foodCategory);
             if(rs == 1)
             {
-                mf.NotifySuss($"Thêm loại hàng {txtCategoryName.Text} thành công");
+                mf.NotifySuss($"Thêm danh mục {txtCategoryName.Text} thành công");
                 Refresh();
             }
         }
@@ -83,7 +83,7 @@ namespace RestaurentManagement.Views
             int rs = FoodCategoryController.Instance.UpdateCategory(foodCategory);
             if (rs == 1)
             {
-                mf.NotifySuss($"Cập nhật loại hàng {txtCategoryName.Text} thành công");
+                mf.NotifySuss($"Cập nhật danh mục {txtCategoryName.Text} thành công");
                 Refresh();
             }
 
@@ -97,7 +97,7 @@ namespace RestaurentManagement.Views
                 int rs = FoodCategoryController.Instance.DeleteCategory(txtCategoryID.Text);
                 if(rs == 1)
                 {
-                    mf.NotifySuss($"Xóa loại hàng {txtCategoryName.Text} thành công");
+                    mf.NotifySuss($"Xóa danh mục {txtCategoryName.Text} thành công");
                     Refresh();
                 } 
                 else
@@ -114,8 +114,8 @@ namespace RestaurentManagement.Views
             List<FoodCategory> foodCategories = FoodCategoryController.Instance.SearchCategory(txtCategoryID.Text);
 
             DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Tên loại hàng");
+            dt.Columns.Add("Mã danh mục");
+            dt.Columns.Add("Tên danh mục");
             foreach (FoodCategory foodCategory in foodCategories)
             {
                 dt.Rows.Add(foodCategory.ID, foodCategory.Name);
@@ -130,8 +130,12 @@ namespace RestaurentManagement.Views
 
 
 
+
         #endregion
 
-        
+        private void guna2PictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

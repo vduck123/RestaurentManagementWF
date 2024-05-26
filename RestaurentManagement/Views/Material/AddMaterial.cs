@@ -22,9 +22,9 @@ namespace RestaurentManagement.Views.Material
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtName.Text))
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtUnit.Text))
             {
-                mf.NotifyErr("Giá trị không hợp lệ");
+                mf.NotifyErr("Giá trị các trường không được để trống !");
                 return;
             }
             DialogResult qs = mf.NotifyConfirm($"Chọn OK để xác nhận thêm nguyên liệu {txtName.Text}");
@@ -36,8 +36,8 @@ namespace RestaurentManagement.Views.Material
                     {
                         ID = id,
                         Name = txtName.Text,
-                        Quantity = Convert.ToInt32(txtQuantity.Text),
-                        CategoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString()),
+                        Quantity = Convert.ToInt32(txtQuantity.Text),      
+                        Unit = txtUnit.Text
                     };
 
                     int rs = WarehouseController.Instance.InsertItem(item);
@@ -62,18 +62,7 @@ namespace RestaurentManagement.Views.Material
 
         private void AddMaterial_Load(object sender, EventArgs e)
         {
-            LoadCategory();
-        }
-
-        void LoadCategory()
-        {
-            List<string> listnameCategory = new List<string>();
-            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
-            foreach (FoodCategory category in foodCategories)
-            {
-                listnameCategory.Add(category.Name);
-            }
-            cbbCategory.DataSource = listnameCategory;
+            
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)

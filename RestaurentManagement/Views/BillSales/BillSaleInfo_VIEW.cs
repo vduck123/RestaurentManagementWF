@@ -30,11 +30,12 @@ namespace RestaurentManagement.Views.BillSales
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtParam.Text) || dtPrev.Value < dtNext.Value)
+            if (string.IsNullOrEmpty(txtParam.Text))
             {
                 mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
                 return;
             }
+
             dgvBillSale.Columns.Clear();
             string opera = cbbOpera.SelectedItem == null ? null : cbbOpera.SelectedItem.ToString();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text, opera);
@@ -130,7 +131,9 @@ namespace RestaurentManagement.Views.BillSales
             dt.Columns.Add("ID");
             dt.Columns.Add("Thời gian vào");
             dt.Columns.Add("Thời gian ra");
+            dt.Columns.Add("Giảm giá");
             dt.Columns.Add("Tổng hóa đơn");
+            dt.Columns.Add("Khách hàng");
             dt.Columns.Add("Nhân viên");
             dt.Columns.Add("Bàn");
             switch (option)
@@ -174,8 +177,9 @@ namespace RestaurentManagement.Views.BillSales
                     billSale.Id,
                     billSale.dayIn,
                     billSale.dayOut,
-                    billSale.voucherId,
+                    VoucherController.Instance.GetExpiryById(billSale.voucherId),
                     billSale.totalMoney,
+                    billSale.Customer,
                     StaffController.Instance.GetNameStaffByID(billSale.staffID),
                     TableController.Instance.GetNameTableById(billSale.tableID)
                );
@@ -198,6 +202,7 @@ namespace RestaurentManagement.Views.BillSales
             dt.Columns.Add("Thời gian ra");
             dt.Columns.Add("Giảm giá");
             dt.Columns.Add("Tổng hóa đơn");
+            dt.Columns.Add("Khách hàng");
             dt.Columns.Add("Nhân viên");
             dt.Columns.Add("Bàn");
 
@@ -205,11 +210,12 @@ namespace RestaurentManagement.Views.BillSales
             {
                 dt.Rows.Add(
                     billSale.Id,
-                    billSale.dayIn ,
-                    billSale.dayOut ,
+                    billSale.dayIn,
+                    billSale.dayOut,
                     VoucherController.Instance.GetExpiryById(billSale.voucherId),
                     billSale.totalMoney,
-                    StaffController.Instance.GetNameStaffByID(billSale.staffID) ,
+                    billSale.Customer,
+                    StaffController.Instance.GetNameStaffByID(billSale.staffID),
                     TableController.Instance.GetNameTableById(billSale.tableID)
                );
             }

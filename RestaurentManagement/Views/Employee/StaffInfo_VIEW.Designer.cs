@@ -152,9 +152,11 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(705, 50);
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAdd.Location = new System.Drawing.Point(686, 50);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(140, 36);
+            this.btnAdd.Size = new System.Drawing.Size(181, 36);
             this.btnAdd.TabIndex = 16;
             this.btnAdd.Text = "Thêm nhân viên";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -190,7 +192,7 @@
             this.txtParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtParam.ForeColor = System.Drawing.Color.Black;
             this.txtParam.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtParam.Location = new System.Drawing.Point(12, 44);
+            this.txtParam.Location = new System.Drawing.Point(12, 50);
             this.txtParam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtParam.Name = "txtParam";
             this.txtParam.PasswordChar = '\0';
@@ -202,8 +204,9 @@
             // btnCheckSaleBill
             // 
             this.btnCheckSaleBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckSaleBill.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckSaleBill.Image")));
             this.btnCheckSaleBill.Name = "btnCheckSaleBill";
-            this.btnCheckSaleBill.Size = new System.Drawing.Size(244, 22);
+            this.btnCheckSaleBill.Size = new System.Drawing.Size(248, 26);
             this.btnCheckSaleBill.Text = "Xem những hóa đơn bán";
             this.btnCheckSaleBill.Click += new System.EventHandler(this.btnCheckSaleBill_Click);
             // 
@@ -226,21 +229,23 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(245, 114);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(249, 156);
             // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(244, 22);
+            this.btnUpdate.Size = new System.Drawing.Size(248, 26);
             this.btnUpdate.Text = "Sửa nhân viên";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDel
             // 
             this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDel.Image = ((System.Drawing.Image)(resources.GetObject("btnDel.Image")));
             this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(244, 22);
+            this.btnDel.Size = new System.Drawing.Size(248, 26);
             this.btnDel.Text = "Xóa nhân viên";
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
@@ -248,15 +253,16 @@
             // 
             this.btnInfoSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInfoSalary.Name = "btnInfoSalary";
-            this.btnInfoSalary.Size = new System.Drawing.Size(244, 22);
+            this.btnInfoSalary.Size = new System.Drawing.Size(248, 26);
             this.btnInfoSalary.Text = "Thông tin bảng lương";
             this.btnInfoSalary.Click += new System.EventHandler(this.btnInfoSalary_Click);
             // 
             // btnCheckBillImport
             // 
             this.btnCheckBillImport.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckBillImport.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckBillImport.Image")));
             this.btnCheckBillImport.Name = "btnCheckBillImport";
-            this.btnCheckBillImport.Size = new System.Drawing.Size(244, 22);
+            this.btnCheckBillImport.Size = new System.Drawing.Size(248, 26);
             this.btnCheckBillImport.Text = "Xem những hóa đơn nhập";
             this.btnCheckBillImport.Click += new System.EventHandler(this.btnCheckBillImport_Click);
             // 

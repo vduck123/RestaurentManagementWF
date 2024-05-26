@@ -97,8 +97,8 @@ namespace RestaurentManagement.Views.Reports
             //
             LoadNumBill(startOfWeek, endOfWeek);
             //Chart
-            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(dt1, dt2, "Tuần");
-            DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(dt1, dt2, "Tuần");
+            DataTable BillSale = ReportController.Instance.ReportsBillSaleOfTime(startOfWeek, endOfWeek, "Tuần");
+            DataTable BillImport = ReportController.Instance.ReportsBillImportOfTime(startOfWeek, endOfWeek, "Tuần");
             ChartReportOfWeek(BillSale, BillImport, startOfWeek, endOfWeek);
             
             
@@ -238,6 +238,10 @@ namespace RestaurentManagement.Views.Reports
                 if (revenueByMonth.ContainsKey(month))
                 {
                     int profit = revenueByMonth[month] - totalExpense;
+                    if(profit < 0)
+                    {
+                        profit = 0;
+                    }
                     barDatasetProfit.DataPoints.Add(month, profit);
                 }
             }
@@ -294,6 +298,10 @@ namespace RestaurentManagement.Views.Reports
             foreach (var date in dailyRevenueDict.Keys)
             {
                 int dailyProfit = dailyRevenueDict[date] - (dailyExpenseDict.ContainsKey(date) ? dailyExpenseDict[date] : 0);
+                if (dailyProfit < 0)
+                {
+                    dailyProfit = 0;
+                }
                 barDatasetProfit.DataPoints.Add(date, dailyProfit);
             }
 
@@ -354,6 +362,10 @@ namespace RestaurentManagement.Views.Reports
                 int revenue = revenueByDate[date];
                 int expense = expenseByDate.ContainsKey(date) ? expenseByDate[date] : 0;
                 int profit = revenue - expense;
+                if(profit < 0)
+                {
+                    profit = 0;
+                }
                 barDatasetProfit.DataPoints.Add(date.ToString("dd/MM"), profit);
             }
 
@@ -373,7 +385,7 @@ namespace RestaurentManagement.Views.Reports
         void ChartReportOfToday(DataTable dtb1, DataTable dtb2, DateTime dt1, DateTime dt2)
         {
             charRevenue.Datasets.Clear();
-            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu ngày {dt1:dd/MM/yyyy}";
+            charRevenue.Title.Text = $"Thống kê doanh thu và chi tiêu ngày {dt1.ToString("dd/MM/yyyy")}";
 
             var barDatasetRevenue = new Guna.Charts.WinForms.GunaBarDataset();
             var barDatasetExpense = new Guna.Charts.WinForms.GunaBarDataset();
@@ -399,6 +411,10 @@ namespace RestaurentManagement.Views.Reports
 
      
             int profit = totalRevenue - totalExpense;
+            if(profit < 0)
+            {
+                profit = 0;
+            }
             barDatasetProfit.DataPoints.Add($"Ngày {dt1:dd/MM/yyyy}", profit);
 
            
@@ -422,7 +438,7 @@ namespace RestaurentManagement.Views.Reports
             chartHotFood.Series.Clear();
             chartHotFood.Titles.Clear();
             chartHotFood.ChartAreas.Clear();
-            chartHotFood.Titles.Add($"Top món ăn {dt1.ToString("dd/MM/yyyy")}");
+            chartHotFood.Titles.Add($"Top món ăn bán chạy");
             ChartArea chartArea = new ChartArea();
             chartHotFood.ChartAreas.Add(chartArea);
             Series series = new Series
@@ -471,7 +487,13 @@ namespace RestaurentManagement.Views.Reports
         {
             lbExpense.Text = $"{expense.ToString()} VNĐ";
             lbRevenue.Text = $"{revenue.ToString()} VNĐ";
-            lbProfit.Text = $"{(revenue - expense).ToString()} VNĐ";
+            int profit = revenue - expense;
+            if(profit < 0)
+            {
+                profit = 0;
+            }
+
+            lbProfit.Text = $"{profit.ToString()} VNĐ";
         }
 
 

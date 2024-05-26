@@ -507,8 +507,8 @@
             // 
             // txtFindStaff
             // 
-            this.txtFindStaff.BorderColor = System.Drawing.Color.Transparent;
-            this.txtFindStaff.BorderThickness = 0;
+            this.txtFindStaff.BorderColor = System.Drawing.Color.DarkGray;
+            this.txtFindStaff.BorderRadius = 10;
             this.txtFindStaff.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFindStaff.DefaultText = "";
             this.txtFindStaff.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -520,7 +520,7 @@
             this.txtFindStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFindStaff.ForeColor = System.Drawing.Color.Red;
             this.txtFindStaff.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtFindStaff.Location = new System.Drawing.Point(191, 55);
+            this.txtFindStaff.Location = new System.Drawing.Point(191, 64);
             this.txtFindStaff.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFindStaff.Name = "txtFindStaff";
             this.txtFindStaff.PasswordChar = '\0';
@@ -534,7 +534,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(40, 55);
+            this.label3.Location = new System.Drawing.Point(42, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 20);
             this.label3.TabIndex = 68;
@@ -544,7 +544,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(525, 764);
             this.Controls.Add(this.txtFindStaff);
             this.Controls.Add(this.label3);

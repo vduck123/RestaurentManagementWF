@@ -25,7 +25,6 @@ namespace RestaurentManagement.Views.Material
         private void EditMaterial_Load(object sender, EventArgs e)
         {
             GetData();
-            LoadCategory();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -43,7 +42,7 @@ namespace RestaurentManagement.Views.Material
                     ID = _ID,
                     Name = txtName.Text,
                     Quantity = Convert.ToInt32(txtQuantity.Value),
-                    CategoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString())
+                    Unit = txtUnit.Text
                 };
 
                 int rs = WarehouseController.Instance.UpdateItem(item);
@@ -73,19 +72,8 @@ namespace RestaurentManagement.Views.Material
             {
                 txtName.Text = item.Name;
                 txtQuantity.Value = item.Quantity;
-                cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(item.CategoryID);
+                txtUnit.Text = item.Unit;
             }
-        }
-
-        void LoadCategory()
-        {
-            List<string> listnameCategory = new List<string>();
-            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
-            foreach (FoodCategory category in foodCategories)
-            {
-                listnameCategory.Add(category.Name);
-            }
-            cbbCategory.DataSource = listnameCategory;
         }
 
     }

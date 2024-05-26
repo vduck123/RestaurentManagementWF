@@ -100,6 +100,7 @@
             // txtAddress
             // 
             this.txtAddress.BorderColor = System.Drawing.Color.Transparent;
+            this.txtAddress.BorderRadius = 10;
             this.txtAddress.BorderThickness = 0;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
@@ -133,6 +134,7 @@
             // 
             // dtBirth
             // 
+            this.dtBirth.BorderRadius = 10;
             this.dtBirth.Checked = true;
             this.dtBirth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.dtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,6 +151,7 @@
             // 
             this.cbbGender.BackColor = System.Drawing.Color.Transparent;
             this.cbbGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.cbbGender.BorderRadius = 10;
             this.cbbGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGender.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -176,6 +179,7 @@
             // txtNameStaff
             // 
             this.txtNameStaff.BorderColor = System.Drawing.Color.Transparent;
+            this.txtNameStaff.BorderRadius = 10;
             this.txtNameStaff.BorderThickness = 0;
             this.txtNameStaff.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNameStaff.DefaultText = "";
@@ -261,6 +265,7 @@
             // txtPhone
             // 
             this.txtPhone.BorderColor = System.Drawing.Color.Transparent;
+            this.txtPhone.BorderRadius = 10;
             this.txtPhone.BorderThickness = 0;
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";
@@ -349,12 +354,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(480, 534);
             this.Controls.Add(this.btnHide);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateStaff_VIEW";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

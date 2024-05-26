@@ -13,7 +13,7 @@ namespace RestaurentManagement.Controllers
 {
     internal class TableController
     {
-        public static int tableWidth = 100;
+        public static int tableWidth = 120;
         public static int tableHeight = 80;
         public static Font FontMain = new Font("Segoe UI Historic",12);
         public static Color status0 = Color.Green;
@@ -119,7 +119,7 @@ namespace RestaurentManagement.Controllers
         public List<Table> GetListTable()
         {
             List<Table> tables = new List<Table>();
-            string query = "SELECT * FROM _Table";
+            string query = "SELECT * FROM _Table ORDER BY table_id";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
             {

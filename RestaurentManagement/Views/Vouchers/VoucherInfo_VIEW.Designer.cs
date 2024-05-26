@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VoucherInfo_VIEW));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -66,21 +67,23 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(201, 48);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(205, 78);
             // 
             // EditVoucher
             // 
             this.EditVoucher.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EditVoucher.Image = ((System.Drawing.Image)(resources.GetObject("EditVoucher.Image")));
             this.EditVoucher.Name = "EditVoucher";
-            this.EditVoucher.Size = new System.Drawing.Size(200, 22);
+            this.EditVoucher.Size = new System.Drawing.Size(204, 26);
             this.EditVoucher.Text = "Sửa phiếu giảm giá";
             this.EditVoucher.Click += new System.EventHandler(this.EditVoucher_Click);
             // 
             // DelSalary
             // 
             this.DelSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DelSalary.Image = ((System.Drawing.Image)(resources.GetObject("DelSalary.Image")));
             this.DelSalary.Name = "DelSalary";
-            this.DelSalary.Size = new System.Drawing.Size(200, 22);
+            this.DelSalary.Size = new System.Drawing.Size(204, 26);
             this.DelSalary.Text = "Xóa phiếu giảm giá";
             this.DelSalary.Click += new System.EventHandler(this.DelSalary_Click);
             // 
@@ -113,10 +116,12 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
             this.btnAdd.Location = new System.Drawing.Point(606, 29);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(221, 38);
+            this.btnAdd.Size = new System.Drawing.Size(184, 38);
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "Thêm phiếu giảm giá";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -281,9 +286,9 @@
             this.btnOnAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btnOnAll.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOnAll.ForeColor = System.Drawing.Color.White;
-            this.btnOnAll.Location = new System.Drawing.Point(932, 2);
+            this.btnOnAll.Location = new System.Drawing.Point(808, 31);
             this.btnOnAll.Name = "btnOnAll";
-            this.btnOnAll.Size = new System.Drawing.Size(127, 36);
+            this.btnOnAll.Size = new System.Drawing.Size(127, 34);
             this.btnOnAll.TabIndex = 41;
             this.btnOnAll.Text = "Bật tất cả";
             this.btnOnAll.Click += new System.EventHandler(this.btnOnAll_Click);
@@ -298,7 +303,7 @@
             this.btnOffAll.FillColor = System.Drawing.Color.Red;
             this.btnOffAll.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOffAll.ForeColor = System.Drawing.Color.Black;
-            this.btnOffAll.Location = new System.Drawing.Point(932, 44);
+            this.btnOffAll.Location = new System.Drawing.Point(941, 31);
             this.btnOffAll.Name = "btnOffAll";
             this.btnOffAll.Size = new System.Drawing.Size(127, 32);
             this.btnOffAll.TabIndex = 42;

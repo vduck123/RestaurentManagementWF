@@ -37,5 +37,11 @@ namespace RestaurentManagement.Views
         {
             Context.Instance.GetFakeBillSale(Convert.ToInt32(txtQuantity.Text));    
         }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

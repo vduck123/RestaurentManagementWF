@@ -1,4 +1,5 @@
-﻿using RestaurentManagement.Controllers;
+﻿using iTextSharp.text;
+using RestaurentManagement.Controllers;
 using RestaurentManagement.Models;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace RestaurentManagement.Views.Billmports
 {
     public partial class AddBillImport : Form
     {
-        string _ID_Material = null;
+        
         string _billImportID = null;
         string _nameStaff = null;
         MainForm mf = new MainForm();
@@ -33,6 +34,12 @@ namespace RestaurentManagement.Views.Billmports
             if(txtQuantity.Value <= 0 || txtPrice.Value <= 0) 
             {
                 mf.NotifyErr("Vui lòng nhập số lớn hơn 0");
+                return;
+            }
+
+            if(txtUnit.Text.Equals("Đơn vị"))
+            {
+                mf.NotifyErr("Vui lòng nhập đơn vị tính");
                 return;
             }
 
@@ -64,6 +71,7 @@ namespace RestaurentManagement.Views.Billmports
                 ItemID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
                 Price = Convert.ToInt32(txtPrice.Value),
                 Quantity = Convert.ToInt32(txtQuantity.Value),
+                Unit = txtUnit.Text,
                 TotalMoney = Convert.ToInt32(txtSum.Text),
                 BillID  = _billImportID,
             };
@@ -83,7 +91,7 @@ namespace RestaurentManagement.Views.Billmports
            if(rs2 > 0)
            {
                 BillImportController.Instance.UpdateTotalBillByID(_billImportID, Convert.ToInt32(txtTotalMoney.Text));
-                WarehouseController.Instance.UpdateQuantityItemByName(cbbMaterial.SelectedItem.ToString(), Convert.ToInt32(txtQuantity.Value));
+                WarehouseController.Instance.UpdateQuantityItemByName(cbbMaterial.SelectedItem.ToString(), "+", Convert.ToInt32(txtQuantity.Value));
                 mf.NotifySuss("Thêm hóa đơn thành công");
                 Refresh();
             }
@@ -124,14 +132,16 @@ namespace RestaurentManagement.Views.Billmports
 
 
         private DataGridViewRow rowSelected = null;
+        string _ID_Material = null;
+        int _numMaterial = 0;
         private void dgvBilImportInfo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 rowSelected = dgvBilImportInfo.Rows[e.RowIndex];
-            }
-
-            _ID_Material = WarehouseController.Instance.GetIDItemByName(rowSelected.Cells[0].Value.ToString());
+                _ID_Material = WarehouseController.Instance.GetIDItemByName(rowSelected.Cells[0].Value.ToString());
+                _numMaterial = Convert.ToInt32(rowSelected.Cells[2].Value);
+            } 
         }
 
         private void xóaNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,12 +152,68 @@ namespace RestaurentManagement.Views.Billmports
             }
             int rs = BillImportInfoController.Instance.DeleteBillImportInfoByMaterialID(_ID_Material, _billImportID);
             if(rs > 0)
-            {          
+            {
+                WarehouseController.Instance.UpdateQuantityItemByName(WarehouseController.Instance.GetNameItemByID(_ID_Material), "-", _numMaterial);
                 Refresh();
                 BillImportController.Instance.UpdateTotalBillByID(_billImportID, Convert.ToInt32(txtTotalMoney.Text));
             }
 
         }
+
+        private void txtMaterial_TextChanged(object sender, EventArgs e)
+        {
+            if (txtMaterial.Text.Length == 0)
+            {
+                LoadMaterial();
+            }
+        }
+
+        private void txtPrice_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtQuantity.Value > 0 && txtPrice.Value > 0)
+            {
+                txtSum.Text = Convert.ToString(txtQuantity.Value * txtPrice.Value);
+            }
+            else
+            {
+                txtSum.Text = "0";
+            }
+        }
+
+        private void txtQuantity_ValueChanged_1(object sender, EventArgs e)
+        {
+            if (txtQuantity.Value > 0 && txtPrice.Value > 0)
+            {
+                txtSum.Text = Convert.ToString(txtQuantity.Value * txtPrice.Value);
+            }
+            else
+            {
+                txtSum.Text = "0";
+            }
+        }
+
+        private void cbbMaterial_SelectedValueChanged(object sender, EventArgs e)
+        {
+            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
+            foreach (Warehouse material in listMaterial)
+            {
+                if (cbbMaterial.SelectedValue.ToString().Equals(material.Name))
+                {
+                    txtUnit.Text = material.Unit;
+                }
+            }
+        }
+
+        private void btnExportBill_Click(object sender, EventArgs e)
+        {
+            NotifyBill.NotifyBillImport view = new NotifyBill.NotifyBillImport(_nameStaff, cbbSupplier.SelectedItem.ToString(), _billImportID);
+            if (view.ShowDialog() == DialogResult.OK)
+            {
+                this.Close();
+            }
+        }
+
+
 
         void LoadData()
         {
@@ -223,6 +289,16 @@ namespace RestaurentManagement.Views.Billmports
             
         }
 
+        void ResetDgvBillImport()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Nguyên liệu");
+            dt.Columns.Add("Giá cả");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Thành tiền");
+            dgvBilImportInfo.DataSource = dt;
+        }
+
         void LoadTotalBill(string id)
         {
             txtTotalMoney.Text = CalcTotalBill(id).ToString();
@@ -245,39 +321,6 @@ namespace RestaurentManagement.Views.Billmports
             }
 
             return total;
-        }
-
-
-        private void txtMaterial_TextChanged(object sender, EventArgs e)
-        {
-            if(txtMaterial.Text.Length == 0)
-            {
-                LoadMaterial();
-            }
-        }
-
-        private void txtPrice_ValueChanged(object sender, EventArgs e)
-        {
-            if (txtQuantity.Value > 0 && txtPrice.Value > 0)
-            {
-                txtSum.Text = Convert.ToString(txtQuantity.Value * txtPrice.Value);
-            }
-            else
-            {
-                txtSum.Text = "0";
-            }
-        }
-
-        private void txtQuantity_ValueChanged_1(object sender, EventArgs e)
-        {
-            if (txtQuantity.Value > 0 && txtPrice.Value > 0)
-            {
-                txtSum.Text = Convert.ToString(txtQuantity.Value * txtPrice.Value);
-            }
-            else
-            {
-                txtSum.Text = "0";
-            }
         }
     }
 }

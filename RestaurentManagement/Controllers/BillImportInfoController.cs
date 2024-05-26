@@ -27,13 +27,14 @@ namespace RestaurentManagement.Controllers
         public int InsertBillImportInfor(BillImportInfo billImportInfo)
         {
             string query = @"INSERT INTO DetailBillOfImport
-                              VALUES (@id,@item_id,@price,@quantity,@totalmoney,@idBill)";
+                              VALUES (@id,@item_id,@price,@quantity,@unit,@totalmoney,@idBill)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", billImportInfo.ID } ,
                 {"@item_id", billImportInfo.ItemID } ,
                 {"@price", billImportInfo.Price } ,
                 {"@quantity", billImportInfo.Quantity } ,
+                {"@unit", billImportInfo.Unit },
                 {"@totalmoney", billImportInfo.TotalMoney } ,
                 {"@idBill", billImportInfo.BillID } 
             };
@@ -45,9 +46,10 @@ namespace RestaurentManagement.Controllers
         public int UpdateBillImportInfo(BillImportInfo billImportInfo)
         {
             string query = @"UPDATE dbo.DetailBillOfImport
-                            SET item_id = @item_id ,
+                            SET material_id = @item_id ,
                                 price = @price ,
                                 quantity = @quantity ,
+                                unit = @unit ,
 	                            total_money = @totalmoney
                                 WHERE dboImport_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
@@ -56,6 +58,7 @@ namespace RestaurentManagement.Controllers
                 {"@item_id" , billImportInfo.ItemID } ,
                 {"@price", billImportInfo.Price } ,
                 {"@quantity", billImportInfo.Quantity } ,
+                {"@unit", billImportInfo.Unit },
                 {"@totalmoney", billImportInfo.TotalMoney } 
             };
 
@@ -78,7 +81,7 @@ namespace RestaurentManagement.Controllers
 
         public int DeleteBillImportInfoByMaterialID(string idItem, string idBill)
         {
-            string query = @"DELETE FROM DetailBillOfImport WHERE item_id = @iditem AND boImport_id = @idbill ";
+            string query = @"DELETE FROM DetailBillOfImport WHERE material_id = @iditem AND boImport_id = @idbill ";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@iditem", idItem },
@@ -142,7 +145,7 @@ namespace RestaurentManagement.Controllers
         {
             List<BillImportInfo> list = new List<BillImportInfo>();
 
-            string query = $"SELECT * FROM DetailBillOfImport WHERE item_id = '{iditem}' AND boImport_id = '{idBill}'";
+            string query = $"SELECT * FROM DetailBillOfImport WHERE material_id = '{iditem}' AND boImport_id = '{idBill}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -183,7 +186,7 @@ namespace RestaurentManagement.Controllers
         {
             string query = $@"UPDATE dbo.DetailBillOfImport
                               SET quantity = quantity + @quantity
-                              WHERE item_id = @id";
+                              WHERE material_id = @id";
 
             string query2 = @"UPDATE dbo.DetailBillOfImport
                               SET total_money = quantity * price";
@@ -204,7 +207,7 @@ namespace RestaurentManagement.Controllers
             string query = $@"UPDATE dbo.DetailBillOfImport
                               SET quantity = @quantity ,
                                   price = @price
-                              WHERE item_id = @itemid AND boImport_id = @idBill";
+                              WHERE material_id = @itemid AND boImport_id = @idBill";
 
             string query2 = @"UPDATE dbo.DetailBillOfImport
                               SET total_money = quantity * price";

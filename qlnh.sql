@@ -6,57 +6,8 @@ GO
 USE RestaurantManagement
 GO
 
-INSERT INTO dbo.Account
-(
-    acc_id,
-    username,
-    password,
-    role
-)
-VALUES
-(   '0', -- acc_id - char(10)
-    'admin', -- username - char(30)
-    '1', -- password - char(30)
-    N'Quản trị viên' -- role - nvarchar(30)
-    )
 
-INSERT INTO dbo.Staff
-(
-    staff_id,
-    staff_name,
-    gender,
-    birth,
-    address,
-    phone,
-    acc_id
-)
-VALUES
-(   '0',        -- staff_id - char(10)
-    N'Cao Việt',       -- staff_name - nvarchar(30)
-    N'Nam',       -- gender - nvarchar(5)
-    GETDATE(), -- birth - date
-    N'Hải Dương',       -- address - nvarchar(30)
-    '0388036937',        -- phone - char(11)
-    '0'         -- acc_id - char(10)
-    )
-	SELECT MONTH(dayOut) AS [Tháng],
-                                    ISNULL(SUM(totalMoney), 0) AS [Tổng thu]
-                                    FROM BillOfSale
-                                    WHERE dayOut BETWEEN '' AND '{dt2}'
-                                    GROUP BY MONTH(dayOut)
-                                    ORDER BY Tháng
-
-	SELECT * FROM Account
-	SELECT * FROM Staff
-
-	SELECT COUNT(boSale_id)
-	FROM dbo.BillOfSale
-
-	SELECT COUNT(boImport_id)
-	FROM dbo.BillOfImport
-
-	DELETE FROM dbo.BillOfImport
-	DELETE FROM dbo.DetailBillOfImport
+--
 CREATE TABLE Account
 (
 	acc_id CHAR(10) PRIMARY KEY ,
@@ -107,31 +58,41 @@ CREATE TABLE Supplier
 )
 
 --
-CREATE TABLE FoodCategory
+CREATE TABLE Category
 (	
-	cgFood_id CHAR(10) PRIMARY KEY ,
-	cgFood_name NVARCHAR(50)  
+	category_id CHAR(10) PRIMARY KEY ,
+	category_name NVARCHAR(50)  
 )
 --
-CREATE TABLE Warehouse
+CREATE TABLE Material
 (
-	item_id CHAR(10) PRIMARY KEY ,
-	item_name NVARCHAR(30) ,
+	material_id CHAR(10) PRIMARY KEY ,
+	material_name NVARCHAR(30) ,
 	quantity INT ,
-	item_category CHAR(10) REFERENCES dbo.FoodCategory(cgFood_id)
+	unit NVARCHAR(20)
 );
-GO
+
+
+
 --
 CREATE TABLE Food
 (
 	food_id CHAR(10) PRIMARY KEY ,
 	food_name NVARCHAR(50) ,
 	food_price INT ,
+	unit NVARCHAR(20) ,
 	image IMAGE ,
-	item_id CHAR(10) REFERENCES dbo.Warehouse(item_id) ,
-	item_quantity INT ,
-	cgFood_id CHAR(10) REFERENCES FoodCategory(cgFood_id)
+	cgFood_id CHAR(10) REFERENCES Category(category_id)
 )
+--
+CREATE TABLE FoodMaterial
+(
+	material_id CHAR(10) REFERENCES dbo.Material(material_id) ,
+	quantity INT ,
+	unit NVARCHAR(10) ,
+	food_id CHAR(10) REFERENCES dbo.Food(food_id)
+)
+
 
 
 
@@ -144,17 +105,19 @@ CREATE TABLE BillOfImport
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	total_money INT 
 )
-SELECT * FROM dbo.BillOfImport
 --
 CREATE TABLE DetailBillOfImport
 (
 	dboImport_id CHAR(10) PRIMARY KEY ,
-	item_id CHAR(10) REFERENCES dbo.Warehouse(item_id) ,
+	material_id CHAR(10) REFERENCES dbo.Material(material_id) ,
 	price INT ,
 	quantity INT ,
+	unit NVARCHAR(20) ,
 	total_money INT ,
 	boImport_id CHAR(10) REFERENCES dbo.BillOfImport(boImport_id)
 )
+
+
 --
 CREATE TABLE Voucher
 (	
@@ -163,16 +126,7 @@ CREATE TABLE Voucher
 	voucher_expiry NVARCHAR(30) ,
 	status NVARCHAR(30)
 )
-
 --
-SELECT COUNT(boSale_id) AS [Số hóa đơn bán]
-FROM BillOfSale
-WHERE dayOut BETWEEN '1/1/2024' AND '12/31/2024'
-SELECT * FROM  BillOfSale
-SELECT COUNT(boImport_id) AS [Số hóa đơn nhập]
-FROM BillOfIMport
-WHERE dayOut BETWEEN AND
-
 CREATE TABLE BillOfSale 
 (
 	boSale_id CHAR(10) PRIMARY KEY ,
@@ -180,10 +134,13 @@ CREATE TABLE BillOfSale
 	dayOut DATETIME ,
 	voucher_id CHAR(10) REFERENCES dbo.Voucher(voucher_id) ,
 	totalMoney INT ,
+	customer NVARCHAR(100) ,
 	staff_id CHAR(10) REFERENCES dbo.Staff(staff_id) ,
 	table_id CHAR(10) REFERENCES dbo._Table(table_id)
 )
 --
+
+SELECT * FROM dbo.BillOfSale
 CREATE TABLE DetailBillOfSale
 (
 	dboSale_id CHAR(10) PRIMARY KEY,
@@ -193,7 +150,6 @@ CREATE TABLE DetailBillOfSale
 	food_total INT ,	
 	boSale_id CHAR(10) REFERENCES BillOfSale(boSale_id)
 )
-
 --
 CREATE TABLE Menu
 (
@@ -201,10 +157,10 @@ CREATE TABLE Menu
 	food_price INT ,
 	quantity INT ,
 	total INT ,
+	customer NVARCHAR(100),
 	table_id CHAR(10) REFERENCES dbo._TABLE(table_id)
 )
-
-
+--
 CREATE TABLE Infomation
 (
 	name NVARCHAR(255) ,
@@ -214,25 +170,59 @@ CREATE TABLE Infomation
 	time_close NVARCHAR(100) 
 )
 
-SELECT * FROM dbo.Account
-
+--
 INSERT INTO dbo.Infomation
 VALUES (N'Sileo Restaurant', N'Hải Dương', '0388036937', '6:00', '2:00')
 
 
+
 INSERT INTO _Table
-VALUES ('BA0001', N'Bàn ăn số 1', N'Trống'),
-('BA0002', N'Bàn ăn số 2', N'Trống'),
-('BA0003', N'Bàn ăn số 3', N'Trống'),
-('BA0004', N'Bàn ăn số 4', N'Trống'),
-('BA0005', N'Bàn ăn số 5', N'Trống'),
-('BA0006', N'Bàn ăn số 6', N'Trống'),
-('BA0007', N'Bàn ăn số 7', N'Trống'),
-('BA0008', N'Bàn ăn số 8', N'Trống'),
-('BA0009', N'Bàn ăn số 9', N'Trống'),
-('BA00010', N'Bàn ăn số 10', N'Trống')
-
-DELETE FROM BillOfImport
-DELETE FROM DetailBillOfImport
+VALUES ('BA0001', N'Bàn ăn 1', N'Trống'),
+('BA0002', N'Bàn ăn 2', N'Trống'),
+('BA0003', N'Bàn ăn 3', N'Trống'),
+('BA0004', N'Bàn ăn 4', N'Trống'),
+('BA0005', N'Bàn ăn 5', N'Trống'),
+('BA0006', N'Bàn ăn 6', N'Trống'),
+('BA0007', N'Bàn ăn 7', N'Trống'),
+('BA0008', N'Bàn ăn 8', N'Trống'),
+('BA0009', N'Bàn ăn 9', N'Trống'),
+('BA00010', N'Bàn ăn 10', N'Trống')
 
 
+INSERT INTO dbo.Account
+VALUES
+(   '000000', -- acc_id - char(10)
+    'admin@gmail.com', -- username - char(30)
+    '123456', -- password - char(30)
+    N'Quản trị viên' -- role - nvarchar(30)
+    )
+
+INSERT INTO dbo.Staff
+VALUES
+	(   '000000',        -- staff_id - char(10)
+	    N'Cao Việt',       -- staff_name - nvarchar(50)
+	    N'Nam',       -- gender - nvarchar(5)
+	    GETDATE(), -- birth - date
+	    N'Hải Dương',       -- address - nvarchar(50)
+	    '0388036937',        -- phone - char(11)
+	    '000000'         -- acc_id - char(10)
+	    )
+SELECT * FROM dbo.Staff
+
+	DELETE FROM dbo.Voucher
+INSERT INTO dbo.Voucher
+VALUES
+('PGG001',N'Khôngdùng', '0 %', N'Bật'),
+('PGG002','VIP-2', '12 %', N'Tắt'),
+('PGG003','VIP-3', '13 %', N'Tắt'),
+('PGG004','VIP-4', '14 %', N'Tắt'),
+('PGG005','VIP-5', '15 %', N'Tắt'),
+('PGG006','VIP-6', '16 %', N'Tắt'),
+('PGG007','VIP-7', '17 %', N'Tắt'),
+('PGG008','VIP-8', '18 %', N'Tắt'),
+('PGG009','VIP-9', '20 %', N'Tắt'),
+('PGG0010','S-VIP', '100 %', N'Tắt')
+
+SELECT ISNULL(SUM(totalMoney), 0) AS [Tổng thu]
+FROM dbo.BillOfSale
+WHERE CAST(dayIn AS DATE) = '2024-05-26';

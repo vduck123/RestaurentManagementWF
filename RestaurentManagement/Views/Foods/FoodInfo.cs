@@ -28,7 +28,7 @@ namespace RestaurentManagement.Views.Foods
 
         private void btnFind_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtParam.Text))
+            if (string.IsNullOrEmpty(txtParam.Text))
             {
                 mf.NotifyErr("Vui lòng nhập giá tri tìm kiếm");
                 return;
@@ -55,6 +55,16 @@ namespace RestaurentManagement.Views.Foods
             view.ShowDialog();
         }
 
+        private DataGridViewRow rowSelected = null;
+        private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                rowSelected = dgvFood.Rows[e.RowIndex];
+            }
+            _ID = rowSelected.Cells[0].Value.ToString();
+        }
+
         private void sửaMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (_ID == null)
@@ -69,25 +79,18 @@ namespace RestaurentManagement.Views.Foods
         private void xóaMónĂnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult qs = mf.NotifyConfirm($"Ấn OK để xác nhận xóa món ăn id = {_ID}");
-            if(qs == DialogResult.OK)
+            if (qs == DialogResult.OK)
             {
-                int rs = FoodController.Instance.DeleteFood(_ID);
-                if(rs == 1)
+                int rs = FoodMateialController.Instance.DeleteFoodMaterialByFoodId(_ID);
+                if (rs > 0 )
                 {
+                    FoodController.Instance.DeleteFood(_ID);
                     mf.NotifySuss("Xóa món ăn thành công");
                 }
             }
         }
 
-        private DataGridViewRow rowSelected = null;
-        private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                rowSelected = dgvFood.Rows[e.RowIndex];
-            }
-            _ID = rowSelected.Cells[0].Value.ToString();
-        }
+        
 
 
         void LoadData()
@@ -101,19 +104,26 @@ namespace RestaurentManagement.Views.Foods
             dgvFood.Columns.Clear();
             List<Food> foods = FoodController.Instance.GetListFood();
 
+
             DataTable dt = new DataTable();
             dt.Columns.Add("ID");
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Đơn vị");
             dt.Columns.Add("Nguyên liệu");
-            dt.Columns.Add("Số lượng NL");
             dt.Columns.Add("Loại món ăn");
             dt.Columns.Add("Hình ảnh", typeof(byte[]));
             foreach (Food f in foods)
             {
                 string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
-                string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
-                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category, f.imageFood);
+                string materialNeed = "";
+                List<FoodMaterial> listFoodMaterial = FoodMateialController.Instance.GetListFoodMaterialByFoodId(f.ID);
+                foreach (FoodMaterial fm in listFoodMaterial)
+                {
+                     materialNeed += $"[{WarehouseController.Instance.GetNameItemByID(fm.materialID)}, {fm.Quantity}] \n";
+                }
+
+                dt.Rows.Add(f.ID, f.Name, f.Price, f.Unit, $"{materialNeed}", category, f.imageFood);
             }
 
             dgvFood.RowTemplate.Height = 100;
@@ -132,7 +142,6 @@ namespace RestaurentManagement.Views.Foods
                 "Tìm kiếm theo mã" ,
                 "Tìm kiếm theo tên món ăn" ,
                 "Tìm kiếm theo giá bán" ,
-                "Tìm kiếm theo nguyên liệu" ,
                 "Tìm kiếm theo loại món ăn"
             };
 
@@ -155,15 +164,15 @@ namespace RestaurentManagement.Views.Foods
             dt.Columns.Add("ID");
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Đơn vị");
             dt.Columns.Add("Nguyên liệu");
-            dt.Columns.Add("Số lượng NL");
             dt.Columns.Add("Loại món ăn");
             dt.Columns.Add("Hình ảnh", typeof(byte[]));
             switch (option)
             {
                 case "Tìm kiếm theo mã":
                     {
-                        foods = FoodController.Instance.SelectFoodByParam("food_id", "=" , $"'{keyword}'");
+                        foods = FoodController.Instance.SelectFoodByParam("food_id", "=", $"'{keyword}'");
                         break;
                     }
                 case "Tìm kiếm theo tên món ăn":
@@ -176,11 +185,6 @@ namespace RestaurentManagement.Views.Foods
                         foods = FoodController.Instance.SelectFoodByParam("food_price", cbbOptionPrice.SelectedItem.ToString(), keyword);
                         break;
                     }
-                case "Tìm kiếm theo nguyên liệu":
-                    {
-                        foods = FoodController.Instance.SelectFoodByParam("item_id", "=", $"'{WarehouseController.Instance.GetIDItemByName(keyword)}'");
-                        break;
-                    }
                 case "Tìm kiếm theo loại món ăn":
                     {
                         foods = FoodController.Instance.SelectFoodByParam("cgFood_id", "=", $"N'{FoodCategoryController.Instance.GetIDCatgoryFoodByName(keyword)}'");
@@ -188,21 +192,26 @@ namespace RestaurentManagement.Views.Foods
                     }
             }
 
+            
             foreach (Food f in foods)
             {
                 string category = FoodCategoryController.Instance.GetNameCatgoryFoodByID(f.categoryID);
-                string material = WarehouseController.Instance.GetNameItemByID(f.materialID);
-                dt.Rows.Add(f.ID, f.Name, f.Price, material, f.numMaterial, category, f.imageFood);
-            }
+                string materialNeed = "";
+                List<FoodMaterial> listFoodMaterial = FoodMateialController.Instance.GetListFoodMaterialByFoodId(f.ID);
+                foreach (FoodMaterial fm in listFoodMaterial)
+                {
+                    materialNeed += $"[{WarehouseController.Instance.GetNameItemByID(fm.materialID)}, {fm.Quantity}] \n";
+                }
 
-            
+                dt.Rows.Add(f.ID, f.Name, f.Price, f.Unit, $"{materialNeed}", category, f.imageFood);
+            }
 
             return dt;
         }
 
         private void cbbOption_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cbbOption.SelectedValue.ToString().Equals("Tìm kiếm theo giá bán"))
+            if (cbbOption.SelectedValue.ToString().Equals("Tìm kiếm theo giá bán"))
             {
                 cbbOptionPrice.Visible = true;
             }
@@ -210,6 +219,12 @@ namespace RestaurentManagement.Views.Foods
             {
                 cbbOptionPrice.Visible = false;
             }
+        }
+
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            FoodCategory_VIEW view = new FoodCategory_VIEW();
+            view.ShowDialog();
         }
     }
 }

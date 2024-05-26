@@ -21,8 +21,8 @@ namespace RestaurentManagement.Models
 
         public FoodCategory(DataRow row)
         {
-            this.ID = row["cgFood_id"].ToString();
-            this.Name = row["cgFood_name"].ToString();
+            this.ID = row["category_id"].ToString();
+            this.Name = row["category_name"].ToString();
         }
 
         

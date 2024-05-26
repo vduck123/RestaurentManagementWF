@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Menu = RestaurentManagement.Models.Menu;
 using Table = RestaurentManagement.Models.Table;
 
@@ -66,8 +67,12 @@ namespace RestaurentManagement.Views
                     Width = TableController.tableWidth,
                     Height = TableController.tableHeight,
                     Text = table.Name + Environment.NewLine + table.Status,
+                    TextAlign = ContentAlignment.BottomCenter,
+                    Image = new Bitmap(Bitmap.FromFile(Application.StartupPath + "\\Resources\\table.png"), new Size(50, 50)),
+                    ImageAlign = ContentAlignment.TopCenter,
                     Font = TableController.FontMain,
                     Tag = table
+                    
                 };
 
 
@@ -144,10 +149,11 @@ namespace RestaurentManagement.Views
             DataTable dt = new DataTable();
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Giá bán");
+            dt.Columns.Add("Số lượng");
             dt.Columns.Add("Hình ảnh", typeof(byte[]));
             foreach (Food f in foods)
             {
-                dt.Rows.Add(f.Name, f.Price, f.imageFood);
+                dt.Rows.Add(f.Name, f.Price, f.Unit, f.imageFood);
             }
 
             dgvFood.RowTemplate.Height = 70;

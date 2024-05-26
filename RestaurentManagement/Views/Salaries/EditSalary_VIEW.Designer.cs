@@ -113,6 +113,7 @@
             // txtStaff
             // 
             this.txtStaff.BorderColor = System.Drawing.Color.Transparent;
+            this.txtStaff.BorderRadius = 6;
             this.txtStaff.BorderThickness = 0;
             this.txtStaff.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtStaff.DefaultText = "Tên nhân viên";
@@ -508,7 +509,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(528, 699);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);

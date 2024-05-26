@@ -12,24 +12,25 @@ namespace RestaurentManagement.Models
         public string ID { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
-        public string CategoryID { get; set; }
+
+        public string Unit { get; set; }
 
         public Warehouse() { }
 
-        public Warehouse(string iD, string name, int quantity, string categoryID)
+        public Warehouse(string iD, string name, int quantity, string unit)
         {
             ID = iD;
             Name = name;
             Quantity = quantity;
-            CategoryID = categoryID;
+            Unit = unit;
         }
 
         public Warehouse(DataRow row)
         {
-            ID = (string)row["item_id"];
-            Name = (string)row["item_name"];
+            ID = (string)row["material_id"];
+            Name = (string)row["material_name"];
             Quantity = (int)row["quantity"];
-            CategoryID = (string)row["item_category"];
+            Unit = (string)row["unit"];
         }
     }
 }

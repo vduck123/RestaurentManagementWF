@@ -28,14 +28,20 @@ namespace RestaurentManagement.Views.Employee
                 txtNameStaff.Text.Length < 6
                 )
             {
-                mf.NotifyErr("Tên nhân viên không hợp lê");
+                mf.NotifyErr("Tên nhân viên không hợp lê!");
+                return;
+            }
+
+            if(!HandleData.Instance.CheckEmail(txtUsername.Text))
+            {
+                mf.NotifyErr("Tài khoản nhân viên là một email!");
                 return;
             }
 
             if(string.IsNullOrEmpty(txtUsername.Text) || txtUsername.Text.Length < 5 ||
                 string.IsNullOrEmpty(txtPassword.Text) || txtPassword.Text.Length < 5) 
             {
-                mf.NotifyErr("Tài khoản và mật khẩu phải dài hơn 5 kí tự");
+                mf.NotifyErr("Tài khoản và mật khẩu phải dài hơn 5 kí tự!");
                 return;
             }
 

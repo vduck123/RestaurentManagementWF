@@ -209,7 +209,7 @@ namespace RestaurentManagement.Controllers
                     {
                         query = $@"SELECT ISNULL(SUM(totalMoney),0) AS [Tổng thu]
                                 FROM dbo.BillOfSale
-                                WHERE dayIn BETWEEN '{dt1.ToShortDateString()}' AND '{dt2.ToShortDateString()}'"; ;
+                                WHERE CAST(dayIn AS DATE) = '{dt1.ToString("yyyy/MM/dd")}'"; 
                         break;
                     }
                 case "Mốc":

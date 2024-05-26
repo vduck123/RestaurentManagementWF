@@ -56,6 +56,7 @@ namespace RestaurentManagement.Views.NotifyBill
             {
                 return;
             }
+
             dgvListFoodOrder.Columns.Clear();
             List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);
             DataTable dt = new DataTable();
@@ -182,6 +183,12 @@ namespace RestaurentManagement.Views.NotifyBill
                             };
 
                             BillSaleInfoController.Instance.InsertBillSaleInfo(billSaleInfo);
+                            
+                            List<FoodMaterial> listFoodMaterial = FoodMateialController.Instance.GetListFoodMaterialByFoodId(FoodController.Instance.GetIDFoodByName(nameFood));
+                            foreach (FoodMaterial fm in listFoodMaterial)
+                            {
+                                int rs3 = WarehouseController.Instance.UpdateQuantityItemByName(WarehouseController.Instance.GetNameItemByID(fm.materialID), "-" ,fm.Quantity);
+                            }
                         }
                     }
                     mf.NotifySuss("Thanh toán hóa đơn thành công !");

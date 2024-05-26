@@ -23,24 +23,29 @@ namespace RestaurentManagement.Views.Foods
             _ID = id;
         }
 
+        private void EditFood_Load(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtFoodName.Text) ||
-                string.IsNullOrEmpty(txtImage.Text))
+                string.IsNullOrEmpty(txtImage.Text) ||
+                string.IsNullOrEmpty(txtUnitFood.Text))
             {
-                mf.NotifyErr("Vui lòng nhập đầy đủ thông tin");
+                mf.NotifyErr("Các trường thông tin không được để trống !");
                 return;
             }
             DialogResult qs = mf.NotifyConfirm("Ấn Ok xác nhận thay đổi thông tin");
-            if(qs == DialogResult.OK)
+            if (qs == DialogResult.OK)
             {
                 Food f = new Food()
                 {
                     ID = _ID,
                     Name = txtFoodName.Text,
                     Price = Convert.ToInt32(txtPrice.Value),
-                    materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
-                    numMaterial = Convert.ToInt32(txtNumMaterial.Value),
+                    Unit = txtUnitFood.Text,
                     categoryID = FoodCategoryController.Instance.GetIDCatgoryFoodByName(cbbCategory.SelectedItem.ToString()),
                     imageFood = ConvertImgToByte(txtImage.Text)
                 };
@@ -54,73 +59,29 @@ namespace RestaurentManagement.Views.Foods
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        DataGridViewRow rowFoodMaterialSelected = null;
+        string _IdMaterial = null;
+        private void dgvFoodMaterial_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Close();
+            if (dgvFoodMaterial.Rows.Count > 0)
+            {
+                rowFoodMaterialSelected = dgvFoodMaterial.Rows[e.RowIndex];
+                _IdMaterial = WarehouseController.Instance.GetIDItemByName(rowFoodMaterialSelected.Cells[0].Value.ToString());
+            }
         }
 
-        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        private void xóaNguyênLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void EditFood_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        void LoadData()
-        {
-            GetData();
-            LoadMaterial();
-            LoadCategory();
-        }
-
-        void GetData()
-        {
-            if(_ID == null) 
+            if (_IdMaterial == null)
             {
                 return;
             }
 
-            List<Food> listFood = FoodController.Instance.SelectFoodByParam("food_id", "=", $"'{_ID}'");
-            foreach (Food food in listFood)
+            int rs = FoodMateialController.Instance.DeleteFoodMaterial(_IdMaterial, _ID);
+            if (rs > 0)
             {
-                cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(food.categoryID);
-                txtFoodName.Text = food.Name;
-                txtPrice.Value = Convert.ToInt32(food.Price);
-                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;       
-                if (food.imageFood != null)
-                {
-                    picture.Image = ByteArrayToImage(food.imageFood);
-                    picture.SizeMode = PictureBoxSizeMode.Zoom;
-                }
-                cbbMaterial.SelectedItem = WarehouseController.Instance.GetNameItemByID(food.materialID);
-                txtNumMaterial.Value = Convert.ToInt32(food.numMaterial);
+                LoadFoodMaterial(_ID);
             }
-        }
-
-        void LoadCategory()
-        {
-            List<string> listnameCategory = new List<string>();
-            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
-            foreach(FoodCategory category in foodCategories)
-            {
-                listnameCategory.Add(category.Name);    
-            }
-            cbbCategory.DataSource = listnameCategory;
-        }
-
-        void LoadMaterial()
-        {
-            List<string> listNameMaterial = new List<string>();
-            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
-            foreach(Warehouse item in listMaterial)
-            {
-                listNameMaterial.Add(item.Name);    
-            }
-
-            cbbMaterial.DataSource = listNameMaterial;
         }
 
         private void btnChoosseImage_Click(object sender, EventArgs e)
@@ -136,6 +97,107 @@ namespace RestaurentManagement.Views.Foods
                 txtImage.Text = openFileDialog.FileName;
             }
         }
+
+        private void btnAddMaterial_Click(object sender, EventArgs e)
+        {
+            FoodMaterial fm = new FoodMaterial()
+            {
+                materialID = WarehouseController.Instance.GetIDItemByName(cbbMaterial.SelectedItem.ToString()),
+                Quantity = Convert.ToInt32(txtNumMaterial.Value),
+                Unit = txtUnitMaterial.Text,
+                foodID = _ID
+            };
+
+            int rs = FoodMateialController.Instance.InsertFoodMaterial(fm);
+            if (rs > 0)
+            {
+                LoadFoodMaterial(_ID);
+            }
+        }
+
+        private void cbbMaterial_SelectedValueChanged(object sender, EventArgs e)
+        {
+            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
+            foreach (Warehouse item in listMaterial)
+            {
+                if (cbbMaterial.SelectedValue.ToString().Equals(item.Name))
+                {
+                    txtUnitMaterial.Text = item.Unit;
+                }
+            }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
+
+
+        #region Method
+        void LoadData()
+        {
+            GetData();
+            LoadMaterial();
+            LoadCategory();
+            LoadFoodMaterial(_ID);
+        }
+
+        void GetData()
+        {
+            if (_ID == null)
+            {
+                return;
+            }
+
+            List<Food> listFood = FoodController.Instance.SelectFoodByParam("food_id", "=", $"'{_ID}'");
+            foreach (Food food in listFood)
+            {
+                cbbCategory.SelectedItem = FoodCategoryController.Instance.GetNameCatgoryFoodByID(food.categoryID);
+                txtFoodName.Text = food.Name;
+                txtPrice.Value = Convert.ToInt32(food.Price);
+                txtUnitFood.Text = food.Unit;
+                txtImage.Text = food.imageFood != null ? ConvertByteToImgPath(food.imageFood) : string.Empty;
+                if (food.imageFood != null)
+                {
+                    picture.Image = ByteArrayToImage(food.imageFood);
+                    picture.SizeMode = PictureBoxSizeMode.Zoom;
+                }
+
+            }
+        }
+
+
+        void LoadCategory()
+        {
+            List<string> listnameCategory = new List<string>();
+            List<FoodCategory> foodCategories = FoodCategoryController.Instance.GetListCategoryFood();
+            foreach (FoodCategory category in foodCategories)
+            {
+                listnameCategory.Add(category.Name);
+            }
+            cbbCategory.DataSource = listnameCategory;
+        }
+
+        void LoadMaterial()
+        {
+            List<string> listNameMaterial = new List<string>();
+            List<Warehouse> listMaterial = WarehouseController.Instance.GetListItem();
+            foreach (Warehouse item in listMaterial)
+            {
+                listNameMaterial.Add(item.Name);
+            }
+
+            cbbMaterial.DataSource = listNameMaterial;
+        }
+
+        
 
         private byte[] ConvertImgToByte(string path)
         {
@@ -156,10 +218,36 @@ namespace RestaurentManagement.Views.Foods
 
         private string ConvertByteToImgPath(byte[] byteArray)
         {
-            // If you need to get a path for some reason (like for a text field)
             string tempPath = Path.Combine(Path.GetTempPath(), "tempImage.jpg");
             File.WriteAllBytes(tempPath, byteArray);
             return tempPath;
         }
+
+        void LoadFoodMaterial(string idFood)
+        {
+            if (idFood == null)
+            {
+                return;
+            }
+            dgvFoodMaterial.Columns.Clear();
+            List<FoodMaterial> listFoodMaterial = FoodMateialController.Instance.GetListFoodMaterialByFoodId(idFood);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Tên nguyên liệu");
+            dt.Columns.Add("Số lượng");
+            dt.Columns.Add("Đơn vị tính");
+            foreach (FoodMaterial item in listFoodMaterial)
+            {
+                dt.Rows.Add(WarehouseController.Instance.GetNameItemByID(item.materialID), item.Quantity, item.Unit);
+            }
+
+            dgvFoodMaterial.DataSource = dt;
+
+        }
+
+
+
+        #endregion
+
+        
     }
 }

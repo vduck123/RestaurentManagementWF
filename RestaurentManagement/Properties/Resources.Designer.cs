@@ -63,6 +63,26 @@ namespace RestaurentManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _420140_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("420140-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_bill_line_icon_vector_png_image_6627852_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-bill-line-icon-vector-png-image_6627852-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap R__2__removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("R__2_-removebg-preview", resourceCulture);

@@ -29,7 +29,7 @@ namespace RestaurentManagement.Controllers
         public List<Food> GetListFood()
         {
             List<Food> listFood = new List<Food>();
-            string query = @"SELECT * FROM Food";
+            string query = @"SELECT * FROM Food ORDER BY food_name";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             foreach (DataRow dr in dt.Rows)
@@ -88,15 +88,14 @@ namespace RestaurentManagement.Controllers
         public int InsertFood(Food food)
         {
             string query = @"INSERT INTO Food
-                             VALUES (@id,@name,@price,@img,@material,@num,@category)";
+                             VALUES (@id,@name,@price,@unit,@img,@category)";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", food.ID},
                 {"@name", food.Name},
                 {"@price", food.Price},
+                {"@unit", food.Unit } ,
                 {"@img", food.imageFood},
-                {"@material", food.materialID},
-                {"@num", food.numMaterial},
                 {"@category", food.categoryID}
                 
             };
@@ -110,8 +109,7 @@ namespace RestaurentManagement.Controllers
             string query = @"UPDATE dbo.Food
 		                     SET food_name = @name ,
 			                    food_price = @price ,
-                                item_id = @material ,
-                                item_quantity = @num ,
+                                unit = @unit,
                                 cgFood_id = @category ,
                                 image = @img
 		                     WHERE food_id = @id";
@@ -120,8 +118,7 @@ namespace RestaurentManagement.Controllers
                 {"@id", food.ID},
                 {"@name", food.Name},
                 {"@price", food.Price},
-                {"@material", food.materialID},
-                {"@num", food.numMaterial},
+                {"@unit", food.Unit } ,
                 {"@category", food.categoryID},
                 {"@img", food.imageFood}
             };

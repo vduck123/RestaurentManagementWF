@@ -106,11 +106,11 @@ namespace RestaurentManagement.Views.Material
             dt.Columns.Add("ID");
             dt.Columns.Add("Tên hàng");
             dt.Columns.Add("Số lượng");
-            dt.Columns.Add("Loại hàng");
+            dt.Columns.Add("Đơn vị tính");
 
             foreach (Warehouse item in listItem)
             {
-                dt.Rows.Add(item.ID, item.Name, item.Quantity, FoodCategoryController.Instance.GetNameCatgoryFoodByID(item.CategoryID));
+                dt.Rows.Add(item.ID, item.Name, item.Quantity, item.Unit);
             }
 
             dgvMaterial.DataSource = dt;
@@ -123,7 +123,7 @@ namespace RestaurentManagement.Views.Material
                 "Tìm kiếm theo mã" ,
                 "Tìm kiếm theo tên" ,
                 "Tìm kiếm theo số lượng" ,
-                "Tìm kiếm theo loại"
+                "Tìm kiếm theo đơn vị tính" 
             };
             cbbOption.DataSource = options;
         }
@@ -141,19 +141,19 @@ namespace RestaurentManagement.Views.Material
             dt.Columns.Add("ID");
             dt.Columns.Add("Tên hàng");
             dt.Columns.Add("Số lượng");
-            dt.Columns.Add("Loại hàng");
+            dt.Columns.Add("Đơn vị tính");
 
 
             switch(option)
             {
                 case "Tìm kiếm theo mã":
                     {
-                        listItem = WarehouseController.Instance.SelectItemByParam("item_id", $"'{param}'", "=");
+                        listItem = WarehouseController.Instance.SelectItemByParam("material_id", $"'{param}'", "=");
                         break;
                     }
                 case "Tìm kiếm theo tên":
                     {
-                        listItem = WarehouseController.Instance.SelectItemByParam("item_name", $"N'%{param}%'", "LIKE");
+                        listItem = WarehouseController.Instance.SelectItemByParam("material_name", $"N'%{param}%'", "LIKE");
                         break;
                     }
                 case "Tìm kiếm theo số lượng":
@@ -161,9 +161,9 @@ namespace RestaurentManagement.Views.Material
                         listItem = WarehouseController.Instance.SelectItemByParam("quantity", param, opera);
                         break;
                     }
-                case "Tìm kiếm theo loại":
+                case "Tìm kiếm theo đơn vị tính":
                     {
-                        listItem = WarehouseController.Instance.SelectItemByParam("item_category", $"'{FoodCategoryController.Instance.GetIDCatgoryFoodByName(param)}'", "=");
+                        listItem = WarehouseController.Instance.SelectItemByParam("unit", $"N'%{param}%'", "LIKE");
                         break;
                     }
             }
@@ -171,7 +171,7 @@ namespace RestaurentManagement.Views.Material
 
             foreach (Warehouse item in listItem)
             {
-                dt.Rows.Add(item.ID, item.Name, item.Quantity, FoodCategoryController.Instance.GetNameCatgoryFoodByID(item.CategoryID));
+                dt.Rows.Add(item.ID, item.Name, item.Quantity, item.Unit);
             }
 
             dgvMaterial.DataSource = dt;

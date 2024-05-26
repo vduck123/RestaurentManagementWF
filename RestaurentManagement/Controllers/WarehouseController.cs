@@ -26,15 +26,15 @@ namespace RestaurentManagement.Controllers
 
         public int InsertItem(Warehouse item)
         {
-            string query = $@"INSERT INTO Warehouse 
-                              VALUES (@id,@name,@quantity,@categoryID)";
+            string query = $@"INSERT INTO Material
+                              VALUES (@id,@name,@quantity,@unit)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", item.ID},
                 {"@name", item.Name} ,
-                {"@quantity", item.Quantity} ,
-                {"@categoryID", item.CategoryID }
+                {"@quantity", item.Quantity},
+                {"@unit", item.Unit }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -43,18 +43,18 @@ namespace RestaurentManagement.Controllers
 
         public int UpdateItem(Warehouse item)
         {
-            string query = $@"UPDATE Warehouse 
-                              SET item_name = @name ,
+            string query = $@"UPDATE Material 
+                              SET material_name = @name ,
                                   quantity = @quantity ,
-                                  item_category = @category
-                              WHERE item_id = @id";
+                                    unit = @unit 
+                              WHERE material_id = @id";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", item.ID},
                 {"@name", item.Name} ,
-                {"@quantity", item.Quantity} ,
-                {"@category", item.CategoryID }
+                {"@quantity", item.Quantity},
+                {"@unit", item.Unit }
             };
 
             int data = DBHelper.Instance.ExecuteNonQuery(query, parameters);
@@ -63,7 +63,7 @@ namespace RestaurentManagement.Controllers
 
         public int DeleteItem(string id)
         {
-            string query = $@"DELETE FROM Warehouse WHERE item_id = @id";
+            string query = $@"DELETE FROM Material WHERE material_id = @id";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -78,7 +78,7 @@ namespace RestaurentManagement.Controllers
         {
             List<Warehouse> listItem = new List<Warehouse>();
 
-            string query = $"SELECT * FROM Warehouse WHERE item_id = '{id}'";
+            string query = $"SELECT * FROM Material WHERE material_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -95,7 +95,7 @@ namespace RestaurentManagement.Controllers
         {
             List<Warehouse> listItem = new List<Warehouse>();
 
-            string query = $"SELECT * FROM Warehouse WHERE {option} {opera} {param}";
+            string query = $"SELECT * FROM Material WHERE {option} {opera} {param}";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -113,7 +113,7 @@ namespace RestaurentManagement.Controllers
         {
             List<Warehouse> listItem = new List<Warehouse>();
 
-            string query = $"SELECT * FROM Warehouse";
+            string query = $"SELECT * FROM Material ORDER BY material_name";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
@@ -126,11 +126,11 @@ namespace RestaurentManagement.Controllers
             return listItem;
         }
 
-        public int UpdateQuantityItemByName(string name,int quantity)
+        public int UpdateQuantityItemByName(string name, string opera, int quantity)
         {
-            string query = $@"UPDATE Warehouse 
-                              SET quantity = quantity + @quantity 
-                              WHERE item_name = @name";
+            string query = $@"UPDATE Material 
+                              SET quantity = quantity {opera} @quantity 
+                              WHERE material_name = @name";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
@@ -142,17 +142,32 @@ namespace RestaurentManagement.Controllers
             return data;
         }
 
-        public string GetNameItemByID(string id)
+        public string GetUnitMaterialById(string id)
         {
-            string name = null;
+            string unit = null;
 
-            string query = $"SELECT * FROM Warehouse WHERE item_id = '{id}'";
+            string query = $"SELECT * FROM Material WHERE material_id = '{id}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
             foreach (DataRow row in dt.Rows)
             {
-                name = (string)row["item_name"];
+                unit = (string)row["unit"];
+            }
+            return unit;
+        }
+
+        public string GetNameItemByID(string id)
+        {
+            string name = null;
+
+            string query = $"SELECT * FROM Material WHERE material_id = '{id}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                name = (string)row["material_name"];
             }
             return name;
         }
@@ -161,27 +176,27 @@ namespace RestaurentManagement.Controllers
         {
             string id = null;
 
-            string query = $"SELECT * FROM Warehouse WHERE item_name = N'{name}'";
+            string query = $"SELECT * FROM Material WHERE material_name = N'{name}'";
 
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
 
             foreach (DataRow row in dt.Rows)
             {
-                id = (string)row["item_id"];
+                id = (string)row["material_id"];
             }
             return id;
         }
 
         public int GetOrderNumInList()
         {
-            string query = $"SELECT COUNT(item_id) FROM Warehouse";
+            string query = $"SELECT COUNT(material_id) FROM Material";
             int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
             return orderNum;
         }
 
         public int CheckExitItem(string itemID, string billId)
         {
-            string query = $"SELECT COUNT(*) FROM dbo.DetailBillOfImport WHERE item_id= N'{itemID}' AND boImport_id = N'{billId}'";
+            string query = $"SELECT COUNT(*) FROM dbo.DetailBillOfImport WHERE material_id= N'{itemID}' AND boImport_id = N'{billId}'";
             int data = DBHelper.Instance.ExecuteScalar(query);
             return data;
         }

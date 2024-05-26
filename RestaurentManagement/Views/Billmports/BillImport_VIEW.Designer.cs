@@ -85,6 +85,8 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
             this.btnAdd.Location = new System.Drawing.Point(707, 56);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(162, 36);
@@ -94,7 +96,8 @@
             // 
             // btnExcel
             // 
-            this.btnExcel.BackColor = System.Drawing.Color.Lime;
+            this.btnExcel.BackColor = System.Drawing.Color.White;
+            this.btnExcel.BorderRadius = 8;
             this.btnExcel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnExcel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnExcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -144,29 +147,32 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(211, 70);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(215, 104);
             // 
             // sửaHóaĐơnNhậpToolStripMenuItem
             // 
             this.sửaHóaĐơnNhậpToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sửaHóaĐơnNhậpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sửaHóaĐơnNhậpToolStripMenuItem.Image")));
             this.sửaHóaĐơnNhậpToolStripMenuItem.Name = "sửaHóaĐơnNhậpToolStripMenuItem";
-            this.sửaHóaĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.sửaHóaĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.sửaHóaĐơnNhậpToolStripMenuItem.Text = "Sửa hóa đơn nhập";
             this.sửaHóaĐơnNhậpToolStripMenuItem.Click += new System.EventHandler(this.sửaHóaĐơnNhậpToolStripMenuItem_Click);
             // 
             // xóaHóaĐơnNhậpToolStripMenuItem
             // 
             this.xóaHóaĐơnNhậpToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xóaHóaĐơnNhậpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaHóaĐơnNhậpToolStripMenuItem.Image")));
             this.xóaHóaĐơnNhậpToolStripMenuItem.Name = "xóaHóaĐơnNhậpToolStripMenuItem";
-            this.xóaHóaĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.xóaHóaĐơnNhậpToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.xóaHóaĐơnNhậpToolStripMenuItem.Text = "Xóa hóa đơn nhập";
             this.xóaHóaĐơnNhậpToolStripMenuItem.Click += new System.EventHandler(this.xóaHóaĐơnNhậpToolStripMenuItem_Click);
             // 
             // xemChiTiếtHóaĐơnToolStripMenuItem
             // 
             this.xemChiTiếtHóaĐơnToolStripMenuItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xemChiTiếtHóaĐơnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xemChiTiếtHóaĐơnToolStripMenuItem.Image")));
             this.xemChiTiếtHóaĐơnToolStripMenuItem.Name = "xemChiTiếtHóaĐơnToolStripMenuItem";
-            this.xemChiTiếtHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.xemChiTiếtHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.xemChiTiếtHóaĐơnToolStripMenuItem.Text = "Xem chi tiết hóa đơn";
             this.xemChiTiếtHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.xemChiTiếtHóaĐơnToolStripMenuItem_Click);
             // 
@@ -177,10 +183,10 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvBilImport.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBilImport.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -332,8 +338,10 @@
             // 
             // dtNext
             // 
+            this.dtNext.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dtNext.BorderRadius = 8;
             this.dtNext.Checked = true;
-            this.dtNext.FillColor = System.Drawing.Color.Gray;
+            this.dtNext.FillColor = System.Drawing.Color.Black;
             this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNext.ForeColor = System.Drawing.Color.White;
             this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -348,8 +356,10 @@
             // 
             // dtPrev
             // 
+            this.dtPrev.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dtPrev.BorderRadius = 8;
             this.dtPrev.Checked = true;
-            this.dtPrev.FillColor = System.Drawing.Color.DimGray;
+            this.dtPrev.FillColor = System.Drawing.Color.Black;
             this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPrev.ForeColor = System.Drawing.Color.White;
             this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;

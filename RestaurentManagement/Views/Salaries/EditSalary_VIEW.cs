@@ -72,7 +72,7 @@ namespace RestaurentManagement.Views.Salaries
                 return;
             }
             
-            List<Salary> listSalary = SalaryController.Instance.SelectSalaryByParam("salary_id", _ID);
+            List<Salary> listSalary = SalaryController.Instance.SelectSalaryByParam("salary_id", "=", $"'{StaffController.Instance.GetNameStaffByID(_ID)}'");
             foreach(Salary salary in listSalary)
             {
                 dtMonth.Value = Convert.ToDateTime(salary.Month);

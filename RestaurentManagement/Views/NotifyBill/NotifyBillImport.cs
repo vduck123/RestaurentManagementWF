@@ -23,6 +23,7 @@ namespace RestaurentManagement.Views.NotifyBill
             _nameStaff = nameStaff;
             _nameSupplier = nameSupplier;
             _idBill = idBill;
+            
         }
 
         private void NotifyBillImport_Load(object sender, EventArgs e)
@@ -76,6 +77,11 @@ namespace RestaurentManagement.Views.NotifyBill
         {
             PrintBillImport view = new PrintBillImport(_nameStaff, _nameSupplier, _idBill);
             view.ShowDialog();
+        }
+
+        private void guna2PictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

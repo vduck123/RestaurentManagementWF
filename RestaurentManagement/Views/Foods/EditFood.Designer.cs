@@ -42,6 +42,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.xóaNguyênLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddMaterial = new Guna.UI2.WinForms.Guna2GradientButton();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
@@ -72,21 +74,20 @@
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.xóaNguyênLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodMaterial)).BeginInit();
+            this.guna2ContextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumMaterial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).BeginInit();
-            this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BorderRadius = 10;
             this.btnUpdate.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnUpdate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -96,6 +97,7 @@
             this.btnUpdate.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.Location = new System.Drawing.Point(181, 726);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(118, 36);
@@ -237,6 +239,31 @@
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Visible = false;
+            // 
+            // guna2ContextMenuStrip1
+            // 
+            this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaNguyênLiệuToolStripMenuItem});
+            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
+            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
+            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(183, 28);
+            // 
+            // xóaNguyênLiệuToolStripMenuItem
+            // 
+            this.xóaNguyênLiệuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xóaNguyênLiệuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaNguyênLiệuToolStripMenuItem.Image")));
+            this.xóaNguyênLiệuToolStripMenuItem.Name = "xóaNguyênLiệuToolStripMenuItem";
+            this.xóaNguyênLiệuToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.xóaNguyênLiệuToolStripMenuItem.Text = "Xóa nguyên liệu";
+            this.xóaNguyênLiệuToolStripMenuItem.Click += new System.EventHandler(this.xóaNguyênLiệuToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -643,31 +670,6 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Loại món ăn:";
             // 
-            // guna2ContextMenuStrip1
-            // 
-            this.guna2ContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaNguyênLiệuToolStripMenuItem});
-            this.guna2ContextMenuStrip1.Name = "guna2ContextMenuStrip1";
-            this.guna2ContextMenuStrip1.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.ColorTable = null;
-            this.guna2ContextMenuStrip1.RenderStyle.RoundedEdges = true;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(183, 28);
-            // 
-            // xóaNguyênLiệuToolStripMenuItem
-            // 
-            this.xóaNguyênLiệuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xóaNguyênLiệuToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xóaNguyênLiệuToolStripMenuItem.Image")));
-            this.xóaNguyênLiệuToolStripMenuItem.Name = "xóaNguyênLiệuToolStripMenuItem";
-            this.xóaNguyênLiệuToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
-            this.xóaNguyênLiệuToolStripMenuItem.Text = "Xóa nguyên liệu";
-            this.xóaNguyênLiệuToolStripMenuItem.Click += new System.EventHandler(this.xóaNguyênLiệuToolStripMenuItem_Click);
-            // 
             // EditFood
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -694,6 +696,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodMaterial)).EndInit();
+            this.guna2ContextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumMaterial)).EndInit();
@@ -701,7 +704,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPrice)).EndInit();
-            this.guna2ContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

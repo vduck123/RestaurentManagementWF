@@ -57,7 +57,6 @@
             this.btnHide = new Guna.UI2.WinForms.Guna2Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -82,6 +81,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBonus)).BeginInit();
@@ -90,9 +90,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSalaryHour)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -117,7 +117,7 @@
             // txtNum
             // 
             this.txtNum.BackColor = System.Drawing.Color.Transparent;
-            this.txtNum.BorderRadius = 5;
+            this.txtNum.BorderRadius = 10;
             this.txtNum.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNum.DecimalPlaces = 1;
             this.txtNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -158,6 +158,7 @@
             // txtTotal
             // 
             this.txtTotal.BorderColor = System.Drawing.Color.Transparent;
+            this.txtTotal.BorderRadius = 10;
             this.txtTotal.BorderThickness = 0;
             this.txtTotal.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTotal.DefaultText = "0";
@@ -200,7 +201,7 @@
             // txtFine
             // 
             this.txtFine.BackColor = System.Drawing.Color.Transparent;
-            this.txtFine.BorderRadius = 5;
+            this.txtFine.BorderRadius = 10;
             this.txtFine.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFine.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFine.Location = new System.Drawing.Point(174, 410);
@@ -234,7 +235,7 @@
             // txtBonus
             // 
             this.txtBonus.BackColor = System.Drawing.Color.Transparent;
-            this.txtBonus.BorderRadius = 5;
+            this.txtBonus.BorderRadius = 10;
             this.txtBonus.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBonus.Location = new System.Drawing.Point(174, 357);
@@ -268,7 +269,7 @@
             // txtHsl
             // 
             this.txtHsl.BackColor = System.Drawing.Color.Transparent;
-            this.txtHsl.BorderRadius = 5;
+            this.txtHsl.BorderRadius = 10;
             this.txtHsl.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtHsl.DecimalPlaces = 2;
             this.txtHsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -290,6 +291,7 @@
             // 
             // dtMonth
             // 
+            this.dtMonth.BorderRadius = 10;
             this.dtMonth.Checked = true;
             this.dtMonth.CustomFormat = "dd/MM/yyyy";
             this.dtMonth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -306,7 +308,7 @@
             // txtSalaryBasic
             // 
             this.txtSalaryBasic.BackColor = System.Drawing.Color.Transparent;
-            this.txtSalaryBasic.BorderRadius = 5;
+            this.txtSalaryBasic.BorderRadius = 10;
             this.txtSalaryBasic.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSalaryBasic.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalaryBasic.Location = new System.Drawing.Point(174, 122);
@@ -323,7 +325,7 @@
             // txtSalaryHour
             // 
             this.txtSalaryHour.BackColor = System.Drawing.Color.Transparent;
-            this.txtSalaryHour.BorderRadius = 5;
+            this.txtSalaryHour.BorderRadius = 10;
             this.txtSalaryHour.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtSalaryHour.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalaryHour.Location = new System.Drawing.Point(174, 248);
@@ -471,20 +473,6 @@
             this.panel1.Size = new System.Drawing.Size(999, 36);
             this.panel1.TabIndex = 43;
             // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageRotate = 0F;
-            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClose.Location = new System.Drawing.Point(959, 6);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(28, 21);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnClose.TabIndex = 22;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -540,6 +528,7 @@
             // txtPassword
             // 
             this.txtPassword.BorderColor = System.Drawing.Color.Transparent;
+            this.txtPassword.BorderRadius = 10;
             this.txtPassword.BorderThickness = 0;
             this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPassword.DefaultText = "";
@@ -583,6 +572,7 @@
             // txtUsername
             // 
             this.txtUsername.BorderColor = System.Drawing.Color.Transparent;
+            this.txtUsername.BorderRadius = 10;
             this.txtUsername.BorderThickness = 0;
             this.txtUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtUsername.DefaultText = "";
@@ -634,6 +624,7 @@
             // txtAddress
             // 
             this.txtAddress.BorderColor = System.Drawing.Color.Transparent;
+            this.txtAddress.BorderRadius = 10;
             this.txtAddress.BorderThickness = 0;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
@@ -669,6 +660,7 @@
             // 
             this.cbbGender.BackColor = System.Drawing.Color.Transparent;
             this.cbbGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.cbbGender.BorderRadius = 10;
             this.cbbGender.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbbGender.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
@@ -688,16 +680,17 @@
             // dtBirth
             // 
             this.dtBirth.Animated = true;
+            this.dtBirth.BorderRadius = 10;
             this.dtBirth.Checked = true;
             this.dtBirth.CustomFormat = "dd/MM/yyyy";
             this.dtBirth.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.dtBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtBirth.Location = new System.Drawing.Point(110, 157);
+            this.dtBirth.Location = new System.Drawing.Point(127, 157);
             this.dtBirth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtBirth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtBirth.Name = "dtBirth";
-            this.dtBirth.Size = new System.Drawing.Size(274, 30);
+            this.dtBirth.Size = new System.Drawing.Size(257, 30);
             this.dtBirth.TabIndex = 23;
             this.dtBirth.Value = new System.DateTime(2024, 3, 17, 20, 29, 39, 488);
             // 
@@ -712,6 +705,7 @@
             // txtNameStaff
             // 
             this.txtNameStaff.BorderColor = System.Drawing.Color.Transparent;
+            this.txtNameStaff.BorderRadius = 10;
             this.txtNameStaff.BorderThickness = 0;
             this.txtNameStaff.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNameStaff.DefaultText = "";
@@ -773,6 +767,7 @@
             // txtPhone
             // 
             this.txtPhone.BorderColor = System.Drawing.Color.Transparent;
+            this.txtPhone.BorderRadius = 10;
             this.txtPhone.BorderThickness = 0;
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";
@@ -822,6 +817,20 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Giới tính:";
             // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageRotate = 0F;
+            this.btnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnClose.Location = new System.Drawing.Point(959, 6);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 21);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnClose.TabIndex = 22;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // AddStaff_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -848,11 +857,11 @@
             this.groupBox2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
 
         }

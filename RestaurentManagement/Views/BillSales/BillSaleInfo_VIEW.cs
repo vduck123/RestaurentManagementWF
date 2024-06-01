@@ -84,7 +84,7 @@ namespace RestaurentManagement.Views.BillSales
                 lbDt.Visible = true;
                 dtNext.Visible = true;
             }
-            else if (cbbOption.SelectedItem.ToString().Equals("Tìm kiếm theo tổng tiền"))
+            else if (cbbOption.SelectedItem.ToString().Equals("Tìm kiếm theo tổng hóa đơn"))
             {
                 cbbOpera.Visible = true;
             }
@@ -158,16 +158,12 @@ namespace RestaurentManagement.Views.BillSales
                         listBillSale = BillSaleController.Instance.GetBillSaleByParam("totalMoney", param, opera);
                         break;
                     }
-                case "Tìm kiếm theo khoảng thời gian vào":
+                case "Tìm kiếm theo khoảng thời gian":
                     {
                         listBillSale = BillSaleController.Instance.SelectBillSaleByTime("dayIn", dtPrev.Value, dtNext.Value);
                         break;
                     }
-                case "Tìm kiếm theo khoảng thời gian ra":
-                    {
-                        listBillSale = BillSaleController.Instance.SelectBillSaleByTime("dayOut", dtPrev.Value, dtNext.Value);
-                        break;
-                    }
+                
             }
 
 
@@ -175,8 +171,8 @@ namespace RestaurentManagement.Views.BillSales
             {
                 dt.Rows.Add(
                     billSale.Id,
-                    billSale.dayIn,
-                    billSale.dayOut,
+                    billSale.dayIn.ToString("dd/MM/yyyy hh:ss:mm"),
+                    billSale.dayOut.ToString("dd/MM/yyyy hh:ss:mm"),
                     VoucherController.Instance.GetExpiryById(billSale.voucherId),
                     billSale.totalMoney,
                     billSale.Customer,
@@ -210,8 +206,8 @@ namespace RestaurentManagement.Views.BillSales
             {
                 dt.Rows.Add(
                     billSale.Id,
-                    billSale.dayIn,
-                    billSale.dayOut,
+                    billSale.dayIn.ToString("dd/MM/yyyy hh:ss:mm"),
+                    billSale.dayOut.ToString("dd/MM/yyyy hh:ss:mm"),
                     VoucherController.Instance.GetExpiryById(billSale.voucherId),
                     billSale.totalMoney,
                     billSale.Customer,

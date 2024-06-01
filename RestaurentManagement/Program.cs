@@ -17,8 +17,8 @@ namespace RestaurentManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Admin_VIEW("admin@gmail.com"));
-
+            //Application.Run(new Login_VIEW());
+            Application.Run(new Login_VIEW());
         }
     }
 }

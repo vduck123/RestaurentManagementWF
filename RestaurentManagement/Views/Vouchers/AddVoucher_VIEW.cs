@@ -22,6 +22,18 @@ namespace RestaurentManagement.Views.Vouchers
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(txtName.Text))
+            {
+                mf.NotifyErr("Tên không hợp lệ");
+                return;
+            }
+
+            if(cbbOptionExpiry.SelectedItem == null || string.IsNullOrEmpty(cbbOptionExpiry.SelectedItem.ToString()))
+            {
+                mf.NotifyErr("Vui lòng chọn đơn vị tính");
+                return;
+            }
+
             DialogResult qs = mf.NotifyConfirm($"Chọn OK để thêm voucher {txtName.Text}");
             if(qs == DialogResult.OK)
             {

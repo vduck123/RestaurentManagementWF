@@ -34,6 +34,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FoodCategory_VIEW));
             this.dgvFoodCategory = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.btnDel = new Guna.UI2.WinForms.Guna2Button();
@@ -51,8 +53,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCategoryID = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoodCategory)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -127,8 +127,23 @@
             this.dgvFoodCategory.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvFoodCategory.Click += new System.EventHandler(this.dgvFood_Click);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã danh mục";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên danh mục";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel2.Controls.Add(this.btnSearch);
             this.panel2.Controls.Add(this.btnDel);
             this.panel2.Controls.Add(this.btnUpdate);
@@ -375,20 +390,6 @@
             this.label2.Size = new System.Drawing.Size(104, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Mã loại hàng:";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã danh mục";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên danh mục";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
             // 
             // FoodCategory_VIEW
             // 

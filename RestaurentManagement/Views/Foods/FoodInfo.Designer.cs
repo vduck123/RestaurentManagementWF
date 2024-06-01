@@ -36,13 +36,6 @@
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvFood = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
-            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCategory = new Guna.UI2.WinForms.Guna2Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +43,13 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
+            this.sửaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaMónĂnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbbOptionPrice = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCategory = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.guna2ContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -179,6 +179,58 @@
             this.dgvFood.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellClick);
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã món ăn";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Tên món ăn";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Giá bán";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Đơn vị";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Nguyên liệu yêu cầu";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Loại món ăn";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Hình ảnh";
+            this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // guna2ContextMenuStrip1
             // 
             this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -282,64 +334,13 @@
             this.btnCategory.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCategory.ForeColor = System.Drawing.Color.White;
-            this.btnCategory.Location = new System.Drawing.Point(908, 48);
+            this.btnCategory.Image = ((System.Drawing.Image)(resources.GetObject("btnCategory.Image")));
+            this.btnCategory.Location = new System.Drawing.Point(888, 48);
             this.btnCategory.Name = "btnCategory";
-            this.btnCategory.Size = new System.Drawing.Size(167, 36);
+            this.btnCategory.Size = new System.Drawing.Size(187, 36);
             this.btnCategory.TabIndex = 28;
-            this.btnCategory.Text = "Danh mục";
+            this.btnCategory.Text = "Danh mục món ăn";
             this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Mã món ăn";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Tên món ăn";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Giá bán";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Đơn vị";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Nguyên liệu yêu cầu";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Loại món ăn";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Hình ảnh";
-            this.Column7.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // FoodInfo
             // 

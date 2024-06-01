@@ -32,8 +32,15 @@ namespace RestaurentManagement.Views.Salaries
 
         private void btnFind_Click(object sender, EventArgs e)
         {
+            string opera = cbbOpera.SelectedItem == null ? null : cbbOpera.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
+            
             dgvSalary.Columns.Clear();
-            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
+            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), opera, txtParam.Text);
             dgvSalary.DataSource = dt;
         }  
 
@@ -80,7 +87,7 @@ namespace RestaurentManagement.Views.Salaries
             txtParam.ResetText();
         }
 
-        DataTable HandleSearch(string option, string keyword)
+        DataTable HandleSearch(string option, string opera, string keyword)
         {
             List<Salary> listSalary = new List<Salary>();
             DataTable dt = new DataTable();
@@ -95,28 +102,43 @@ namespace RestaurentManagement.Views.Salaries
             dt.Columns.Add("Tiền phạt");
             dt.Columns.Add("Tổng lương");
 
-            switch(option)
+            switch (option)
             {
                 case "Tìm kiếm theo mã":
                     {
-                        listSalary = SalaryController.Instance.SelectSalaryByParam("salary_id", keyword);
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("salary_id", "=", $"'{keyword}'");
                         break;
                     }
                 case "Tìm kiếm theo tên nhân viên":
                     {
-                        listSalary = SalaryController.Instance.SelectSalaryByParam("staff_id", keyword);
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("staff_id", "=", $"'{StaffController.Instance.GetIDStaffByName(keyword)}'");
                         break;
                     }
                 case "Tìm kiếm theo tháng":
                     {
-                        listSalary = SalaryController.Instance.SelectSalaryByParam("month", keyword);
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("MONTH(salary_month)", "=", keyword);
+                        break;
+                    }
+                case "Tìm kiếm theo lương cơ bản":
+                    {
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("salary_basic", opera , keyword);
+                        break;
+                    }
+                case "Tìm kiếm theo tổng lương":
+                    {
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("total", opera , keyword);
+                        break;
+                    }
+                case "Tìm kiếm theo mốc thời gian":
+                    {
+                        listSalary = SalaryController.Instance.SelectSalaryByParam("salary_month", "BETWEEN", $"'{dtPrev.Value}' AND '{dtNext.Value}'");
                         break;
                     }
             }
 
             foreach (Salary s in listSalary)
             {
-                dt.Rows.Add(s.ID, s.Month, StaffController.Instance.GetNameStaffByID(s.staffID), s.salaryBasic, s.hsl, s.salaryHour, s.numHour, s.Bonus, s.Fine, s.Total);
+                dt.Rows.Add(s.ID, s.Month.ToString("dd/MM/yyy"), StaffController.Instance.GetNameStaffByID(s.staffID), s.salaryBasic, s.hsl, s.salaryHour, s.numHour, s.Bonus, s.Fine, s.Total);
             }
 
             return dt;
@@ -146,7 +168,7 @@ namespace RestaurentManagement.Views.Salaries
 
             foreach (Salary s in listSalary)
             {
-                dt.Rows.Add(s.ID, s.Month.ToShortDateString(), StaffController.Instance.GetNameStaffByID(s.staffID), s.salaryBasic, s.hsl, s.salaryHour, s.numHour, s.Bonus, s.Fine, s.Total);
+                dt.Rows.Add(s.ID, s.Month.ToString("dd/MM/yyy"), StaffController.Instance.GetNameStaffByID(s.staffID), s.salaryBasic, s.hsl, s.salaryHour, s.numHour, s.Bonus, s.Fine, s.Total);
             }
 
             dgvSalary.DataSource = dt;
@@ -158,7 +180,10 @@ namespace RestaurentManagement.Views.Salaries
             {
                 "Tìm kiếm theo mã" ,
                 "Tìm kiếm theo tên nhân viên" ,
-                "Tìm kiếm theo tháng" 
+                "Tìm kiếm theo tháng" ,
+                "Tìm kiếm theo mốc thời gian" ,
+                "Tìm kiếm theo lương cơ bản" ,
+                "Tìm kiếm theo tổng lương" 
             };
 
             cbbOption.DataSource = options; 
@@ -193,11 +218,6 @@ namespace RestaurentManagement.Views.Salaries
             }
         }
 
-        public void ExportExcel(DataGridView dataGridView1, string fileName)
-        {
-            
-        }
-
         private void guna2PictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -208,7 +228,34 @@ namespace RestaurentManagement.Views.Salaries
             this.Hide();
         }
 
+        private void cbbOption_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cbbOption.SelectedItem.ToString().Contains("lương"))
+            {
+                cbbOpera.Visible = true;
+                dtNext.Visible = false;
+                dtPrev.Visible = false;
+                lbDt.Visible = false;
+            }
+            else if(cbbOption.SelectedItem.ToString().Contains("mốc thời gian"))
+            {
+                dtNext.Visible = true;
+                dtPrev.Visible = true;
+                lbDt.Visible = true;
+                cbbOpera.Visible = false;
+            }
+            else
+            {
+                cbbOpera.Visible = false;
+                dtNext.Visible = false;
+                dtPrev.Visible = false;
+                lbDt.Visible = false;
+            }
+        }
 
+        private void cbbOption_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -26,6 +26,8 @@ CREATE TABLE Staff
 	phone CHAR(11) ,
 	acc_id CHAR(10) REFERENCES Account(acc_id)
 )
+
+
 --
 CREATE TABLE Salary
 (
@@ -140,7 +142,6 @@ CREATE TABLE BillOfSale
 )
 --
 
-SELECT * FROM dbo.BillOfSale
 CREATE TABLE DetailBillOfSale
 (
 	dboSale_id CHAR(10) PRIMARY KEY,
@@ -191,21 +192,21 @@ VALUES ('BA0001', N'Bàn ăn 1', N'Trống'),
 
 INSERT INTO dbo.Account
 VALUES
-(   '000000', -- acc_id - char(10)
-    'admin@gmail.com', -- username - char(30)
-    '123456', -- password - char(30)
-    N'Quản trị viên' -- role - nvarchar(30)
+(   '000000',
+    'vcb.031024@gmail.com',
+    '123456',
+    N'Quản lý' 
     )
 
 INSERT INTO dbo.Staff
 VALUES
-	(   '000000',        -- staff_id - char(10)
-	    N'Cao Việt',       -- staff_name - nvarchar(50)
-	    N'Nam',       -- gender - nvarchar(5)
-	    GETDATE(), -- birth - date
-	    N'Hải Dương',       -- address - nvarchar(50)
-	    '0388036937',        -- phone - char(11)
-	    '000000'         -- acc_id - char(10)
+	(   '000000',      
+	    N'Cao Việt',    
+	    N'Nam',      
+	    GETDATE(),
+	    N'Hải Dương',    
+	    '0388036937',     
+	    '000000'     
 	    )
 SELECT * FROM dbo.Staff
 
@@ -222,7 +223,3 @@ VALUES
 ('PGG008','VIP-8', '18 %', N'Tắt'),
 ('PGG009','VIP-9', '20 %', N'Tắt'),
 ('PGG0010','S-VIP', '100 %', N'Tắt')
-
-SELECT ISNULL(SUM(totalMoney), 0) AS [Tổng thu]
-FROM dbo.BillOfSale
-WHERE CAST(dayIn AS DATE) = '2024-05-26';

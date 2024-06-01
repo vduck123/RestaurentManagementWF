@@ -30,10 +30,10 @@ namespace RestaurentManagement.utils
        
         public List<Supplier> FakerSupplier(int count)
         {
-            int idSup = 0;
+            string idSupp = $"NCC00{SupplierController.Instance.GetOrderNumInList()}";
             var supplierFaker = new Faker<Supplier>("vi")
                 .StrictMode(true)
-                .RuleFor(o => o.ID, f => $"NCC00{idSup++}")
+                .RuleFor(o => o.ID, f => idSupp)
                 .RuleFor(o => o.Name, f => $"{f.Name.FirstName()}{f.Random.String2(3)}")
                 .RuleFor(o => o.Address, f => f.Address.City())
                 .RuleFor(o => o.Phone, f => f.Phone.PhoneNumber("09########"))
@@ -44,7 +44,7 @@ namespace RestaurentManagement.utils
 
         public List<Account> FakeAccount(int count)
         {
-            int idAcc = AccountController.Instance.GetOrderNumInList();
+            int idAcc = AccountController.Instance.GetOrderNumInList() + 1;
             string role = "Nhân viên";
             var accFaker = new Faker<Account>("vi")
                 .StrictMode(true)
@@ -58,11 +58,11 @@ namespace RestaurentManagement.utils
 
         public List<Staff> FakeStaff(int quantity, List<Account> accounts)
         {
-            int idStaff = 0;
+            string idStaff = $"NV00{StaffController.Instance.GetOrderNumInList() + 1}";
             string[] gender = new string[] { "Nam", "Nữ" };
             var userFaker = new Faker<Staff>("vi")
                 .StrictMode(true)
-                .RuleFor(o => o.ID, f => $"NV000{idStaff++}")
+                .RuleFor(o => o.ID, f => idStaff)
                 .RuleFor(o => o.Name, f => $"{f.Name.LastName()} {f.Name.FirstName()}")
                 .RuleFor(o => o.Gender, f => f.PickRandom(gender))
                 .RuleFor(o => o.Birth, f => f.Date.Between(new DateTime(1995, 1, 1), new DateTime(2004, 12, 31)))
@@ -75,10 +75,10 @@ namespace RestaurentManagement.utils
         public List<Salary> FakeSalary(int quantity, List<Staff> users)
         {
          
-            int idSalary = 0;
+            string idSalary = $"BL00{SalaryController.Instance.GetOrderNumInList() + 1}";
             var salary = new Faker<Salary>("vi")
                 .StrictMode(true)
-                .RuleFor(o => o.ID, f => $"BL000{idSalary++}")
+                .RuleFor(o => o.ID, f => idSalary)
                 .RuleFor(o => o.Month, f => f.Date.Between(new DateTime(2023, 1, 1), new DateTime(2024, 5, 1)))
                 .RuleFor(o => o.salaryBasic, f => (random.Next(40, 50) / 10) * 1000000)
                 .RuleFor(o => o.hsl, f => (random.Next(150, 301) / 100.0))

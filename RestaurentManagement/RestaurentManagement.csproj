@@ -73,9 +73,6 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
-    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.0\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
@@ -190,6 +187,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RestaurantManagementDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Services\EmailService.cs" />
     <Compile Include="utils\CheckNum.cs" />
     <Compile Include="utils\Context.cs" />
     <Compile Include="utils\DBHelper.cs" />
@@ -238,6 +236,12 @@
     </Compile>
     <Compile Include="Views\Billmports\EditDetailBillImport.Designer.cs">
       <DependentUpon>EditDetailBillImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee\ReportBillByStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Employee\ReportBillByStaff.Designer.cs">
+      <DependentUpon>ReportBillByStaff.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\NotifyBill\NotifyBillImport.cs">
       <SubType>Form</SubType>
@@ -487,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Billmports\EditDetailBillImport.resx">
       <DependentUpon>EditDetailBillImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Employee\ReportBillByStaff.resx">
+      <DependentUpon>ReportBillByStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\NotifyBill\NotifyBillImport.resx">
       <DependentUpon>NotifyBillImport.cs</DependentUpon>

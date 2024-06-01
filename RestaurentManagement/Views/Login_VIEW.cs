@@ -20,6 +20,10 @@ namespace RestaurentManagement.Views
         {
             InitializeComponent();
         }
+        private void Login_VIEW_Load(object sender, EventArgs e)
+        {
+            LoadRole();
+        }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -46,20 +50,24 @@ namespace RestaurentManagement.Views
 
             foreach (_Account acc in accounts)
             {
-                
-                if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Quản trị viên"))
+
+                if(acc.User.Trim().Equals(user) && acc.Password.Trim().Equals(pass))
                 {
-                    find = true;
-                    this.Hide();
-                    Admin_VIEW admin_VIEW = new Admin_VIEW(user);
-                    admin_VIEW.ShowDialog();
-                } 
-                else if(acc.User.Contains(user) && acc.Password.Contains(pass) && role.Contains("Nhân viên"))
-                {
-                    find = true;
-                    this.Hide();
-                    FrmStaff_VIEW view = new FrmStaff_VIEW(user);
-                    view.ShowDialog();
+                    if(role.Equals("Quản lý") && acc.Role.Equals(role))
+                    {
+                        find = true;
+                        this.Hide();
+                        Admin_VIEW admin_VIEW = new Admin_VIEW(user);
+                        admin_VIEW.ShowDialog();
+                    }
+                    else if(acc.Role.Equals(role))
+                    {
+                        find = true;
+                        this.Hide();
+                        FrmStaff_VIEW view = new FrmStaff_VIEW(user);
+                        view.ShowDialog();
+                    }
+                    
                 }
             }
 
@@ -82,11 +90,6 @@ namespace RestaurentManagement.Views
             forgetPassword_VIEW.ShowDialog();
         }
 
-
-        private void cbbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2PictureBox5_Click(object sender, EventArgs e)
         {
@@ -117,5 +120,21 @@ namespace RestaurentManagement.Views
                 ttNotify.Text = "Hello";
             }
         }
+
+
+        void LoadRole()
+        {
+            List<string> listRole = new List<string>();
+            List<_Account> accounts = AccountController.Instance.GetListAccount();
+            foreach (_Account acc in accounts)
+            {
+                if (!listRole.Contains(acc.Role))
+                {
+                    listRole.Add(acc.Role);
+                }
+            }
+            cbbRole.DataSource = listRole;
+        }
+
     }
 }

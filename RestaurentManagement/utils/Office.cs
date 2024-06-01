@@ -6,8 +6,6 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 
 namespace RestaurentManagement.utils
 {
@@ -54,43 +52,6 @@ namespace RestaurentManagement.utils
                 }
                 FileInfo fileInfo = new FileInfo(fileName);
                 package.SaveAs(fileInfo);
-            }
-        }
-
-        public void ExportPdf(DataGridView dataGridView1, string fileName)
-        {
-            Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
-
-            try
-            {
-                PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create));
-
-                doc.Open();
-
-                PdfPTable pdfTable = new PdfPTable(dataGridView1.ColumnCount);
-
-                for (int i = 0; i < dataGridView1.ColumnCount; i++)
-                {
-                    pdfTable.AddCell(dataGridView1.Columns[i].HeaderText);
-                }
-
-                for (int row = 0; row < dataGridView1.Rows.Count; row++)
-                {
-                    for (int col = 0; col < dataGridView1.Columns.Count; col++)
-                    {
-                        pdfTable.AddCell(dataGridView1.Rows[row].Cells[col].Value?.ToString());
-                    }
-                }
-
-                doc.Add(pdfTable);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                doc.Close();
             }
         }
     }

@@ -30,23 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStaff_VIEW));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReport = new Guna.UI2.WinForms.Guna2Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.btnSupplier = new Guna.UI2.WinForms.Guna2Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnTable = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbUser = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.guna2CirclePictureBox6 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox7 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2CirclePictureBox8 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -55,14 +47,22 @@
             this.btnHide = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnReport = new Guna.UI2.WinForms.Guna2Button();
-            this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
-            this.btnTable = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSupplier = new Guna.UI2.WinForms.Guna2Button();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.btnWarehouse = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lbUser = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.btnBillImport = new Guna.UI2.WinForms.Guna2Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.btnBillSale = new Guna.UI2.WinForms.Guna2Button();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.btnFood = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSignOut = new Guna.UI2.WinForms.Guna2Button();
@@ -71,14 +71,6 @@
             this.panel4.SuspendLayout();
             this.panel7.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).BeginInit();
@@ -87,7 +79,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
+            this.panel8.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.panel12.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,29 @@
             this.panel1.Size = new System.Drawing.Size(194, 40);
             this.panel1.TabIndex = 0;
             // 
+            // btnReport
+            // 
+            this.btnReport.Animated = true;
+            this.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnReport.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnReport.FocusedColor = System.Drawing.Color.White;
+            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReport.ForeColor = System.Drawing.Color.White;
+            this.btnReport.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
+            this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReport.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnReport.Location = new System.Drawing.Point(0, 0);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(194, 40);
+            this.btnReport.TabIndex = 0;
+            this.btnReport.Text = "Thống kê";
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.btnSupplier);
@@ -106,6 +129,29 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(194, 40);
             this.panel6.TabIndex = 19;
+            // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Animated = true;
+            this.btnSupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnSupplier.FocusedColor = System.Drawing.Color.White;
+            this.btnSupplier.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupplier.ForeColor = System.Drawing.Color.White;
+            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
+            this.btnSupplier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSupplier.ImageSize = new System.Drawing.Size(50, 50);
+            this.btnSupplier.Location = new System.Drawing.Point(0, 0);
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.Size = new System.Drawing.Size(194, 40);
+            this.btnSupplier.TabIndex = 0;
+            this.btnSupplier.Text = "Nhà cung cấp";
+            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
             // panel4
             // 
@@ -115,6 +161,29 @@
             this.panel4.Size = new System.Drawing.Size(194, 40);
             this.panel4.TabIndex = 3;
             // 
+            // btnOrder
+            // 
+            this.btnOrder.Animated = true;
+            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOrder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnOrder.FocusedColor = System.Drawing.Color.White;
+            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.ForeColor = System.Drawing.Color.White;
+            this.btnOrder.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
+            this.btnOrder.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnOrder.ImageSize = new System.Drawing.Size(55, 55);
+            this.btnOrder.Location = new System.Drawing.Point(0, 0);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(194, 40);
+            this.btnOrder.TabIndex = 1;
+            this.btnOrder.Text = "Bán hàng";
+            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
+            // 
             // panel7
             // 
             this.panel7.Controls.Add(this.btnTable);
@@ -122,6 +191,29 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(194, 40);
             this.panel7.TabIndex = 20;
+            // 
+            // btnTable
+            // 
+            this.btnTable.Animated = true;
+            this.btnTable.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTable.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnTable.FocusedColor = System.Drawing.Color.White;
+            this.btnTable.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTable.ForeColor = System.Drawing.Color.White;
+            this.btnTable.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.btnTable.Image = ((System.Drawing.Image)(resources.GetObject("btnTable.Image")));
+            this.btnTable.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnTable.ImageSize = new System.Drawing.Size(60, 60);
+            this.btnTable.Location = new System.Drawing.Point(0, 0);
+            this.btnTable.Name = "btnTable";
+            this.btnTable.Size = new System.Drawing.Size(194, 40);
+            this.btnTable.TabIndex = 0;
+            this.btnTable.Text = "Bàn";
+            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
             // 
             // guna2Panel1
             // 
@@ -151,124 +243,6 @@
             this.label3.Size = new System.Drawing.Size(39, 16);
             this.label3.TabIndex = 28;
             this.label3.Text = "SILEO";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.btnWarehouse);
-            this.panel8.Location = new System.Drawing.Point(3, 187);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(194, 40);
-            this.panel8.TabIndex = 20;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.Location = new System.Drawing.Point(206, 35);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(1110, 756);
-            this.guna2Panel4.TabIndex = 22;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.flowLayoutPanel1.Controls.Add(this.guna2Panel2);
-            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 791);
-            this.flowLayoutPanel1.TabIndex = 20;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.Controls.Add(this.panel14);
-            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel2.Controls.Add(this.lbUser);
-            this.guna2Panel2.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(203, 246);
-            this.guna2Panel2.TabIndex = 0;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.label2);
-            this.panel14.Controls.Add(this.label1);
-            this.panel14.Location = new System.Drawing.Point(113, 178);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(84, 48);
-            this.panel14.TabIndex = 21;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-2, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 20);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Restaurant";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 23);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "SILEO";
-            // 
-            // lbUser
-            // 
-            this.lbUser.AutoSize = true;
-            this.lbUser.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbUser.ForeColor = System.Drawing.Color.White;
-            this.lbUser.Location = new System.Drawing.Point(30, 32);
-            this.lbUser.Name = "lbUser";
-            this.lbUser.Size = new System.Drawing.Size(91, 28);
-            this.lbUser.TabIndex = 0;
-            this.lbUser.Text = "Username";
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.panel1);
-            this.flowLayoutPanel2.Controls.Add(this.panel4);
-            this.flowLayoutPanel2.Controls.Add(this.panel7);
-            this.flowLayoutPanel2.Controls.Add(this.panel6);
-            this.flowLayoutPanel2.Controls.Add(this.panel8);
-            this.flowLayoutPanel2.Controls.Add(this.panel12);
-            this.flowLayoutPanel2.Controls.Add(this.panel10);
-            this.flowLayoutPanel2.Controls.Add(this.panel11);
-            this.flowLayoutPanel2.Controls.Add(this.panel2);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 255);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(203, 533);
-            this.flowLayoutPanel2.TabIndex = 1;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.btnBillImport);
-            this.panel12.Location = new System.Drawing.Point(3, 233);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(194, 40);
-            this.panel12.TabIndex = 23;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btnBillSale);
-            this.panel10.Location = new System.Drawing.Point(3, 279);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(194, 40);
-            this.panel10.TabIndex = 22;
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.btnFood);
-            this.panel11.Location = new System.Drawing.Point(3, 325);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(194, 40);
-            this.panel11.TabIndex = 24;
             // 
             // guna2CirclePictureBox6
             // 
@@ -352,7 +326,7 @@
             this.btnHide.ImageRotate = 0F;
             this.btnHide.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnHide.InitialImage = null;
-            this.btnHide.Location = new System.Drawing.Point(1010, 9);
+            this.btnHide.Location = new System.Drawing.Point(1044, 9);
             this.btnHide.Name = "btnHide";
             this.btnHide.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnHide.Size = new System.Drawing.Size(23, 21);
@@ -387,109 +361,13 @@
             this.guna2PictureBox6.TabIndex = 20;
             this.guna2PictureBox6.TabStop = false;
             // 
-            // guna2PictureBox1
+            // panel8
             // 
-            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 77);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 150);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 20;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // btnReport
-            // 
-            this.btnReport.Animated = true;
-            this.btnReport.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnReport.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnReport.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnReport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnReport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReport.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnReport.FocusedColor = System.Drawing.Color.White;
-            this.btnReport.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReport.ForeColor = System.Drawing.Color.White;
-            this.btnReport.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btnReport.Image = ((System.Drawing.Image)(resources.GetObject("btnReport.Image")));
-            this.btnReport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReport.ImageSize = new System.Drawing.Size(45, 45);
-            this.btnReport.Location = new System.Drawing.Point(0, 0);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(194, 40);
-            this.btnReport.TabIndex = 0;
-            this.btnReport.Text = "Thống kê";
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnOrder
-            // 
-            this.btnOrder.Animated = true;
-            this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOrder.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOrder.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOrder.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnOrder.FocusedColor = System.Drawing.Color.White;
-            this.btnOrder.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btnOrder.Image = ((System.Drawing.Image)(resources.GetObject("btnOrder.Image")));
-            this.btnOrder.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnOrder.ImageSize = new System.Drawing.Size(55, 55);
-            this.btnOrder.Location = new System.Drawing.Point(0, 0);
-            this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(194, 40);
-            this.btnOrder.TabIndex = 1;
-            this.btnOrder.Text = "Bán hàng";
-            this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
-            // 
-            // btnTable
-            // 
-            this.btnTable.Animated = true;
-            this.btnTable.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnTable.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnTable.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnTable.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTable.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnTable.FocusedColor = System.Drawing.Color.White;
-            this.btnTable.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTable.ForeColor = System.Drawing.Color.White;
-            this.btnTable.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btnTable.Image = ((System.Drawing.Image)(resources.GetObject("btnTable.Image")));
-            this.btnTable.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnTable.ImageSize = new System.Drawing.Size(60, 60);
-            this.btnTable.Location = new System.Drawing.Point(0, 0);
-            this.btnTable.Name = "btnTable";
-            this.btnTable.Size = new System.Drawing.Size(194, 40);
-            this.btnTable.TabIndex = 0;
-            this.btnTable.Text = "Bàn";
-            this.btnTable.Click += new System.EventHandler(this.btnTable_Click);
-            // 
-            // btnSupplier
-            // 
-            this.btnSupplier.Animated = true;
-            this.btnSupplier.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSupplier.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSupplier.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSupplier.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSupplier.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSupplier.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnSupplier.FocusedColor = System.Drawing.Color.White;
-            this.btnSupplier.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSupplier.ForeColor = System.Drawing.Color.White;
-            this.btnSupplier.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.btnSupplier.Image = ((System.Drawing.Image)(resources.GetObject("btnSupplier.Image")));
-            this.btnSupplier.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSupplier.ImageSize = new System.Drawing.Size(50, 50);
-            this.btnSupplier.Location = new System.Drawing.Point(0, 0);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(194, 40);
-            this.btnSupplier.TabIndex = 0;
-            this.btnSupplier.Text = "Nhà cung cấp";
-            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            this.panel8.Controls.Add(this.btnWarehouse);
+            this.panel8.Location = new System.Drawing.Point(3, 187);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(194, 40);
+            this.panel8.TabIndex = 20;
             // 
             // btnWarehouse
             // 
@@ -514,6 +392,112 @@
             this.btnWarehouse.Text = "Nguyên liệu";
             this.btnWarehouse.Click += new System.EventHandler(this.btnWarehouse_Click);
             // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.Location = new System.Drawing.Point(206, 35);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.Size = new System.Drawing.Size(1110, 756);
+            this.guna2Panel4.TabIndex = 22;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.flowLayoutPanel1.Controls.Add(this.guna2Panel2);
+            this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(206, 791);
+            this.flowLayoutPanel1.TabIndex = 20;
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.Controls.Add(this.panel14);
+            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel2.Controls.Add(this.lbUser);
+            this.guna2Panel2.Location = new System.Drawing.Point(3, 3);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(203, 246);
+            this.guna2Panel2.TabIndex = 0;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.label2);
+            this.panel14.Controls.Add(this.label1);
+            this.panel14.Location = new System.Drawing.Point(113, 178);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(84, 48);
+            this.panel14.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe Script", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(-2, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Restaurant";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(-4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 23);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "SILEO";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 77);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(203, 150);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 20;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // lbUser
+            // 
+            this.lbUser.AutoSize = true;
+            this.lbUser.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUser.ForeColor = System.Drawing.Color.White;
+            this.lbUser.Location = new System.Drawing.Point(30, 32);
+            this.lbUser.Name = "lbUser";
+            this.lbUser.Size = new System.Drawing.Size(91, 28);
+            this.lbUser.TabIndex = 0;
+            this.lbUser.Text = "Username";
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.panel1);
+            this.flowLayoutPanel2.Controls.Add(this.panel4);
+            this.flowLayoutPanel2.Controls.Add(this.panel7);
+            this.flowLayoutPanel2.Controls.Add(this.panel6);
+            this.flowLayoutPanel2.Controls.Add(this.panel8);
+            this.flowLayoutPanel2.Controls.Add(this.panel12);
+            this.flowLayoutPanel2.Controls.Add(this.panel10);
+            this.flowLayoutPanel2.Controls.Add(this.panel11);
+            this.flowLayoutPanel2.Controls.Add(this.panel2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 255);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(203, 533);
+            this.flowLayoutPanel2.TabIndex = 1;
+            // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.btnBillImport);
+            this.panel12.Location = new System.Drawing.Point(3, 233);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(194, 40);
+            this.panel12.TabIndex = 23;
+            // 
             // btnBillImport
             // 
             this.btnBillImport.Animated = true;
@@ -529,13 +513,21 @@
             this.btnBillImport.HoverState.FillColor = System.Drawing.Color.Gray;
             this.btnBillImport.Image = ((System.Drawing.Image)(resources.GetObject("btnBillImport.Image")));
             this.btnBillImport.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBillImport.ImageSize = new System.Drawing.Size(45, 45);
+            this.btnBillImport.ImageSize = new System.Drawing.Size(40, 40);
             this.btnBillImport.Location = new System.Drawing.Point(0, 0);
             this.btnBillImport.Name = "btnBillImport";
             this.btnBillImport.Size = new System.Drawing.Size(194, 40);
             this.btnBillImport.TabIndex = 0;
             this.btnBillImport.Text = "Hóa đơn nhập";
             this.btnBillImport.Click += new System.EventHandler(this.btnBillImport_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.btnBillSale);
+            this.panel10.Location = new System.Drawing.Point(3, 279);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(194, 40);
+            this.panel10.TabIndex = 22;
             // 
             // btnBillSale
             // 
@@ -559,6 +551,14 @@
             this.btnBillSale.TabIndex = 0;
             this.btnBillSale.Text = "Hóa đơn bán";
             this.btnBillSale.Click += new System.EventHandler(this.btnBillSale_Click);
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.btnFood);
+            this.panel11.Location = new System.Drawing.Point(3, 325);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(194, 40);
+            this.panel11.TabIndex = 24;
             // 
             // btnFood
             // 
@@ -620,6 +620,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmStaff_VIEW";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmStaff_VIEW";
             this.Load += new System.EventHandler(this.FrmStaff_VIEW_Load);
             this.panel1.ResumeLayout(false);
@@ -628,16 +629,6 @@
             this.panel7.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox8)).EndInit();
@@ -646,7 +637,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
+            this.panel8.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

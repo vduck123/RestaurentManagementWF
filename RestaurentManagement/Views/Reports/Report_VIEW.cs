@@ -43,6 +43,7 @@ namespace RestaurentManagement.Views.Reports
         private void Report_VIEW_Load(object sender, EventArgs e)
         {
             LoadAllToday();
+            LoadA();
         }
 
         private void btnToday_Click(object sender, EventArgs e)
@@ -445,7 +446,7 @@ namespace RestaurentManagement.Views.Reports
             {
                 Name = "FoodSeries",
                 IsVisibleInLegend = true,
-                ChartType = SeriesChartType.Pie
+                ChartType = SeriesChartType.Doughnut
             };
             chartHotFood.Series.Add(series);
 
@@ -494,6 +495,17 @@ namespace RestaurentManagement.Views.Reports
             }
 
             lbProfit.Text = $"{profit.ToString()} VNĐ";
+        }
+
+        void LoadA()
+        {
+            int numStaff = StaffController.Instance.GetOrderNumInList();
+            int numSupplier = SupplierController.Instance.GetOrderNumInList();
+            int numFood = FoodController.Instance.GetOrderNumInList();
+
+            lbNumStaff.Text = numStaff.ToString();
+            lbNumSupplier.Text = numSupplier.ToString();
+            lbNumFood.Text = numFood.ToString();
         }
 
 

@@ -181,13 +181,15 @@ namespace RestaurentManagement.Controllers
             return dt;
         }
 
-        public DataTable GetAllInfoStaffByParam(string option, string param, string opera)
+       
+
+        public DataTable GetAllInfoStaffByParam(string option, string opera, string param)
         {
             string query = $@"SELECT acc.role, sf.*, sl.salary_basic
                                 FROM Account acc 
                                 INNER JOIN Staff sf ON acc.acc_id = sf.acc_id
                                 INNER JOIN Salary sl ON sf.staff_id = sl.staff_id
-                                WHERE {option} {opera} N'{param}'";
+                                WHERE {option} {opera} {param}";
             DataTable dt = DBHelper.Instance.ExecuteQuery(query);
             return dt;
         }
@@ -197,6 +199,27 @@ namespace RestaurentManagement.Controllers
             string query = $"SELECT COUNT(staff_id) FROM Staff";
             int orderNum = Convert.ToInt32(DBHelper.Instance.ExecuteScalar(query));
             return orderNum;
+        }
+
+        public DataTable GetAllBillImportByStaffId(string id)
+        {
+            string query = $@"SELECT boi.boImport_id, boi.dayCreate, boi.total_money, sf.staff_name, sp.supplier_name
+                                FROM dbo.Supplier sp
+                                INNER JOIN dbo.BillOfImport boi ON boi.supplier_id = sp.supplier_id
+                                INNER JOIN dbo.Staff sf ON sf.staff_id = boi.staff_id
+                            WHERE boi.staff_id = '{id}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
+        }
+
+        public DataTable GetAllBillSaleByStaffId(string id)
+        {
+            string query = $@"SELECT bos.boSale_id, bos.dayOut, bos.totalMoney, sf.staff_name
+                                FROM  dbo.BillOfSale bos
+                                INNER JOIN dbo.Staff sf ON sf.staff_id = bos.staff_id
+                                WHERE bos.staff_id = '{id}'";
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+            return dt;
         }
     }
 }

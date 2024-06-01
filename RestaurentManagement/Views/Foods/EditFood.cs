@@ -33,6 +33,7 @@ namespace RestaurentManagement.Views.Foods
             if (string.IsNullOrEmpty(txtFoodName.Text) ||
                 string.IsNullOrEmpty(txtImage.Text) ||
                 string.IsNullOrEmpty(txtUnitFood.Text))
+                
             {
                 mf.NotifyErr("Các trường thông tin không được để trống !");
                 return;
@@ -243,8 +244,6 @@ namespace RestaurentManagement.Views.Foods
             dgvFoodMaterial.DataSource = dt;
 
         }
-
-
 
         #endregion
 

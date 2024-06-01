@@ -52,12 +52,21 @@ namespace RestaurentManagement.Views
         #region Event
         private void dgvFood_Click(object sender, EventArgs e)
         {
-            txtCategoryID.Text = dgvFoodCategory.SelectedRows[0].Cells[0].Value.ToString();
-            txtCategoryName.Text = dgvFoodCategory.SelectedRows[0].Cells[1].Value.ToString();
+            if(dgvFoodCategory.Rows.Count > 0)
+            {
+                txtCategoryID.Text = dgvFoodCategory.SelectedRows[0].Cells[0].Value.ToString();
+                txtCategoryName.Text = dgvFoodCategory.SelectedRows[0].Cells[1].Value.ToString();
+            }
+            
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string id = $"LH000{FoodCategoryController.Instance.GetOrderNumInList()}";
+            if(string.IsNullOrEmpty(txtCategoryName.Text))
+            {
+                mf.NotifyErr("Tên danh mục không hợp lệ");
+                return;
+            }
+            string id = $"MA000{FoodCategoryController.Instance.GetOrderNumInList()}";
             FoodCategory foodCategory = new FoodCategory()
             {
                 ID = id,
@@ -74,6 +83,12 @@ namespace RestaurentManagement.Views
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtCategoryName.Text))
+            {
+                mf.NotifyErr("Tên danh mục không hợp lệ");
+                return;
+            }
+
             FoodCategory foodCategory = new FoodCategory()
             {
                 ID = txtCategoryID.Text,

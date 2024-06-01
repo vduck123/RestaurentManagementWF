@@ -200,5 +200,20 @@ namespace RestaurentManagement.Controllers
             int data = DBHelper.Instance.ExecuteScalar(query);
             return data;
         }
+
+        public int GetQuantityItemByID(string id)
+        {
+            int quantity = 0;
+
+            string query = $"SELECT * FROM Material WHERE material_id = '{id}'";
+
+            DataTable dt = DBHelper.Instance.ExecuteQuery(query);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                quantity = Convert.ToInt32(row["quantity"]);
+            }
+            return quantity;
+        }
     }
 }

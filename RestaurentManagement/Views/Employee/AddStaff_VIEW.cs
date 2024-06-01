@@ -28,22 +28,42 @@ namespace RestaurentManagement.Views.Employee
                 txtNameStaff.Text.Length < 6
                 )
             {
-                mf.NotifyErr("Tên nhân viên không hợp lê!");
+                mf.NotifyErr("Tên nhân viên không hợp lệ !");
+                return;
+            }
+
+            if(cbbGender.SelectedItem == null || string.IsNullOrEmpty(cbbGender.SelectedItem.ToString()))
+            {
+                mf.NotifyErr("Vui lòng chọn giới tính");
+                return;
+            }
+
+            if(string.IsNullOrEmpty(txtAddress.Text))
+            {
+                mf.NotifyErr("Địa chỉ không hợp lệ !");
+                return;
+            }
+
+            if(txtPhone.Text.Length != 10 || !HandleData.Instance.ExitNumber(txtPhone.Text))
+            {
+                mf.NotifyErr("Số điện thoại gồm 10 chữ số !");
                 return;
             }
 
             if(!HandleData.Instance.CheckEmail(txtUsername.Text))
             {
-                mf.NotifyErr("Tài khoản nhân viên là một email!");
+                mf.NotifyErr("Tài khoản nhân viên là một email !");
                 return;
             }
 
             if(string.IsNullOrEmpty(txtUsername.Text) || txtUsername.Text.Length < 5 ||
                 string.IsNullOrEmpty(txtPassword.Text) || txtPassword.Text.Length < 5) 
             {
-                mf.NotifyErr("Tài khoản và mật khẩu phải dài hơn 5 kí tự!");
+                mf.NotifyErr("Tài khoản và mật khẩu phải dài hơn 5 kí tự !");
                 return;
             }
+
+
 
             string idAcc = $"ACC00{AccountController.Instance.GetOrderNumInList() + 1}";
             _Account acc = new _Account()

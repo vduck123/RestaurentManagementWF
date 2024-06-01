@@ -55,6 +55,7 @@
             // txtNote
             // 
             this.txtNote.BorderColor = System.Drawing.Color.Transparent;
+            this.txtNote.BorderRadius = 10;
             this.txtNote.BorderThickness = 0;
             this.txtNote.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNote.DefaultText = "";
@@ -79,6 +80,7 @@
             // txtAddress
             // 
             this.txtAddress.BorderColor = System.Drawing.Color.Transparent;
+            this.txtAddress.BorderRadius = 10;
             this.txtAddress.BorderThickness = 0;
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
@@ -103,6 +105,7 @@
             // txtName
             // 
             this.txtName.BorderColor = System.Drawing.Color.Transparent;
+            this.txtName.BorderRadius = 10;
             this.txtName.BorderThickness = 0;
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtName.DefaultText = "";
@@ -172,6 +175,7 @@
             // txtPhone
             // 
             this.txtPhone.BorderColor = System.Drawing.Color.Transparent;
+            this.txtPhone.BorderRadius = 10;
             this.txtPhone.BorderThickness = 0;
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";

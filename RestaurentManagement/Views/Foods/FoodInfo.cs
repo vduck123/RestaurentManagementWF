@@ -123,7 +123,7 @@ namespace RestaurentManagement.Views.Foods
                      materialNeed += $"[{WarehouseController.Instance.GetNameItemByID(fm.materialID)}, {fm.Quantity}] \n";
                 }
 
-                dt.Rows.Add(f.ID, f.Name, f.Price, f.Unit, $"{materialNeed}", category, f.imageFood);
+                dt.Rows.Add(f.ID, f.Name, $"{f.Price} Vnđ", f.Unit, $"{materialNeed}", category, f.imageFood);
             }
 
             dgvFood.RowTemplate.Height = 100;
@@ -203,7 +203,7 @@ namespace RestaurentManagement.Views.Foods
                     materialNeed += $"[{WarehouseController.Instance.GetNameItemByID(fm.materialID)}, {fm.Quantity}] \n";
                 }
 
-                dt.Rows.Add(f.ID, f.Name, f.Price, f.Unit, $"{materialNeed}", category, f.imageFood);
+                dt.Rows.Add(f.ID, f.Name, $"{f.Price} Vnđ", f.Unit, $"{materialNeed}", category, f.imageFood);
             }
 
             return dt;

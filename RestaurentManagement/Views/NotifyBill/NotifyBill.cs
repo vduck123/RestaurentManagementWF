@@ -23,7 +23,9 @@ namespace RestaurentManagement.Views.NotifyBill
         string _nameCus = null;
         string _idStaff = null;
         string _idTable = null;
-        string _idVoucher = null;   
+        string _idVoucher = null;
+        string _PhoneRes = null;
+        string _AddressRes = null;
         DateTime dayIn = DateTime.Now;
         DateTime dayOut = DateTime.Now.AddHours(new Random().Next(1,4));
         public NotifyBill(string nameCus, string idStaff, string idTable, string idVoucher)
@@ -59,6 +61,12 @@ namespace RestaurentManagement.Views.NotifyBill
 
             dgvListFoodOrder.Columns.Clear();
             List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);
+            List<InForRestaurant> info = InfoRestaurantController.Instance.GetData();          
+            foreach (InForRestaurant res in info)
+            {
+                _PhoneRes = res.Phone;
+                _AddressRes = res.Address;
+            }
             DataTable dt = new DataTable();
             dt.Columns.Add("Tên món ăn");
             dt.Columns.Add("Số lượng");
@@ -83,11 +91,13 @@ namespace RestaurentManagement.Views.NotifyBill
             lbExpiry.Text = CalcExpiry();
             lbPayMoney.Text = CalcBill(_totalBill).ToString();
             lbCusname.Text = _nameCus;
+            lbPhone.Text = _PhoneRes;
+            lbAddress.Text = _AddressRes;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Print_VIEW view = new Print_VIEW(lbCusname.Text, lbThuNgan.Text, TableController.Instance.GetIDTableByName(lbTable.Text), lbExpiry.Text, lbNgay.Text, lbTimeIn.Text, lbTimeOut.Text , lbTotal.Text, lbPayMoney.Text)  ;
+            Print_VIEW view = new Print_VIEW(lbCusname.Text, lbThuNgan.Text, TableController.Instance.GetIDTableByName(lbTable.Text), lbExpiry.Text, lbNgay.Text, lbTimeIn.Text, lbTimeOut.Text , lbTotal.Text, lbPayMoney.Text, _PhoneRes, _AddressRes)  ;
             view.Show();
         }
 

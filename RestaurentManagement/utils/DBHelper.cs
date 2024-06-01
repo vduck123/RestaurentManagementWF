@@ -11,6 +11,7 @@ namespace RestaurentManagement.utils
 {
     internal class DBHelper
     {
+        MainForm mf = new MainForm();
         public static string conn = @"Data Source=CAOVIET;Initial Catalog=RestaurantManagement;Integrated Security=True;TrustServerCertificate=True";
 
         private static DBHelper instance;
@@ -38,15 +39,22 @@ namespace RestaurentManagement.utils
                 sqlConnection.Open();
                 using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                 {
-                    if (parameters != null)
+                    try
                     {
-                        foreach (var param in parameters)
+                        if (parameters != null)
                         {
-                            cmd.Parameters.AddWithValue(param.Key, param.Value);
+                            foreach (var param in parameters)
+                            {
+                                cmd.Parameters.AddWithValue(param.Key, param.Value);
+                            }
                         }
-                    }
 
-                    data = cmd.ExecuteNonQuery();
+                        data = cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        mf.NotifyErr($"{ex.Message}");
+                    }
                 }
             }
             return data;
@@ -57,16 +65,24 @@ namespace RestaurentManagement.utils
         {
             int data = 0;
 
+
             using (SqlConnection sqlConnection = new SqlConnection(conn))
             {
                 sqlConnection.Open();
-                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                try
                 {
-                    object result = cmd.ExecuteScalar();
-                    if (result != null && result != DBNull.Value)
+                    using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                     {
-                        data = Convert.ToInt32(result);
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            data = Convert.ToInt32(result);
+                        }
                     }
+                }
+                catch (Exception ex)
+                {
+                    mf.NotifyErr($"{ex.Message}");
                 }
             }
             return data;
@@ -79,12 +95,20 @@ namespace RestaurentManagement.utils
             using (SqlConnection sqlConnection = new SqlConnection(conn))
             {
                 sqlConnection.Open();
-                using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
+                try
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand(query, sqlConnection))
                     {
-                        adapter.Fill(dt);
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        {
+                            adapter.Fill(dt);
+                        }
                     }
+
+                }
+                catch (Exception ex)
+                {
+                    mf.NotifyErr($"{ex.Message}");
                 }
                 sqlConnection.Close();
                 return dt;

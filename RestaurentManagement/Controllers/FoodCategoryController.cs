@@ -88,9 +88,9 @@ namespace RestaurentManagement.Controllers
 
         public int UpdateCategory(FoodCategory category)
         {
-            string query = @"UPDATE dbo.FoodCategory 
+            string query = @"UPDATE dbo.Category 
                              SET category_name = @name 
-                             WHERE catogory_id = @id";
+                             WHERE category_id = @id";
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
                 {"@id", category.ID },

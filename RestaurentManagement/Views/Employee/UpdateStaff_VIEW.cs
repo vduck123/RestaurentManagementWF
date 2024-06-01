@@ -44,13 +44,35 @@ namespace RestaurentManagement.Views.Employee
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtNameStaff.Text) ||
-                txtNameStaff.Text.Length < 5 ||
-                HandleData.Instance.ExitNumber(txtNameStaff.Text))
+
+            if (string.IsNullOrEmpty(txtNameStaff.Text) ||
+                HandleData.Instance.ExitNumber(txtNameStaff.Text) ||
+                txtNameStaff.Text.Length < 6
+                )
             {
-                mf.NotifyErr("Tên nhân viên không hợp lệ");
+                mf.NotifyErr("Tên nhân viên không hợp lệ !");
                 return;
             }
+
+            if (cbbGender.SelectedItem == null || string.IsNullOrEmpty(cbbGender.SelectedItem.ToString()))
+            {
+                mf.NotifyErr("Vui lòng chọn giới tính");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtAddress.Text))
+            {
+                mf.NotifyErr("Địa chỉ không hợp lệ !");
+                return;
+            }
+
+            if (txtPhone.Text.Length != 10 || !HandleData.Instance.ExitNumber(txtPhone.Text))
+            {
+                mf.NotifyErr("Số điện thoại gồm 10 chữ số !");
+                return;
+            }
+
+
             Staff staff = new Staff()
             {
                 ID = _ID,

@@ -45,6 +45,7 @@ namespace RestaurentManagement.Views._Table
                 mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
                 return;
             }
+
             dgvTable.Columns.Clear();
             DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
             dgvTable.DataSource = dt;

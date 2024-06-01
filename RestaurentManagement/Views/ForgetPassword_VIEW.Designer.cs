@@ -60,6 +60,7 @@
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ttNotify = new Guna.UI2.WinForms.Guna2TileButton();
             this.btnGetOTP = new System.Windows.Forms.Button();
             this.lbOtp = new System.Windows.Forms.Label();
             this.txtOTP = new Guna.UI2.WinForms.Guna2TextBox();
@@ -67,7 +68,6 @@
             this.txtPass = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtUser = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2PictureBox7 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ttNotify = new Guna.UI2.WinForms.Guna2TileButton();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox7)).BeginInit();
@@ -522,6 +522,23 @@
             this.panel1.Size = new System.Drawing.Size(485, 620);
             this.panel1.TabIndex = 14;
             // 
+            // ttNotify
+            // 
+            this.ttNotify.BorderRadius = 10;
+            this.ttNotify.BorderThickness = 2;
+            this.ttNotify.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ttNotify.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ttNotify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ttNotify.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ttNotify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(152)))));
+            this.ttNotify.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ttNotify.ForeColor = System.Drawing.Color.Black;
+            this.ttNotify.Location = new System.Drawing.Point(225, 96);
+            this.ttNotify.Name = "ttNotify";
+            this.ttNotify.Size = new System.Drawing.Size(211, 55);
+            this.ttNotify.TabIndex = 24;
+            this.ttNotify.Text = "Hello";
+            // 
             // btnGetOTP
             // 
             this.btnGetOTP.BackColor = System.Drawing.Color.SkyBlue;
@@ -534,7 +551,7 @@
             this.btnGetOTP.TabIndex = 23;
             this.btnGetOTP.Text = "Lấy";
             this.btnGetOTP.UseVisualStyleBackColor = false;
-            this.btnGetOTP.Click += new System.EventHandler(this.btnGetOTP_Click_1);
+            this.btnGetOTP.Click += new System.EventHandler(this.btnGetOTP_Click);
             // 
             // lbOtp
             // 
@@ -649,23 +666,6 @@
             this.guna2PictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox7.TabIndex = 0;
             this.guna2PictureBox7.TabStop = false;
-            // 
-            // ttNotify
-            // 
-            this.ttNotify.BorderRadius = 10;
-            this.ttNotify.BorderThickness = 2;
-            this.ttNotify.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ttNotify.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ttNotify.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ttNotify.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ttNotify.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(219)))), ((int)(((byte)(152)))));
-            this.ttNotify.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ttNotify.ForeColor = System.Drawing.Color.Black;
-            this.ttNotify.Location = new System.Drawing.Point(225, 96);
-            this.ttNotify.Name = "ttNotify";
-            this.ttNotify.Size = new System.Drawing.Size(211, 55);
-            this.ttNotify.TabIndex = 24;
-            this.ttNotify.Text = "Hello";
             // 
             // ForgetPassword_VIEW
             // 

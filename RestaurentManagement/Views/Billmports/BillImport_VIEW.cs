@@ -44,7 +44,7 @@ namespace RestaurentManagement.Views
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(txtParam.Text) || dtPrev.Value < dtNext.Value)
+            if(string.IsNullOrEmpty(txtParam.Text))
             {
                 mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
                 return;
@@ -165,12 +165,7 @@ namespace RestaurentManagement.Views
                         listBillImport = BillImportController.Instance.SelectBillImportByParam("total_money", $"{param}", opera);
                         break;
                     }
-                case "Tìm kiếm theo khoảng thời gian vào":
-                    {
-                        listBillImport = BillImportController.Instance.SelectBillImportByTime(dtPrev.Value, dtNext.Value);
-                        break;
-                    }
-                case "Tìm kiếm theo khoảng thời gian ra":
+                case "Tìm kiếm theo khoảng thời gian":
                     {
                         listBillImport = BillImportController.Instance.SelectBillImportByTime(dtPrev.Value, dtNext.Value);
                         break;
@@ -184,7 +179,7 @@ namespace RestaurentManagement.Views
                     billImport.ID,
                     StaffController.Instance.GetNameStaffByID(billImport.StaffID),
                     SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
-                    billImport.DayCreated,
+                    billImport.DayCreated.ToString("dd/MM/yyyy HH:ss:mm"),
                     billImport.TotalMoney
                );
             }
@@ -213,7 +208,7 @@ namespace RestaurentManagement.Views
                     billImport.ID,
                     StaffController.Instance.GetNameStaffByID(billImport.StaffID),
                     SupplierController.Instance.GetNameSupplierByID(billImport.SupplierID),
-                    billImport.DayCreated,
+                    billImport.DayCreated.ToString("dd/MM/yyyy hh:ss:mm"),
                     billImport.TotalMoney
                );
             }
@@ -229,8 +224,7 @@ namespace RestaurentManagement.Views
                 "Tìm kiếm theo tên nhân viên" ,     
                 "Tìm kiếm theo nhà cung cấp" ,
                 "Tìm kiếm theo tổng tiền",
-                "Tìm kiếm theo khoảng thời gian vào" ,
-                "Tìm kiếm theo khoảng thời gian ra" 
+                "Tìm kiếm theo khoảng thời gian"
             };
             cbbOption.DataSource = listOption;
         }

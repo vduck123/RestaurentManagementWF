@@ -153,7 +153,7 @@ namespace RestaurentManagement.Views
             dt.Columns.Add("Hình ảnh", typeof(byte[]));
             foreach (Food f in foods)
             {
-                dt.Rows.Add(f.Name, f.Price, f.Unit, f.imageFood);
+                dt.Rows.Add(f.Name, $"{f.Price} Vnđ", f.Unit, f.imageFood);
             }
 
             dgvFood.RowTemplate.Height = 70;
@@ -204,8 +204,19 @@ namespace RestaurentManagement.Views
                     return;
                 }
 
-                bool foodExists = false;
+                List<FoodMaterial> listFoodMaterial = FoodMateialController.Instance.GetListFoodMaterialByFoodId(FoodController.Instance.GetIDFoodByName(nameFoodChoose));
+                foreach (FoodMaterial fm in listFoodMaterial)
+                {
+                    int Inventoryquantity = WarehouseController.Instance.GetQuantityItemByID(fm.materialID);
+                    if (fm.Quantity > Inventoryquantity)
+                    {
+                        mf.NotifyErr("Số lượng nguyên liệu không đủ");
+                        return;
+                    }
+                }
 
+
+                bool foodExists = false;
 
                 foreach (DataGridViewRow row in dgvListFoodOrder.Rows)
                 {
@@ -626,10 +637,6 @@ namespace RestaurentManagement.Views
             txtNumOrder.Value = 0;
         }
 
-
-        #endregion
-
-
         private DataGridViewRow selectedRow = null;
         private void dgvListFoodOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -657,9 +664,12 @@ namespace RestaurentManagement.Views
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
+
+        #endregion
+
+
+
+
+
     }
 }

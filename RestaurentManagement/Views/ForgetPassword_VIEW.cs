@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using _Account = RestaurentManagement.Models.Account;
 using static System.Net.WebRequestMethods;
 using RestaurentManagement.utils;
+using RestaurentManagement.Services;
 
 namespace RestaurentManagement.Views
 {
@@ -39,8 +40,9 @@ namespace RestaurentManagement.Views
             Login_VIEW view = new Login_VIEW();
             view.ShowDialog();
         }
-        int otp = 0;
-        private void btnGetOTP_Click_1(object sender, EventArgs e)
+
+        int _OTP = 0;
+        private void btnGetOTP_Click(object sender, EventArgs e)
         {
             List<_Account> accounts = AccountController.Instance.GetListAccount();
 
@@ -48,11 +50,12 @@ namespace RestaurentManagement.Views
             {
                 if (acc.User.Contains(txtUser.Text))
                 {
-                    
-                    MessageBox.Show("OTP đang gửi đi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Thread.Sleep(3000);
-                    otp = new Random().Next(1000, 9999);
-                    MessageBox.Show($"OTP : {otp}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //MessageBox.Show("OTP đang gửi đi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Thread.Sleep(3000);
+                    //otp = new Random().Next(1000, 9999);
+                    //MessageBox.Show($"OTP : {otp}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _OTP = EmailService.Instance.SendEmail(txtUser.Text);
                     return;
                 }
                 else
@@ -70,7 +73,7 @@ namespace RestaurentManagement.Views
                 MessageBox.Show($"Mật khẩu lớn hơn 5 kí tự", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (otp.ToString().Equals(txtOTP.Text))
+            if (_OTP.ToString().Equals(txtOTP.Text))
             {
                 string idAcc = AccountController.Instance.GetIdAccountByUsername(txtUser.Text);
                 _Account a = new _Account(idAcc, txtUser.Text, txtPass.Text, "Quản trị viên");
@@ -114,5 +117,7 @@ namespace RestaurentManagement.Views
                 ttNotify.Text = "Hello";
             }
         }
+
+        
     }
 }

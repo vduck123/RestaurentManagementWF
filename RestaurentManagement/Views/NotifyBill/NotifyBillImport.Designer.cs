@@ -41,20 +41,22 @@
             this.lbThuNgan = new System.Windows.Forms.Label();
             this.lbNgay = new System.Windows.Forms.Label();
             this.dgvBillInfo = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnPrint = new Guna.UI2.WinForms.Guna2Button();
             this.btbClose = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lbPayMoney
@@ -203,6 +205,35 @@
             this.dgvBillInfo.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvBillInfo.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nguyên liệu";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Giá nhập";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Số lượng";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Đơn vị tính";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Thành tiền";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -246,35 +277,6 @@
             this.label1.Size = new System.Drawing.Size(246, 47);
             this.label1.TabIndex = 51;
             this.label1.Text = "Nhà hàng SILEO";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Nguyên liệu";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Giá nhập";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Số lượng";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Đơn vị tính";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Thành tiền";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
             // 
             // btnPay
             // 
@@ -323,11 +325,27 @@
             this.btbClose.TabIndex = 71;
             this.btbClose.TabStop = false;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(712, 11);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(21, 17);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 78;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
+            // 
             // NotifyBillImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 685);
+            this.Controls.Add(this.guna2PictureBox1);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.lbPayMoney);
             this.Controls.Add(this.label12);
@@ -351,6 +369,7 @@
             this.Load += new System.EventHandler(this.NotifyBillImport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,5 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

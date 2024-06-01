@@ -103,11 +103,13 @@
             this.btnExcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExcel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExcel.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
-            this.btnExcel.Location = new System.Drawing.Point(975, 55);
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.ImageSize = new System.Drawing.Size(35, 35);
+            this.btnExcel.Location = new System.Drawing.Point(936, 55);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(98, 37);
+            this.btnExcel.Size = new System.Drawing.Size(137, 37);
             this.btnExcel.TabIndex = 24;
             this.btnExcel.Text = "Xuất Excel";
             this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
@@ -147,7 +149,7 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(215, 104);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(215, 82);
             // 
             // sửaHóaĐơnNhậpToolStripMenuItem
             // 
@@ -209,12 +211,12 @@
             this.dgvBilImport.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBilImport.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvBilImport.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvBilImport.Location = new System.Drawing.Point(0, 131);
+            this.dgvBilImport.Location = new System.Drawing.Point(0, 147);
             this.dgvBilImport.Name = "dgvBilImport";
             this.dgvBilImport.ReadOnly = true;
             this.dgvBilImport.RowHeadersVisible = false;
             this.dgvBilImport.RowHeadersWidth = 51;
-            this.dgvBilImport.Size = new System.Drawing.Size(1085, 625);
+            this.dgvBilImport.Size = new System.Drawing.Size(1085, 609);
             this.dgvBilImport.TabIndex = 0;
             this.dgvBilImport.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvBilImport.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -338,10 +340,10 @@
             // 
             // dtNext
             // 
-            this.dtNext.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dtNext.BorderRadius = 8;
+            this.dtNext.BackColor = System.Drawing.Color.Transparent;
+            this.dtNext.BorderRadius = 10;
             this.dtNext.Checked = true;
-            this.dtNext.FillColor = System.Drawing.Color.Black;
+            this.dtNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNext.ForeColor = System.Drawing.Color.White;
             this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -349,17 +351,17 @@
             this.dtNext.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtNext.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtNext.Name = "dtNext";
-            this.dtNext.Size = new System.Drawing.Size(172, 25);
+            this.dtNext.Size = new System.Drawing.Size(172, 32);
             this.dtNext.TabIndex = 31;
             this.dtNext.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 963);
             this.dtNext.Visible = false;
             // 
             // dtPrev
             // 
-            this.dtPrev.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dtPrev.BorderRadius = 8;
+            this.dtPrev.BackColor = System.Drawing.Color.Transparent;
+            this.dtPrev.BorderRadius = 10;
             this.dtPrev.Checked = true;
-            this.dtPrev.FillColor = System.Drawing.Color.Black;
+            this.dtPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPrev.ForeColor = System.Drawing.Color.White;
             this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -367,7 +369,7 @@
             this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtPrev.Name = "dtPrev";
-            this.dtPrev.Size = new System.Drawing.Size(180, 25);
+            this.dtPrev.Size = new System.Drawing.Size(180, 32);
             this.dtPrev.TabIndex = 32;
             this.dtPrev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
             this.dtPrev.Visible = false;
@@ -376,7 +378,7 @@
             // 
             this.lbDt.AutoSize = true;
             this.lbDt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDt.Location = new System.Drawing.Point(225, 104);
+            this.lbDt.Location = new System.Drawing.Point(225, 110);
             this.lbDt.Name = "lbDt";
             this.lbDt.Size = new System.Drawing.Size(31, 16);
             this.lbDt.TabIndex = 33;

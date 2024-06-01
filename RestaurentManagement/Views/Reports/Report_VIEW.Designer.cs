@@ -89,6 +89,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.chartHotFood = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lbNumFood = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.lbNumSupplier = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
+            this.lbNumStaff = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2Button8 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartHotFood)).BeginInit();
@@ -574,7 +583,7 @@
             this.charRevenue.Legend.LabelFont = chartFont1;
             this.charRevenue.Location = new System.Drawing.Point(18, 252);
             this.charRevenue.Name = "charRevenue";
-            this.charRevenue.Size = new System.Drawing.Size(732, 492);
+            this.charRevenue.Size = new System.Drawing.Size(732, 379);
             this.charRevenue.TabIndex = 13;
             chartFont2.FontName = "Arial";
             chartFont2.Size = 12;
@@ -675,11 +684,141 @@
             this.chartHotFood.TabIndex = 35;
             this.chartHotFood.Text = "chart1";
             // 
+            // lbNumFood
+            // 
+            this.lbNumFood.AutoSize = true;
+            this.lbNumFood.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.lbNumFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumFood.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNumFood.Location = new System.Drawing.Point(530, 705);
+            this.lbNumFood.Name = "lbNumFood";
+            this.lbNumFood.Size = new System.Drawing.Size(21, 24);
+            this.lbNumFood.TabIndex = 44;
+            this.lbNumFood.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(530, 672);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(163, 24);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "Tổng số món ăn";
+            // 
+            // guna2Button6
+            // 
+            this.guna2Button6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button6.BorderRadius = 10;
+            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button6.FillColor = System.Drawing.Color.PaleVioletRed;
+            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button6.ForeColor = System.Drawing.Color.White;
+            this.guna2Button6.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.guna2Button6.Location = new System.Drawing.Point(514, 650);
+            this.guna2Button6.Name = "guna2Button6";
+            this.guna2Button6.Size = new System.Drawing.Size(236, 94);
+            this.guna2Button6.TabIndex = 42;
+            // 
+            // lbNumSupplier
+            // 
+            this.lbNumSupplier.AutoSize = true;
+            this.lbNumSupplier.BackColor = System.Drawing.Color.SlateBlue;
+            this.lbNumSupplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumSupplier.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNumSupplier.Location = new System.Drawing.Point(278, 705);
+            this.lbNumSupplier.Name = "lbNumSupplier";
+            this.lbNumSupplier.Size = new System.Drawing.Size(21, 24);
+            this.lbNumSupplier.TabIndex = 41;
+            this.lbNumSupplier.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.SlateBlue;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(278, 672);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(221, 24);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Tổng số nhà cung cấp";
+            // 
+            // guna2Button7
+            // 
+            this.guna2Button7.BorderRadius = 10;
+            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button7.FillColor = System.Drawing.Color.SlateBlue;
+            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button7.ForeColor = System.Drawing.Color.White;
+            this.guna2Button7.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.guna2Button7.Location = new System.Drawing.Point(265, 650);
+            this.guna2Button7.Name = "guna2Button7";
+            this.guna2Button7.Size = new System.Drawing.Size(243, 94);
+            this.guna2Button7.TabIndex = 39;
+            // 
+            // lbNumStaff
+            // 
+            this.lbNumStaff.AutoSize = true;
+            this.lbNumStaff.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.lbNumStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumStaff.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNumStaff.Location = new System.Drawing.Point(27, 705);
+            this.lbNumStaff.Name = "lbNumStaff";
+            this.lbNumStaff.Size = new System.Drawing.Size(21, 24);
+            this.lbNumStaff.TabIndex = 38;
+            this.lbNumStaff.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(27, 672);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(185, 24);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Tổng số nhân viên";
+            // 
+            // guna2Button8
+            // 
+            this.guna2Button8.BorderRadius = 10;
+            this.guna2Button8.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button8.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button8.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button8.FillColor = System.Drawing.Color.MediumTurquoise;
+            this.guna2Button8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button8.ForeColor = System.Drawing.Color.White;
+            this.guna2Button8.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.guna2Button8.Location = new System.Drawing.Point(18, 650);
+            this.guna2Button8.Name = "guna2Button8";
+            this.guna2Button8.Size = new System.Drawing.Size(236, 94);
+            this.guna2Button8.TabIndex = 36;
+            // 
             // Report_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.Controls.Add(this.lbNumFood);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.guna2Button6);
+            this.Controls.Add(this.lbNumSupplier);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.guna2Button7);
+            this.Controls.Add(this.lbNumStaff);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.guna2Button8);
             this.Controls.Add(this.chartHotFood);
             this.Controls.Add(this.lbExpense);
             this.Controls.Add(this.label3);
@@ -760,5 +899,14 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartHotFood;
+        private System.Windows.Forms.Label lbNumFood;
+        private System.Windows.Forms.Label label5;
+        private Guna.UI2.WinForms.Guna2Button guna2Button6;
+        private System.Windows.Forms.Label lbNumSupplier;
+        private System.Windows.Forms.Label label10;
+        private Guna.UI2.WinForms.Guna2Button guna2Button7;
+        private System.Windows.Forms.Label lbNumStaff;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2Button guna2Button8;
     }
 }

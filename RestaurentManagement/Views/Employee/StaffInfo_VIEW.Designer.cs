@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,39 +40,25 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbbOption = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
             this.txtParam = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnCheckSaleBill = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2ContextMenuStrip1 = new Guna.UI2.WinForms.Guna2ContextMenuStrip();
             this.btnUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDel = new System.Windows.Forms.ToolStripMenuItem();
             this.btnInfoSalary = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCheckSaleBill = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCheckBillImport = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvStaff = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnShowSalary = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFind = new Guna.UI2.WinForms.Guna2Button();
+            this.lbDt = new System.Windows.Forms.Label();
+            this.dtPrev = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.dtNext = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2ContextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BorderRadius = 6;
-            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnRefresh.Location = new System.Drawing.Point(564, 50);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(70, 36);
-            this.btnRefresh.TabIndex = 15;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // Column2
             // 
@@ -141,43 +126,7 @@
             this.cbbOption.Name = "cbbOption";
             this.cbbOption.Size = new System.Drawing.Size(242, 36);
             this.cbbOption.TabIndex = 17;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BorderRadius = 6;
-            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
-            this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
-            this.btnAdd.Location = new System.Drawing.Point(686, 50);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(181, 36);
-            this.btnAdd.TabIndex = 16;
-            this.btnAdd.Text = "Thêm nhân viên";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.BorderRadius = 6;
-            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.ForeColor = System.Drawing.Color.White;
-            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
-            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnFind.Location = new System.Drawing.Point(481, 50);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(77, 36);
-            this.btnFind.TabIndex = 14;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.cbbOption.SelectedValueChanged += new System.EventHandler(this.cbbOption_SelectedValueChanged);
             // 
             // txtParam
             // 
@@ -201,15 +150,6 @@
             this.txtParam.Size = new System.Drawing.Size(201, 36);
             this.txtParam.TabIndex = 13;
             // 
-            // btnCheckSaleBill
-            // 
-            this.btnCheckSaleBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCheckSaleBill.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckSaleBill.Image")));
-            this.btnCheckSaleBill.Name = "btnCheckSaleBill";
-            this.btnCheckSaleBill.Size = new System.Drawing.Size(248, 26);
-            this.btnCheckSaleBill.Text = "Xem những hóa đơn bán";
-            this.btnCheckSaleBill.Click += new System.EventHandler(this.btnCheckSaleBill_Click);
-            // 
             // guna2ContextMenuStrip1
             // 
             this.guna2ContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -229,7 +169,7 @@
             this.guna2ContextMenuStrip1.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.guna2ContextMenuStrip1.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.guna2ContextMenuStrip1.RenderStyle.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(249, 156);
+            this.guna2ContextMenuStrip1.Size = new System.Drawing.Size(249, 134);
             // 
             // btnUpdate
             // 
@@ -252,10 +192,20 @@
             // btnInfoSalary
             // 
             this.btnInfoSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfoSalary.Image = ((System.Drawing.Image)(resources.GetObject("btnInfoSalary.Image")));
             this.btnInfoSalary.Name = "btnInfoSalary";
             this.btnInfoSalary.Size = new System.Drawing.Size(248, 26);
             this.btnInfoSalary.Text = "Thông tin bảng lương";
             this.btnInfoSalary.Click += new System.EventHandler(this.btnInfoSalary_Click);
+            // 
+            // btnCheckSaleBill
+            // 
+            this.btnCheckSaleBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCheckSaleBill.Image = ((System.Drawing.Image)(resources.GetObject("btnCheckSaleBill.Image")));
+            this.btnCheckSaleBill.Name = "btnCheckSaleBill";
+            this.btnCheckSaleBill.Size = new System.Drawing.Size(248, 26);
+            this.btnCheckSaleBill.Text = "Xem những hóa đơn bán";
+            this.btnCheckSaleBill.Click += new System.EventHandler(this.btnCheckSaleBill_Click);
             // 
             // btnCheckBillImport
             // 
@@ -309,12 +259,12 @@
             this.dgvStaff.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvStaff.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvStaff.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvStaff.Location = new System.Drawing.Point(0, 101);
+            this.dgvStaff.Location = new System.Drawing.Point(0, 131);
             this.dgvStaff.Name = "dgvStaff";
             this.dgvStaff.ReadOnly = true;
             this.dgvStaff.RowHeadersVisible = false;
             this.dgvStaff.RowHeadersWidth = 40;
-            this.dgvStaff.Size = new System.Drawing.Size(1085, 655);
+            this.dgvStaff.Size = new System.Drawing.Size(1085, 625);
             this.dgvStaff.TabIndex = 12;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvStaff.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -349,18 +299,124 @@
             this.btnShowSalary.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
             this.btnShowSalary.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowSalary.ForeColor = System.Drawing.Color.White;
-            this.btnShowSalary.Location = new System.Drawing.Point(905, 50);
+            this.btnShowSalary.Image = ((System.Drawing.Image)(resources.GetObject("btnShowSalary.Image")));
+            this.btnShowSalary.Location = new System.Drawing.Point(873, 50);
             this.btnShowSalary.Name = "btnShowSalary";
-            this.btnShowSalary.Size = new System.Drawing.Size(168, 36);
+            this.btnShowSalary.Size = new System.Drawing.Size(200, 36);
             this.btnShowSalary.TabIndex = 18;
             this.btnShowSalary.Text = "Bảng lương nhân viên";
             this.btnShowSalary.Click += new System.EventHandler(this.btnShowSalary_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BorderRadius = 6;
+            this.btnRefresh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRefresh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRefresh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRefresh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRefresh.Location = new System.Drawing.Point(564, 50);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(70, 36);
+            this.btnRefresh.TabIndex = 15;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BorderRadius = 6;
+            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageSize = new System.Drawing.Size(30, 30);
+            this.btnAdd.Location = new System.Drawing.Point(653, 50);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(181, 36);
+            this.btnAdd.TabIndex = 16;
+            this.btnAdd.Text = "Thêm nhân viên";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.BorderRadius = 6;
+            this.btnFind.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFind.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFind.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFind.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.ForeColor = System.Drawing.Color.White;
+            this.btnFind.Image = ((System.Drawing.Image)(resources.GetObject("btnFind.Image")));
+            this.btnFind.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnFind.Location = new System.Drawing.Point(481, 50);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(77, 36);
+            this.btnFind.TabIndex = 14;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // lbDt
+            // 
+            this.lbDt.AutoSize = true;
+            this.lbDt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDt.Location = new System.Drawing.Point(214, 104);
+            this.lbDt.Name = "lbDt";
+            this.lbDt.Size = new System.Drawing.Size(31, 16);
+            this.lbDt.TabIndex = 43;
+            this.lbDt.Text = "Đến";
+            this.lbDt.Visible = false;
+            // 
+            // dtPrev
+            // 
+            this.dtPrev.BackColor = System.Drawing.Color.Transparent;
+            this.dtPrev.BorderRadius = 10;
+            this.dtPrev.Checked = true;
+            this.dtPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtPrev.ForeColor = System.Drawing.Color.White;
+            this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtPrev.Location = new System.Drawing.Point(23, 93);
+            this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtPrev.Name = "dtPrev";
+            this.dtPrev.Size = new System.Drawing.Size(180, 32);
+            this.dtPrev.TabIndex = 42;
+            this.dtPrev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
+            this.dtPrev.Visible = false;
+            // 
+            // dtNext
+            // 
+            this.dtNext.BackColor = System.Drawing.Color.Transparent;
+            this.dtNext.BorderRadius = 10;
+            this.dtNext.Checked = true;
+            this.dtNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtNext.ForeColor = System.Drawing.Color.White;
+            this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtNext.Location = new System.Drawing.Point(256, 93);
+            this.dtNext.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtNext.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtNext.Name = "dtNext";
+            this.dtNext.Size = new System.Drawing.Size(172, 32);
+            this.dtNext.TabIndex = 41;
+            this.dtNext.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 963);
+            this.dtNext.Visible = false;
             // 
             // StaffInfo_VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1085, 756);
+            this.Controls.Add(this.lbDt);
+            this.Controls.Add(this.dtPrev);
+            this.Controls.Add(this.dtNext);
             this.Controls.Add(this.btnShowSalary);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cbbOption);
@@ -375,6 +431,7 @@
             this.guna2ContextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -401,5 +458,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvStaff;
         private Guna.UI2.WinForms.Guna2Button btnShowSalary;
+        private System.Windows.Forms.Label lbDt;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtPrev;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtNext;
     }
 }

@@ -46,6 +46,22 @@ namespace RestaurentManagement.Views.Employee
             AddStaff_VIEW view = new AddStaff_VIEW();
             view.ShowDialog();
         }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtParam.Text))
+            {
+                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
+                return;
+            }
+            dgvStaff.Columns.Clear();
+            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
+            if (dt.Rows.Count > 0)
+            {
+                dgvStaff.DataSource = dt;
+            }
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             if(_ID == null)
@@ -97,12 +113,43 @@ namespace RestaurentManagement.Views.Employee
 
         private void btnCheckSaleBill_Click(object sender, EventArgs e)
         {
+            DataTable dt = StaffController.Instance.GetAllBillSaleByStaffId(_ID);
 
+            dt.Columns[0].ColumnName = "Mã hóa đơn";
+            dt.Columns[1].ColumnName = "Ngày tạo";
+            dt.Columns[2].ColumnName = "Tổng tiền";
+            dt.Columns[3].ColumnName = "Tên nhân viên";
+
+            if (dt.Rows.Count > 0)
+            {
+                ReportBillByStaff view = new ReportBillByStaff(dt);
+                view.ShowDialog();
+            }
+            else
+            {
+                mf.NotifySuss("Nhân viên này chưa có hóa đơn bán");
+            }
         }
 
         private void btnCheckBillImport_Click(object sender, EventArgs e)
         {
+            DataTable dt = StaffController.Instance.GetAllBillImportByStaffId(_ID);
+            dt.Columns[0].ColumnName = "Mã hóa đơn";
+            dt.Columns[1].ColumnName = "Ngày tạo";
+            dt.Columns[2].ColumnName = "Tổng tiền";
+            dt.Columns[3].ColumnName = "Tên nhân viên";
+            dt.Columns[4].ColumnName = "Tên nhà cung cấp";
 
+
+            if(dt.Rows.Count > 0)
+            {
+                ReportBillByStaff view = new ReportBillByStaff(dt);
+                view.ShowDialog();
+            }
+            else
+            {
+                mf.NotifySuss("Nhân viên này chưa có hóa đơn nhập");
+            }
         }
         #endregion
 
@@ -112,20 +159,7 @@ namespace RestaurentManagement.Views.Employee
             LoadListStaff();
             LoadOptionSearch();
         }
-        private void btnFind_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtParam.Text))
-            {
-                mf.NotifyErr("Giá trị tìm kiếm không hợp lệ");
-                return;
-            }
-            dgvStaff.Columns.Clear();
-            DataTable dt = HandleSearch(cbbOption.SelectedItem.ToString(), txtParam.Text);
-            if (dt.Rows.Count > 0)
-            {
-                dgvStaff.DataSource = dt;
-            }
-        }
+       
 
         void LoadListStaff()
         {
@@ -143,7 +177,7 @@ namespace RestaurentManagement.Views.Employee
             dtDisplay.Columns.Add("Lương cơ bản");
             foreach (DataRow row in dt.Rows)
             {
-                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToShortDateString(), row["address"], row["phone"], row["role"], row["salary_basic"]);
+                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToString("dd/MM/yyyy"), row["address"], row["phone"], row["role"], row["salary_basic"]);
             }
 
             dgvStaff.DataSource = dtDisplay;
@@ -168,44 +202,49 @@ namespace RestaurentManagement.Views.Employee
             {
                 case"Tìm kiếm theo mã": 
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_id", txtParam.Text, "=");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_id", "=", $"'{keyword}'");
                         break;
                     }
                 case "Tìm kiếm theo tên":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_name", $"%{txtParam.Text}%", "LIKE");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.staff_name", "LIKE", $"N'%{keyword}%'");
                         break;
                     }
                 case "Tìm kiếm theo giới tính":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.gender", txtParam.Text, "=");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.gender", "=", $"'{keyword}'");
                         break;
                     }
                 case "Tìm kiếm theo địa chỉ":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.address", $"%{txtParam.Text}%", "LIKE");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.address", "LIKE", $"N'%{keyword}%'");
                         break;
                     }
                 case "Tìm kiếm theo số điện thoại":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.phone", $"%{txtParam.Text}%", "LIKE");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.phone", "LIKE", $"'%{keyword}%'");
                         break;
                     }
                 case "Tìm kiếm theo chức vụ":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("acc.role", $"%{txtParam.Text}%", "LIKE");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("acc.role", "LIKE", $"N'%{keyword}%'");
                         break;
                     }
                 case "Tìm kiếm theo năm sinh":
                     {
-                        dt = StaffController.Instance.GetAllInfoStaffByParam("YEAR(sf.birth)", $"{txtParam.Text}", "=");
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("YEAR(sf.birth)", "=", $"'{keyword}'");
+                        break;
+                    }
+                case "Tìm kiếm theo mốc thời gian":
+                    {
+                        dt = StaffController.Instance.GetAllInfoStaffByParam("sf.birth", "BETWEEN", $"'{dtPrev.Value}' AND '{dtNext.Value}'");
                         break;
                     }
             }
 
             foreach (DataRow row in dt.Rows)
             {
-                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToShortDateString(), row["address"], row["phone"], row["role"], row["salary_basic"]);
+                dtDisplay.Rows.Add(row["staff_id"], row["staff_name"], row["gender"], Convert.ToDateTime(row["birth"]).ToString("dd/MM/yyyy"), row["address"], row["phone"], row["role"], row["salary_basic"]);
             }
             return dtDisplay;
         }
@@ -219,6 +258,7 @@ namespace RestaurentManagement.Views.Employee
                 "Tìm kiếm theo tên" ,
                 "Tìm kiếm theo giới tính" ,
                 "Tìm kiếm theo năm sinh" ,
+                "Tìm kiếm theo mốc thời gian" ,
                 "Tìm kiếm theo địa chỉ" ,
                 "Tìm kiếm theo số điện thoại" ,
                 "Tìm kiếm theo chức vụ"
@@ -232,8 +272,23 @@ namespace RestaurentManagement.Views.Employee
             txtParam.ResetText();
             LoadData();
         }
+
         #endregion
 
-        
+        private void cbbOption_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbbOption.SelectedItem.ToString().Contains("mốc thời gian"))
+            {
+                dtNext.Visible = true;
+                dtPrev.Visible = true;
+                lbDt.Visible = true;
+            }
+            else
+            {
+                dtNext.Visible = false;
+                dtPrev.Visible = false;
+                lbDt.Visible = false;
+            }
+        }
     }
 }

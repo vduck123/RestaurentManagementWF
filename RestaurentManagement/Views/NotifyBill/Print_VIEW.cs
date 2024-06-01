@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using _Menu = RestaurentManagement.Models.Menu;
 using System.Xml;
+using RestaurentManagement.Models;
 
 namespace RestaurentManagement.Views.BillPdf
 {
@@ -31,7 +32,9 @@ namespace RestaurentManagement.Views.BillPdf
         string _total = null;
         string _expiry = null;
         string _paymoney = null;
-        public Print_VIEW(string nameCus, string nameStaff, string idTable, string expiry, string dayCreate, string timeIn, string timeOut, string total, string paymoney)
+        string _PhoneRes = null;
+        string _AddressRes = null;
+        public Print_VIEW(string nameCus, string nameStaff, string idTable, string expiry, string dayCreate, string timeIn, string timeOut, string total, string paymoney, string phoneRes, string addressRes)
         {
             InitializeComponent();
             _nameCus = nameCus;
@@ -43,13 +46,15 @@ namespace RestaurentManagement.Views.BillPdf
             _total = total;
             _expiry = expiry;
             _paymoney = paymoney;
+            _PhoneRes = phoneRes;
+            _AddressRes = addressRes;
         }
 
 
 
         private void Print_VIEW_Load(object sender, EventArgs e)
         {
-            List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);
+            List<_Menu> menus = MenuController.Instance.GetMenuByTableID(_idTable);          
             DataTable dt = new DataTable();
             dt.Columns.Add("food_id");
             dt.Columns.Add("food_price");
@@ -78,7 +83,9 @@ namespace RestaurentManagement.Views.BillPdf
                     new ReportParameter("timeIn", _timeIn),
                     new ReportParameter("timeOut", _timeOut),
                     new ReportParameter("expiry", _expiry),
-                    new ReportParameter("moneyPay", $"{_paymoney} Vnđ")
+                    new ReportParameter("moneyPay", $"{_paymoney} Vnđ"),
+                    new ReportParameter("myAddress", _AddressRes),
+                    new ReportParameter("myPhone", _PhoneRes)
             };
 
             reportViewer1.LocalReport.DataSources.Clear();

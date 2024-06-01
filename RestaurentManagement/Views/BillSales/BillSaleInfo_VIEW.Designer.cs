@@ -70,8 +70,9 @@
             // 
             // dtNext
             // 
+            this.dtNext.BorderRadius = 12;
             this.dtNext.Checked = true;
-            this.dtNext.FillColor = System.Drawing.Color.Gray;
+            this.dtNext.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtNext.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtNext.ForeColor = System.Drawing.Color.White;
             this.dtNext.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -79,7 +80,7 @@
             this.dtNext.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtNext.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtNext.Name = "dtNext";
-            this.dtNext.Size = new System.Drawing.Size(172, 25);
+            this.dtNext.Size = new System.Drawing.Size(172, 33);
             this.dtNext.TabIndex = 42;
             this.dtNext.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 963);
             this.dtNext.Visible = false;
@@ -267,7 +268,7 @@
             this.xóaHóaĐơnBánToolStripMenuItem,
             this.xemChiTiếtHóaĐơnBánToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 78);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(243, 56);
             // 
             // xóaHóaĐơnBánToolStripMenuItem
             // 
@@ -289,8 +290,9 @@
             // 
             // dtPrev
             // 
+            this.dtPrev.BorderRadius = 12;
             this.dtPrev.Checked = true;
-            this.dtPrev.FillColor = System.Drawing.Color.DimGray;
+            this.dtPrev.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.dtPrev.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPrev.ForeColor = System.Drawing.Color.White;
             this.dtPrev.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -298,7 +300,7 @@
             this.dtPrev.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtPrev.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtPrev.Name = "dtPrev";
-            this.dtPrev.Size = new System.Drawing.Size(180, 25);
+            this.dtPrev.Size = new System.Drawing.Size(180, 33);
             this.dtPrev.TabIndex = 43;
             this.dtPrev.Value = new System.DateTime(2024, 4, 27, 2, 46, 4, 957);
             this.dtPrev.Visible = false;
@@ -341,14 +343,17 @@
             // 
             // btnExcel
             // 
-            this.btnExcel.BackColor = System.Drawing.Color.Lime;
+            this.btnExcel.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcel.BorderRadius = 10;
             this.btnExcel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnExcel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnExcel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnExcel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExcel.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.ForeColor = System.Drawing.Color.White;
+            this.btnExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExcel.Image")));
+            this.btnExcel.ImageSize = new System.Drawing.Size(35, 35);
             this.btnExcel.Location = new System.Drawing.Point(933, 49);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(135, 36);

@@ -22,6 +22,11 @@ namespace RestaurentManagement.Views.Foods
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if(!isAddedFood)
+            {
+                mf.NotifyErr("Vui lòng nhập đầy đủ thông tin");
+                return;
+            }
 
             mf.NotifySuss($"Thêm món ăn {txtFoodName.Text} thành công");
             this.Close();
@@ -77,7 +82,7 @@ namespace RestaurentManagement.Views.Foods
             int rs = FoodMateialController.Instance.InsertFoodMaterial(fm);
             if (rs > 0)
             {
-                LoadFoodMaterial(idFood);
+                LoadFoodMaterial(idFood);            
             }
 
         }
@@ -162,9 +167,6 @@ namespace RestaurentManagement.Views.Foods
             }
             cbbCategory.DataSource = listnameCategory;
         }
-
-
-
         
 
         private byte[] ConvertImgToByte(string path)
